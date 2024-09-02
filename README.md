@@ -1,27 +1,28 @@
-# TÍTULO DO PROJETO
+# CASA CIDADÃ
 
-`CURSO`
+`CURSO: Análise e Desenvolvimento de Sistemas`
 
-`DISCIPLINA`
+`DISCIPLINA: Trabalho Interdisciplinar: Aplicações para Processos de Negócios`
 
-`SEMESTRE`
+`SEMESTRE: 2º`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Estamos desenvolvendo um sistema de gerenciamento personalizado para a Casa Cidadã, uma ONG que trabalha com a assistência de moradias para pessoas em situação de rua em Belo Horizonte. O objetivo do projeto é criar uma solução tecnológica que permita à Casa Cidadã gerenciar eficientemente os imóveis alugados, acompanhar beneficiários, organizar doações e melhorar a comunicação interna e externa. O sistema incluirá funcionalidades para o registro e monitoramento de beneficiários, controle de inventário, gestão de doações e geração de relatórios de impacto. A solução visa otimizar os processos da ONG, facilitar a gestão das operações e contribuir para a expansão e melhoria contínua do trabalho realizado. 
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Melissa Duque Baía
+* Arthur Coelho de Souza
+* Davi de Miranda Costa
+* Pedro Henrique Freitas Dias
+* Lucas Phillipe Freitas Dias
 
 ## Orientador
 
-* Nome completo do professor 1
+* Leonardo Vilela Cardoso
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+[Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.]
 
 # Documentação
 
