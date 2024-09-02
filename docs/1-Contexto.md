@@ -1,13 +1,20 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+O projeto visa desenvolver uma solução tecnológica personalizada para a Casa Cidadã, uma ONG que atua no fornecimento de moradias para pessoas em situação de rua em Belo Horizonte. O objetivo é criar um sistema que auxilie na gestão eficiente das operações da ONG, incluindo o acompanhamento de beneficiários, o controle de moradias e doações, e a comunicação com doadores e parceiros. 
+
+A Casa Cidadã utiliza atualmente apenas o Instagram para divulgar suas atividades e interagir com a comunidade. A ONG enfrenta desafios na gestão de suas operações diárias, que incluem o registro de beneficiários, a organização de moradias, e o rastreamento de doações. O projeto será desenvolvido utilizando tecnologias modernas de desenvolvimento de software, com foco em criar uma solução que se adeque às necessidades específicas da organização.
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
 
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
+A Casa Cidadã enfrenta desafios significativos na gestão de suas operações devido à falta de um sistema integrado. A ONG enfrenta dificuldades em:
 
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
+   1. Gestão de Dados: Informações sobre beneficiários, moradias e doações são geridas manualmente, resultando em processos ineficientes e desorganizados.
+
+   2. Captação de Recursos: A dependência do Instagram para comunicação limita a capacidade de engajar e atrair novos doadores, impactando negativamente a arrecadação de recursos.
+    
+   3. Controle de Inventário e Doações: A ausência de um sistema para rastreamento de bens e doações dificulta a gestão adequada e a visibilidade dos recursos disponíveis e distribuídos.
+
+   4. Comunicação: A comunicação com doadores e parceiros é limitada e informal, afetando a transparência e a eficácia das campanhas de arrecadação e parcerias.
 
 > **Links Úteis**:
 > - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
@@ -16,18 +23,24 @@ Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thin
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
+Objetivo Geral
+Desenvolver um software personalizado para a Casa Cidadã que resolva os problemas identificados na gestão de beneficiários, moradias e doações, e melhore a comunicação interna e externa da ONG.
 
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
+Objetivos Específicos
+   1. Criar um módulo de gerenciamento de beneficiários e moradias que permita o cadastro, acompanhamento e organização das informações de forma eficiente.
+   2. Desenvolver um sistema de controle de doações e inventário que facilite o registro, rastreamento e comunicação com doadores, além de gerar relatórios sobre o impacto das contribuições.
  
 > **Links Úteis**:
 > - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
+O desenvolvimento deste sistema é crucial para aprimorar a eficiência operacional da Casa Cidadã, permitindo que a ONG gerencie melhor suas atividades e expanda seu impacto social. A ausência de um sistema integrado representa uma limitação significativa, dificultando o acompanhamento das atividades e a comunicação com doadores e parceiros. Com a implementação de um sistema dedicado, a Casa Cidadã poderá melhorar a gestão de recursos, otimizar processos e alcançar melhores resultados na sua missão de proporcionar moradias e assistência para pessoas em situação de rua.
 
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
+O projeto é motivado pela necessidade identificada de uma solução tecnológica que suporte as operações da ONG e contribua para a melhoria contínua dos serviços prestados. A utilização de questionários e entrevistas com a Casa Cidadã forneceu insights valiosos sobre as suas necessidades, e o desenvolvimento do sistema visa atender a essas demandas específicas.
+
+[INCLUIR LINK DO QUESTIONÁRIO REALIZADO]
+[INCLUIR DADOS ESTATÍSTICOS]
 
 > **Links Úteis**:
 > - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
@@ -37,7 +50,38 @@ O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estat�
 Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
 hierárquicas, etc.
 
-Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
+[Adicionar diagramas de personas e mapa de stakeholders.]
+
+Perfis dos Usuários:
+   1. Gestores da Casa Cidadã:
+   - Conhecimentos prévios em gestão de ONGs, mas com pouca experiência em sistemas de gerenciamento.
+   - Necessitam de ferramentas que facilitem a administração de beneficiários, moradias e doações.
+   - Valorizam a eficiência e a facilidade de uso.
+
+   2. Voluntários:
+   - Compreendem a missão da ONG e estão envolvidos em atividades diárias.
+   - Precisam de uma interface intuitiva para registrar atividades e interagir com o sistema.
+
+   3. Doadores:
+   - Interessados em contribuir financeiramente ou com bens.
+   - Procuram transparência e comunicação regular sobre o impacto de suas doações.
+
+Personas:
+Persona 1: Gestor de ONG
+Idade: 45-65 anos
+Conhecimento em Tecnologia: Básico
+Necessidades: Controle das operações, gerar relatórios, comunicação clara com doadores e voluntários, divulgação de atividades do projeto.
+
+Persona 2: Voluntário
+Idade: 18-30 anos
+Conhecimento em Tecnologia: Intermediário
+Necessidades: Interface fácil de usar, acesso rápido a informações sobre atividades e beneficiários.
+
+Persona 3: Doador
+Idade: 25-60 anos
+Conhecimento em Tecnologia: Básico a intermediário
+Necessidades: Atualizações sobre o impacto das doações, facilidade para realizar contribuições.
+
 
 > **Links Úteis**:
 > - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
