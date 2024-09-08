@@ -31,20 +31,13 @@ O desenvolvimento deste sistema é crucial para aprimorar a eficiência operacio
 
 O projeto é motivado pela necessidade identificada de uma solução tecnológica que suporte as operações da ONG e contribua para a melhoria contínua dos serviços prestados. A utilização de questionários e entrevistas com a Casa Cidadã forneceu insights valiosos sobre as suas necessidades, e o desenvolvimento do sistema visa atender a essas demandas específicas.
 
-<p><a href="https://docs.google.com/document/d/1DjdCgHcNVKrIDfUPkBCnDIyxgai1Xoyizy4Ux_cPntA/edit?usp=sharing">Questionário Realizado com Carlos Eduardo Cardoso, criador e gestor da Casa Cidadã</a></p>
+<p>Clique para acessar o <a href="https://docs.google.com/document/d/1DjdCgHcNVKrIDfUPkBCnDIyxgai1Xoyizy4Ux_cPntA/edit?usp=sharing">Questionário Realizado com Carlos Eduardo Cardoso</a>, criador e gestor da Casa Cidadã</p>
 
 "A população em situação de rua de Belo Horizonte quase triplicou na última década, chegando a 5.344 pessoas. Os dados mostram que a grande maioria é formada por homens (84%) com média de idade de 42,5 anos, enquanto as mulheres representam 16% e têm em média 38,9 anos. Também foi destaque o aumento do tempo de vida em situação de rua da população, que era de 7,4 anos em 2013 e aumentou para 11 anos."
-Relatório do Censo de População de Rua de BH: 
-https://www.medicina.ufmg.br/confira-o-relatorio-final-do-censo-de-populacao-de-rua-de-bh/#:~:text=A%20popula%C3%A7%C3%A3o%20em%20situa%C3%A7%C3%A3o%20de,em%20m%C3%A9dia%2038%2C9%20anos
-
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+<p><a href="https://www.medicina.ufmg.br/confira-o-relatorio-final-do-censo-de-populacao-de-rua-de-bh/#:~:text=A%20popula%C3%A7%C3%A3o%20em%20situa%C3%A7%C3%A3o%20de,em%20m%C3%A9dia%2038%2C9%20anos">Matéria UFMG sobre o Censo de População de Rua de BH</a></p>
+<p><a href="https://www.medicina.ufmg.br/wp-content/uploads/sites/7/2024/06/IV-Censo-de-Populacao-em-Situacao-de-Rua-de-Belo-Horizonte-2022_DIGITAL.pdf">CENSO POP RUA 2022</a></p>
 
 ## Público-Alvo
-
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
-hierárquicas, etc.
 
 [Adicionar diagramas de personas e mapa de stakeholders.]
 
@@ -77,10 +70,3 @@ Persona 3: Doador
 Idade: 25-60 anos
 Conhecimento em Tecnologia: Básico a intermediário
 Necessidades: Atualizações sobre o impacto das doações, facilidade para realizar contribuições.
-
-
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
