@@ -72,6 +72,9 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-007| Emitir um relatório de impacto das doações   | ALTA |
 |RF-008| Exibir o Feed do Instagram do projeto   | ALTA |
 |RF-009| Exibir um histórico das doações recebidas pelo projeto   | ALTA |
+|RF-010| Exibir uma descrição breve sobre alguns dos beneficiários do projeto   | ALTA |
+|RF-011| Permitir que um usuário externo entre em contato com a equipe do projeto   | MÉDIA |
+|RF-012| Permitir que o usuário cadastre e altere eventos relacionados ao projeto   | ALTA |
 
 
 ### Requisitos não Funcionais
