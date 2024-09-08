@@ -56,17 +56,10 @@ Perfis dos Usuários:
    - Procuram transparência e comunicação regular sobre o impacto de suas doações.
 
 Personas:
-Persona 1: Gestor de ONG
-Idade: 45-65 anos
-Conhecimento em Tecnologia: Básico
-Necessidades: Controle das operações, gerar relatórios, comunicação clara com doadores e voluntários, divulgação de atividades do projeto.
 
-Persona 2: Voluntário
-Idade: 18-30 anos
-Conhecimento em Tecnologia: Intermediário
-Necessidades: Interface fácil de usar, acesso rápido a informações sobre atividades e beneficiários.
+<p><img src="\images\persona1.jpg" width="800px"></img></p>
+<p><img src="\images\persona2.jpg" width="800px"></img></p>
+<p><img src="\images\persona3.jpg" width="800px"></img></p>
 
-Persona 3: Doador
-Idade: 25-60 anos
-Conhecimento em Tecnologia: Básico a intermediário
-Necessidades: Atualizações sobre o impacto das doações, facilidade para realizar contribuições.
+Mapa de Stakeholders:
+<p><img src="\images\stakeholders.jpg" width="800px"></img></p>
