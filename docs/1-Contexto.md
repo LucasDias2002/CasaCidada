@@ -16,11 +16,6 @@ A Casa Cidadã enfrenta desafios significativos na gestão de suas operações d
 
    4. Comunicação: A comunicação com doadores e parceiros é limitada e informal, afetando a transparência e a eficácia das campanhas de arrecadação e parcerias.
 
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
-
 ## Objetivos
 
 Objetivo Geral
@@ -30,19 +25,18 @@ Objetivos Específicos
    1. Criar um módulo de gerenciamento de beneficiários e moradias que permita o cadastro, acompanhamento e organização das informações de forma eficiente.
    2. Desenvolver um sistema de controle de doações e inventário que facilite o registro, rastreamento e comunicação com doadores, além de gerar relatórios sobre o impacto das contribuições.
  
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
-
 ## Justificativa
 
 O desenvolvimento deste sistema é crucial para aprimorar a eficiência operacional da Casa Cidadã, permitindo que a ONG gerencie melhor suas atividades e expanda seu impacto social. A ausência de um sistema integrado representa uma limitação significativa, dificultando o acompanhamento das atividades e a comunicação com doadores e parceiros. Com a implementação de um sistema dedicado, a Casa Cidadã poderá melhorar a gestão de recursos, otimizar processos e alcançar melhores resultados na sua missão de proporcionar moradias e assistência para pessoas em situação de rua.
 
 O projeto é motivado pela necessidade identificada de uma solução tecnológica que suporte as operações da ONG e contribua para a melhoria contínua dos serviços prestados. A utilização de questionários e entrevistas com a Casa Cidadã forneceu insights valiosos sobre as suas necessidades, e o desenvolvimento do sistema visa atender a essas demandas específicas.
 
-Questionário Realizado com Carlos Eduardo Cardoso, criador e gestor da Casa Cidadã:
-https://docs.google.com/document/d/1DjdCgHcNVKrIDfUPkBCnDIyxgai1Xoyizy4Ux_cPntA/edit?usp=sharing
+<p><a href="https://docs.google.com/document/d/1DjdCgHcNVKrIDfUPkBCnDIyxgai1Xoyizy4Ux_cPntA/edit?usp=sharing">Questionário Realizado com Carlos Eduardo Cardoso, criador e gestor da Casa Cidadã</a></p>
 
-[INCLUIR DADOS ESTATÍSTICOS]
+"A população em situação de rua de Belo Horizonte quase triplicou na última década, chegando a 5.344 pessoas. Os dados mostram que a grande maioria é formada por homens (84%) com média de idade de 42,5 anos, enquanto as mulheres representam 16% e têm em média 38,9 anos. Também foi destaque o aumento do tempo de vida em situação de rua da população, que era de 7,4 anos em 2013 e aumentou para 11 anos."
+Relatório do Censo de População de Rua de BH: 
+https://www.medicina.ufmg.br/confira-o-relatorio-final-do-censo-de-populacao-de-rua-de-bh/#:~:text=A%20popula%C3%A7%C3%A3o%20em%20situa%C3%A7%C3%A3o%20de,em%20m%C3%A9dia%2038%2C9%20anos
+
 
 > **Links Úteis**:
 > - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
