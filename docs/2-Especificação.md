@@ -8,7 +8,11 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+Persona 1: Gestor de ONG Idade: 45-65 anos Conhecimento em Tecnologia: Básico Necessidades: Controle das operações, gerar relatórios, comunicação clara com doadores e voluntários, divulgação de atividades do projeto.
+
+Persona 2: Voluntário Idade: 18-30 anos Conhecimento em Tecnologia: Intermediário Necessidades: Interface fácil de usar, acesso rápido a informações sobre atividades e beneficiários.
+
+Persona 3: Doador Idade: 25-60 anos Conhecimento em Tecnologia: Básico a intermediário Necessidades: Atualizações sobre o impacto das doações, facilidade para realizar contribuições.
 
 Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
 
@@ -50,8 +54,11 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-001| Permitir que o usuário cadastre beneficiários | ALTA | 
+|RF-002| Permitir que o usuário cadastre parceiros  | ALTA |
+|RF-003| Emitir um relatório de prestação de contas   | ALTA |
+|RF-004| Emitir um relatório de impacto   | ALTA |
+
 
 ### Requisitos não Funcionais
 
