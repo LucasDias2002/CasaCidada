@@ -58,7 +58,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RNF-003| Interface amigável e intuitiva, facilitando a utilização | ALTA | 
 |RNF-004| O site deve carregar rapidamente, com tempo de resposta otimizado |  MÉDIA | 
 |RNF-005| O sistema deve ser projetado de forma que facilite a manutenção e atualização | ALTA | 
-|RNF-006| O sistema deve ser projetado para lidar bem com o crescimento do projeto | BAIXA | 
+|RNF-006| O sistema deve ser projetado para lidar bem com o crescimento do projeto | MÉDIA | 
 
 
 ## Restrições
