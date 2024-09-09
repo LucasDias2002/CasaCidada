@@ -17,7 +17,7 @@
 
 ## Slides
 
-Coloque aqui os slides da apresentação
+<p><img src="\images\Sprint1.pdf" width="800px"></img></p>
 
 ## Vídeo
 
