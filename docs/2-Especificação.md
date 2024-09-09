@@ -53,8 +53,12 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+|RNF-001| O sistema deve contar com responsividade para rodar em dispositivos móveis | MÉDIA | 
+|RNF-002| Uso consistente da identidade visual que reflita os valores da Casa Cidadã | MÉDIA | 
+|RNF-003| Interface amigável e intuitiva, facilitando a utilização | ALTA | 
+|RNF-004| O site deve carregar rapidamente, com tempo de resposta otimizado |  MÉDIA | 
+|RNF-005| O sistema deve ser projetado de forma que facilite a manutenção e atualização | ALTA | 
+|RNF-006| O sistema deve ser projetado para lidar bem com o crescimento do projeto | BAIXA | 
 
 
 ## Restrições
@@ -63,6 +67,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
+|01| O custo deve estar dentro do orçamento disponível |
+|02| Equipe de desenvolvimento pequena e inexperiente |
+|03| O projeto deverá ser entregue até o final do semestre |
 
