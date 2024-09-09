@@ -23,8 +23,19 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
+|Gestor de ONG  | Gerar relatórios automáticos das atividades           | Gerar relatórios automáticos das atividades               |
+|Gestor de ONG  | Ter um painel de controle das operações           | Visualizar o status das atividades em tempo real               |
+|Gestor de ONG  | Comunicar-me facilmente com doadores e voluntários          | Garantir alinhamento e eficiência nas comunicações               |
+|Gestor de ONG  | Controlar as doações recebidas e registradas           | Manter transparência e organizar o fluxo de doações             |
+|Gestor de ONG       | Divulgar atividades e eventos da ONG               | Aumentar a visibilidade da ONG e engajar a comunidade |
+|Voluntário (Estudante)       | Acessar rapidamente o calendário de atividades              | Saber quando e onde devo atuar como voluntário |
+|Voluntário (Estudante)       | Receber notificações sobre atualizações de atividades              | Estar informado sobre mudanças de última hora |
+|Voluntário (Estudante)       | Comunicar-me com outros voluntários e coordenadores              | Colaborar com a equipe de forma eficiente |
+|Voluntário (Estudante)       | Acompanhar o progresso das atividades              | Sentir que estou contribuindo para o impacto da ONG |
+|Doador       | Realizar doações de forma rápida e segura              | Contribuir sem complicações e sentir confiança no processo |
+|Doador       | Receber atualizações sobre o impacto das minhas doações              | Saber como meu dinheiro está sendo utilizado |
+|Doador       | Ter acesso a um histórico das minhas doações             | Acompanhar minhas contribuições ao longo do tempo |
+|Doador       | Ser notificado sobre novas campanhas ou projetos              | Ficar por dentro de novas oportunidades de doação |
 
 
 ## Requisitos
