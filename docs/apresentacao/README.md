@@ -18,15 +18,15 @@
 ## Slides
 
 ![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide1.png)
-<p><img src="\images\slide2.png" width="800px"></img></p>
-<p><img src="\images\slide3.png" width="800px"></img></p>
-<p><img src="\images\slide4.png" width="800px"></img></p>
-<p><img src="\images\slide5.png" width="800px"></img></p>
-<p><img src="\images\slide6.png" width="800px"></img></p>
-<p><img src="\images\slide7.png" width="800px"></img></p>
-<p><img src="\images\slide8.png" width="800px"></img></p>
-<p><img src="\images\slide9.png" width="800px"></img></p>
-<p><img src="\images\slide10.png" width="800px"></img></p>
+![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide2.png)
+![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide3.png)
+![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide4.png)
+![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide5.png)
+![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide6.png)
+![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide7.png)
+![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide8.png)
+![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide9.png)
+![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide10.png)
 
 ## Vídeo
 
