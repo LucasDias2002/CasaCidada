@@ -41,8 +41,6 @@ O projeto é motivado pela necessidade identificada de uma solução tecnológic
 
 ## Público-Alvo
 
-[Adicionar diagramas de personas e mapa de stakeholders.]
-
 Perfis dos Usuários:
    1. Gestores da Casa Cidadã:
    - Conhecimentos prévios em gestão de ONGs, mas com pouca experiência em sistemas de gerenciamento.
