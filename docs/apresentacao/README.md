@@ -17,7 +17,7 @@
 
 ## Slides
 
-<p><img src="\images\slide1.png"></img></p>
+https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide1.png
 <p><img src="\images\slide2.png" width="800px"></img></p>
 <p><img src="\images\slide3.png" width="800px"></img></p>
 <p><img src="\images\slide4.png" width="800px"></img></p>
