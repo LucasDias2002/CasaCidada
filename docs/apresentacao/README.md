@@ -17,7 +17,7 @@
 
 ## Slides
 
-<p><img src="\images\Sprint1.pdf" width="800px"></img></p>
+https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/Sprint1.pdf
 
 ## Vídeo
 
