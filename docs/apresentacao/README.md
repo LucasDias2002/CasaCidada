@@ -17,16 +17,16 @@
 
 ## Slides
 
-<p><img src="\images\slide1.jpg" width="800px"></img></p>
-<p><img src="\images\slide2.jpg" width="800px"></img></p>
-<p><img src="\images\slide3.jpg" width="800px"></img></p>
-<p><img src="\images\slide4.jpg" width="800px"></img></p>
-<p><img src="\images\slide5.jpg" width="800px"></img></p>
-<p><img src="\images\slide6.jpg" width="800px"></img></p>
-<p><img src="\images\slide7.jpg" width="800px"></img></p>
-<p><img src="\images\slide8.jpg" width="800px"></img></p>
-<p><img src="\images\slide9.jpg" width="800px"></img></p>
-<p><img src="\images\slide10.jpg" width="800px"></img></p>
+<p><img src="\images\slide1.png" width="800px"></img></p>
+<p><img src="\images\slide2.png" width="800px"></img></p>
+<p><img src="\images\slide3.png" width="800px"></img></p>
+<p><img src="\images\slide4.png" width="800px"></img></p>
+<p><img src="\images\slide5.png" width="800px"></img></p>
+<p><img src="\images\slide6.png" width="800px"></img></p>
+<p><img src="\images\slide7.png" width="800px"></img></p>
+<p><img src="\images\slide8.png" width="800px"></img></p>
+<p><img src="\images\slide9.png" width="800px"></img></p>
+<p><img src="\images\slide10.png" width="800px"></img></p>
 
 ## Vídeo
 
