@@ -17,7 +17,7 @@
 
 ## Slides
 
-<p><img src="\images\slide1.png" width="800px"></img></p>
+<p><img src="\images\slide1.png"></img></p>
 <p><img src="\images\slide2.png" width="800px"></img></p>
 <p><img src="\images\slide3.png" width="800px"></img></p>
 <p><img src="\images\slide4.png" width="800px"></img></p>
