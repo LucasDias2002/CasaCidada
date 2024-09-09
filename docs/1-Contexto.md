@@ -19,9 +19,11 @@ A Casa Cidadã enfrenta desafios significativos na gestão de suas operações d
 ## Objetivos
 
 Objetivo Geral
+
 Desenvolver um software personalizado para a Casa Cidadã que resolva os problemas identificados na gestão de beneficiários, moradias e doações, e melhore a comunicação interna e externa da ONG.
 
 Objetivos Específicos
+
    1. Criar um módulo de gerenciamento de beneficiários e moradias que permita o cadastro, acompanhamento e organização das informações de forma eficiente.
    2. Desenvolver um sistema de controle de doações e inventário que facilite o registro, rastreamento e comunicação com doadores, além de gerar relatórios sobre o impacto das contribuições.
  
