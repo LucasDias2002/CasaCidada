@@ -33,14 +33,30 @@ Atualizado em: 08/09/2024
 
 ## Sprint 2
 
-Atualizado em: 21/04/2024
+Atualizado em: 06/10/2024
 
 | Responsável   | Tarefa/Requisito | Iniciado em    | Prazo      | Status | Terminado em    |
 | :----         |    :----         |      :----:    | :----:     | :----: | :----:          |
-| AlunaX        | Home-Page        | 01/02/2024     | 07/03/2024 | ✔️    | 05/01/2005      |
-| AlunaZ        | CSS Unificado    | 03/02/2024     | 10/03/2024 | 📝    |                 |
-| AlunoY        | Página de login  | 01/02/2024     | 07/03/2024 | ⌛     |                 |
-| AlunoK        | Script de login  |  01/01/2024    | 12/03/2024 | ❌    |       |
+| Arthur        | Análise de Processos | 16/09/2024     | 06/10/2024 | ✔️    | 23/09/2024 |
+| Pedro        | Análise de Processos | 16/09/2024     | 06/10/2024 | ✔️    | 23/09/2024 |
+| Lucas        | Análise de Processos | 16/09/2024     | 06/10/2024 | ✔️     | 23/09/2024 |
+| Davi        | Análise de Processos |  16/09/2024    | 06/10/2024 | ✔️    | 23/09/2024 |
+| Melissa     | Análise de Processos |  16/09/2024    | 06/10/2024 | ✔️    | 23/09/2024 |
+| Arthur        | Diagrama BPMN AS-IS | 23/09/2024     | 06/10/2024 | ✔️    | 26/09/2024 |
+| Pedro        | Diagrama BPMN AS-IS | 23/09/2024     | 06/10/2024 | ✔️    | 26/09/2024 |
+| Lucas        | Diagrama BPMN AS-IS | 23/09/2024     | 06/10/2024 | ✔️     | 26/09/2024 |
+| Davi        | Diagrama BPMN AS-IS |  23/09/2024    | 06/10/2024 | ✔️    | 26/09/2024 |
+| Melissa     | Diagrama BPMN AS-IS |  23/09/2024    | 06/10/2024 | ✔️    | 26/09/2024 |
+| Arthur        | Desenho de Processos | 23/09/2024     | 06/10/2024 | ✔️    | 30/09/2024 |
+| Pedro        | Desenho de Processos | 23/09/2024     | 06/10/2024 | ✔️    | 30/09/2024 |
+| Lucas        | Desenho de Processos | 23/09/2024     | 06/10/2024 | ✔️     | 30/09/2024 |
+| Davi        | Desenho de Processos |  23/09/2024    | 06/10/2024 | ✔️    | 30/09/2024 |
+| Melissa     | Desenho de Processos |  23/09/2024    | 06/10/2024 | ✔️    | 30/09/2024 |
+| Arthur        | Diagrama BPMN TO-BE | 30/09/2024     | 06/10/2024 | ✔️    | 06/09/2024 |
+| Pedro        | Diagrama BPMN TO-BE | 30/09/2024     | 06/10/2024 | ✔️    | 06/09/2024 |
+| Lucas        | Diagrama BPMN TO-BE | 30/09/2024     | 06/10/2024 | ✔️     | 06/09/2024 |
+| Davi        | Diagrama BPMN TO-BE |  30/09/2024    | 06/10/2024 | ✔️    | 06/09/2024 |
+| Melissa     | Diagrama BPMN TO-BE |  30/09/2024    | 06/10/2024 | ✔️    | 06/09/2024 |
 
 
 Legenda:
