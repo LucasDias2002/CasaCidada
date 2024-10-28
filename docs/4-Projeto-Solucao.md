@@ -130,6 +130,7 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Esquema Rel
 #### 4.3.3 Modelo Físico
 
 <code>
+
 CREATE TABLE USUARIO (
   ID INT PRIMARY KEY NOT NULL,
   CPF VARCHAR(20) UNIQUE,
