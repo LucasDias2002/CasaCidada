@@ -120,7 +120,7 @@ CREATE TABLE Prescricao (
     ConCodigo INTEGER,
     MdcCodigo INTEGER,
     Posologia VARCHAR(200),
-    PRIMARY KEY (ConCodigo, MdcCodigo),
+    PRIMARY KEY (ConCodigo, MdcCodigo),ASP.NET Core
     FOREIGN KEY (ConCodigo) REFERENCES Consulta(ConCodigo),
     FOREIGN KEY (MdcCodigo) REFERENCES Medicamento(MdcCodigo)
 );
@@ -134,15 +134,12 @@ Este script deverá ser incluído em um arquivo .sql na pasta src\bd.
 
 ### 4.4. Tecnologias
 
-_Descreva qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas._
-
-Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
-
-
 | **Dimensão**   | **Tecnologia**  |
 | ---            | ---             |
+| Diagramas      | Draw.io         |
+| Wireframes     | Figma           |
 | SGBD           | MySQL           |
 | Front end      | HTML+CSS+JS     |
-| Back end       | Java SpringBoot |
+| Back end       | ASP.NET Core    |
 | Deploy         | Github Pages    |
 
