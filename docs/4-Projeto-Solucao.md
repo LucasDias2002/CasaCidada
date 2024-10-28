@@ -66,7 +66,7 @@ Com base nas atividades de usuário identificadas anteriormente, foi elaborado u
 <p><img src="\images\Index.png" width="800px"></img></p>
 <p><img src="\images\Login.png" width="800px"></img></p>
 <p><img src="\images\Cadastro.png" width="800px"></img></p>
-<p><img src="\images\Quem Somos.png" width="800px"></img></p>
+<p><img src="\images\Quem somos.png" width="800px"></img></p>
 <p><img src="\images\Parceiros.png" width="800px"></img></p>
 <p><img src="\images\Transparência.png" width="800px"></img></p>
 <p><img src="\images\Assistidos.png" width="800px"></img></p>
