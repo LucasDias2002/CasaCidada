@@ -21,7 +21,7 @@ Esta seção apresenta uma visão geral das interações do usuário através da
 
 Com base nas atividades de usuário identificadas anteriormente, foi elaborado um protótipo de tela para essas interações, garantindo que cada interface facilite uma navegação intuitiva e responda às necessidades mapeadas para os diferentes perfis de usuário.
 
-<img scr="images/Fluxo.png"></img>
+<p><img src="\images\Fluxo.png" width="800px"></img></p>
 
 
 ## Diagrama de Classes
