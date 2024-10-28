@@ -4,10 +4,10 @@
 
 ## 4.1. Arquitetura da solução
 
-<p>Casa Cidadã
-├── Camada de Apresentação (Front-end)
-│   ├── Interface Web
-│   │   ├── Páginas:
+<p>Casa Cidadã <br>
+├── Camada de Apresentação (Front-end)<br>
+│   ├── Interface Web<br>
+│   │   ├── Páginas:<br>
 │   │   │   ├── Quem Somos
 │   │   │   ├── Transparência
 │   │   │   ├── Assistidos
