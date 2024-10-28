@@ -4,11 +4,11 @@
 
 ## 4.1. Arquitetura da solução
 
-Casa Cidadã
-    Camada de Apresentação (Front-end)
-        Interface Web
-            Páginas:
-                Quem Somos
+<p>Casa Cidadã
+├── Camada de Apresentação (Front-end)
+│   ├── Interface Web
+│   │   ├── Páginas:
+│   │   │   ├── Quem Somos
 │   │   │   ├── Transparência
 │   │   │   ├── Assistidos
 │   │   │   ├── Doação
@@ -55,7 +55,7 @@ Casa Cidadã
     ├── Servidor de Aplicação e Banco de Dados (AWS, Azure, Heroku)
     ├── CDN para conteúdo estático
     └── Suporte a escalabilidade e alta disponibilidade
-
+</p>
 
 ### 4.2. Protótipos de telas
 
