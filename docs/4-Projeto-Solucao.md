@@ -4,16 +4,58 @@
 
 ## 4.1. Arquitetura da solução
 
+Casa Cidadã
+├── Camada de Apresentação (Front-end)
+│   ├── Interface Web
+│   │   ├── Páginas:
+│   │   │   ├── Quem Somos
+│   │   │   ├── Transparência
+│   │   │   ├── Assistidos
+│   │   │   ├── Doação
+│   │   │   ├── Contato
+│   │   └── Componentes:
+│   │       ├── HTML / CSS / JavaScript
+│   │       └── Framework (ex.: React)
+│   └── Conexão com o Back-end via API REST
+│
+├── Camada de Aplicação (Back-end)
+│   ├── Servidor de Aplicação (Node.js / Express)
+│   ├── Controladores de Rotas
+│   ├── Lógica de Negócio
+│   │   ├── Gerenciamento de Assistidos
+│   │   ├── Gestão de Doações
+│   │   ├── Prestação de Contas
+│   │   ├── Autenticação de Usuários (JWT)
+│   └── Conexão com:
+│       ├── Banco de Dados
+│       └── APIs Externas
+│
+├── Camada de Persistência de Dados (Banco de Dados)
+│   ├── Banco de Dados Relacional (ex.: MySQL / PostgreSQL)
+│   ├── Tabelas:
+│   │   ├── Usuários (Gestores, Voluntários, Doadores)
+│   │   ├── Assistidos
+│   │   ├── Doações e Transações
+│   │   ├── Contratos de Aluguel
+│   │   └── Histórico de Prestação de Contas
+│   └── Realiza operações CRUD com o Back-end
+│
+├── Camada de Integração (APIs Externas)
+│   ├── APIs de Pagamento (ex.: PayPal, Stripe)
+│   ├── API de Redes Sociais (Instagram, para transparência)
+│   └── API de Mensagens (Email / SMS)
+│
+├── Camada de Segurança
+│   ├── Autenticação e Autorização (JWT)
+│   ├── Protocolo HTTPS
+│   ├── Controle de Acesso (permissões para diferentes usuários)
+│   └── Aplicação de Segurança em todas as camadas
+│
+└── Camada de Hospedagem e Implantação
+    ├── Servidor de Aplicação e Banco de Dados (AWS, Azure, Heroku)
+    ├── CDN para conteúdo estático
+    └── Suporte a escalabilidade e alta disponibilidade
 
-......  COLOQUE AQUI O SEU TEXTO E O DIAGRAMA DE ARQUITETURA .......
-
- Inclua um diagrama da solução e descreva os módulos e as tecnologias
- que fazem parte da solução. Discorra sobre o diagrama.
- 
- **Exemplo do diagrama de Arquitetura**:
- 
- ![Exemplo de Arquitetura](./images/arquitetura-exemplo.png)
- 
 
 ### 4.2. Protótipos de telas
 
