@@ -21,6 +21,23 @@ Esta seção apresenta uma visão geral das interações do usuário através da
 
 Com base nas atividades de usuário identificadas anteriormente, foi elaborado um protótipo de tela para essas interações, garantindo que cada interface facilite uma navegação intuitiva e responda às necessidades mapeadas para os diferentes perfis de usuário.
 
+<p><img src="\images\Index.png" width="800px"></img></p>
+<p><img src="\images\Login.png" width="800px"></img></p>
+<p><img src="\images\Cadastro.png" width="800px"></img></p>
+<p><img src="\images\Quem Somos.png" width="800px"></img></p>
+<p><img src="\images\Parceiros.png" width="800px"></img></p>
+<p><img src="\images\Transparência.png" width="800px"></img></p>
+<p><img src="\images\Assistidos.png" width="800px"></img></p>
+<p><img src="\images\Fotos.png" width="800px"></img></p>
+<p><img src="\images\PopRuaBH.png" width="800px"></img></p>
+<p><img src="\images\HousingFirst.png" width="800px"></img></p>
+<p><img src="\images\Doe Agora.png" width="800px"></img></p>
+<p><img src="\images\Contato.png" width="800px"></img></p>
+<p><img src="\images\ADMINISTRADOR.png" width="800px"></img></p>
+
+
+
+### 4.2.1 Fluxo de telas
 <p><img src="\images\Fluxo.png" width="800px"></img></p>
 
 
