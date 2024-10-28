@@ -117,14 +117,16 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Modelo ER�
 
 #### 4.3.2 Esquema Relacional
 
-O Esquema Relacional corresponde à representação dos dados em tabelas juntamente com as restrições de integridade e chave primária.
- 
-As referências abaixo irão auxiliá-lo na geração do artefato “Esquema Relacional”.
-
-> - [Criando um modelo relacional - Documentação da IBM](https://www.ibm.com/docs/pt-br/cognos-analytics/10.2.2?topic=designer-creating-relational-model)
-
-![Exemplo de um modelo relacional](images/modeloRelacional.png "Exemplo de Modelo Relacional.")
----
+<p><img src="\images\tabela1.jpg" width="800px"></img></p>
+<p><img src="\images\tabela2.jpg" width="800px"></img></p>
+<p><img src="\images\tabela3.jpg" width="800px"></img></p>
+<p><img src="\images\tabela4.jpg" width="800px"></img></p>
+<p><img src="\images\tabela5.jpg" width="800px"></img></p>
+<p><img src="\images\tabela6.jpg" width="800px"></img></p>
+<p><img src="\images\tabela7.jpg" width="800px"></img></p>
+<p><img src="\images\tabela8.jpg" width="800px"></img></p>
+<p><img src="\images\tabela9.jpg" width="800px"></img></p>
+<p><img src="\images\tabela10.jpg" width="800px"></img></p>
 
 
 #### 4.3.3 Modelo Físico
