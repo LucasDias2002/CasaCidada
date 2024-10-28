@@ -15,23 +15,22 @@
 │   │   │   ├── Contato <br>
 │   │   └── Componentes: <br>
 │   │       ├── HTML / CSS / JavaScript <br>
-│   │       └── Framework (ex.: React) <br>
-│   └── Conexão com o Back-end via API REST <br>
+│   │       └── Conexão com o Back-end via API REST <br>
 │ <br>
 ├── Camada de Aplicação (Back-end) <br>
-│   ├── Servidor de Aplicação (Node.js / Express) <br>
+│   ├── Servidor de Aplicação <br>
 │   ├── Controladores de Rotas <br>
 │   ├── Lógica de Negócio <br>
 │   │   ├── Gerenciamento de Assistidos <br>
 │   │   ├── Gestão de Doações <br>
 │   │   ├── Prestação de Contas <br>
-│   │   ├── Autenticação de Usuários (JWT) <br>
+│   │   ├── Autenticação de Usuários <br>
 │   └── Conexão com: <br>
 │       ├── Banco de Dados <br>
 │       └── APIs Externas <br>
 │ <br>
 ├── Camada de Persistência de Dados (Banco de Dados) <br>
-│   ├── Banco de Dados Relacional (ex.: MySQL / PostgreSQL) <br>
+│   ├── Banco de Dados Relacional (MySQL) <br>
 │   ├── Tabelas: <br>
 │   │   ├── Usuários (Gestores, Voluntários, Doadores) <br>
 │   │   ├── Assistidos <br>
@@ -41,18 +40,16 @@
 │   └── Realiza operações CRUD com o Back-end <br>
 │ <br>
 ├── Camada de Integração (APIs Externas) <br>
-│   ├── APIs de Pagamento (ex.: PayPal, Stripe) <br>
 │   ├── API de Redes Sociais (Instagram, para transparência) <br>
-│   └── API de Mensagens (Email / SMS) <br>
 │ <br>
 ├── Camada de Segurança <br>
-│   ├── Autenticação e Autorização (JWT) <br>
+│   ├── Autenticação e Autorização <br>
 │   ├── Protocolo HTTPS <br>
 │   ├── Controle de Acesso (permissões para diferentes usuários) <br>
 │   └── Aplicação de Segurança em todas as camadas <br>
 │ <br>
 └── Camada de Hospedagem e Implantação <br>
-    ├── Servidor de Aplicação e Banco de Dados (AWS, Azure, Heroku) <br>
+    ├── Servidor de Aplicação e Banco de Dados <br>
     ├── CDN para conteúdo estático <br>
     └── Suporte a escalabilidade e alta disponibilidade <br>
 </p>
