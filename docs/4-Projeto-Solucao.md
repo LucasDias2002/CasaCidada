@@ -5,56 +5,56 @@
 ## 4.1. Arquitetura da solução
 
 <p>Casa Cidadã <br>
-├── Camada de Apresentação (Front-end)<br>
-│   ├── Interface Web<br>
-│   │   ├── Páginas:<br>
-│   │   │   ├── Quem Somos
-│   │   │   ├── Transparência
-│   │   │   ├── Assistidos
-│   │   │   ├── Doação
-│   │   │   ├── Contato
-│   │   └── Componentes:
-│   │       ├── HTML / CSS / JavaScript
-│   │       └── Framework (ex.: React)
-│   └── Conexão com o Back-end via API REST
-│
-├── Camada de Aplicação (Back-end)
-│   ├── Servidor de Aplicação (Node.js / Express)
-│   ├── Controladores de Rotas
-│   ├── Lógica de Negócio
-│   │   ├── Gerenciamento de Assistidos
-│   │   ├── Gestão de Doações
-│   │   ├── Prestação de Contas
-│   │   ├── Autenticação de Usuários (JWT)
-│   └── Conexão com:
-│       ├── Banco de Dados
-│       └── APIs Externas
-│
-├── Camada de Persistência de Dados (Banco de Dados)
-│   ├── Banco de Dados Relacional (ex.: MySQL / PostgreSQL)
-│   ├── Tabelas:
-│   │   ├── Usuários (Gestores, Voluntários, Doadores)
-│   │   ├── Assistidos
-│   │   ├── Doações e Transações
-│   │   ├── Contratos de Aluguel
-│   │   └── Histórico de Prestação de Contas
-│   └── Realiza operações CRUD com o Back-end
-│
-├── Camada de Integração (APIs Externas)
-│   ├── APIs de Pagamento (ex.: PayPal, Stripe)
-│   ├── API de Redes Sociais (Instagram, para transparência)
-│   └── API de Mensagens (Email / SMS)
-│
-├── Camada de Segurança
-│   ├── Autenticação e Autorização (JWT)
-│   ├── Protocolo HTTPS
-│   ├── Controle de Acesso (permissões para diferentes usuários)
-│   └── Aplicação de Segurança em todas as camadas
-│
-└── Camada de Hospedagem e Implantação
-    ├── Servidor de Aplicação e Banco de Dados (AWS, Azure, Heroku)
-    ├── CDN para conteúdo estático
-    └── Suporte a escalabilidade e alta disponibilidade
+├── Camada de Apresentação (Front-end) <br>
+│   ├── Interface Web <br>
+│   │   ├── Páginas: <br>
+│   │   │   ├── Quem Somos <br>
+│   │   │   ├── Transparência <br>
+│   │   │   ├── Assistidos <br>
+│   │   │   ├── Doação <br>
+│   │   │   ├── Contato <br>
+│   │   └── Componentes: <br>
+│   │       ├── HTML / CSS / JavaScript <br>
+│   │       └── Framework (ex.: React) <br>
+│   └── Conexão com o Back-end via API REST <br>
+│ <br>
+├── Camada de Aplicação (Back-end) <br>
+│   ├── Servidor de Aplicação (Node.js / Express) <br>
+│   ├── Controladores de Rotas <br>
+│   ├── Lógica de Negócio <br>
+│   │   ├── Gerenciamento de Assistidos <br>
+│   │   ├── Gestão de Doações <br>
+│   │   ├── Prestação de Contas <br>
+│   │   ├── Autenticação de Usuários (JWT) <br>
+│   └── Conexão com: <br>
+│       ├── Banco de Dados <br>
+│       └── APIs Externas <br>
+│ <br>
+├── Camada de Persistência de Dados (Banco de Dados) <br>
+│   ├── Banco de Dados Relacional (ex.: MySQL / PostgreSQL) <br>
+│   ├── Tabelas: <br>
+│   │   ├── Usuários (Gestores, Voluntários, Doadores) <br>
+│   │   ├── Assistidos <br>
+│   │   ├── Doações e Transações <br>
+│   │   ├── Contratos de Aluguel <br>
+│   │   └── Histórico de Prestação de Contas <br>
+│   └── Realiza operações CRUD com o Back-end <br>
+│ <br>
+├── Camada de Integração (APIs Externas) <br>
+│   ├── APIs de Pagamento (ex.: PayPal, Stripe) <br>
+│   ├── API de Redes Sociais (Instagram, para transparência) <br>
+│   └── API de Mensagens (Email / SMS) <br>
+│ <br>
+├── Camada de Segurança <br>
+│   ├── Autenticação e Autorização (JWT) <br>
+│   ├── Protocolo HTTPS <br>
+│   ├── Controle de Acesso (permissões para diferentes usuários) <br>
+│   └── Aplicação de Segurança em todas as camadas <br>
+│ <br>
+└── Camada de Hospedagem e Implantação <br>
+    ├── Servidor de Aplicação e Banco de Dados (AWS, Azure, Heroku) <br>
+    ├── CDN para conteúdo estático <br>
+    └── Suporte a escalabilidade e alta disponibilidade <br>
 </p>
 
 ### 4.2. Protótipos de telas
