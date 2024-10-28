@@ -5,10 +5,10 @@
 ## 4.1. Arquitetura da solução
 
 Casa Cidadã
-├── Camada de Apresentação (Front-end)
-│   ├── Interface Web
-│   │   ├── Páginas:
-│   │   │   ├── Quem Somos
+    Camada de Apresentação (Front-end)
+        Interface Web
+            Páginas:
+                Quem Somos
 │   │   │   ├── Transparência
 │   │   │   ├── Assistidos
 │   │   │   ├── Doação
