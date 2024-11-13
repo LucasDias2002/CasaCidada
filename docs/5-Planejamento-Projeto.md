@@ -4,7 +4,7 @@
 
 
 ### Sprint 1
-- Documentação: Melissa, Davi, Arthur, Lucas, Pedro
+- Documentação: Melissa, Arthur, Lucas, Pedro
 
 ### Sprint 2
 - _Scrum master_:
