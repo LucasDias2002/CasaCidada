@@ -1,0 +1,315 @@
+/* Estilos gerais */
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #ffffff;
+}
+
+/* Estrutura principal */
+header,
+main,
+footer {
+    padding: 20px;
+    text-align: center;
+}
+
+section,
+article {
+    margin-bottom: 20px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Padronização */
+h2 {
+    color: #a30336;
+    font-size: 22px;
+    border-bottom: 2px solid #cc2e94;
+    padding-bottom: 20px;
+}
+
+h3:hover {
+    color: #50368b;
+}
+
+p {
+    line-height: 1.6;
+}
+
+ul,
+ol {
+    margin: 0 0 20px;
+    padding-left: 20px;
+}
+
+li {
+    list-style-type: none;
+    line-height: 1.6;
+}
+
+/* Cabeçalho e navegação */
+header {
+    background-color: #50368b;
+    color: #ffffff;
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#logo {
+    width: 110px;
+}
+
+.menusuperior ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.menusuperior ul li {
+    margin: 0;
+}
+
+.menusuperior ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    transition: background-color 0.5s;
+    border-radius: 5px;
+}
+
+.menusuperior ul li a:hover {
+    background-color: #cc2e94;
+}
+
+#banner1 {
+    width: 100%;
+}
+
+/* Conteúdo principal */
+main {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.cta {
+    display: inline-block;
+    color: #ffffff;
+    padding: 10px;
+    width: 200px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #a30336;
+    margin: 15px 10px;
+    transition: background-color 0.5s;
+}
+
+.cta:hover {
+    background-color: #50368b;
+}
+
+
+/* Depoimentos */
+#depoimentos {
+    padding: 20px;
+}
+
+.depoimento {
+    width: 70%;
+    margin: 0 auto;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    margin-bottom: 15px;
+}
+
+.depoimento:hover {
+    transform: translateY(-5px);
+}
+
+.depoimento p {
+    font-size: 30px;
+    color: #ffd700;
+    margin: 5px;
+}
+
+/* Notícias */
+#noticias {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.noticia {
+    width: 70%;
+    margin: 0 auto;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.noticia:hover {
+    transform: translateY(-5px);
+}
+
+/* Login/Cadastro */
+.cadastrologin ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: right;
+}
+
+.cadastrologin ul li {
+    margin: 0;
+}
+
+.cadastrologin ul li a {
+    transition: background-color 0.5s;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: small;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.cadastrologin ul li a:hover {
+    background-color: #cc2e94;
+    border-radius: 5px;
+}
+
+.fundoroxo {
+    background-color: #50368b;
+}
+
+/* Formulário de login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.login-box {
+    background-color: #ffffff;
+    padding: 35px;
+    border-radius: 5px;
+    text-align: center;
+    width: 400px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos dos campos de entrada */
+.login-box label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    text-align: left;
+
+}
+
+.login-box input[type="email"],
+.login-box input[type="number"],
+.login-box input[type="name"],
+.login-box input[type="password"] {
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo do botão de login */
+.login-button {
+    margin-top: 15px;
+    background-color: #cc2e94;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-button:hover {
+    background-color: #50368b;
+}
+
+/* Link de "Esqueceu sua senha?" */
+.forgot-password {
+    display: block;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #50368b;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Parceiros */
+.parceiros-container {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin: 30px;
+    justify-content: center;
+}
+
+.card-parceiro {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.card-parceiro:hover {
+    transform: translateY(-5px);
+}
+
+.card-parceiro h4 {
+    margin-bottom: 10px;
+    color: #50368b;
+}
+
+/* FOTOS */
+
+
+/* Rodapé */
+footer {
+    background-color: #50368b;
+    color: #ffffff;
+    text-align: center;
+    padding: 1px;
+    margin-top: 30px;
+    bottom: 0;
+}

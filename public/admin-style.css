@@ -1,0 +1,189 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.admin-page {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.admin-page body {
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-container {
+    display: flex;
+}
+
+.admin-sidebar {
+    width: 250px;
+    background-color: #d5b6f0;
+    padding-left: 20px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 100vh;
+    position: fixed;
+}
+
+.admin-sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.admin-sidebar a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    display: block;
+    transition: background 0.3s;
+}
+
+.admin-sidebar a:hover {
+    background-color: #b4a3d8;
+}
+
+.admin-content {
+    flex: 1;
+    padding-left: 20px;
+    background-color: #f5f5f5;
+    margin-left: 250px;
+    overflow-y: auto;
+    height: 100vh;
+    position: relative;
+}
+
+.admin-content h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.admin-content label {
+    display: block;
+    font-size: 14px;
+    margin-top: 10px;
+    color: #333;
+}
+
+.admin-content input[type="text"],
+.admin-content textarea,
+.admin-content select,
+.admin-content input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.admin-upload {
+    width: 80px;
+    height: 60px;
+    border: 2px dashed #999;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.admin-upload img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.7;
+}
+
+.admin-btn-publish {
+    background-color: #50368b;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.admin-btn-publish:hover {
+    background-color: #a30336;
+}
+
+#logo {
+    margin-top: 20px;
+    margin-bottom: 0;
+    margin-left: 50px;
+    width: 100px;
+    cursor: pointer;
+}
+
+.welcome-message,
+#adc-relatorio,
+#adc-foto,
+#adc-parceiro,
+#adc-assistido {
+    color: #333;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+    padding: 40px;
+    border-radius: 8px;
+}
+
+.welcome-message h1 {
+    color: #6a1b9a;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.welcome-message p {
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.welcome-message ul {
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+.welcome-message ul li {
+    line-height: 1.4;
+}
+
+#welcome {
+    display: block;
+}
+
+#adc-relatorio,
+#excluir-relatorio,
+#imprimir-relatorio,
+#adc-foto,
+#excluir-foto,
+#adc-doacao,
+#somar-doacao,
+#adc-parceiro,
+#editar-parceiro,
+#excluir-parceiro,
+#adc-assistido,
+#atualizar-assistido,
+#excluir-assistidon,
+#cadastrar-imovel,
+#atualizar-imovel {
+    display: none;
+}

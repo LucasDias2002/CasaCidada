@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - Casa Cidadã</title>
+    <link rel="stylesheet" href="admin-style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll("main > div");
+
+            // Função para exibir a seção específica e ocultar as outras
+            function showSection(id) {
+                sections.forEach(section => section.style.display = "none"); // Oculta todas as seções
+                document.getElementById(id).style.display = "block"; // Exibe a seção desejada
+            }
+
+            // Oculta todas as seções exceto "welcome" ao carregar a página
+            showSection("welcome");
+
+            // Evento para exibir a seção correspondente ao link clicado
+            document.querySelectorAll(".admin-sidebar a").forEach(link => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const sectionId = link.id.replace("btn-", ""); // Remove o prefixo "btn-" do id
+                    showSection(sectionId); // Exibe a div com o id correspondente
+                });
+            });
+
+            // Exibe "welcome" ao clicar na logo
+            document.getElementById("logo").addEventListener("click", function () {
+                showSection("welcome");
+            });
+        });
+    </script>
+
+</head>
+
+<body class="admin-page">
+    <div class="admin-container">
+        <!-- Barra Lateral -->
+        <aside class="admin-sidebar">
+            <div class="logo">
+                <img id="logo" src="images/logo1.png" alt="Casa Cidadã">
+            </div>
+
+            <h2>Relatórios</h2>
+            <a href="#" id="btn-adc-relatorio">Adicionar Relatório</a>
+            <a href="#" id="btn-excluir-relatorio">Excluir um Relatório</a>
+            <a href="#" id="btn-imprimir-relatorio">Imprimir Relatórios</a>
+
+            <h2>Fotos</h2>
+            <a href="#" id="btn-adc-foto">Adicionar fotos</a>
+            <a href="#" id="btn-excluir-foto">Excluir fotos</a>
+
+            <h2>Doações</h2>
+            <a href="#" id="btn-adc-doacao">Adicionar doação</a>
+            <a href="#" id="btn-somar-doacao">Somar Doações</a>
+
+            <h2>Parceiros</h2>
+            <a href="#" id="btn-adc-parceiro">Adicionar parceiro</a>
+            <a href="#" id="btn-editar-parceiro">Editar um Parceiro</a>
+            <a href="#" id="btn-excluir-parceiro">Excluir um Parceiro</a>
+
+            <h2>Assistidos</h2>
+            <a href="#" id="btn-adc-assistido">Adicionar Assistido</a>
+            <a href="#" id="btn-atualizar-assistido">Atualizar dados</a>
+            <a href="#" id="btn-excluir-assistido">Remover Assistido</a>
+
+            <h2>Imóveis</h2>
+            <a href="#" id="btn-cadastrar-imovel">Cadastrar Imóvel</a>
+            <a href="#" id="btn-atualizar-imovel">Atualizar imóvel</a>
+
+            <br><br>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="admin-content">
+            <div id="welcome" class="welcome-message">
+                <h1>Bem-vindo ao Painel Administrativo da Casa Cidadã!</h1>
+                <p>Este é o seu espaço para gerenciar as atividades e os recursos da Casa Cidadã. Aqui, você pode
+                    adicionar e organizar relatórios, gerenciar doações, atualizar informações dos assistidos, manter
+                    contato com nossos parceiros e gerenciar imóveis. Nossa missão é construir um futuro mais digno para
+                    todos, e sua contribuição como administrador é essencial para alcançar esse objetivo.</p>
+
+                <h2>Regras e Orientações</h2>
+                <ul>
+                    <li><strong>Atenção aos Dados</strong>: Mantenha os registros de doações, despesas, e informações
+                        dos assistidos sempre atualizados. A precisão dos dados nos ajuda a avaliar e melhorar nossas
+                        ações.</li>
+                    <li><strong>Confidencialidade</strong>: Lembre-se de que as informações armazenadas aqui são
+                        confidenciais e sensíveis. Trate-as com cuidado para proteger a privacidade de todos os
+                        envolvidos.</li>
+                    <li><strong>Relatórios</strong>: Mensalmente, crie relatórios detalhados sobre as atividades,
+                        despesas, e saldo da organização. Estes relatórios são fundamentais para garantir a
+                        transparência e para planejamento estratégico.</li>
+                    <li><strong>Organização</strong>: Utilize as seções de forma organizada para facilitar o
+                        acompanhamento e acesso rápido às informações. Atualize ou exclua dados antigos para manter o
+                        sistema sempre em ordem.</li>
+                    <li><strong>Colaboração</strong>: O sucesso da Casa Cidadã depende do trabalho em equipe. Sinta-se à
+                        vontade para compartilhar ideias que possam melhorar nossas práticas e promover um ambiente de
+                        trabalho colaborativo e acolhedor.</li>
+                </ul>
+
+                <p>Estamos aqui para transformar vidas juntos. Obrigado por seu empenho e dedicação!</p>
+                <p><strong>Equipe Casa Cidadã</strong></p>
+            </div>
+            <div id="adc-relatorio">
+                <h1>Adicionar Relatório</h1>
+                <form>
+                    <label for="mes">Mês relacionado:</label>
+                    <input type="text" id="mes" name="mes">
+
+                    <label for="despesas">Despesas:</label>
+                    <input type="text" id="despesas" name="despesas">
+
+                    <label for="saldo">Saldo:</label>
+                    <input type="text" id="saldo" name="saldo">
+
+                    <label for="descricao">Descrição:</label>
+                    <textarea id="descricao" name="descricao"></textarea>
+
+                    <label for="upload">Adicionar arquivo:</label>
+                    <div class="admin-upload">
+                        <img src="https://cdn-icons-png.flaticon.com/512/54/54565.png" alt="Upload">
+                    </div>
+
+                    <button type="submit" class="admin-btn-publish">Publicar</button>
+                </form>
+            </div>
+            <div id="excluir-relatorio">
+                <p>IMPLEMENTAR!</p>
+            </div>
+            <div id="imprimir-relatorio">
+                <p>IMPLEMENTAR!</p>
+            </div>
+
+            <div id="adc-foto">
+                <h1>Adicionar uma Foto à Galeria</h1>
+                <form>
+                    <label for="upload">Selecione uma imagem:</label>
+                    <div class="admin-upload">
+                        <img src="https://cdn-icons-png.flaticon.com/512/54/54565.png" alt="Upload">
+                    </div>
+                    <br>
+                    <label for="textoalt">Texto alternativo:</label>
+                    <textarea id="textoalt" name="textoalt"></textarea>
+
+                    <button type="submit" class="admin-btn-publish">Publicar</button>
+                </form>
+            </div>
+            <div id="excluir-foto">
+                <p>IMPLEMENTAR!</p>
+            </div>
+
+            <div id="adc-doacao">
+                <p>IMPLEMENTAR!</p>
+            </div>
+            <div id="somar-doacao">
+                <p>IMPLEMENTAR!</p>
+            </div>
+
+            <div id="adc-parceiro">
+                <h1>Adicionar um Parceiro</h1>
+                <form>
+                    <label for="nome">Nome do Parceiro:</label>
+                    <input type="text" id="nome" name="nome">
+
+                    <label for="tipo">Tipo de Parceiro:</label>
+                    <select id="tipo" name="tipo">
+                        <option value="Empresa">Empresa</option>
+                        <option value="ONG">ONG</option>
+                        <option value="Pessoa Física">Pessoa Física</option>
+                    </select>
+
+                    <label for="atuacao">Área de Atuação:</label>
+                    <input type="text" id="atuacao" name="atuacao">
+
+                    <label for="contato">Contato:</label>
+                    <input type="text" id="contato" name="contato">
+
+                    <label for="descricao">Descrição da Parceria:</label>
+                    <textarea id="descricao" name="descricao"></textarea>
+
+                    <label for="upload">Logo ou Foto:</label>
+                    <div class="admin-upload">
+                        <img src="https://cdn-icons-png.flaticon.com/512/54/54565.png" alt="Upload">
+                    </div>
+
+                    <button type="submit" class="admin-btn-publish">Adicionar Parceiro</button>
+                </form>
+            </div>
+            <div id="editar-parceiro">
+                <p>IMPLEMENTAR!</p>
+            </div>
+            <div id="excluir-parceiro">
+                <p>IMPLEMENTAR!</p>
+            </div>
+
+            <div id="adc-assistido">
+                <h1>Adicionar um Assistido</h1>
+                <form>
+                    <label for="nome">Nome do Assistido:</label>
+                    <input type="text" id="nome" name="nome">
+
+                    <label for="idade">Idade:</label>
+                    <input type="number" id="idade" name="idade">
+
+                    <label for="historia">História ou Necessidades:</label>
+                    <textarea id="historia" name="historia"></textarea>
+
+                    <label for="upload">Foto:</label>
+                    <div class="admin-upload">
+                        <img src="https://cdn-icons-png.flaticon.com/512/54/54565.png" alt="Upload">
+                    </div>
+
+                    <button type="submit" class="admin-btn-publish">Adicionar Assistido</button>
+                </form>
+            </div>
+            <div id="atualizar-assistido">
+                <p>IMPLEMENTAR!</p>
+            </div>
+            <div id="excluir-assistido">
+                <p>IMPLEMENTAR!</p>
+            </div>
+
+            <div id="cadastrar-imovel">
+                <p>IMPLEMENTAR!</p>
+            </div>
+            <div id="atualizar-imovel">
+                <p>IMPLEMENTAR!</p>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
