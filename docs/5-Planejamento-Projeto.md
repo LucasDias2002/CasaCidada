@@ -40,11 +40,11 @@ Atualizado em: 06/10/2024
 | Lucas        | Desenho de Processos | 23/09/2024     | 06/10/2024 | ✔️     | 30/09/2024 |
 | Davi        | Desenho de Processos |  23/09/2024    | 06/10/2024 | ✔️    | 30/09/2024 |
 | Melissa     | Desenho de Processos |  23/09/2024    | 06/10/2024 | ✔️    | 30/09/2024 |
-| Arthur        | Diagrama BPMN TO-BE | 30/09/2024     | 06/10/2024 | ✔️    | 06/09/2024 |
-| Pedro        | Diagrama BPMN TO-BE | 30/09/2024     | 06/10/2024 | ✔️    | 06/09/2024 |
-| Lucas        | Diagrama BPMN TO-BE | 30/09/2024     | 06/10/2024 | ✔️     | 06/09/2024 |
-| Davi        | Diagrama BPMN TO-BE |  30/09/2024    | 06/10/2024 | ✔️    | 06/09/2024 |
-| Melissa     | Diagrama BPMN TO-BE |  30/09/2024    | 06/10/2024 | ✔️    | 06/09/2024 |
+| Arthur        | Diagrama BPMN TO-BE | 30/09/2024     | 06/10/2024 | ✔️    | 06/10/2024 |
+| Pedro        | Diagrama BPMN TO-BE | 30/09/2024     | 06/10/2024 | ✔️    | 06/10/2024 |
+| Lucas        | Diagrama BPMN TO-BE | 30/09/2024     | 06/10/2024 | ✔️     | 06/10/2024 |
+| Davi        | Diagrama BPMN TO-BE |  30/09/2024    | 06/10/2024 | ✔️    | 06/10/2024 |
+| Melissa     | Diagrama BPMN TO-BE |  30/09/2024    | 06/10/2024 | ✔️    | 06/10/2024 |
 
 ## Sprint 3
 
