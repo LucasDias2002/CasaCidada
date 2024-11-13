@@ -58,6 +58,35 @@ Atualizado em: 06/10/2024
 | Davi        | Diagrama BPMN TO-BE |  30/09/2024    | 06/10/2024 | ✔️    | 06/09/2024 |
 | Melissa     | Diagrama BPMN TO-BE |  30/09/2024    | 06/10/2024 | ✔️    | 06/09/2024 |
 
+## Sprint 3
+
+Atualizado em: 27/10/2024
+
+| Responsável   | Tarefa/Requisito | Iniciado em    | Prazo      | Status | Terminado em    |
+| :----         |    :----         |      :----:    | :----:     | :----: | :----:          |
+| Arthur        | Modelagem do Banco de Dados | 06/10/2024     | 27/10/2024 | ✔️    | 27/10/2024 |
+| Pedro        | Modelagem do Banco de Dados | 06/10/2024     | 27/10/2024 | ✔️    | 27/10/2024 |
+| Lucas        | Modelagem do Banco de Dados | 06/10/2024     | 27/10/2024 | ✔️     | 27/10/2024 |
+| Davi        | Modelagem do Banco de Dados |  06/10/2024    | 27/10/2024 | ✔️    | 27/10/2024 |
+| Melissa     | Modelagem do Banco de Dados |  06/10/2024    | 27/10/2024 | ✔️    | 27/10/2024 |
+| Melissa     | Protótipo de Telas |  06/10/2024    | 27/10/2024 | ✔️    | 27/10/2024 |
+| Arthur        | Modelo Entidade Relacionamento | 06/10/2024     | 27/10/2024 | ✔️    | 27/10/2024 |
+| Pedro        | Modelo Entidade Relacionamento | 06/10/2024     | 27/10/2024 | ✔️    | 27/10/2024 |
+| Lucas        | Modelo Entidade Relacionamento | 06/10/2024     | 27/10/2024 | ✔️     | 27/10/2024 |
+| Davi        | Modelo Entidade Relacionamento |  06/10/2024    | 27/10/2024 | ✔️    | 27/10/2024 |
+| Melissa     | Modelo Entidade Relacionamento |  06/10/2024    | 27/10/2024 | ✔️    | 27/10/2024 |
+| Arthur        | Esquema Relacional | 06/10/2024     | 27/10/2024 | ✔️    | 27/10/2024 |
+| Pedro        | Esquema Relacional | 06/10/2024     | 27/10/2024 | ✔️    | 27/10/2024 |
+| Lucas        | Esquema Relacional | 06/10/2024     | 27/10/2024 | ✔️     | 27/10/2024 |
+| Davi        | Esquema Relacional |  06/10/2024    | 27/10/2024 | ✔️    | 27/10/2024 |
+| Melissa     | Esquema Relacional |  06/10/2024    | 27/10/2024 | ✔️    | 27/10/2024 |
+| Arthur        | Modelo Físico do Banco de Dados | 06/10/2024     | 27/10/2024 | ✔️    | 27/10/2024 |
+| Pedro        | Modelo Físico do Banco de Dados | 06/10/2024     | 27/10/2024 | ✔️    | 27/10/2024 |
+| Lucas        | Modelo Físico do Banco de Dados | 06/10/2024     | 27/10/2024 | ✔️     | 27/10/2024 |
+| Davi        | Modelo Físico do Banco de Dados |  06/10/2024    | 27/10/2024 | ✔️    | 27/10/2024 |
+| Melissa     | Modelo Físico do Banco de Dados |  06/10/2024    | 27/10/2024 | ✔️    | 27/10/2024 |
+
+
 
 Legenda:
 - ✔️: terminado
