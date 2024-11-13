@@ -201,12 +201,13 @@ CREATE TABLE RECEBIMENTOS(
 
 ### 4.4. Tecnologias
 
-| **Dimensão**   | **Tecnologia**  |
-| ---            | ---             |
-| Diagramas      | Draw.io         |
-| Wireframes     | Figma           |
-| SGBD           | MySQL           |
-| Front end      | HTML+CSS+JS     |
-| Back end       | ASP.NET Core    |
-| Deploy         | Github Pages    |
+| **Dimensão**                           | **Tecnologia**  |
+| ---                                    | ---             |
+| Diagramas                              | Draw.io         |
+| Wireframes                             | Figma           |
+| SGBD                                   | MySQL           |
+| Hospedagem do Banco de Dados           | Azure           |
+| Front end                              | HTML+CSS+JS     |
+| Back end                               | JS+Express+Node |
+| Deploy                                 | Github Pages    |
 
