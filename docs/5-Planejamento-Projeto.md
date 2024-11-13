@@ -1,17 +1,5 @@
 # 5. Planejamento do Projeto
 
-## 5.1. Divisão de Papéis
-
-
-### Sprint 1
-- Documentação: Melissa, Arthur, Davi, Lucas, Pedro
-
-### Sprint 2
-- _Scrum master_:
-- Desenvolvedor _front-end_: AlunoX
-- Desenvolvedor _back-end_: AlunoK
-- Testes: AlunaZ
-
 ## 5.1. Quadro de tarefas
 
 ## Sprint 1
