@@ -29,10 +29,9 @@ const UsuarioModel = {
         })
     },
     Inserir: async (usuario) => {
-        const sql = `INSERT INTO usuario (cpf, nome, email, senha, telefone, data_nasc) VALUES (?, ?, ?, ?, ?, ?)`;
-
+        const sql = `INSERT INTO usuario (cpf, nome, email, senha, telefone, data_nasc, data_criacao) VALUES (?, ?, ?, ?, ?, ?, NOW())`;
+        
         const passwordHash = await bcrypt.hash(usuario.senha, 8);
-
         return new Promise((resolve, reject) => {
             // Passando os valores do objeto `usuario` para a consulta SQL
             conexao.query(sql, [usuario.cpf, usuario.nome, usuario.email, passwordHash, usuario.telefone, usuario.data_nasc], (erro, resposta) => {
