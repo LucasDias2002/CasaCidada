@@ -33,7 +33,7 @@ const ControlImovel = {
         try {
             const imovel = await ImovelModel.Update(id, req.body);
 
-            if (ImovelModel.affectedRows > 0) {
+            if(imovel.affectedRows > 0) {
                 res.json({ message: "imovel atualizado com sucesso Control" });
             } else {
                 res.status(404).json({ message: `Imovel ${id} não encontrado Control` });
@@ -48,7 +48,7 @@ const ControlImovel = {
         try {
             const imovel = await ImovelModel.Delete(id);
 
-            if (ImovelModel.affectedRows > 0) {
+            if (imovel.affectedRows > 0) {
                 res.status(200).json({ message: "Imovel deletado com sucesso Control" });
             } else {
                 res.status(404).json({ message: `imovel ${id} não encontrado` });
