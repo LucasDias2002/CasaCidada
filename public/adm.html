@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrador - Casa Cidadã</title>
     <link rel="stylesheet" href="admin-style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const sections = document.querySelectorAll("main > div");
@@ -359,28 +360,28 @@
 
             <div id="cadastrar-imovel">
                 <h1>Cadastrar Imóvel</h1>
-                <form>
+                <form id="imovelform">
                     <label for="endereco">Endereço:</label>
-                    <input type="text" id="endereco" name="endereco">
-
+                    <input type="text" id="imovelendereco" name="endereco">
+                    
                     <label for="cep">CEP:</label>
-                    <input type="text" id="cep" name="cep">
-
+                    <input type="text" id="imovelcep" name="cep">
+                    
                     <label for="numero">Número:</label>
-                    <input type="text" id="numero" name="numero">
-
+                    <input type="text" id="imovelnumero" name="numero">
+                    
                     <label for="bairro">Bairro:</label>
-                    <input type="text" id="bairro" name="bairro">
-
+                    <input type="text" id="imovelbairro" name="bairro">
+                    
                     <label for="proprietario">Proprietário:</label>
-                    <input type="text" id="proprietario" name="proprietario">
-
+                    <input type="text" id="imovelproprietario" name="proprietario">
+                    
                     <label for="contato">Contato:</label>
-                    <input type="text" id="contatoImovel" name="contato">
-
+                    <input type="text" id="imovelcontato" name="contato">
+                    
                     <label for="descricao">Descrição:</label>
-                    <textarea id="descricao" name="descricao"></textarea>
-
+                    <textarea id="imoveldescricao" name="descricao"></textarea>
+                    
                     <label for="status">Status:</label>
                     <select id="status" name="status">
                         <option value="disponivel">Disponível</option>
@@ -391,30 +392,46 @@
                 </form>
             </div>
             <div id="atualizar-imovel">
-                <h1>Atualizar Imóvel</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>CEP</th>
-                            <th>Número</th>
-                            <th>Bairro</th>
-                            <th>Proprietário</th>
-                            <th>Contato</th>
-                            <th>Descrição</th>
-                            <th>Status</th>
-                            <th>Editar</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabela-imoveis">
-                        <!-- Dados preenchidos dinamicamente -->
-                    </tbody>
-                </table>
+                <div class="card">
+                    <div class="card-header">
+                        <h1>Atualizar Imóvel</h1>
+                    </div>
+                    <div class="card-body">
+                        <table id="imoveltabela" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>CEP</th>
+                                    <th>Número</th>
+                                    <th>Bairro</th>
+                                    <th>Proprietário</th>
+                                    <th>Contato</th>
+                                    <th>Descrição</th>
+                                    <th>Status</th>
+                                    <th>Editar</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabela-imoveis">
+                                <tr>
+                                    <td>1</td>
+                                    <td>123487</td>
+                                    <td>130</td>
+                                    <td>Jaguar</td>
+                                    <td>Pedro</td>
+                                    <td>3198454512</td>
+                                    <td>Imovel muito vom</td>
+                                    <td>Disponivel</td>
+                                    <td>Editar</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
 </body>
 <script src="js/cadastroimovel.js"></script>
 <script src="js/parceiro.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>
