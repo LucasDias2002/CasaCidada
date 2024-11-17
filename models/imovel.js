@@ -30,7 +30,7 @@ const ImovelModel = {
         })
     },
     Inserir: async (imovel) => {
-        const sql = "INSERT INTO IMOVEL (cep,endereco,complemento,num_residencia,num_proprietario,telefone) VALUES (?,?,?,?,?,?)";
+        const sql = "INSERT INTO IMOVEL (cep,endereco,complemento,num_residencia,nome_proprietario,telefone) VALUES (?,?,?,?,?,?)";
 
         return new Promise((resolve, reject) => {
             conexao.query(sql, [imovel.cep,imovel.endereco,imovel.complemento,imovel.num_residencia,imovel.nome_proprietario,imovel.telefone], (erro, resposta) => {
