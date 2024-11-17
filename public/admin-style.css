@@ -8,7 +8,7 @@ html {
     box-sizing: border-box;
 }
 
-.admin-page body {
+.admin-page body  {
     color: #333;
     display: flex;
     flex-direction: column;
@@ -18,7 +18,7 @@ html {
     display: flex;
 }
 
-.admin-sidebar {
+.admin-sidebar{
     width: 250px;
     background-color: #d5b6f0;
     padding-left: 20px;
@@ -200,3 +200,84 @@ input[type="date"],
 #atualizar-imovel {
     display: none;
 }
+
+/*Formatação para tables*/
+
+/* Container geral para a tabela */
+.table-container {
+    margin: 30px auto;
+    width: 90%;
+    font-family: 'Arial', sans-serif;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  /* Cabeçalho da tabela */
+  .table-header {
+    background-color:rgba(213,182,240,255);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  /* Estilo geral da tabela */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tbody tr:hover {
+    background-color: #e8e8e8;
+  }
+  
+  /* Botões */
+  button.btn-danger {
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button.btn-danger:hover {
+    background-color: #e04e4e;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .table-container {
+      width: 100%;
+      margin: 10px;
+    }
+  
+    table {
+      font-size: 14px;
+    }
+  
+    th, td {
+      padding: 8px 10px;
+    }
+  }
+  
