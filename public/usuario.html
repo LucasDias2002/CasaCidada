@@ -10,7 +10,7 @@
 
 </head>
 
-<body class="fundoroxo">
+<body class="fundoroxo meu-perfil">
     <header>
         <nav class="cadastrologin">
             <ul>
@@ -36,15 +36,75 @@
 
                     <p>E-mail:</p>
                     <div id="usuario-email"></div>
+
+                    <button class="btn-perfil" id="btn-alterar-dados">Alterar E-mail/Telefone</button>
+                    <button class="btn-perfil" id="btn-alterar-senha">Alterar Senha</button>
+                    <button class="btn-perfil" id="btn-sair">Sair</button>
             </div> 
-            <div id="nao-logado">
+            <div id="alterar-dados" class="login-box" style="display: none;">
+                <h2>Alterar E-mail/Telefone</h2>
+                <form id="form-alterar-dados">
+                    <label for="novo-telefone">Novo Telefone:</label>
+                    <input type="tel" id="novo-telefone" placeholder="(00) 00000-0000" required>
+
+                    <label for="novo-email">Novo E-mail:</label>
+                    <input type="email" id="novo-email" placeholder="seuemail@exemplo.com" required>
+
+                    <button class="btn-perfil" type="submit">Atualizar</button>
+                    <button class="btn-perfil" type="button" id="cancelar-dados">Cancelar</button>
+                </form>
+            </div>
+            <div id="alterar-senha" class="login-box" style="display: none;">
+                <h2>Alterar Senha</h2>
+                <form id="form-alterar-senha">
+                    <label for="senha-atual">Senha Atual:</label>
+                    <input type="password" id="senha-atual" placeholder="Digite sua senha atual" required>
+
+                    <label for="nova-senha">Nova Senha:</label>
+                    <input type="password" id="nova-senha" placeholder="Digite a nova senha" required>
+
+                    <label for="confirmar-senha">Confirmar Nova Senha:</label>
+                    <input type="password" id="confirmar-senha" placeholder="Confirme a nova senha" required>
+
+                    <button class="btn-perfil" type="submit">Alterar Senha</button>
+                    <button class="btn-perfil" type="button" id="cancelar-senha">Cancelar</button>
+                </form>
+            </div>
+
+            <div id="nao-logado" style="display: none;">
                 <p><a href="login.html">Clique aqui para acessar sua conta.</a></p>
-            </div>  
+            </div>
         </div>
     </main>
     <footer>
         <p>&copy; 2024 Casa Cidadã. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        // Controle de exibição das divs
+        document.getElementById('btn-alterar-dados').addEventListener('click', () => {
+            document.getElementById('usuario-logado').style.display = 'none';
+            document.getElementById('alterar-dados').style.display = 'block';
+            document.getElementById('alterar-senha').style.display = 'none';
+        });
+
+        document.getElementById('btn-alterar-senha').addEventListener('click', () => {
+            document.getElementById('usuario-logado').style.display = 'none';
+            document.getElementById('alterar-dados').style.display = 'none';
+            document.getElementById('alterar-senha').style.display = 'block';
+        });
+
+        document.getElementById('cancelar-dados').addEventListener('click', () => {
+            document.getElementById('usuario-logado').style.display = 'block';
+            document.getElementById('alterar-dados').style.display = 'none';
+        });
+
+        document.getElementById('cancelar-senha').addEventListener('click', () => {
+            document.getElementById('usuario-logado').style.display = 'block';
+            document.getElementById('alterar-senha').style.display = 'none';
+        });
+    </script>
+
 </body>
 
 </html>

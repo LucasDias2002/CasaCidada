@@ -77,6 +77,7 @@ html {
 .admin-content input[type="email"],
 .admin-content textarea,
 .admin-content select,
+input[type="date"],
 .admin-content input[type="number"] {
     width: 100%;
     padding: 8px;
@@ -135,9 +136,20 @@ html {
 
 .welcome-message,
 #adc-relatorio,
+#excluir-relatorio,
+#imprimir-relatorio,
 #adc-foto,
+#excluir-foto,
+#adc-doacao,
+#somar-doacao,
 #adc-parceiro,
-#adc-assistido {
+#editar-parceiro,
+#excluir-parceiro,
+#adc-assistido,
+#atualizar-assistido,
+#excluir-assistido,
+#cadastrar-imovel,
+#atualizar-imovel {
     color: #333;
     max-width: 900px;
     margin: 0 auto;
