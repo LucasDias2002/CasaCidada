@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrador - Casa Cidadã</title>
     <link rel="stylesheet" href="admin-style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const sections = document.querySelectorAll("main > div");
@@ -288,7 +287,7 @@
 
                     <div class="table-wrapper">
                         <table>
-                            <thead">
+                            <thead>
                                 <tr >
                                     <th>Nome</th>
                                     <th>Email</th>
@@ -392,15 +391,14 @@
                 </form>
             </div>
             <div id="atualizar-imovel">
-                <div class="card">
-                    <div class="card-header">
+                <div class="table-container">
+                    <div class="table-header">
                         <h1>Atualizar Imóvel</h1>
                     </div>
-                    <div class="card-body">
-                        <table id="imoveltabela" class="table table-bordered table-striped">
+                    <div class="table-wrapper">
+                        <table id="imoveltabela">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
                                     <th>CEP</th>
                                     <th>Número</th>
                                     <th>Bairro</th>
@@ -412,17 +410,6 @@
                                 </tr>
                             </thead>
                             <tbody id="tabela-imoveis">
-                                <tr>
-                                    <td>1</td>
-                                    <td>123487</td>
-                                    <td>130</td>
-                                    <td>Jaguar</td>
-                                    <td>Pedro</td>
-                                    <td>3198454512</td>
-                                    <td>Imovel muito vom</td>
-                                    <td>Disponivel</td>
-                                    <td>Editar</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -433,5 +420,4 @@
 </body>
 <script src="js/cadastroimovel.js"></script>
 <script src="js/parceiro.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>

@@ -53,16 +53,15 @@ const exibirImoveis = document.getElementById('btn-atualizar-imovel').addEventLi
             imoveis.forEach(imovel =>{
                 const linha = document.createElement('tr');
 
-                linha.innerHTML=`<td>${imovel.ID}</td>
-                                <td>${imovel.CEP}</td>
+                linha.innerHTML=`<td>${imovel.CEP}</td>
                                 <td>${imovel.NUM_RESIDENCIA}</td>
                                 <td>${imovel.ENDERECO}</td>
                                 <td>${imovel.NOME_PROPRIETARIO}</td>
                                 <td>${imovel.TELEFONE}</td>
-                                <td>${imovel.DESCRICAO} muito vom</td>
+                                <td>${imovel.DESCRICAO}</td>
                                 <td>${imovel.STATUS}</td>
                                 <td>
-                                    <button href="#" class="btn btn-success">Editar</button>
+                                    <button type="button" class="btn-edit">Editar</button>
                                 </td>`;
                 tabela.appendChild(linha);
             });

@@ -202,11 +202,9 @@ input[type="date"],
 }
 
 /*Formatação para tables*/
-
-/* Container geral para a tabela */
 .table-container {
     margin: 30px auto;
-    width: 90%;
+    width: 100%;
     font-family: 'Arial', sans-serif;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -280,4 +278,24 @@ input[type="date"],
       padding: 8px 10px;
     }
   }
+
+  /* Estilo para o botão */
+
+  .btn-edit {
+    background-color: #4CAF50; /* Cor de fundo verde */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+  }
   
+  .btn-edit:hover {
+    background-color: #45a049;
+  }
+  
+  .btn-edit:active {
+    transform: scale(0.98);
+  }
