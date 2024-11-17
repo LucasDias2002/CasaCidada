@@ -130,10 +130,38 @@
                 </form>
             </div>
             <div id="excluir-relatorio">
-                <p>IMPLEMENTAR!</p>
+                <h1>Excluir Relatório</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Mês</th>
+                <th>Despesas</th>
+                <th>Saldo</th>
+                <th>Excluir</th>
+            </tr>
+        </thead>
+        <tbody id="tabela-relatorios">
+            <!-- Os dados serão preenchidos dinamicamente -->
+        </tbody>
+    </table>
             </div>
             <div id="imprimir-relatorio">
-                <p>IMPLEMENTAR!</p>
+                <h1>Imprimir Relatório</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Mês</th>
+                            <th>Despesas</th>
+                            <th>Saldo</th>
+                            <th>Imprimir</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-relatorios-imprimir">
+                        <!-- Dados preenchidos dinamicamente -->
+                    </tbody>
+                </table>
             </div>
 
             <div id="adc-foto">
@@ -151,14 +179,43 @@
                 </form>
             </div>
             <div id="excluir-foto">
-                <p>IMPLEMENTAR!</p>
+                <h1>Excluir Foto</h1>
+                <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Descrição</th>
+                        <th>Excluir</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-fotos">
+                    <!-- Dados preenchidos dinamicamente -->
+                </tbody>
+    </table>
             </div>
 
             <div id="adc-doacao">
-                <p>IMPLEMENTAR!</p>
+                <h1>Adicionar Doação</h1>
+                <form>
+                    <label for="valor">Valor da Doação:</label>
+                    <input type="number" id="valor" name="valor">
+                    <label for="descricao">Descrição:</label>
+                    <textarea id="descricao" name="descricao"></textarea>
+                    <button type="submit" class="admin-btn-publish">Adicionar</button>
+                </form>
             </div>
             <div id="somar-doacao">
-                <p>IMPLEMENTAR!</p>
+                <h1>Somar Doações</h1>
+                <form id="doacao-form">
+                    <label for="data-inicio">Data Início:</label>
+                    <input type="date" id="data-inicio" name="data-inicio">
+
+                    <label for="data-fim">Data Fim:</label>
+                    <input type="date" id="data-fim" name="data-fim">
+
+                    <button type="button" id="calcular-soma">Calcular Soma</button>
+                </form>
+                <p id="resultado-soma"></p>
             </div>
 
             <div id="adc-parceiro">
@@ -192,10 +249,36 @@
                 </form>
             </div>
             <div id="editar-parceiro">
-                <p>IMPLEMENTAR!</p>
+                <h1>Editar Parceiro</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Contato</th>
+                            <th>Editar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-parceiros">
+                        <!-- Dados preenchidos dinamicamente -->
+                    </tbody>
+                </table>
             </div>
             <div id="excluir-parceiro">
-                <p>IMPLEMENTAR!</p>
+                <h1>Excluir Parceiro</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Contato</th>
+                            <th>Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-parceiros-excluir">
+                        <!-- Dados preenchidos dinamicamente -->
+                    </tbody>
+                </table>
             </div>
 
             <div id="adc-assistido">
@@ -219,17 +302,91 @@
                 </form>
             </div>
             <div id="atualizar-assistido">
-                <p>IMPLEMENTAR!</p>
+                <h1>Atualizar Assistido</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Endereço</th>
+                            <th>Editar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-assistidos">
+                        <!-- Dados preenchidos dinamicamente -->
+                    </tbody>
+                </table>
             </div>
             <div id="excluir-assistido">
-                <p>IMPLEMENTAR!</p>
+                <h1>Excluir Assistido</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Endereço</th>
+                            <th>Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-assistidos-excluir">
+                        <!-- Dados preenchidos dinamicamente -->
+                    </tbody>
+                </table>
             </div>
 
             <div id="cadastrar-imovel">
-                <p>IMPLEMENTAR!</p>
+                <h1>Cadastrar Imóvel</h1>
+                <form>
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" id="endereco" name="endereco">
+                    
+                    <label for="cep">CEP:</label>
+                    <input type="text" id="cep" name="cep">
+                    
+                    <label for="numero">Número:</label>
+                    <input type="text" id="numero" name="numero">
+                    
+                    <label for="bairro">Bairro:</label>
+                    <input type="text" id="bairro" name="bairro">
+                    
+                    <label for="proprietario">Proprietário:</label>
+                    <input type="text" id="proprietario" name="proprietario">
+                    
+                    <label for="contato">Contato:</label>
+                    <input type="text" id="contato" name="contato">
+                    
+                    <label for="descricao">Descrição:</label>
+                    <textarea id="descricao" name="descricao"></textarea>
+                    
+                    <label for="status">Status:</label>
+                    <select id="status" name="status">
+                        <option value="disponivel">Disponível</option>
+                        <option value="indisponivel">Indisponível</option>
+                        <option value="em_manutencao">Em Manutenção</option>
+                    </select>
+                    <button type="submit" class="admin-btn-publish">Cadastrar</button>
+                </form>
             </div>
             <div id="atualizar-imovel">
-                <p>IMPLEMENTAR!</p>
+                <h1>Atualizar Imóvel</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>CEP</th>
+                            <th>Número</th>
+                            <th>Bairro</th>
+                            <th>Proprietário</th>
+                            <th>Contato</th>
+                            <th>Descrição</th>
+                            <th>Status</th>
+                            <th>Editar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-imoveis">
+                        <!-- Dados preenchidos dinamicamente -->
+                    </tbody>
+                </table>
             </div>
         </main>
     </div>
