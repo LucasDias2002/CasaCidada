@@ -1,5 +1,5 @@
 const usuarioRota = require("./usuario");
-const imovelRota = require("./usuario");
+const imovelRota = require("./imovel");
 
 module.exports = (app) => {
     app.use("/usuarios", usuarioRota);
