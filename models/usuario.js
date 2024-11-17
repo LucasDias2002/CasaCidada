@@ -1,4 +1,5 @@
 const conexao = require("../database/conexao");
+const bcrypt = require('bcrypt'); // Para criptografar senhas
 
 const UsuarioModel = {
     listar : () =>{
@@ -28,10 +29,13 @@ const UsuarioModel = {
         })
     },
     Inserir: async (usuario) => {
-        const sql = `INSERT INTO usuario (cpf, nome, email, telefone, data_nasc, data_criacao) VALUES (?, ?, ?, ?, ?, ?)`;
+        const sql = `INSERT INTO usuario (cpf, nome, email, senha, telefone, data_nasc) VALUES (?, ?, ?, ?, ?, ?)`;
+
+        const passwordHash = await bcrypt.hash(usuario.senha, 8);
+
         return new Promise((resolve, reject) => {
             // Passando os valores do objeto `usuario` para a consulta SQL
-            conexao.query(sql, [usuario.cpf, usuario.nome, usuario.email, usuario.telefone, usuario.data_nasc, usuario.data_criacao], (erro, resposta) => {
+            conexao.query(sql, [usuario.cpf, usuario.nome, usuario.email, passwordHash, usuario.telefone, usuario.data_nasc], (erro, resposta) => {
                 if (erro) {
                     console.log("Erro ao inserir usuário:", erro);
                     return reject(erro);
