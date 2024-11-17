@@ -74,6 +74,7 @@ html {
 }
 
 .admin-content input[type="text"],
+.admin-content input[type="email"],
 .admin-content textarea,
 .admin-content select,
 .admin-content input[type="number"] {
