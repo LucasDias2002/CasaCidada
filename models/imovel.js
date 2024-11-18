@@ -24,7 +24,7 @@ const ImovelModel = {
                     console.log(`Erro ao listar por ID: ${erro}`);
                     return reject(erro);
                 }
-                resolve(resposta);
+                resolve(resposta[0]);
                 console.log("Listando Imovel por id!");
             })
         })
@@ -44,10 +44,10 @@ const ImovelModel = {
         })
     },
     Update: async (id, imovel) => {
-        const sql = "UPDATE IMOVEL SET cep=?, endereco=?,complemento=?,num_residencia=?,nome_proprietario=?,telefone=?, status=?, descricao=? WHERE id=?";
+        const sql = "UPDATE IMOVEL SET cep=?, endereco=?,num_residencia=?,nome_proprietario=?,telefone=?, status=?, descricao=? WHERE id=?";
 
         return new Promise((resolve, reject) => {
-            conexao.query(sql, [imovel.cep,imovel.endereco,imovel.complemento,imovel.num_residencia,imovel.nome_proprietario,imovel.telefone,imovel.status,imovel.descricao,id], (erro, resposta) => {
+            conexao.query(sql, [imovel.cep,imovel.endereco,imovel.num_residencia,imovel.nome_proprietario,imovel.telefone,imovel.status,imovel.descricao,id], (erro, resposta) => {
                 if (erro) {
                     console.log(`Erro ao Atualizar Imovel Model: ${erro}`);
                     return reject(erro);
