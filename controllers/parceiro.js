@@ -11,7 +11,7 @@ const ControlParceiro = {
     },
     ListarPorId: async (req, res) => {
         try {
-            const parceiro = await ParceiroModel.ListarPorId(req.params.id);
+            const parceiro = await ParceiroModel.ListarPorID(req.params.id);
             res.json(parceiro);
         } catch (erro) { res.status(400).json({ erro: "Erro ao listar parceiro Controler" }) }
     }

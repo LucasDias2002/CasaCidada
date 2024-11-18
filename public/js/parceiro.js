@@ -47,7 +47,6 @@ excluirParceiros.addEventListener("click", async () => {
         })
         if (response.ok) {
             const parceiros = await response.json();
-            console.log(parceiros.length);
             let parceiroCard = "";
             for (let i = 0; i < parceiros.length; i++) {
                 parc = parceiros[i];
@@ -81,7 +80,7 @@ async function ApagarParceiro(id){
             }
         })
         if (response.ok) {
-            alert(`PARCEIRO ${id} foi apagado!`)
+            console.log(`PARCEIRO ${id} foi apagado!`)
             location.href = "adm.html";
         }
         else {
@@ -93,4 +92,97 @@ async function ApagarParceiro(id){
         alert('Erro ao conectar ao servidor.');
     }
 }
-;
+
+document.getElementById("btn-editar-parceiro").addEventListener("click", async ()=>{
+    try {
+        const response = await fetch("/parceiro", {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        if (response.ok) {
+            const parceiros = await response.json();
+            let parceiroCard = "";
+            for (let i = 0; i < parceiros.length; i++) {
+                parc = parceiros[i];
+                parceiroCard += `<option value="${parc.ID}">${parc.NOME}</option>`;
+            }
+            document.getElementById("edit-parceiros").innerHTML = parceiroCard;
+        }
+        else {
+            console.log('Erro ao carregar usuários. Tente novamente.');
+        }
+    }
+    catch (erro) {
+        console.error('Erro na requisição:', erro);
+        alert('Erro ao conectar ao servidor.');
+    }
+})
+
+document.getElementById("form-escolha").addEventListener("submit", async (evt)=>{
+    evt.preventDefault();
+    const id = document.getElementById("edit-parceiros").value;
+  
+    try {
+        const response = await fetch(`/parceiro/${id}`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        if (response.ok) {
+            const parceiro = await response.json();
+
+            document.getElementById("editnome").value = parceiro[0].NOME;
+            document.getElementById("editemail").value = parceiro[0].EMAIL;;
+            document.getElementById("edittipo").value = parceiro[0].TIPO;;
+            document.getElementById("editatuacao").value = parceiro[0].AREA_ATUACAO;
+            document.getElementById("editcnpj").value = parceiro[0].CNPJ;
+            document.getElementById("editcep").value = parceiro[0].CEP;
+            document.getElementById("editnumero").value = parceiro[0].NUMERO;
+            document.getElementById("editcontato").value = parceiro[0].TELEFONE;
+        }
+        else {
+            console.log('Erro ao carregar parceiro. Tente novamente.');
+        }
+    }
+    catch (erro) {
+        console.error('Erro na requisição:', erro);
+        alert('Erro ao conectar ao servidor.');
+    }
+})
+
+document.getElementById("form-editparceiro").addEventListener("submit", async (evt)=> {
+    evt.preventDefault();
+    const nome = document.getElementById("editnome").value;
+    const email = document.getElementById("editemail").value;
+    const tipo = document.getElementById("edittipo").value;
+    const area_atuacao = document.getElementById("editatuacao").value;
+    const cnpj = document.getElementById("editcnpj").value;
+    const cep = document.getElementById("editcep").value;
+    const numero = document.getElementById("editnumero").value;
+    const telefone = document.getElementById("editcontato").value;
+    const id = document.getElementById("edit-parceiros").value;
+
+    try {
+        const response = await fetch(`/parceiro/${id}`, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ nome, email, tipo, cnpj, area_atuacao, telefone, cep, numero })
+        })
+        if (response.ok) {
+            document.getElementById("form-editparceiro").reset();
+            alert(`Parceiro ${nome} atualizado!`);
+        }
+        else {
+            console.log('Erro ao atualizar parceiro. Tente novamente.');
+        }
+    }
+    catch (erro) {
+        console.error('Erro na requisição:', erro);
+        alert('Erro ao conectar ao servidor.');
+    }
+})

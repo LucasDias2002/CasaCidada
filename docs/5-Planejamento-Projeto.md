@@ -74,7 +74,16 @@ Atualizado em: 27/10/2024
 | Davi        | Modelo Físico do Banco de Dados |  06/10/2024    | 27/10/2024 | ✔️    | 27/10/2024 |
 | Melissa     | Modelo Físico do Banco de Dados |  06/10/2024    | 27/10/2024 | ✔️    | 27/10/2024 |
 
+## Sprint 4
 
+Atualizado em: 27/10/2024
+
+| Responsável   | Tarefa/Requisito | Iniciado em    | Prazo      | Status | Terminado em    |
+| :----         |    :----         |      :----:    | :----:     | :----: | :----:          |
+| Arthur        | Criação do Banco de Dados | 28/10/2024 | 17/11/2024 | ✔️    | 17/11/2024 |
+| Pedro        | Desenvolvimento Back-end | 28/10/2024 | 17/11/2024 | ✔️    | 17/11/2024 |
+| Lucas        | Desenvolvimento Back-end | 28/10/2024 | 17/11/2024 | ✔️     | 17/11/2024 |
+| Melissa     | Desenvolvimento Front-end | 28/10/2024 | 17/11/2024 | ✔️    | 17/11/2024 |
 
 Legenda:
 - ✔️: terminado
