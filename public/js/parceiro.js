@@ -174,7 +174,8 @@ document.getElementById("form-editparceiro").addEventListener("submit", async (e
             body: JSON.stringify({ nome, email, tipo, cnpj, area_atuacao, telefone, cep, numero })
         })
         if (response.ok) {
-            console.log(`Parceiro ${nome} atualizado!`);
+            document.getElementById("form-editparceiro").reset();
+            alert(`Parceiro ${nome} atualizado!`);
         }
         else {
             console.log('Erro ao atualizar parceiro. Tente novamente.');
