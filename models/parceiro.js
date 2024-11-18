@@ -47,7 +47,7 @@ const ParceiroModel = {
         const sql = "UPDATE PARCEIRO SET nome=?, email=?,tipo=?,cnpj=?,area_atuacao=?,telefone=?, cep=?, numero=? WHERE id=?";
 
         return new Promise((resolve, reject) => {
-            conexao.query(sql, [], (erro, resposta) => {
+            conexao.query(sql, [parceiro.nome, parceiro.email, parceiro.tipo, parceiro.cnpj, parceiro.area_atuacao, parceiro.telefone, parceiro.cep, parceiro.numero, id], (erro, resposta) => {
                 if (erro) {
                     console.log(`Erro ao Atualizar Imovel Model: ${erro}`);
                     return reject(erro);
