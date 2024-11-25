@@ -62,7 +62,7 @@ const exibirImoveis = document.getElementById('btn-atualizar-imovel').addEventLi
                                 <td>${imovel.STATUS}</td>
                                 <td>
                                     <button type="button" onclick="DeletarImovel(${imovel.ID})" class="btn-edit">Deletar</button>
-                                    <button data-id="${imovel.ID}" type="button" onclick="alternarVisibilidade('atualizar-imovel','editar-imovel'); EditarImovel(${imovel.ID})" class="btn-edit">Editar</button>
+                                    <button type="button" onclick="EditarImovel(${imovel.ID})" class="btn-edit">Editar</button>
                                 </td>`;
                 tabela.appendChild(linha);
             });
@@ -78,6 +78,10 @@ const exibirImoveis = document.getElementById('btn-atualizar-imovel').addEventLi
 //EditarImovel
 
 async function EditarImovel(idImovel){
+    //funcão para alterar visibilidade passando duas divs, da 1° para a segunda 2°
+    document.getElementById('atualizar-imovel').style.setProperty("display", "none", "important");
+    document.getElementById('editar-imovel').style.setProperty("display", "block", "important");;
+
     console.log(idImovel)
     try {
 
@@ -97,9 +101,9 @@ async function EditarImovel(idImovel){
             document.getElementById('editarimovelproprietario').value = imovel.NOME_PROPRIETARIO;
             document.getElementById('editarimovelcontato').value = imovel.TELEFONE;
             document.getElementById('editarimoveldescricao').value = imovel.DESCRICAO;
-            document.getElementById('editarstatus').value = imovel.STATUS;
-
+            document.getElementById('status').value = imovel.STATUS;
             document.getElementById('idImovel').value = imovel.ID;
+            
         }else{
             alert("Erro ao deletar");
         }
@@ -128,12 +132,6 @@ async function DeletarImovel(idImovel){
     }
 };
 
-//funcão para alterar visibilidade passando duas divs, da 1° para a segunda 2°
-function alternarVisibilidade(divOcultarId, divExibirId) {
-    const div1 = document.getElementById(divOcultarId).style.setProperty("display", "none", "important");
-    const div2 = document.getElementById(divExibirId).style.setProperty("display", "block", "important");;
-}
-
 
 //UPDATE USUARIO
 document.getElementById("editarimovelform").addEventListener("submit", async (evt) => {
@@ -148,8 +146,6 @@ document.getElementById("editarimovelform").addEventListener("submit", async (ev
     const telefone = document.getElementById('editarimovelcontato').value;
     const descricao = document.getElementById('editarimoveldescricao').value;
     const status = document.getElementById('editarstatus').value;
-    
-    // Aqui você pega o id do imóvel do campo oculto
     const idImovel = document.getElementById('idImovel').value;
 
     try {
@@ -158,13 +154,17 @@ document.getElementById("editarimovelform").addEventListener("submit", async (ev
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ endereco, cep, num_residencia,complemento, nome_proprietario, telefone, descricao, status })
+            body: JSON.stringify({ cep, complemento,endereco, num_residencia, nome_proprietario, telefone, status,descricao,idImovel })
+            //imovel.cep,imovel.complemento,imovel.endereco,imovel.num_residencia,imovel.nome_proprietario,imovel.telefone,imovel.status,imovel.descricao,id
         });
 
         if (response.ok) {
             alert(`Imóvel de ${nome_proprietario} atualizado com sucesso!`);
             document.getElementById("editarimovelform").reset();
             // Aqui você pode atualizar a tabela ou esconder o formulário de edição
+            //funcão para alterar visibilidade passando duas divs, da 1° para a segunda 2°
+            document.getElementById('editar-imovel').style.setProperty("display", "none", "important");;
+            document.getElementById('atualizar-imovel').style.setProperty("display", "block", "important");
         } else {
             alert('Erro ao atualizar o imóvel.');
         }
