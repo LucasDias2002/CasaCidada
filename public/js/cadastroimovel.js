@@ -126,7 +126,7 @@ async function DeletarImovel(idImovel){
     } catch (erro) {
         console.error("erro ao deletar imovel arquivo 'cadatroimovel.js': " + erro);
     }
-}
+};
 
 //funcão para alterar visibilidade passando duas divs, da 1° para a segunda 2°
 function alternarVisibilidade(divOcultarId, divExibirId) {
