@@ -8,31 +8,44 @@
     <link rel="stylesheet" href="css/admin-style.css">
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const sections = document.querySelectorAll("main > div");
+    const mainSections = document.querySelectorAll("main > div");
 
-            // Função para exibir a seção específica e ocultar as outras
-            function showSection(id) {
-                sections.forEach(section => section.style.display = "none"); // Oculta todas as seções
-                document.getElementById(id).style.display = "block"; // Exibe a seção desejada
-            }
+    // Função para exibir uma seção principal e ocultar as outras
+    function showMainSection(id) {
+        mainSections.forEach(section => section.style.display = "none");
+        document.getElementById(id).style.display = "block";
 
-            // Oculta todas as seções exceto "welcome" ao carregar a página
-            showSection("welcome");
+        // Redefinir a sub-seção padrão se aplicável
+        if (id === "imoveis") {
+            showSubSection("imoveis", "ver-imoveis"); // Voltar para a sub-seção padrão
+        }
+    }
 
-            // Evento para exibir a seção correspondente ao link clicado
-            document.querySelectorAll(".admin-sidebar a").forEach(link => {
-                link.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    const sectionId = link.id.replace("btn-", ""); // Remove o prefixo "btn-" do id
-                    showSection(sectionId); // Exibe a div com o id correspondente
-                });
-            });
+    // Função para gerenciar sub-seções dentro de uma seção principal
+    function showSubSection(mainId, subId) {
+        const subSections = document.querySelectorAll(`#${mainId} > div`);
+        subSections.forEach(sub => sub.style.display = "none");
+        document.getElementById(subId).style.display = "block";
+    }
 
-            // Exibe "welcome" ao clicar na logo
-            document.getElementById("logo").addEventListener("click", function () {
-                showSection("welcome");
-            });
+    // Exibe a seção inicial
+    showMainSection("welcome");
+
+    // Evento para alternar entre as seções principais
+    document.querySelectorAll(".admin-sidebar a").forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const sectionId = link.id.replace("btn-", "");
+            showMainSection(sectionId);
         });
+    });
+
+    // Exibe "welcome" ao clicar na logo
+    document.getElementById("logo").addEventListener("click", function () {
+        showMainSection("welcome");
+    });
+});
+
     </script>
 </head>
 
@@ -49,7 +62,7 @@
             <a href="#" id="btn-noticias">Notícias</a>
 
             <h2>Gestão</h2>
-            <a href="#" id="btn-doacaos">Doações</a>
+            <a href="#" id="btn-doacoes">Doações</a>
             <a href="#" id="btn-imoveis">Imóveis</a>
             <a href="#" id="btn-relatorios">Relatórios</a>
 
@@ -97,92 +110,54 @@
                 <p><strong>Equipe Casa Cidadã</strong></p>
             </div>
 
-            <div id="depoimentos">
-            </div>
-            <div id="noticias">
-            </div>
+            <div id="depoimentos"></div>
+            <div id="noticias"></div>
 
             <div id="doacoes">
                 <div id="adc-doacao">
-                <div class="table-container">
-                    <div class="table-header">
-                        <h1>Adicionar Doação</h1>
-                    </div>
-                    <div class="table-wrapper">
-                        <form id="doacaoform">
-                            <label for="valor">Valor da Doação:</label>
-                            <input type="number" id="valor" name="valor">
-                            <label for="descricao">Descrição:</label>
-                            <textarea id="descricao" name="descricao"></textarea>
-                            <button type="submit" class="admin-btn-publish">Adicionar</button>
-                        </form>
-                    </div>
-                </div>
-                </div>
-                <div id="somar-doacao">
-                <div class="table-container">
-                    <div class="table-header">
-                        <h1>Somar Doações</h1>
-                    </div>
-                    <div class="table-wrapper">
-                        <form id="doacao-form">
-                            <label for="data-inicio">Data Início:</label>
-                            <input type="date" id="data-inicio" name="data-inicio">
-
-                            <label for="data-fim">Data Fim:</label>
-                            <input type="date" id="data-fim" name="data-fim">
-
-                            <button type="button" class="admin-btn-publish" id="calcular-soma">Calcular Soma</button>
-                        </form>
-                    </div>
-                    <p id="resultado-soma"></p>
-                </div>
-                </div>
-            </div>
-            <div id="imoveis">
-                <div id="cadastrar-imovel">
                     <div class="table-container">
                         <div class="table-header">
-                            <h1>Cadastrar Imóvel</h1>
+                            <h1>Adicionar Doação</h1>
                         </div>
                         <div class="table-wrapper">
-                            <form id="imovelform">
-                                <label for="endereco">Endereço:</label>
-                                <input type="text" id="imovelendereco" name="endereco">
-    
-                                <label for="cep">CEP:</label>
-                                <input type="text" id="imovelcep" name="cep">
-    
-                                <label for="numero">Número:</label>
-                                <input type="text" id="imovelnumero" name="numero">
-    
-                                <label for="bairro">Bairro:</label>
-                                <input type="text" id="imovelbairro" name="bairro">
-    
-                                <label for="proprietario">Proprietário:</label>
-                                <input type="text" id="imovelproprietario" name="proprietario">
-    
-                                <label for="contato">Contato:</label>
-                                <input type="text" id="imovelcontato" name="contato">
-    
+                            <form id="doacaoform">
+                                <label for="valor">Valor da Doação:</label>
+                                <input type="number" id="valor" name="valor">
                                 <label for="descricao">Descrição:</label>
-                                <textarea id="imoveldescricao" name="descricao"></textarea>
-    
-                                <label for="status">Status:</label>
-                                <select id="status" name="status">
-                                    <option value="Disponivel">Disponível</option>
-                                    <option value="Indisponivel">Indisponível</option>
-                                    <option value="Em_manutencao">Em Manutenção</option>
-                                </select>
-                                <button type="submit" class="admin-btn-publish">Cadastrar</button>
+                                <textarea id="descricao" name="descricao"></textarea>
+                                <button type="submit" class="admin-btn-publish">Adicionar</button>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div id="atualizar-imovel">
+                <div id="somar-doacao">
                     <div class="table-container">
                         <div class="table-header">
-                            <h1>Atualizar Imóvel</h1>
+                            <h1>Somar Doações</h1>
+                        </div>
+                        <div class="table-wrapper">
+                            <form id="doacao-form">
+                                <label for="data-inicio">Data Início:</label>
+                                <input type="date" id="data-inicio" name="data-inicio">
+
+                                <label for="data-fim">Data Fim:</label>
+                                <input type="date" id="data-fim" name="data-fim">
+
+                                <button type="button" class="admin-btn-publish" id="calcular-soma">Calcular
+                                    Soma</button>
+                            </form>
+                        </div>
+                        <p id="resultado-soma"></p>
+                    </div>
+                </div>
+            </div>
+            <div id="imoveis">
+                <div id="ver-imoveis">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h1>Imóveis</h1>
+                            <button onclick="trocarDiv('ver-imoveis','cadastrar-imovel')" id="adicionarImovel">Add
+                                Imovel</button>
                         </div>
                         <div class="table-wrapper">
                             <table id="imoveltabela">
@@ -204,6 +179,45 @@
                         </div>
                     </div>
                 </div>
+                <div id="cadastrar-imovel">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h1>Cadastrar Imóvel</h1>
+                        </div>
+                        <div class="table-wrapper">
+                            <form id="imovelform">
+                                <label for="endereco">Endereço:</label>
+                                <input type="text" id="imovelendereco" name="endereco">
+
+                                <label for="cep">CEP:</label>
+                                <input type="text" id="imovelcep" name="cep">
+
+                                <label for="numero">Número:</label>
+                                <input type="text" id="imovelnumero" name="numero">
+
+                                <label for="bairro">Bairro:</label>
+                                <input type="text" id="imovelbairro" name="bairro">
+
+                                <label for="proprietario">Proprietário:</label>
+                                <input type="text" id="imovelproprietario" name="proprietario">
+
+                                <label for="contato">Contato:</label>
+                                <input type="text" id="imovelcontato" name="contato">
+
+                                <label for="descricao">Descrição:</label>
+                                <textarea id="imoveldescricao" name="descricao"></textarea>
+
+                                <label for="status">Status:</label>
+                                <select id="status" name="status">
+                                    <option value="Disponivel">Disponível</option>
+                                    <option value="Indisponivel">Indisponível</option>
+                                    <option value="Em_manutencao">Em Manutenção</option>
+                                </select>
+                                <button type="submit" class="admin-btn-publish">Cadastrar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 <div id="editar-imovel">
                     <div class="table-container">
                         <div class="table-header">
@@ -214,25 +228,25 @@
                                 <input type="hidden" id="idImovel" />
                                 <label for="endereco">Endereço:</label>
                                 <input type="text" id="editarimovelendereco" name="endereco">
-    
+
                                 <label for="cep">CEP:</label>
                                 <input type="text" id="editarimovelcep" name="cep">
-    
+
                                 <label for="numero">Número:</label>
                                 <input type="text" id="editarimovelnumero" name="numero">
-    
+
                                 <label for="bairro">Bairro:</label>
                                 <input type="text" id="editarimovelbairro" name="bairro">
-    
+
                                 <label for="proprietario">Proprietário:</label>
                                 <input type="text" id="editarimovelproprietario" name="proprietario">
-    
+
                                 <label for="contato">Contato:</label>
                                 <input type="text" id="editarimovelcontato" name="contato">
-    
+
                                 <label for="descricao">Descrição:</label>
                                 <textarea id="editarimoveldescricao" name="descricao"></textarea>
-    
+
                                 <label for="status">Status:</label>
                                 <select id="status" name="status">
                                     <option value="Disponivel">Disponível</option>
@@ -255,21 +269,21 @@
                             <form id="form-relatorio">
                                 <label for="mes">Mês relacionado:</label>
                                 <input type="text" id="mes" name="mes">
-    
+
                                 <label for="despesas">Despesas:</label>
                                 <input type="text" id="despesas" name="despesas">
-    
+
                                 <label for="saldo">Saldo:</label>
                                 <input type="text" id="saldo" name="saldo">
-    
+
                                 <label for="descricao">Descrição:</label>
                                 <textarea id="descricao" name="descricao"></textarea>
-    
+
                                 <label for="upload">Adicionar arquivo:</label>
                                 <div class="admin-upload">
                                     <img src="https://cdn-icons-png.flaticon.com/512/54/54565.png" alt="Upload">
                                 </div>
-    
+
                                 <button type="submit" class="admin-btn-publish">Publicar</button>
                             </form>
                         </div>
@@ -333,18 +347,18 @@
                             <form>
                                 <label for="nome">Nome do Assistido:</label>
                                 <input type="text" id="nome" name="nome">
-    
+
                                 <label for="idade">Idade:</label>
                                 <input type="number" id="idade" name="idade">
-    
+
                                 <label for="historia">História ou Necessidades:</label>
                                 <textarea id="historia" name="historia"></textarea>
-    
+
                                 <label for="upload">Foto:</label>
                                 <div class="admin-upload">
                                     <img src="https://cdn-icons-png.flaticon.com/512/54/54565.png" alt="Upload">
                                 </div>
-    
+
                                 <button type="submit" class="admin-btn-publish">Adicionar Assistido</button>
                             </form>
                         </div>
@@ -405,42 +419,42 @@
                             <form id="form-parceiro">
                                 <label for="nome">Nome do Parceiro:</label>
                                 <input type="text" id="nome" name="nome">
-    
+
                                 <label for="email">Email:</label>
                                 <input type="email" id="email" name="email">
-    
+
                                 <label for="tipo">Tipo de Parceiro:</label>
                                 <select id="tipo" name="tipo">
                                     <option value="Empresa">Empresa</option>
                                     <option value="ONG">ONG</option>
                                     <option value="Pessoa Física">Pessoa Física</option>
                                 </select>
-    
+
                                 <label for="atuacao">Área de Atuação:</label>
                                 <input type="text" id="atuacao" name="atuacao">
-    
+
                                 <label for="cnpj">CNPJ:</label>
                                 <input type="text" id="cnpj" name="cnpj">
-    
+
                                 <label for="cep">CEP:</label>
                                 <input type="text" id="cep" name="cep">
-    
-    
+
+
                                 <label for="numero">Número:</label>
                                 <input type="text" id="numero" name="numero">
-    
-    
+
+
                                 <label for="contato">Contato:</label>
                                 <input type="text" id="contato" name="contato">
-    
+
                                 <!--<label for="descricao">Descrição da Parceria:</label>
                                 <textarea id="descricao" name="descricao"></textarea>-->
-    
+
                                 <label for="upload">Logo ou Foto:</label>
                                 <div class="admin-upload">
                                     <img src="https://cdn-icons-png.flaticon.com/512/54/54565.png" alt="Upload">
                                 </div>
-    
+
                                 <button type="submit" class="admin-btn-publish">Adicionar Parceiro</button>
                             </form>
                         </div>
@@ -454,55 +468,53 @@
                         <div class="table-wrapper">
                             <form id="form-escolha">
                                 <select name="parceiros" id="edit-parceiros"></select>
-                                <input class="admin-btn-publish" type="submit" id="escolhe-parceiro" value="Escolher parceiro"></input>
+                                <input class="admin-btn-publish" type="submit" id="escolhe-parceiro"
+                                    value="Escolher parceiro"></input>
                             </form>
                             <form id="form-editparceiro">
                                 <label for="nome">Nome do Parceiro:</label>
                                 <input type="text" id="editnome" name="nome">
-    
+
                                 <label for="email">Email:</label>
                                 <input type="email" id="editemail" name="email">
-    
+
                                 <label for="tipo">Tipo de Parceiro:</label>
                                 <select id="edittipo" name="tipo">
                                     <option value="Empresa">Empresa</option>
                                     <option value="ONG">ONG</option>
                                     <option value="Pessoa Física">Pessoa Física</option>
                                 </select>
-    
+
                                 <label for="atuacao">Área de Atuação:</label>
                                 <input type="text" id="editatuacao" name="atuacao">
-    
+
                                 <label for="cnpj">CNPJ:</label>
                                 <input type="text" id="editcnpj" name="cnpj">
-    
+
                                 <label for="cep">CEP:</label>
                                 <input type="text" id="editcep" name="cep">
-    
-    
+
+
                                 <label for="numero">Número:</label>
                                 <input type="text" id="editnumero" name="numero">
-    
-    
+
+
                                 <label for="contato">Contato:</label>
                                 <input type="text" id="editcontato" name="contato">
-    
+
                                 <!--<label for="descricao">Descrição da Parceria:</label>
                         <textarea id="descricao" name="descricao"></textarea>-->
-    
+
                                 <label for="upload">Logo ou Foto:</label>
                                 <div class="admin-upload">
                                     <img src="https://cdn-icons-png.flaticon.com/512/54/54565.png" alt="Upload">
                                 </div>
-    
+
                                 <input type="submit" class="admin-btn-publish" value="Atualizar Parceiro"></input>
                             </form>
-    
+
                         </div>
                     </div>
-    
-    
-    
                 </div>
                 <div id="excluir-parceiro">
                     <div class="table-container">
@@ -524,7 +536,7 @@
                                 </tbody>
                             </table>
                         </div>
-    
+
                     </div>
                 </div>
             </div>

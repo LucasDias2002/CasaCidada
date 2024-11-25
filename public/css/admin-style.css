@@ -160,7 +160,7 @@ html {
 #excluir-assistido,
 #cadastrar-imovel,
 #editar-imovel,
-#atualizar-imovel {
+#ver-imoveis {
   color: #333;
   max-width: 900px;
   margin: 0 auto;
@@ -194,23 +194,7 @@ html {
   display: block;
 }
 
-#adc-relatorio,
-#excluir-relatorio,
-#imprimir-relatorio,
-#adc-foto,
-#excluir-foto,
-#adc-doacao,
-#somar-doacao,
-#adc-parceiro,
-#editar-parceiro,
-#excluir-parceiro,
-#adc-assistido,
-#atualizar-assistido,
-#excluir-assistido,
-#cadastrar-imovel,
-#atualizar-imovel {
-  display: none;
-}
+
 
 /* Formatação para tables */
 .table-container {
@@ -308,4 +292,9 @@ button.btn-danger:hover {
 
 .btn-edit:active {
   transform: scale(0.98);
+}
+
+.table-header{
+  display: flex;
+  justify-content: space-between;
 }
