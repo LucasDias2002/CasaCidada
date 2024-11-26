@@ -1,4 +1,4 @@
-const {UsuarioModel} = require("../models/usuario");
+const UsuarioModel = require("../models/usuario");
 
 const ControlUsuario = {
     listar: async (req, res) => {

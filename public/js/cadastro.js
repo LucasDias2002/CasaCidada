@@ -24,6 +24,7 @@ form.addEventListener("submit", async (event) => {
                 alert('Usuário cadastrado com sucesso!');
                 // Opcional: Limpar os campos do formulário
                 form.reset();
+                location.href = "/login";
             } else {
                 alert('Erro ao cadastrar usuário. Tente novamente.');
             }

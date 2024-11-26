@@ -26,7 +26,7 @@ document.getElementById("login").addEventListener("submit", async (e)=>{
         } else {
             alert("Token não retornado!");
         }
-    }catch{
+    }catch(error){
         console.error("Erro no login:", error);
         alert("Erro ao tentar fazer login. Tente novamente.");
     }
