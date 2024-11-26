@@ -1,4 +1,4 @@
-const UsuarioModel = require("../models/usuario");
+const {UsuarioModel} = require("../models/usuario");
 
 const ControlUsuario = {
     listar: async (req, res) => {
@@ -27,7 +27,7 @@ const ControlUsuario = {
             const id = req.params.id;
             const resultado = await UsuarioModel.Update(id, req.body);
             if (resultado.affectedRows > 0) {
-                res.json({ message: `Usuário com ID ${id} atualizado com sucesso` });
+                res.json({ message: `Usuário com ID ${id} atualizado com sucesso`});
               } else {
                 res.status(404).json({ message: `Usuário com ID ${id} não encontrado` });
               }
@@ -48,4 +48,6 @@ const ControlUsuario = {
     }
 }
 
-module.exports = ControlUsuario;
+
+
+module.exports = ControlUsuario;

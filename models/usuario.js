@@ -16,7 +16,7 @@ const UsuarioModel = {
         })
     },
     listarPorId: (id)=> {
-        const sql = `SELECT * FROM USUARIO WHERE id = ?`;
+        const sql = `SELECT * FROM USUARIO WHERE id = ?;`
         return new Promise((resolve, reject) => {
             conexao.query(sql, [id], (erro, resposta) => {
                 if (erro) {
@@ -28,12 +28,25 @@ const UsuarioModel = {
             })
         })
     },
+    listarPorEmail: (email)=> {
+        const sql = `SELECT * FROM USUARIO WHERE EMAIL = ?`;
+        return new Promise((resolve, reject) => {
+            conexao.query(sql, [email], (erro, resposta) => {
+                if (erro) {
+                    console.log("Erro ao listar usuario por email", erro);
+                    return reject(erro);
+                }
+                console.log(`Listando usuário com email: ${email}`);
+                resolve(resposta);
+            })
+        })
+    },
     Inserir: async (usuario) => {
-        const sql = `INSERT INTO usuario (cpf, nome, email, senha, telefone, data_nasc, data_criacao) VALUES (?, ?, ?, ?, ?, ?, NOW())`;
+        const sql =` INSERT INTO usuario (cpf, nome, email, senha, telefone, data_nasc, data_criacao) VALUES (?, ?, ?, ?, ?, ?, NOW())`;
         
         const passwordHash = await bcrypt.hash(usuario.senha, 8);
         return new Promise((resolve, reject) => {
-            // Passando os valores do objeto `usuario` para a consulta SQL
+            // Passando os valores do objeto usuario para a consulta SQL
             conexao.query(sql, [usuario.cpf, usuario.nome, usuario.email, passwordHash, usuario.telefone, usuario.data_nasc], (erro, resposta) => {
                 if (erro) {
                     console.log("Erro ao inserir usuário:", erro);
@@ -45,10 +58,10 @@ const UsuarioModel = {
         });
     },
     Update: async (id, usuario) => {
-        const sql = `UPDATE usuario SET cpf = ?, nome= ?, email =? , telefone = ?, data_nasc = ?, data_criacao = ? , cep = ? , num_residencia = ? WHERE id = ?`;
+        const sql = "UPDATE usuario SET cpf = ?, nome= ?, email =? , telefone = ?, data_nasc = ?, data_criacao = ? , cep = ? , num_residencia = ? WHERE id = ?;"
 
         return new Promise((resolve, reject) => {
-            // Passando os valores do objeto `usuario` para a consulta SQL
+            // Passando os valores do objeto usuario para a consulta SQL
             conexao.query(sql, [usuario.cpf, usuario.nome, usuario.email, usuario.telefone, usuario.data_nasc, usuario.data_criacao, usuario.cep, usuario.num_residencia, id], (erro, resposta) => {
                 if (erro) {
                     console.log("Erro ao atualizar usuário Model:", erro);
@@ -62,7 +75,7 @@ const UsuarioModel = {
     Delete: async (id) => {
         const sql = "DELETE from usuario where id = ?";
         return new Promise((resolve, reject) => {
-            // Passando os valores do objeto `usuario` para a consulta SQL
+            // Passando os valores do objeto usuario para a consulta SQL
             conexao.query(sql, [id], (erro, resposta) => {
                 if (erro) {
                     console.log("Erro ao deletar usuário Model:", erro);
@@ -75,5 +88,4 @@ const UsuarioModel = {
     }
 }
 
-
-module.exports = UsuarioModel;
+module.exports = UsuarioModel;

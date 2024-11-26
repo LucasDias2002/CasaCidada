@@ -6,21 +6,22 @@ document.addEventListener("DOMContentLoaded", function() {
             
         </nav>
         <div class="logo">
-            <a href="index.html"><img id="logo" src="images/logo2.png" alt="Casa Cidadã"></a>
+            <a href="/"><img id="logo" src="images/logo2.png" alt="Casa Cidadã"></a>
         </div>
         <nav class="menusuperior">
             <ul>
-                <li><a href="index.html">Página Inicial</a></li>
-                <li><a href="quemsomos.html">Quem Somos</a></li>
-                <li><a href="aluguelsolidario.html">Aluguel Solidário</a></li>
-                <li><a href="parceiros.html">Parceiros</a></li>
-                <li><a href="transparencia.html">Transparência</a></li>
-                <li><a href="assistidos.html">Assistidos</a></li>
-                <li><a href="fotos.html">Fotos</a></li>
-                <li><a href="poprua.html">PopRua em BH</a></li>
-                <li><a href="housingfirst.html">Housing First</a></li>
-                <li><a href="doeagora.html">Doe Agora</a></li>
-                <li><a href="contato.html">Contato</a></li>
+                <li><a href="/adm">Administrador</a></li>
+                <li><a href="/">Página Inicial</a></li>
+                <li><a href="/quemsomos">Quem Somos</a></li>
+                <li><a href="/aluguelsolidario">Aluguel Solidário</a></li>
+                <li><a href="/parceiros">Parceiros</a></li>
+                <li><a href="/transparencia">Transparência</a></li>
+                <li><a href="/assistidos">Assistidos</a></li>
+                <li><a href="/fotos">Fotos</a></li>
+                <li><a href="/poprua">PopRua em BH</a></li>
+                <li><a href="/housingfirst">Housing First</a></li>
+                <li><a href="/doeagora">Doe Agora</a></li>
+                <li><a href="/contato">Contato</a></li>
             </ul>
         </nav>
 
@@ -29,4 +30,5 @@ document.addEventListener("DOMContentLoaded", function() {
         </footer>
     `;
     document.getElementById("cabeçalho").innerHTML = headerHTML;
+
 });

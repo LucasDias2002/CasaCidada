@@ -7,4 +7,4 @@ router.post('/', usuario.Inserir);
 router.put('/:id', usuario.Update);
 router.delete('/:id', usuario.Delete);
 
-module.exports = router;
+module.exports = router;
