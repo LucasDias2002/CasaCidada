@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     const headerHTML = `
         <nav class="cadastrologin">
-            <a href="cadastro.html">Cadastre-se</a>
-            <a href="login.html">Login</a>
+            <a href="/cadastro">Cadastre-se</a>
+            <a href="/login">Login</a>
             
         </nav>
         <div class="logo">
