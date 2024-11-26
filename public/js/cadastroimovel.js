@@ -23,10 +23,12 @@ imovelform.addEventListener('submit', async (event) => {
             },
             body: JSON.stringify({ cep, endereco, complemento, num_residencia, nome_proprietario, telefone, descricao, status })
         })
-        if(resposta.ok){
+        if (resposta.ok) {
             alert("cadastro sucedido");
             imovelform.reset();
-        }else{
+            trocarDiv('cadastrar-imovel','ver-imoveis');
+            CarregarImoveis();
+        } else {
             alert("Erro ao cadastrar");
         }
     } catch (erro) {
@@ -36,7 +38,7 @@ imovelform.addEventListener('submit', async (event) => {
 
 
 //Puxar imoveis para tabela
-const exibirImoveis = document.getElementById('btn-atualizar-imovel').addEventListener('click', async ()=>{
+async function CarregarImoveis(){
     try {
 
         const resposta = await fetch('/imovel', {
@@ -45,15 +47,15 @@ const exibirImoveis = document.getElementById('btn-atualizar-imovel').addEventLi
                 'Content-Type': 'application/json'
             }
         })
-        if(resposta.ok){
+        if (resposta.ok) {
             const imoveis = await resposta.json();
             const tabela = document.getElementById('tabela-imoveis');
-            tabela.innerHTML='';
+            tabela.innerHTML = '';
             //console.log(imoveis.STATUS);
-            imoveis.forEach(imovel =>{
+            imoveis.forEach(imovel => {
                 const linha = document.createElement('tr');
 
-                linha.innerHTML=`<td>${imovel.CEP}</td>
+                linha.innerHTML = `<td>${imovel.CEP}</td>
                                 <td>${imovel.NUM_RESIDENCIA}</td>
                                 <td>${imovel.ENDERECO}</td>
                                 <td>${imovel.NOME_PROPRIETARIO}</td>
@@ -67,20 +69,26 @@ const exibirImoveis = document.getElementById('btn-atualizar-imovel').addEventLi
                 tabela.appendChild(linha);
             });
 
-        }else{
+        } else {
             alert("Erro buscar imovel");
         }
     } catch (erro) {
         console.error("erro ao Buscar imoveis 'cadatroimovel.js': " + erro.message);
     }
-});
+};
+
+if(window.getComputedStyle(document.getElementById('ver-imoveis')).display === 'block'){
+    CarregarImoveis();
+}
+
+
 
 //EditarImovel
 
-async function EditarImovel(idImovel){
+async function EditarImovel(idImovel) {
     //funcão para alterar visibilidade passando duas divs, da 1° para a segunda 2°
-    document.getElementById('atualizar-imovel').style.setProperty("display", "none", "important");
-    document.getElementById('editar-imovel').style.setProperty("display", "block", "important");;
+    document.getElementById('ver-imoveis').style.display= "none";
+    document.getElementById('editar-imovel').style.display= "block";
 
     console.log(idImovel)
     try {
@@ -92,7 +100,7 @@ async function EditarImovel(idImovel){
             }
         })
         //console.log(resposta)
-        if(resposta.ok){
+        if (resposta.ok) {
             const imovel = await resposta.json();
             console.log(imovel.ID)
             document.getElementById('editarimovelendereco').value = imovel.ENDERECO;
@@ -103,8 +111,8 @@ async function EditarImovel(idImovel){
             document.getElementById('editarimoveldescricao').value = imovel.DESCRICAO;
             document.getElementById('status').value = imovel.STATUS;
             document.getElementById('idImovel').value = imovel.ID;
-            
-        }else{
+
+        } else {
             alert("Erro ao deletar");
         }
     } catch (erro) {
@@ -113,7 +121,7 @@ async function EditarImovel(idImovel){
 }
 
 //deletar usuario
-async function DeletarImovel(idImovel){
+async function DeletarImovel(idImovel) {
     try {
 
         const resposta = await fetch(`/imovel/${idImovel}`, {
@@ -122,9 +130,10 @@ async function DeletarImovel(idImovel){
                 'Content-Type': 'application/json'
             }
         })
-        if(resposta.ok){
+        if (resposta.ok) {
             alert("Delete concluido");
-        }else{
+            CarregarImoveis();
+        } else {
             alert("Erro ao deletar");
         }
     } catch (erro) {
@@ -133,10 +142,10 @@ async function DeletarImovel(idImovel){
 };
 
 
-//UPDATE USUARIO
+
 document.getElementById("editarimovelform").addEventListener("submit", async (evt) => {
     evt.preventDefault();
-    
+
     // Coleta os dados do formulário de edição
     const endereco = document.getElementById('editarimovelendereco').value;
     const cep = document.getElementById('editarimovelcep').value;
@@ -154,7 +163,7 @@ document.getElementById("editarimovelform").addEventListener("submit", async (ev
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ cep, complemento,endereco, num_residencia, nome_proprietario, telefone, status,descricao,idImovel })
+            body: JSON.stringify({ cep, complemento, endereco, num_residencia, nome_proprietario, telefone, status, descricao, idImovel })
             //imovel.cep,imovel.complemento,imovel.endereco,imovel.num_residencia,imovel.nome_proprietario,imovel.telefone,imovel.status,imovel.descricao,id
         });
 
@@ -163,8 +172,9 @@ document.getElementById("editarimovelform").addEventListener("submit", async (ev
             document.getElementById("editarimovelform").reset();
             // Aqui você pode atualizar a tabela ou esconder o formulário de edição
             //funcão para alterar visibilidade passando duas divs, da 1° para a segunda 2°
-            document.getElementById('editar-imovel').style.setProperty("display", "none", "important");;
-            document.getElementById('atualizar-imovel').style.setProperty("display", "block", "important");
+
+            trocarDiv('editar-imovel','ver-imoveis');
+            CarregarImoveis();
         } else {
             alert('Erro ao atualizar o imóvel.');
         }
@@ -173,3 +183,9 @@ document.getElementById("editarimovelform").addEventListener("submit", async (ev
         alert('Erro ao conectar ao servidor.');
     }
 });
+
+
+function trocarDiv(div1, div2) {
+    document.getElementById(div1).style.display= "none";
+    document.getElementById(div2).style.display= "block";
+}

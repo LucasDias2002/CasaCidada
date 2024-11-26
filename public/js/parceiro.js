@@ -26,6 +26,7 @@ form_parceiro.addEventListener("submit", async (event) => {
         if (response.ok) {
             alert('Parceiro cadastrado com sucesso!');
             form_parceiro.reset();
+            CarregarParceiros();
         } else {
             alert('Erro ao cadastrar parceiro. Tente novamente.');
         }
@@ -34,10 +35,10 @@ form_parceiro.addEventListener("submit", async (event) => {
         console.error('Erro na requisição:', error);
         alert('Erro ao conectar ao servidor.');
     }
-})
+});
 
-const excluirParceiros = document.getElementById("btn-excluir-parceiro");
-excluirParceiros.addEventListener("click", async () => {
+
+async function CarregarParceiros() {
     try {
         const response = await fetch("/parceiro", {
             method: "GET",
@@ -47,18 +48,22 @@ excluirParceiros.addEventListener("click", async () => {
         })
         if (response.ok) {
             const parceiros = await response.json();
-            let parceiroCard = "";
-            for (let i = 0; i < parceiros.length; i++) {
-                parc = parceiros[i];
-                parceiroCard += `<tr>
-                            <td>${parc.NOME}</td>
-                            <td>${parc.EMAIL}</td>
-                            <td>${parc.TELEFONE}</td>
-                            <td>${parc.AREA_ATUACAO}</td>
-                            <td><button type="button" onclick="ApagarParceiro(${parc.ID})" class="btn btn-danger">Apagar</button></td>
-                </tr>`;
-            }
-            document.getElementById("parceiros").innerHTML = parceiroCard;
+            const tabela = document.getElementById('tabela-parceiros');
+            tabela.innerHTML = "";
+
+            parceiros.forEach(parceiro => {
+                const linha = document.createElement('tr');
+
+                linha.innerHTML = `<td>${parceiro.NOME}</td>
+                                <td>${parceiro.EMAIL}</td>
+                                <td>${parceiro.TELEFONE}</td>
+                                <td>${parceiro.AREA_ATUACAO}</td>
+                                <td>
+                                    <button type="button" onclick="ApagarParceiro(${parceiro.ID})" class="btn-edit">Deletar</button>
+                                    <button type="button" onclick="EditarImovel(${parceiro.ID})" class="btn-edit">Editar</button>
+                                </td>`;
+                tabela.appendChild(linha);
+            });
         }
         else {
             console.log('Erro ao carregar usuários. Tente novamente.');
@@ -68,10 +73,13 @@ excluirParceiros.addEventListener("click", async () => {
         console.error('Erro na requisição:', erro);
         alert('Erro ao conectar ao servidor.');
     }
-}
-);
+};
 
-async function ApagarParceiro(id){
+if(window.getComputedStyle(document.getElementById('ver-parceiro')).display === 'block'){
+    CarregarParceiros();
+}
+
+async function ApagarParceiro(id) {
     try {
         const response = await fetch(`/parceiro/${id}`, {
             method: "DELETE",
@@ -81,7 +89,7 @@ async function ApagarParceiro(id){
         })
         if (response.ok) {
             console.log(`PARCEIRO ${id} foi apagado!`)
-            location.href = "adm.html";
+            CarregarParceiros();
         }
         else {
             console.log('Erro ao apagar parceiro. Tente novamente.');
@@ -93,7 +101,7 @@ async function ApagarParceiro(id){
     }
 }
 
-document.getElementById("btn-editar-parceiro").addEventListener("click", async ()=>{
+async function EditarParceiro(idparceiro) {
     try {
         const response = await fetch("/parceiro", {
             method: "GET",
@@ -118,12 +126,12 @@ document.getElementById("btn-editar-parceiro").addEventListener("click", async (
         console.error('Erro na requisição:', erro);
         alert('Erro ao conectar ao servidor.');
     }
-})
+};
 
-document.getElementById("form-escolha").addEventListener("submit", async (evt)=>{
+document.getElementById("form-escolha").addEventListener("submit", async (evt) => {
     evt.preventDefault();
     const id = document.getElementById("edit-parceiros").value;
-  
+
     try {
         const response = await fetch(`/parceiro/${id}`, {
             method: "GET",
@@ -153,7 +161,7 @@ document.getElementById("form-escolha").addEventListener("submit", async (evt)=>
     }
 })
 
-document.getElementById("form-editparceiro").addEventListener("submit", async (evt)=> {
+document.getElementById("form-editparceiro").addEventListener("submit", async (evt) => {
     evt.preventDefault();
     const nome = document.getElementById("editnome").value;
     const email = document.getElementById("editemail").value;
