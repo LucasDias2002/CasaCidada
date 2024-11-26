@@ -154,7 +154,7 @@ html {
 #somar-doacao,
 #adc-parceiro,
 #editar-parceiro,
-#excluir-parceiro,
+#ver-parceiro,
 #adc-assistido,
 #atualizar-assistido,
 #excluir-assistido,
@@ -162,7 +162,6 @@ html {
 #editar-imovel,
 #ver-imoveis {
   color: #333;
-  max-width: 900px;
   margin: 0 auto;
   background-color: #f5f5f5;
   padding: 40px;
@@ -227,12 +226,6 @@ th, td {
   padding: 12px 15px;
   text-align: left;
   border-bottom: 1px solid #ddd;
-}
-
-th {
-  background-color: #f4f4f4;
-  color: #333;
-  font-weight: bold;
 }
 
 tbody tr:nth-child(even) {
