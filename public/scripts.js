@@ -32,3 +32,20 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("cabeçalho").innerHTML = headerHTML;
 
 });
+
+window.onload = function(){
+    if(BuscarCookie("userToken") != null){
+        document.querySelector('nav').style.display = 'none';
+    }
+};
+
+function BuscarCookie(name) {
+    let cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i].trim();
+        if (cookie.startsWith(name + '=')) {
+            return cookie.substring(name.length + 1);
+        }
+    }
+    return null;
+}
