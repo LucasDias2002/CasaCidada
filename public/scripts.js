@@ -1,10 +1,14 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const headerHTML = `
-        <nav class="cadastrologin">
-            <a href="/cadastro">Cadastre-se</a>
-            <a href="/login">Login</a>
-            
-        </nav>
+    let headerHTML = ``;
+
+    if(MenuCadastro()){
+        headerHTML = `<nav class="cadastrologin">
+                          <a href="/cadastro">Cadastre-se</a>
+                          <a href="/login">Login</a>
+                      </nav> `
+    }
+
+    headerHTML += `
         <div class="logo">
             <a href="/"><img id="logo" src="images/logo2.png" alt="Casa Cidadã"></a>
         </div>
@@ -33,10 +37,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-window.onload = function(){
+function MenuCadastro(){
     if(BuscarCookie("userToken") != null){
-        document.querySelector('nav').style.display = 'none';
+        return false;
     }
+    return true;
 };
 
 function BuscarCookie(name) {
