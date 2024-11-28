@@ -59,8 +59,8 @@ async function CarregarParceiros() {
                                 <td>${parceiro.TELEFONE}</td>
                                 <td>${parceiro.AREA_ATUACAO}</td>
                                 <td>
-                                    <button type="button" onclick="ApagarParceiro(${parceiro.ID})" class="btn-edit">Deletar</button>
-                                    <button type="button" onclick="EditarImovel(${parceiro.ID})" class="btn-edit">Editar</button>
+                                    <button type="button" onclick="ApagarParceiro(${parceiro.ID})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"></button>
+                                    <button type="button" onclick="EditarImovel(${parceiro.ID})" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
                                 </td>`;
                 tabela.appendChild(linha);
             });

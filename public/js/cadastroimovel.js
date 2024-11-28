@@ -63,8 +63,8 @@ async function CarregarImoveis(){
                                 <td>${imovel.DESCRICAO}</td>
                                 <td>${imovel.STATUS}</td>
                                 <td>
-                                    <button type="button" onclick="DeletarImovel(${imovel.ID})" class="btn-edit">Deletar</button>
-                                    <button type="button" onclick="EditarImovel(${imovel.ID})" class="btn-edit">Editar</button>
+                                    <button type="button" onclick="DeletarImovel(${imovel.ID})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"> </button>
+                                    <button type="button" onclick="EditarImovel(${imovel.ID})" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
                                 </td>`;
                 tabela.appendChild(linha);
             });

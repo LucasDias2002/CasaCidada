@@ -268,9 +268,8 @@ button.btn-danger:hover {
 }
 
 /* Estilo para o botão de edição */
-.btn-edit {
-  background-color: #50368b;
-  color: white;
+.btn-edit, .btn-delete {
+  background-color: white;
   border: none;
   padding: 10px 20px;
   text-align: center;
@@ -280,7 +279,10 @@ button.btn-danger:hover {
 }
 
 .btn-edit:hover {
-  background-color: #a30336;
+  background-color: #8863dd;
+}
+.btn-delete:hover{
+  background-color: #d13333;
 }
 
 .btn-edit:active {
