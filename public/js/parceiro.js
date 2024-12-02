@@ -33,7 +33,7 @@ form_parceiro.addEventListener("submit", async (event) => {
     }
     catch (error) {
         console.error('Erro na requisição:', error);
-        alert('Erro ao conectar ao servidor.');
+        //alert('Erro ao conectar ao servidor.');
     }
 });
 
@@ -71,7 +71,7 @@ async function CarregarParceiros() {
     }
     catch (erro) {
         console.error('Erro na requisição:', erro);
-        alert('Erro ao conectar ao servidor.');
+        //alert('Erro ao conectar ao servidor.');
     }
 };
 
@@ -97,7 +97,7 @@ async function ApagarParceiro(id) {
     }
     catch (erro) {
         console.error('Erro na requisição:', erro);
-        alert('Erro ao conectar ao servidor.');
+        //alert('Erro ao conectar ao servidor.');
     }
 }
 
@@ -124,7 +124,7 @@ async function EditarParceiro(idparceiro) {
     }
     catch (erro) {
         console.error('Erro na requisição:', erro);
-        alert('Erro ao conectar ao servidor.');
+        //alert('Erro ao conectar ao servidor.');
     }
 };
 
@@ -157,7 +157,7 @@ document.getElementById("form-escolha").addEventListener("submit", async (evt) =
     }
     catch (erro) {
         console.error('Erro na requisição:', erro);
-        alert('Erro ao conectar ao servidor.');
+        //alert('Erro ao conectar ao servidor.');
     }
 })
 
@@ -191,7 +191,7 @@ document.getElementById("form-editparceiro").addEventListener("submit", async (e
     }
     catch (erro) {
         console.error('Erro na requisição:', erro);
-        alert('Erro ao conectar ao servidor.');
+        //alert('Erro ao conectar ao servidor.');
     }
 });
 function trocarDiv(div1, div2) {

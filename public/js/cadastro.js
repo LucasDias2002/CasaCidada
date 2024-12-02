@@ -29,7 +29,7 @@ form.addEventListener("submit", async (event) => {
             }
         } catch (error) {
             console.error('Erro na requisição:', error);
-            alert('Erro ao conectar ao servidor.');
+            //alert('Erro ao conectar ao servidor.');
         }
     }
 })
