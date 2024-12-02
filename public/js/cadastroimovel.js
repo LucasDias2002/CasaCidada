@@ -180,7 +180,7 @@ document.getElementById("editarimovelform").addEventListener("submit", async (ev
         }
     } catch (erro) {
         console.error('Erro na requisição:', erro);
-        alert('Erro ao conectar ao servidor.');
+        //alert('Erro ao conectar ao servidor.');
     }
 });
 

@@ -3,10 +3,10 @@ const form_parceiro = document.getElementById("form-relatorio");
 form_parceiro.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const nome = document.getElementById("mes").value;
-    const email = document.getElementById("despesas").value;
-    const tipo = document.getElementById("saldo").value;
-    const cnpj = document.getElementById("descricao").value;
+    const mes = document.getElementById("mes").value;
+    const despesas = document.getElementById("despesas").value;
+    const saldo = document.getElementById("saldo").value;
+    const descricao = document.getElementById("descricao").value;
 
     console.log(mes, despesas, saldo, descricao);
 
@@ -27,7 +27,7 @@ form_parceiro.addEventListener("submit", async (event) => {
     }
     catch (error) {
         console.error('Erro na requisição:', error);
-        alert('Erro ao conectar ao servidor.');
+        //alert('Erro ao conectar ao servidor.');
     }
 })
 
@@ -62,7 +62,7 @@ excluirParceiros.addEventListener("click", async () => {
     }
     catch (erro) {
         console.error('Erro na requisição:', erro);
-        alert('Erro ao conectar ao servidor.');
+        //alert('Erro ao conectar ao servidor.');
     }
 }
 );
@@ -85,7 +85,7 @@ async function ApagarParceiro(id){
     }
     catch (erro) {
         console.error('Erro na requisição:', erro);
-        alert('Erro ao conectar ao servidor.');
+        //alert('Erro ao conectar ao servidor.');
     }
 }
 ;
