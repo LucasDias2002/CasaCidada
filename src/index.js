@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 const rotas = require("../routers/usuario");
 const rotaImovel = require("../routers/imovel");
 const rotaParceiro = require("../routers/parceiro");
+const rotaNoticia = require("../routers/parceiro");
 const authRouter = require("../routers/auth");
 const protectedRouter = require("../routers/protected");
 const path = require("path");
@@ -58,6 +59,7 @@ app.use(express.json());
 app.use('/usuarios', rotas);
 app.use('/imovel', rotaImovel);
 app.use('/parceiro', rotaParceiro);
+app.use('/noticia', rotaNoticia);
 app.use('/auth', authRouter);
 app.use(protectedRouter);
 
