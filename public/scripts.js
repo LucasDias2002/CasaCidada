@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
     let headerHTML = ``;
 
-    if(MenuCadastro()){
+    /* if(MenuCadastro()){
         headerHTML = `<nav class="cadastrologin">
                           <a href="/cadastro">Cadastre-se</a>
                           <a href="/login">Login</a>
                       </nav> `
-    }
+    } */
 
     headerHTML += `
         <div class="logo">
@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         <nav class="menusuperior">
             <ul>
-                <li><a href="/adm">Administrador</a></li>
                 <li><a href="/">Página Inicial</a></li>
                 <li><a href="/quemsomos">Quem Somos</a></li>
                 <li><a href="/aluguelsolidario">Aluguel Solidário</a></li>
@@ -26,6 +25,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 <li><a href="/housingfirst">Housing First</a></li>
                 <li><a href="/doeagora">Doe Agora</a></li>
                 <li><a href="/contato">Contato</a></li>
+                <hr>
+                <li><a href="/adm" class="branco">Área de Gestão</a></li>
+                <li><a href="/usuario" class="branco">Meu Perfil</a></li>
+                <li><a href="/cadastro" class="branco">Cadastro | Login</a></li>
             </ul>
         </nav>
 
