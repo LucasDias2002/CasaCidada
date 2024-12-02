@@ -58,7 +58,7 @@ async function CarregarNoticias(){
             });
 
         } else {
-            alert("Erro buscar imovel");
+            alert("Erro buscar notícias");
         }
     } catch (erro) {
         console.error("erro ao buscar noticias: " + erro.message);
