@@ -3,7 +3,7 @@ const form_parceiro = document.getElementById("form-parceiro");
 form_parceiro.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const nome = document.getElementById("nome").value;
+    const nome = document.getElementById("parcnome").value;
     const email = document.getElementById("email").value;
     const tipo = document.getElementById("tipo").value;
     const cnpj = document.getElementById("cnpj").value;
@@ -13,7 +13,7 @@ form_parceiro.addEventListener("submit", async (event) => {
     const cep = document.getElementById("cep").value;
     const numero = document.getElementById("numero").value;
 
-    console.log(nome, tipo, area_atuacao, telefone, cep, numero);
+    console.log(`Nome:${nome}, Email:${email} Tipo:${tipo}, Area:${area_atuacao}, CNPJ:${cnpj}, Cep:${cep}, Num:${numero}, Contato:${telefone},`);
 
     try {
         const response = await fetch("/parceiro", {
@@ -60,7 +60,7 @@ async function CarregarParceiros() {
                                 <td>${parceiro.AREA_ATUACAO}</td>
                                 <td>
                                     <button type="button" onclick="ApagarParceiro(${parceiro.ID})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"></button>
-                                    <button type="button" onclick="EditarImovel(${parceiro.ID})" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
+                                    <button type="button" onclick="EditarImovel(${parceiro.ID}), trocarDiv('ver-parceiro','editar-parceiro')" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
                                 </td>`;
                 tabela.appendChild(linha);
             });
@@ -193,4 +193,8 @@ document.getElementById("form-editparceiro").addEventListener("submit", async (e
         console.error('Erro na requisição:', erro);
         alert('Erro ao conectar ao servidor.');
     }
-})
+});
+function trocarDiv(div1, div2) {
+    document.getElementById(div1).style.display= "none";
+    document.getElementById(div2).style.display= "block";
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,43 +8,47 @@
     <link rel="stylesheet" href="css/admin-style.css">
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-    const mainSections = document.querySelectorAll("main > div");
+            const mainSections = document.querySelectorAll("main > div");
 
-    // Função para exibir uma seção principal e ocultar as outras
-    function showMainSection(id) {
-        mainSections.forEach(section => section.style.display = "none");
-        document.getElementById(id).style.display = "block";
+            // Função para exibir uma seção principal e ocultar as outras
+            function showMainSection(id) {
+                mainSections.forEach(section => section.style.display = "none");
+                document.getElementById(id).style.display = "block";
 
-        // Redefinir a sub-seção padrão se aplicável
-        if (id === "imoveis") {
-            showSubSection("imoveis", "ver-imoveis"); // Voltar para a sub-seção padrão
-        }
-    }
+                // Redefinir a sub-seção padrão se aplicável
+                if (id === "imoveis") {
+                    showSubSection("imoveis", "ver-imoveis"); // Voltar para a sub-seção padrão
+                }
+                if (id === "parceiros") {
+                    showSubSection("parceiros", "ver-parceiro"); // Voltar para a sub-seção padrão
+                }
 
-    // Função para gerenciar sub-seções dentro de uma seção principal
-    function showSubSection(mainId, subId) {
-        const subSections = document.querySelectorAll(`#${mainId} > div`);
-        subSections.forEach(sub => sub.style.display = "none");
-        document.getElementById(subId).style.display = "block";
-    }
+            }
 
-    // Exibe a seção inicial
-    showMainSection("welcome");
+            // Função para gerenciar sub-seções dentro de uma seção principal
+            function showSubSection(mainId, subId) {
+                const subSections = document.querySelectorAll(`#${mainId} > div`);
+                subSections.forEach(sub => sub.style.display = "none");
+                document.getElementById(subId).style.display = "block";
+            }
 
-    // Evento para alternar entre as seções principais
-    document.querySelectorAll(".admin-sidebar a").forEach(link => {
-        link.addEventListener("click", function (e) {
-            e.preventDefault();
-            const sectionId = link.id.replace("btn-", "");
-            showMainSection(sectionId);
+            // Exibe a seção inicial
+            showMainSection("welcome");
+
+            // Evento para alternar entre as seções principais
+            document.querySelectorAll(".admin-sidebar a").forEach(link => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const sectionId = link.id.replace("btn-", "");
+                    showMainSection(sectionId);
+                });
+            });
+
+            // Exibe "welcome" ao clicar na logo
+            document.getElementById("logo").addEventListener("click", function () {
+                showMainSection("welcome");
+            });
         });
-    });
-
-    // Exibe "welcome" ao clicar na logo
-    document.getElementById("logo").addEventListener("click", function () {
-        showMainSection("welcome");
-    });
-});
 
     </script>
 </head>
@@ -155,7 +160,9 @@
                     <div class="table-container">
                         <div class="table-header">
                             <h1>Imóveis</h1>
-                            <button class="btn-edit" onclick="trocarDiv('ver-imoveis','cadastrar-imovel')" id="adicionarImovel"><img src="./images/botao-adicionar.png" style="width: 30px"></button>
+                            <button class="btn-edit" onclick="trocarDiv('ver-imoveis','cadastrar-imovel')"
+                                id="adicionarImovel"><img src="./images/botao-adicionar.png"
+                                    style="width: 30px"></button>
                         </div>
                         <div class="table-wrapper">
                             <table id="imoveltabela">
@@ -411,7 +418,9 @@
                 <div id="ver-parceiro">
                     <div class="table-container">
                         <div class="table-header">
-                            <h1>Excluir Parceiros</h1>
+                            <h1>Parceiros</h1>
+                            <button class="btn-edit" onclick="trocarDiv('ver-parceiro','adc-parceiro')"><img src="./images/botao-adicionar.png"
+                                    style="width: 30px"></button>
                         </div>
                         <div class="table-wrapper">
                             <table id="tabelaexcluirparceiro">
@@ -438,8 +447,8 @@
                         </div>
                         <div class="table-wrapper">
                             <form id="form-parceiro">
-                                <label for="nome">Nome do Parceiro:</label>
-                                <input type="text" id="nome" name="nome">
+                                <label for="parcnome">Nome do Parceiro:</label>
+                                <input type="text" id="parcnome" name="nome">
 
                                 <label for="email">Email:</label>
                                 <input type="email" id="email" name="email">
