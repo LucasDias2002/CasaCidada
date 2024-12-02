@@ -329,10 +329,13 @@
                             <table id="imoveltabela">
                                 <thead>
                                     <tr>
-                                        <th>CEP</th>
-                                        <th>Número</th>
-                                        <th>Bairro</th>
                                         <th>Proprietário</th>
+                                        <th>Endereco</th>
+                                        <th>Complemento</th>
+                                        <th>CEP</th>
+                                        <th>Inicio</th>
+                                        <th>Termino</th>
+                                        <th>Aluguel</th>
                                         <th>Contato</th>
                                         <th>Descrição</th>
                                         <th>Status</th>
@@ -340,6 +343,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="tabela-imoveis">
+                                    
                                 </tbody>
                             </table>
                         </div>
@@ -352,11 +356,17 @@
                         </div>
                         <div class="table-wrapper">
                             <form id="imovelform">
+                                <label for="proprietario">Proprietário:</label>
+                                <input type="text" id="imovelproprietario" name="proprietario">
+
                                 <label for="endereco">Rua:</label>
                                 <input type="text" id="imovelendereco" name="endereco">
 
                                 <label for="numero">Número:</label>
-                                <input type="text" id="imovelnumero" name="numero">
+                                <input type="text" id="imovelnumero">
+
+                                <label for="bairro">Bairro:</label>
+                                <input type="text" id="imovelbairro">
 
                                 <label for="cep">CEP:</label>
                                 <input type="text" id="imovelcep" name="cep">
@@ -364,17 +374,20 @@
                                 <label for="complemento">Complemento:</label>
                                 <input type="text" id="imovelcomplemento" name="complemento">
 
-                                <label for="bairro">Bairro:</label>
-                                <input type="text" id="imovelbairro" name="bairro">
-
-                                <label for="proprietario">Proprietário:</label>
-                                <input type="text" id="imovelproprietario" name="proprietario">
+                                <label for="valor_aluguel">Valor do Aluguel:</label>
+                                <input type="number" id="valoraluguel">
 
                                 <label for="contato">Contato:</label>
                                 <input type="text" id="imovelcontato" name="contato">
 
                                 <label for="descricao">Descrição:</label>
                                 <textarea id="imoveldescricao" name="descricao"></textarea>
+
+                                <label for="datainicio">Inicio do Contrato</label>
+                                <input type="date" id="contratoinicio">
+
+                                <label for="datatermino">Fim do Contrato</label>
+                                <input type="date" id="contratofim">
 
                                 <label for="status">Status:</label>
                                 <select id="status" name="status">
@@ -395,20 +408,26 @@
                         <div class="table-wrapper">
                             <form id="editarimovelform">
                                 <input type="hidden" id="idImovel" />
+                                <label for="proprietario">Proprietário:</label>
+                                <input type="text" id="editarimovelproprietario" name="proprietario">
+
                                 <label for="endereco">Endereço:</label>
                                 <input type="text" id="editarimovelendereco" name="endereco">
+
+                                <label for="numero">Número:</label>
+                                <input type="text" id="editarimovelnumero" name="numero">
+                                
+                                <label for="bairro">Bairro:</label>
+                                <input type="text" id="editarimovelbairro" name="bairro">
 
                                 <label for="cep">CEP:</label>
                                 <input type="text" id="editarimovelcep" name="cep">
 
-                                <label for="numero">Número:</label>
-                                <input type="text" id="editarimovelnumero" name="numero">
+                                <label for="complemento">Complemento:</label>
+                                <input type="text" id="editarimovelcomplemento" name="complemento">
 
-                                <label for="bairro">Bairro:</label>
-                                <input type="text" id="editarimovelbairro" name="bairro">
-
-                                <label for="proprietario">Proprietário:</label>
-                                <input type="text" id="editarimovelproprietario" name="proprietario">
+                                <label for="valor_aluguel">Valor do Aluguel:</label>
+                                <input type="number" id="editarvaloraluguel">
 
                                 <label for="contato">Contato:</label>
                                 <input type="text" id="editarimovelcontato" name="contato">
@@ -416,8 +435,14 @@
                                 <label for="descricao">Descrição:</label>
                                 <textarea id="editarimoveldescricao" name="descricao"></textarea>
 
+                                <label for="datainicio">Inicio do Contrato</label>
+                                <input type="date" id="editarcontratoinicio" value="">
+
+                                <label for="datatermino">Fim do Contrato</label>
+                                <input type="date" id="editarcontratofim" value="">
+
                                 <label for="status">Status:</label>
-                                <select id="status" name="status">
+                                <select id="editarstatus" name="status">
                                     <option value="Disponivel">Disponível</option>
                                     <option value="Indisponivel">Indisponível</option>
                                     <option value="Em_manutencao">Em Manutenção</option>
