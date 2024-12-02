@@ -114,9 +114,157 @@
                 <p><strong>Equipe Casa Cidadã</strong></p>
             </div>
 
-            <div id="depoimentos"></div>
-            <div id="noticias"></div>
+            <!-- Página Inicial -->
+            <div id="depoimentos">
+                <div id="ver-depoimentos">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h1>Depoimentos</h1>
+                            <button class="btn-edit" onclick="trocarDiv('ver-depoimentos', 'cadastrar-depoimento')" id="adicionarDepoimento">
+                                <img src="./images/botao-adicionar.png" style="width: 30px">
+                            </button>
+                        </div>
+                        <div class="table-wrapper">
+                            <table id="depoimentotabela">
+                                <thead>
+                                    <tr>
+                                        <th>Título</th>
+                                        <th>Data</th>
+                                        <th>Conteúdo</th>
+                                        <th>Imagem</th>
+                                        <th>Ação</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabela-depoimentos">
+                                    <!-- Dados serão preenchidos dinamicamente aqui rs -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="cadastrar-depoimento">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h1>Cadastrar Depoimento</h1>
+                        </div>
+                        <div class="table-wrapper">
+                            <form id="depoimentofom">
+                                <label for="titulo-depoimento">Título:</label>
+                                <input type="text" id="titulo-depoimento" name="titulo" required>
+    
+                                <label for="data-depoimento">Data:</label>
+                                <input type="date" id="data-depoimento" name="data" required>
+    
+                                <label for="conteudo-depoimento">Conteúdo:</label>
+                                <textarea id="conteudo-depoimento" name="conteudo" required></textarea>
+    
+                                <label for="imagem-depoimento">Imagem:</label>
+                                <input type="file" id="imagem-depoimento" name="imagem" required>
+    
+                                <button type="submit" class="admin-btn-publish">Cadastrar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="editar-depoimento">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h1>Editar Depoimento</h1>
+                        </div>
+                        <div class="table-wrapper">
+                            <form id="editar-depoimento-form">
+                                <input type="hidden" id="id-depoimento">
+                                <label for="editar-titulo-depoimento">Título:</label>
+                                <input type="text" id="editar-titulo-depoimento" name="titulo">
+    
+                                <label for="editar-data-depoimento">Data:</label>
+                                <input type="date" id="editar-data-depoimento" name="data">
+    
+                                <label for="editar-conteudo-depoimento">Conteúdo:</label>
+                                <textarea id="editar-conteudo-depoimento" name="conteudo"></textarea>
+    
+                                <label for="editar-imagem-depoimento">Imagem:</label>
+                                <input type="file" id="editar-imagem-depoimento" name="imagem">
+    
+                                <button type="submit" class="admin-btn-publish">Salvar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="noticias">
+                <div id="ver-noticias">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h1>Notícias</h1>
+                            <button class="btn-edit" onclick="trocarDiv('ver-noticias', 'cadastrar-noticia')" id="adicionarNoticia">
+                                <img src="./images/botao-adicionar.png" style="width: 30px">
+                            </button>
+                        </div>
+                        <div class="table-wrapper">
+                            <table id="noticiastabela">
+                                <thead>
+                                    <tr>
+                                        <th>Título</th>
+                                        <th>Data</th>
+                                        <th>Conteúdo</th>
+                                        <th>Imagem</th>
+                                        <th>Ação</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabela-noticias">
+                                    <!-- Dados serão preenchidos dinamicamente -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="cadastrar-noticia">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h1>Cadastrar Notícia</h1>
+                        </div>
+                        <div class="table-wrapper">
+                            <form id="noticiaform">
+                                <label for="titulo-noticia">Título:</label>
+                                <input type="text" id="titulo-noticia" name="titulo">
 
+                                <label for="conteudo-noticia">Conteúdo:</label>
+                                <textarea id="conteudo-noticia" name="conteudo"></textarea>
+    
+                                <label for="imagem-noticia">Imagem:</label>
+                                <input type="file" id="imagem-noticia" name="imagem">
+    
+                                <button type="submit" class="admin-btn-publish">Cadastrar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="editar-noticia">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h1>Editar Notícia</h1>
+                        </div>
+                        <div class="table-wrapper">
+                            <form id="editar-noticia-form">
+                                <input type="hidden" id="id-noticia">
+                                <label for="editar-titulo-noticia">Título:</label>
+                                <input type="text" id="editar-titulo-noticia" name="titulo">
+    
+                                <label for="editar-conteudo-noticia">Conteúdo:</label>
+                                <textarea id="editar-conteudo-noticia" name="conteudo"></textarea>
+    
+                                <label for="editar-imagem-noticia">Imagem:</label>
+                                <input type="file" id="editar-imagem-noticia" name="imagem">
+    
+                                <button type="submit" class="admin-btn-publish">Salvar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gestão -->
             <div id="doacoes">
                 <div id="adc-doacao">
                     <div class="table-container">
@@ -376,6 +524,7 @@
                 </div>
             </div>
 
+            <!-- Pessoas -->
             <div id="assistidos">
                 <div id="adc-assistido">
                     <div class="table-container">
@@ -565,6 +714,7 @@
             </div>
             <div id="usuarios"></div>
 
+            <!-- Cadastrar -->
             <div id="parceirosadm"></div>
             <div id="voluntarios"></div>
         </main>
