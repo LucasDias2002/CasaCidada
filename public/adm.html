@@ -127,31 +127,42 @@
                             <form id="doacaoform">
                                 <label for="valor">Valor da Doação:</label>
                                 <input type="number" id="valor" name="valor">
+
+                                <label for="data">Data da Doação:</label>
+                                <input type="date" id="data" name="data" required>
+
+                                <label for="tipo">Tipo de Doação:</label>
+                                <div>
+                                    <input type="radio" id="financeiro" name="tipo" value="financeiro" required>
+                                    <label for="financeiro">Financeiro</label>
+
+                                    <input type="radio" id="outro" name="tipo" value="outro" required>
+                                    <label for="outro">Outro</label>
+                                </div>
+
                                 <label for="descricao">Descrição:</label>
                                 <textarea id="descricao" name="descricao"></textarea>
+
                                 <button type="submit" class="admin-btn-publish">Adicionar</button>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div id="somar-doacao">
+            </div>
+            <div id="gastos">
+                <div id="adc-gasto">
                     <div class="table-container">
                         <div class="table-header">
-                            <h1>Somar Doações</h1>
+                            <h1>Adicionar Gasto</h1>
                         </div>
                         <div class="table-wrapper">
-                            <form id="doacao-form">
-                                <label for="data-inicio">Data Início:</label>
-                                <input type="date" id="data-inicio" name="data-inicio">
-
-                                <label for="data-fim">Data Fim:</label>
-                                <input type="date" id="data-fim" name="data-fim">
-
-                                <button type="button" class="admin-btn-publish" id="calcular-soma">Calcular
-                                    Soma</button>
+                            <form id="gastoform">
+                                assistido
+                                data
+                                valor
+                                <button type="submit" class="admin-btn-publish">Adicionar</button>
                             </form>
                         </div>
-                        <p id="resultado-soma"></p>
                     </div>
                 </div>
             </div>
@@ -191,14 +202,17 @@
                         </div>
                         <div class="table-wrapper">
                             <form id="imovelform">
-                                <label for="endereco">Endereço:</label>
+                                <label for="endereco">Rua:</label>
                                 <input type="text" id="imovelendereco" name="endereco">
+
+                                <label for="numero">Número:</label>
+                                <input type="text" id="imovelnumero" name="numero">
 
                                 <label for="cep">CEP:</label>
                                 <input type="text" id="imovelcep" name="cep">
 
-                                <label for="numero">Número:</label>
-                                <input type="text" id="imovelnumero" name="numero">
+                                <label for="complemento">Complemento:</label>
+                                <input type="text" id="imovelcomplemento" name="complemento">
 
                                 <label for="bairro">Bairro:</label>
                                 <input type="text" id="imovelbairro" name="bairro">
@@ -294,6 +308,26 @@
                         </div>
                     </div>
                 </div>
+                <div id="somar-doacao">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h1>Somar Doações</h1>
+                        </div>
+                        <div class="table-wrapper">
+                            <form id="doacao-form">
+                                <label for="data-inicio">Data Início:</label>
+                                <input type="date" id="data-inicio" name="data-inicio">
+
+                                <label for="data-fim">Data Fim:</label>
+                                <input type="date" id="data-fim" name="data-fim">
+
+                                <button type="button" class="admin-btn-publish" id="calcular-soma">Calcular
+                                    Soma</button>
+                            </form>
+                        </div>
+                        <p id="resultado-soma"></p>
+                    </div>
+                </div>
                 <div id="excluir-relatorio">
                     <div class="table-container">
                         <div class="table-header">
@@ -350,14 +384,20 @@
                         </div>
                         <div class="table-wrapper">
                             <form>
-                                <label for="nome">Nome do Assistido:</label>
-                                <input type="text" id="nome" name="nome">
+                                <label for="nome">Nome:</label>
+                                <input type="text" id="nomeassistido" name="nome">
 
-                                <label for="idade">Idade:</label>
-                                <input type="number" id="idade" name="idade">
+                                <label for="cpf">CPF:</label>
+                                <input type="text" id="cpfassistido" name="cpf" required>
+
+                                <label for="nascimento">Data de Nascimento:</label>
+                                <input type="date" id="nascimentoassistido" name="nascimento" required>
+
+                                <label for="telefone">Telefone:</label>
+                                <input type="text" id="telefoneassistido" name="telefone" required>
 
                                 <label for="historia">História ou Necessidades:</label>
-                                <textarea id="historia" name="historia"></textarea>
+                                <textarea id="historia" name="historiaassistido"></textarea>
 
                                 <label for="upload">Foto:</label>
                                 <div class="admin-upload">
@@ -457,7 +497,6 @@
                                 <select id="tipo" name="tipo">
                                     <option value="Empresa">Empresa</option>
                                     <option value="ONG">ONG</option>
-                                    <option value="Pessoa Física">Pessoa Física</option>
                                 </select>
 
                                 <label for="atuacao">Área de Atuação:</label>
@@ -466,19 +505,8 @@
                                 <label for="cnpj">CNPJ:</label>
                                 <input type="text" id="cnpj" name="cnpj">
 
-                                <label for="cep">CEP:</label>
-                                <input type="text" id="cep" name="cep">
-
-
-                                <label for="numero">Número:</label>
-                                <input type="text" id="numero" name="numero">
-
-
                                 <label for="contato">Contato:</label>
                                 <input type="text" id="contato" name="contato">
-
-                                <!--<label for="descricao">Descrição da Parceria:</label>
-                                <textarea id="descricao" name="descricao"></textarea>-->
 
                                 <label for="upload">Logo ou Foto:</label>
                                 <div class="admin-upload">
@@ -512,7 +540,6 @@
                                 <select id="edittipo" name="tipo">
                                     <option value="Empresa">Empresa</option>
                                     <option value="ONG">ONG</option>
-                                    <option value="Pessoa Física">Pessoa Física</option>
                                 </select>
 
                                 <label for="atuacao">Área de Atuação:</label>
@@ -521,19 +548,8 @@
                                 <label for="cnpj">CNPJ:</label>
                                 <input type="text" id="editcnpj" name="cnpj">
 
-                                <label for="cep">CEP:</label>
-                                <input type="text" id="editcep" name="cep">
-
-
-                                <label for="numero">Número:</label>
-                                <input type="text" id="editnumero" name="numero">
-
-
                                 <label for="contato">Contato:</label>
                                 <input type="text" id="editcontato" name="contato">
-
-                                <!--<label for="descricao">Descrição da Parceria:</label>
-                        <textarea id="descricao" name="descricao"></textarea>-->
 
                                 <label for="upload">Logo ou Foto:</label>
                                 <div class="admin-upload">
