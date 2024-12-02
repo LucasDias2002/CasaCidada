@@ -245,7 +245,6 @@ async function DeletarImovel(idImovel) {
 //     const status = document.getElementById('editarstatus').value;
 //     console.log(`Cep:${cep}, Endereco:${endereco}, Bairro:${bairro}, Compl:${complemento}, Num_resi:${num_residencia}, Nome:${nome_proprietario}, Tel:${telefone}, Valor:${valor_aluguel}, Descricao:${descricao}, Contrato-Inicio:${contratoinicio}, Contrato-fim:${contratofim}, status:${status}` );
 
-
 //     try {
 //         const response = await fetch(`/imovel/${idImovel}`, { // Usando o idImovel aqui
 //             method: "PUT",
