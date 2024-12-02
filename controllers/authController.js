@@ -19,7 +19,8 @@ const login = async (req, res) => {
             return res.status(401).json({message: "Senha incorreta!"});
         }
 
-        const token = jwt.sign({id: user.ID}, SECRET, {expiresIn: '1h'});
+        console.log("Id: "+ user.ID + " permissão: " + user.ID);
+        const token = jwt.sign({id: user.ID, permissao: user.PERMISSAO}, SECRET, {expiresIn: '1h'});
 
         return res.status(200).json({message: "Login bem sucedido", data: {"token": token}});
 
