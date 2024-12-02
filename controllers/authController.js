@@ -1,8 +1,9 @@
 const { findUser } = require("../models/authModel");
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
-const SECRET = "lucasepedro";
+const SECRET = process.env.SECRET;
 
 const login = async (req, res) => {
     const { email, senha } = req.body;
