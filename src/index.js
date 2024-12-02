@@ -3,13 +3,13 @@ const cookieParser = require('cookie-parser');
 const rotas = require("../routers/usuario");
 const rotaImovel = require("../routers/imovel");
 const rotaParceiro = require("../routers/parceiro");
-const rotaNoticia = require("../routers/parceiro");
+const noticiaRouter = require("../routers/noticias");
 const authRouter = require("../routers/auth");
 const protectedRouter = require("../routers/protected");
 const path = require("path");
 const app =  express();
 app.use(cookieParser());
-
+app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));
 app.get('/', (req, res)=> {
   res.sendFile(path.join(__dirname, '../public', 'index.html'));
@@ -54,12 +54,10 @@ app.get('/contato', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'contato.html'));
 });
 
-app.use(express.json());
-
 app.use('/usuarios', rotas);
 app.use('/imovel', rotaImovel);
 app.use('/parceiro', rotaParceiro);
-app.use('/noticia', rotaNoticia);
+app.use('/noticia', noticiaRouter)
 app.use('/auth', authRouter);
 app.use(protectedRouter);
 

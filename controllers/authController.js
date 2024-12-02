@@ -5,9 +5,15 @@ require("dotenv").config();
 
 const SECRET = process.env.SECRET;
 
-const login = async (req, res) => {
-    const { email, senha } = req.body;
+const login = async (req, res) =>{
+
     try{
+        const { email, senha } = req.body;
+
+        if (!email || !senha) {
+            return res.status(400).json({ message: 'Email e senha são obrigatórios.' });
+        }
+        
         const [user] = await findUser(email);
 
         if(!user){
@@ -19,7 +25,6 @@ const login = async (req, res) => {
             return res.status(401).json({message: "Senha incorreta!"});
         }
 
-        console.log("Id: "+ user.ID + " permissão: " + user.ID);
         const token = jwt.sign({id: user.ID, permissao: user.PERMISSAO}, SECRET, {expiresIn: '1h'});
 
         return res.status(200).json({message: "Login bem sucedido", data: {"token": token}});
@@ -31,4 +36,4 @@ const login = async (req, res) => {
     }
 }
 
-module.exports = { login };
+module.exports = { login }

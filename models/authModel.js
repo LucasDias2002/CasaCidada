@@ -1,8 +1,8 @@
 const conexao = require("../database/conexao");
-const bcrypt = require('bcrypt');
 
-const findUser =  (email)=> {
+const findUser =  async (email)=> {
     const sql = `SELECT * FROM USUARIO WHERE email = ?;`
+
     return new Promise((resolve, reject) => {
         conexao.query(sql, [email], (erro, resposta) => {
             if (erro) {
