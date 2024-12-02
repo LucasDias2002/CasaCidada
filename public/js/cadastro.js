@@ -3,7 +3,6 @@ const form = document.getElementById("formulario");
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const nome = document.getElementById("nome").value;
-    const cpf = document.getElementById("cpf").value;
     const data_nasc = document.getElementById("nascimento").value;
     const telefone = document.getElementById("telefone").value;
     const email = document.getElementById("email").value;
@@ -17,7 +16,7 @@ form.addEventListener("submit", async (event) => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ cpf, nome, email, senha, telefone, data_nasc })
+                body: JSON.stringify({ nome, email, senha, telefone, data_nasc })
             });
             // Trata a resposta
             if (response.ok) {
