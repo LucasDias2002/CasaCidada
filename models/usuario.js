@@ -42,12 +42,12 @@ const UsuarioModel = {
         })
     },
     Inserir: async (usuario) => {
-        const sql =` INSERT INTO usuario (cpf, nome, email, senha, telefone, permissao, data_nasc, data_criacao) VALUES (?, ?, ?, ? , ?, ?, ?, NOW())`;
+        const sql =` INSERT INTO usuario (nome, email, senha, telefone, permissao, data_nasc, data_criacao) VALUES (?, ?, ? , ?, ?, ?, NOW())`;
         
         const passwordHash = await bcrypt.hash(usuario.senha, 8);
         return new Promise((resolve, reject) => {
             // Passando os valores do objeto usuario para a consulta SQL
-            conexao.query(sql, [usuario.cpf, usuario.nome, usuario.email, passwordHash, usuario.telefone, 3, usuario.data_nasc], (erro, resposta) => {
+            conexao.query(sql, [usuario.nome, usuario.email, passwordHash, usuario.telefone, 3, usuario.data_nasc], (erro, resposta) => {
                 if (erro) {
                     console.log("Erro ao inserir usuário:", erro);
                     return reject(erro);
