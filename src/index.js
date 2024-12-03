@@ -11,7 +11,7 @@ const app =  express();
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));
-app.get('/', (req, res)=> {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 app.get('/login', (req, res) => {
@@ -26,9 +26,9 @@ app.get('/adm', (req, res) => {
 app.get('/quemsomos', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'quemsomos.html'));
 });
-/*app.get('/aluguelsolidario', (req, res) => {
+app.get('/aluguelsolidario', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'aluguelsolidario.html'));
-});*/
+});
 app.get('/parceiros', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'parceiros.html'));
 });
