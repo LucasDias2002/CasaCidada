@@ -271,3 +271,185 @@ margin-right: 20px;
     font-size: 14px;
     font-weight: bold;
 }
+
+/* PÁGINA DOE AGORA */
+.doacao {
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.transferencia, .pix {
+    background-color: #ece4ff;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transferencia:hover, .pix:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.transferencia .label, .pix .label {
+    color: #50368b;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.transferencia .detalhes, .pix .detalhes {
+    font-size: 18px;
+    color: #333;
+}
+
+.transferencia .detalhes {
+    margin-top: 10px;
+}
+
+.pix .detalhes {
+    margin-top: 10px;
+}
+
+.pix {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; 
+}
+
+.qr-code {
+    margin-top: 10px;
+}
+
+.qr-image {
+    max-width: 150px;
+    height: auto;
+    margin-top: 10px;
+    border: 2px solid #50368b;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pix .detalhes strong {
+    color: #50368b;
+    font-weight: bold;
+}
+
+.doacao > div {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.label {
+    color: #a30336;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Ajustes no layout */
+@media screen and (max-width: 768px) {
+    .doacao > div {
+        flex-direction: column;
+    }
+    .pix .qr-code {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* PÁGINA DE CONTATO */
+.contato {
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+/* Seção geral de contato */
+.informacoes-contato, .redes-sociais, .horario-atendimento {
+    background-color: #ece4ff; /* Cor de fundo roxo claro */
+    border: 2px solid #ddd; /* Borda suave */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito de hover */
+}
+
+/* Efeito de hover para destacar quando o mouse passa */
+.informacoes-contato:hover, .redes-sociais:hover, .horario-atendimento:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra mais intensa */
+}
+
+/* Títulos das seções */
+.contato h2 {
+    font-size: 28px;
+    color: #a30336; /* Cor do título */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.contato p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.informacoes-contato p, .horario-atendimento p {
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.informacoes-contato strong, .horario-atendimento strong {
+    font-weight: bold;
+    color: #50368b; /* Cor das informações em destaque */
+}
+
+.redes-sociais h3 {
+    font-size: 22px;
+    color: #50368b; /* Cor do título de redes sociais */
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.redes-sociais ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.redes-sociais li {
+    margin-bottom: 10px;
+}
+
+.social-link {
+    text-decoration: none;
+    font-size: 18px;
+    color: #50368b;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-5px);
+    color: #a30336; /* Cor ao passar o mouse */
+}
+
+.social-link i {
+    margin-right: 8px;
+}
+
+/* Outros ajustes para links */
+.contato a {
+    color: #50368b;
+}
+
+.contato a:hover {
+    text-decoration: underline;
+}
+
+/* Ajustes de margem nas divs */
+.contato > div {
+    margin-bottom: 20px;
+}
