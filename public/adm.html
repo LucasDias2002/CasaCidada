@@ -28,6 +28,9 @@
                 if (id === "depoimentos") {
                     showSubSection("depoimentos", "ver-depoimentos"); // Voltar para a sub-seção padrão
                 }
+                if (id === "assistidos") {
+                    showSubSection("assistidos", "ver-assistidos"); // Voltar para a sub-seção padrão
+                }
 
             }
 
@@ -556,6 +559,31 @@
 
             <!-- Pessoas -->
             <div id="assistidos">
+                <div id="ver-assistidos">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h1>Assistidos</h1>
+                            <button class="btn-edit" onclick="trocarDiv('ver-assistidos','adc-assistido')"
+                            id="adicionarAssistido"><img src="./images/botao-adicionar.png"
+                                style="width: 30px"></button>
+                        </div>
+                        <div class="table-wrapper">
+                            <table id="excluiassistidotabela">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nome</th>
+                                        <th>Endereço</th>
+                                        <th>Excluir</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabela-assistidos-excluir">
+                                    <!-- Dados preenchidos dinamicamente -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
                 <div id="adc-assistido">
                     <div class="table-container">
                         <div class="table-header">
@@ -604,28 +632,6 @@
                                     </tr>
                                 </thead>
                                 <tbody id="tabela-assistidos">
-                                    <!-- Dados preenchidos dinamicamente -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div id="excluir-assistido">
-                    <div class="table-container">
-                        <div class="table-header">
-                            <h1>Excluir Assistido</h1>
-                        </div>
-                        <div class="table-wrapper">
-                            <table id="excluiassistidotabela">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Nome</th>
-                                        <th>Endereço</th>
-                                        <th>Excluir</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tabela-assistidos-excluir">
                                     <!-- Dados preenchidos dinamicamente -->
                                 </tbody>
                             </table>
