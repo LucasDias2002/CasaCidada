@@ -2,6 +2,7 @@ const express = require("express");
 const cookieParser = require('cookie-parser');
 const rotas = require("../routers/usuario");
 const rotaImovel = require("../routers/imovel");
+const rotaDepoimento = require("../routers/depoimento");
 const rotaParceiro = require("../routers/parceiro");
 const noticiaRouter = require("../routers/noticias");
 const authRouter = require("../routers/auth");
@@ -56,6 +57,7 @@ app.get('/contato', (req, res) => {
 
 app.use('/usuarios', rotas);
 app.use('/imovel', rotaImovel);
+app.use('/depoimento', rotaDepoimento);
 app.use('/parceiro', rotaParceiro);
 app.use('/noticia', noticiaRouter)
 app.use('/auth', authRouter);

@@ -142,10 +142,8 @@
                             <table id="depoimentotabela">
                                 <thead>
                                     <tr>
-                                        <th>Título</th>
-                                        <th>Data</th>
-                                        <th>Conteúdo</th>
-                                        <th>Imagem</th>
+                                        <th>Nome</th>
+                                        <th>Depoimento</th>
                                         <th>Ação</th>
                                     </tr>
                                 </thead>
@@ -162,18 +160,12 @@
                             <h1>Cadastrar Depoimento</h1>
                         </div>
                         <div class="table-wrapper">
-                            <form id="depoimentofom">
-                                <label for="titulo-depoimento">Título:</label>
-                                <input type="text" id="titulo-depoimento" name="titulo" required>
+                            <form id="depoimentoform">
+                                <label for="titulo-depoimento">Nome:</label>
+                                <input type="text" id="nome-depoimento" name="titulo" required>
 
-                                <label for="data-depoimento">Data:</label>
-                                <input type="date" id="data-depoimento" name="data" required>
-
-                                <label for="conteudo-depoimento">Conteúdo:</label>
+                                <label for="conteudo-depoimento">Depoimento:</label>
                                 <textarea id="conteudo-depoimento" name="conteudo" required></textarea>
-
-                                <label for="imagem-depoimento">Imagem:</label>
-                                <input type="file" id="imagem-depoimento" name="imagem" required>
 
                                 <button type="submit" class="admin-btn-publish">Cadastrar</button>
                             </form>
@@ -188,17 +180,11 @@
                         <div class="table-wrapper">
                             <form id="editar-depoimento-form">
                                 <input type="hidden" id="id-depoimento">
-                                <label for="editar-titulo-depoimento">Título:</label>
+                                <label for="editar-titulo-depoimento">Nome:</label>
                                 <input type="text" id="editar-titulo-depoimento" name="titulo">
 
-                                <label for="editar-data-depoimento">Data:</label>
-                                <input type="date" id="editar-data-depoimento" name="data">
-
-                                <label for="editar-conteudo-depoimento">Conteúdo:</label>
+                                <label for="editar-conteudo-depoimento">Depoimento:</label>
                                 <textarea id="editar-conteudo-depoimento" name="conteudo"></textarea>
-
-                                <label for="editar-imagem-depoimento">Imagem:</label>
-                                <input type="file" id="editar-imagem-depoimento" name="imagem">
 
                                 <button type="submit" class="admin-btn-publish">Salvar</button>
                             </form>
@@ -855,6 +841,7 @@
     <script src="js/cadastroimovel.js"></script>
     <script src="js/parceiro.js"></script>
     <script src="js/user.js"></script>
+    <script src="js/depoimento.js"></script>
 </body>
 
 
