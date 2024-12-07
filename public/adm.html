@@ -755,6 +755,8 @@
                                         <th>Nome</th>
                                         <th>Email</th>
                                         <th>Telefone</th>
+                                        <th>Tipo</th>
+                                        <th>CNPJ</th>
                                         <th>Área de Atuação</th>
                                         <th>Ação</th>
                                     </tr>
@@ -810,12 +812,8 @@
                             <h1>Editar Parceiro</h1>
                         </div>
                         <div class="table-wrapper">
-                            <form id="form-escolha">
-                                <select name="parceiros" id="edit-parceiros"></select>
-                                <input class="admin-btn-publish" type="submit" id="escolhe-parceiro"
-                                    value="Escolher parceiro"></input>
-                            </form>
                             <form id="form-editparceiro">
+                                <input type="hidden" id="idParc">
                                 <label for="nome">Nome do Parceiro:</label>
                                 <input type="text" id="editnome" name="nome">
 

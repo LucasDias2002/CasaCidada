@@ -30,10 +30,10 @@ const ParceiroModel = {
         })
     },
     Inserir: async (parceiro) => {
-        const sql = "INSERT INTO PARCEIRO (nome, email, tipo, cnpj, area_atuacao, telefone,cep, numero) VALUES (?,?,?,?,?,?,?,?)";
+        const sql = "INSERT INTO PARCEIRO (nome, email, tipo, cnpj, area_atuacao, telefone) VALUES (?,?,?,?,?,?)";
 
         return new Promise((resolve, reject) => {
-            conexao.query(sql, [parceiro.nome, parceiro.email, parceiro.tipo, parceiro.cnpj, parceiro.area_atuacao, parceiro.telefone, parceiro.cep, parceiro.numero], (erro, resposta) => {
+            conexao.query(sql, [parceiro.nome, parceiro.email, parceiro.tipo, parceiro.cnpj, parceiro.area_atuacao, parceiro.telefone], (erro, resposta) => {
                 if (erro) {
                     console.log(`Erro ao Inserir parceiro Model: ${erro}`);
                     return reject(erro);
@@ -44,10 +44,10 @@ const ParceiroModel = {
         })
     },
     Update: async (id, parceiro) => {
-        const sql = "UPDATE PARCEIRO SET nome=?, email=?,tipo=?,cnpj=?,area_atuacao=?,telefone=?, cep=?, numero=? WHERE id=?";
+        const sql = "UPDATE PARCEIRO SET nome=?, email=?,tipo=?,cnpj=?,area_atuacao=?,telefone=? WHERE id=?";
 
         return new Promise((resolve, reject) => {
-            conexao.query(sql, [parceiro.nome, parceiro.email, parceiro.tipo, parceiro.cnpj, parceiro.area_atuacao, parceiro.telefone, parceiro.cep, parceiro.numero, id], (erro, resposta) => {
+            conexao.query(sql, [parceiro.nome, parceiro.email, parceiro.tipo, parceiro.cnpj, parceiro.area_atuacao, parceiro.telefone, id], (erro, resposta) => {
                 if (erro) {
                     console.log(`Erro ao Atualizar Imovel Model: ${erro}`);
                     return reject(erro);

@@ -9,11 +9,6 @@ form_parceiro.addEventListener("submit", async (event) => {
     const cnpj = document.getElementById("cnpj").value;
     const area_atuacao = document.getElementById("atuacao").value;
     const telefone = document.getElementById("contato").value;
-    //const descricao = document.getElementById("descricao").value;
-    const cep = document.getElementById("cep").value;
-    const numero = document.getElementById("numero").value;
-
-    console.log(`Nome:${nome}, Email:${email} Tipo:${tipo}, Area:${area_atuacao}, CNPJ:${cnpj}, Cep:${cep}, Num:${numero}, Contato:${telefone},`);
 
     try {
         const response = await fetch("/parceiro", {
@@ -21,11 +16,11 @@ form_parceiro.addEventListener("submit", async (event) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ nome, email, tipo, cnpj, area_atuacao, telefone, cep, numero })
+            body: JSON.stringify({ nome, email, tipo, cnpj, area_atuacao, telefone })
         });
         if (response.ok) {
-            alert('Parceiro cadastrado com sucesso!');
             form_parceiro.reset();
+            trocarDiv("adc-parceiro", "ver-parceiro");
             CarregarParceiros();
         } else {
             alert('Erro ao cadastrar parceiro. Tente novamente.');
@@ -33,7 +28,6 @@ form_parceiro.addEventListener("submit", async (event) => {
     }
     catch (error) {
         console.error('Erro na requisição:', error);
-        //alert('Erro ao conectar ao servidor.');
     }
 });
 
@@ -57,10 +51,12 @@ async function CarregarParceiros() {
                 linha.innerHTML = `<td>${parceiro.NOME}</td>
                                 <td>${parceiro.EMAIL}</td>
                                 <td>${parceiro.TELEFONE}</td>
+                                <td>${parceiro.TIPO}</td>
+                                <td>${parceiro.CNPJ}</td>
                                 <td>${parceiro.AREA_ATUACAO}</td>
                                 <td>
                                     <button type="button" onclick="ApagarParceiro(${parceiro.ID})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"></button>
-                                    <button type="button" onclick="EditarImovel(${parceiro.ID}), trocarDiv('ver-parceiro','editar-parceiro')" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
+                                    <button type="button" onclick="EditarParceiro(${parceiro.ID})" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
                                 </td>`;
                 tabela.appendChild(linha);
             });
@@ -101,37 +97,8 @@ async function ApagarParceiro(id) {
     }
 }
 
-async function EditarParceiro(idparceiro) {
-    try {
-        const response = await fetch("/parceiro", {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        if (response.ok) {
-            const parceiros = await response.json();
-            let parceiroCard = "";
-            for (let i = 0; i < parceiros.length; i++) {
-                parc = parceiros[i];
-                parceiroCard += `<option value="${parc.ID}">${parc.NOME}</option>`;
-            }
-            document.getElementById("edit-parceiros").innerHTML = parceiroCard;
-        }
-        else {
-            console.log('Erro ao carregar usuários. Tente novamente.');
-        }
-    }
-    catch (erro) {
-        console.error('Erro na requisição:', erro);
-        //alert('Erro ao conectar ao servidor.');
-    }
-};
-
-document.getElementById("form-escolha").addEventListener("submit", async (evt) => {
-    evt.preventDefault();
-    const id = document.getElementById("edit-parceiros").value;
-
+async function EditarParceiro(id) {
+    trocarDiv('ver-parceiro','editar-parceiro')
     try {
         const response = await fetch(`/parceiro/${id}`, {
             method: "GET",
@@ -141,25 +108,22 @@ document.getElementById("form-escolha").addEventListener("submit", async (evt) =
         })
         if (response.ok) {
             const parceiro = await response.json();
-
             document.getElementById("editnome").value = parceiro[0].NOME;
-            document.getElementById("editemail").value = parceiro[0].EMAIL;;
-            document.getElementById("edittipo").value = parceiro[0].TIPO;;
+            document.getElementById("editemail").value = parceiro[0].EMAIL;
+            document.getElementById("edittipo").value = parceiro[0].TIPO;
             document.getElementById("editatuacao").value = parceiro[0].AREA_ATUACAO;
             document.getElementById("editcnpj").value = parceiro[0].CNPJ;
-            document.getElementById("editcep").value = parceiro[0].CEP;
-            document.getElementById("editnumero").value = parceiro[0].NUMERO;
             document.getElementById("editcontato").value = parceiro[0].TELEFONE;
+            document.getElementById("idParc").value = parceiro[0].ID;
         }
         else {
-            console.log('Erro ao carregar parceiro. Tente novamente.');
+            console.log('Erro ao carregar usuário. Tente novamente.');
         }
     }
     catch (erro) {
         console.error('Erro na requisição:', erro);
-        //alert('Erro ao conectar ao servidor.');
     }
-})
+};
 
 document.getElementById("form-editparceiro").addEventListener("submit", async (evt) => {
     evt.preventDefault();
@@ -168,10 +132,8 @@ document.getElementById("form-editparceiro").addEventListener("submit", async (e
     const tipo = document.getElementById("edittipo").value;
     const area_atuacao = document.getElementById("editatuacao").value;
     const cnpj = document.getElementById("editcnpj").value;
-    const cep = document.getElementById("editcep").value;
-    const numero = document.getElementById("editnumero").value;
     const telefone = document.getElementById("editcontato").value;
-    const id = document.getElementById("edit-parceiros").value;
+    const id = document.getElementById("idParc").value;
 
     try {
         const response = await fetch(`/parceiro/${id}`, {
@@ -179,11 +141,12 @@ document.getElementById("form-editparceiro").addEventListener("submit", async (e
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ nome, email, tipo, cnpj, area_atuacao, telefone, cep, numero })
+            body: JSON.stringify({ nome, email, tipo, cnpj, area_atuacao, telefone})
         })
         if (response.ok) {
             document.getElementById("form-editparceiro").reset();
-            alert(`Parceiro ${nome} atualizado!`);
+            trocarDiv("editar-parceiro", "ver-parceiro");
+            CarregarParceiros();
         }
         else {
             console.log('Erro ao atualizar parceiro. Tente novamente.');
@@ -191,7 +154,6 @@ document.getElementById("form-editparceiro").addEventListener("submit", async (e
     }
     catch (erro) {
         console.error('Erro na requisição:', erro);
-        //alert('Erro ao conectar ao servidor.');
     }
 });
 function trocarDiv(div1, div2) {
