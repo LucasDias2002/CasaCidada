@@ -36,6 +36,9 @@
                 if (id === "doacoes") {
                     showSubSection("doacoes", "ver-doacoes"); // Voltar para a sub-seção padrão
                 }
+                if (id === "gastos") {
+                    showSubSection("gastos", "ver-gastos"); // Voltar para a sub-seção padrão
+                }
 
             }
 
@@ -304,7 +307,7 @@
                         <div class="table-wrapper">
                             <form id="doacaoform">
                                 <label for="valor">Valor:</label>
-                                <input type="number" id="valor" name="valor">
+                                <input type="text" id="valor" name="valor">
 
                                 <label for="data">Data:</label>
                                 <input type="date" id="data" name="data" required>
@@ -346,10 +349,13 @@
                     <div class="table-container">
                         <div class="table-header">
                             <h1>Gastos</h1>
-                            <button class="btn-add" onclick="abrirFormulario('adc-gasto')">+</button>
+                            <button class="btn-edit" onclick="trocarDiv('ver-gastos', 'adc-gasto')"
+                            id="adicionarDepoimento">
+                            <img src="./images/botao-adicionar.png" style="width: 30px">
+                        </button>
                         </div>
                         <div class="table-wrapper">
-                            <table id="tabela-gastos">
+                            <table>
                                 <thead>
                                     <tr>
                                         <th>Valor</th>
@@ -358,7 +364,7 @@
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="tabela-gastos">
                                     <!-- Os gastos serão listados aqui -->
                                 </tbody>
                             </table>
@@ -373,7 +379,7 @@
                         <div class="table-wrapper">
                             <form id="gastoform">
                                 <label for="valorgasto">Valor:</label>
-                                <input type="number" id="valorgasto" name="valorgasto">
+                                <input type="text" id="valorgasto" name="valorgasto">
 
                                 <label for="datagasto">Data:</label>
                                 <input type="date" id="datagasto" name="datagasto" required>
@@ -849,6 +855,7 @@
     <script src="js/user.js"></script>
     <script src="js/depoimento.js"></script>
     <script src="js/recebimento.js"></script>
+    <script src="js/gasto.js"></script>
 </body>
 
 

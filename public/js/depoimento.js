@@ -133,7 +133,6 @@ async function DeletarDepoimento(idDepoimento) {
                 }
             })
             if (resposta.ok) {
-                alert("Delete concluido");
                 CarregarDepoimento();
             } else {
                 alert("Erro ao deletar");

@@ -180,7 +180,6 @@ async function DeletarNoticia(idNoticia) {
                 }
             })
             if (resposta.ok) {
-                alert("Delete concluido");
                 CarregarNoticias();
             } else {
                 alert("Erro ao deletar");

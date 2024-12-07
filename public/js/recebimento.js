@@ -6,7 +6,7 @@ form_recebimento.addEventListener("submit", async (event) => {
     const valor = document.getElementById("valor").value;
     const data_recebimento = document.getElementById("data").value;
     const sigla = document.getElementById("sigla").value;
-    console.log(valor, data_recebimento, sigla)
+
     try {
         const response = await fetch("/recebimento", {
             method: "POST",
@@ -41,11 +41,12 @@ async function CarregarRecebimentos() {
         if (resposta.ok) {
             const recebimentos = await resposta.json();
             let str = "";
-            console.log(recebimentos)
+       
             for (let i = 0; i < recebimentos.length; i++) {
                 let recebimento = recebimentos[i];
-                str += `<tr><td>${recebimento.VALOR}</td>
-                                <td>${recebimento.DATA_RECEBIMENTO}</td>
+                let data = formatarData(recebimento.DATA_RECEBIMENTO);
+                str += `<tr><td>R$ ${recebimento.VALOR}</td>
+                                <td>${data}</td>
                                 <td>${recebimento.SIGLA_DOADOR}</td>
                                 <td>
                                     <button type="button" onclick="DeletarRecebimento(${recebimento.ID})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"></button>
@@ -67,7 +68,7 @@ if (window.getComputedStyle(document.getElementById('ver-doacoes')).display === 
 }
 
 async function DeletarRecebimento(idRecebimento) {
-    const conf = confirm("deseja deletar essa doação?");
+    const conf = confirm("Deseja deletar essa doação?");
     if (conf) {
         try {
 
@@ -78,13 +79,12 @@ async function DeletarRecebimento(idRecebimento) {
                 }
             })
             if (resposta.ok) {
-                alert("Doação deletada!")
                 CarregarRecebimentos();
             } else {
                 console.log("Erro ao deletar doação");
             }
         } catch (erro) {
-            console.error("erro ao deletar doação arquivo: " + erro);
+            console.error("erro ao deletar doação: " + erro);
         }
     }
 };
@@ -92,4 +92,18 @@ async function DeletarRecebimento(idRecebimento) {
 function trocarDiv(div1, div2) {
     document.getElementById(div1).style.display = "none";
     document.getElementById(div2).style.display = "block";
+}
+
+function formatarData(date) {
+    const data = new Date(date);
+
+    // Ajustar para o fuso horário do Brasil
+    const opcoes = {
+        timeZone: "America/Sao_Paulo",
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+    };
+
+    return new Intl.DateTimeFormat("pt-BR", opcoes).format(data);
 }

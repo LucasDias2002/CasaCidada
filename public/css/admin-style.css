@@ -169,7 +169,11 @@ html {
 #adc-assistido,
 #atualizar-assistido,
 #cadastrar-depoimento,
-#editar-depoimento
+#editar-depoimento,
+#ver-doacoes,
+#editar-doacao,
+#ver-gastos, 
+#adc-gasto
 {
   color: #333;
   margin: 0 auto;
