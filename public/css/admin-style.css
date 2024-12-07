@@ -164,6 +164,10 @@ html {
 #ver-noticias,
 #editar-noticia,
 #ver-usuarios,
+#ver-assistidos,
+#adc-assistido,
+#atualizar-assistido,
+#assistidos,
 #ver-depoimentos,
 #ver-assistidos,
 #adc-assistido,
@@ -221,7 +225,7 @@ html {
 
 /* Cabeçalho da tabela */
 .table-header {
-  background-color: rgba(213,182,240,255);
+  background-color: rgba(213, 182, 240, 255);
   color: white;
   text-align: center;
   padding: 15px;
@@ -236,7 +240,8 @@ table {
   border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
   padding: 12px 15px;
   text-align: left;
   border-bottom: 1px solid #ddd;
@@ -268,21 +273,23 @@ button.btn-danger:hover {
 /* Responsividade */
 @media (max-width: 768px) {
   .table-container {
-      width: 100%;
-      margin: 10px;
+    width: 100%;
+    margin: 10px;
   }
 
   table {
-      font-size: 14px;
+    font-size: 14px;
   }
 
-  th, td {
-      padding: 8px 10px;
+  th,
+  td {
+    padding: 8px 10px;
   }
 }
 
 /* Estilo para o botão de edição */
-.btn-edit, .btn-delete {
+.btn-edit,
+.btn-delete {
   background-color: white;
   border: none;
   padding: 10px 20px;
@@ -295,7 +302,8 @@ button.btn-danger:hover {
 .btn-edit:hover {
   background-color: #8863dd;
 }
-.btn-delete:hover{
+
+.btn-delete:hover {
   background-color: #d13333;
 }
 
@@ -303,7 +311,22 @@ button.btn-danger:hover {
   transform: scale(0.98);
 }
 
-.table-header{
+.table-header {
   display: flex;
   justify-content: space-between;
+}
+
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.input-box{
+  display: flex;
+  flex-direction: column;
+}
+.input-textarea{
+  width: 100%;
 }

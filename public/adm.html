@@ -456,45 +456,61 @@
                         </div>
                         <div class="table-wrapper">
                             <form id="imovelform">
-                                <label for="proprietario">Proprietário:</label>
-                                <input type="text" id="imovelproprietario" name="proprietario">
-
-                                <label for="endereco">Rua:</label>
-                                <input type="text" id="imovelendereco" name="endereco">
-
-                                <label for="numero">Número:</label>
-                                <input type="text" id="imovelnumero">
-
-                                <label for="bairro">Bairro:</label>
-                                <input type="text" id="imovelbairro">
-
-                                <label for="cep">CEP:</label>
-                                <input type="text" id="imovelcep" name="cep">
-
-                                <label for="complemento">Complemento:</label>
-                                <input type="text" id="imovelcomplemento" name="complemento">
-
-                                <label for="valor_aluguel">Valor do Aluguel:</label>
-                                <input type="number" id="valoraluguel">
-
-                                <label for="contato">Contato:</label>
-                                <input type="text" id="imovelcontato" name="contato">
-
-                                <label for="descricao">Descrição:</label>
-                                <textarea id="imoveldescricao" name="descricao"></textarea>
-
-                                <label for="datainicio">Inicio do Contrato</label>
-                                <input type="date" id="contratoinicio">
-
-                                <label for="datatermino">Fim do Contrato</label>
-                                <input type="date" id="contratofim">
-
-                                <label for="status">Status:</label>
-                                <select id="status" name="status">
-                                    <option value="Disponivel">Disponível</option>
-                                    <option value="Indisponivel">Indisponível</option>
-                                    <option value="Em_manutencao">Em Manutenção</option>
-                                </select>
+                                <div class="input-group">
+                                    <div class="input-box">
+                                        <label for="proprietario">Proprietário:</label>
+                                        <input type="text" id="imovelproprietario" name="proprietario">
+                                    </div>
+                                    <div class="input-box">
+                                        <label for="endereco">Rua:</label>
+                                        <input type="text" id="imovelendereco" name="endereco">
+                                    </div>
+                                    <div class="input-box">
+                                        <label for="numero">Número:</label>
+                                        <input type="text" id="imovelnumero">
+                                    </div>
+                                    <div class="input-box">
+                                        <label for="bairro">Bairro:</label>
+                                        <input type="text" id="imovelbairro">
+                                    </div>
+                                    <div class="input-box">
+                                        <label for="cep">CEP:</label>
+                                        <input type="text" id="imovelcep" name="cep">
+                                    </div>
+                                    <div class="input-box">
+                                        <label for="complemento">Complemento:</label>
+                                        <input type="text" id="imovelcomplemento" name="complemento">
+                                    </div>
+                                    
+                                    <div class="input-box">
+                                        <label for="contato">Contato:</label>
+                                        <input type="text" id="imovelcontato" name="contato">
+                                    </div>
+                                    <div class="input-box">
+                                        <label for="datainicio">Inicio do Contrato</label>
+                                        <input type="date" id="contratoinicio">
+                                    </div>
+                                    <div class="input-box">
+                                        <label for="datatermino">Fim do Contrato</label>
+                                        <input type="date" id="contratofim">
+                                    </div>
+                                    <div class="input-box">
+                                        <label for="valor_aluguel">Valor do Aluguel:</label>
+                                        <input type="number" id="valoraluguel">
+                                    </div>
+                                    <div class="input-box">
+                                        <label for="status">Status:</label>
+                                        <select id="status" name="status">
+                                            <option value="Disponivel">Disponível</option>
+                                            <option value="Indisponivel">Indisponível</option>
+                                            <option value="Em_manutencao">Em Manutenção</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-textarea">
+                                        <label for="descricao">Descrição:</label>
+                                        <textarea id="imoveldescricao" name="descricao"></textarea>
+                                    </div>
+                                </div>
                                 <button type="submit" class="admin-btn-publish">Cadastrar</button>
                             </form>
                         </div>
@@ -638,13 +654,15 @@
                             <table id="excluiassistidotabela">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Nome</th>
-                                        <th>Endereço</th>
-                                        <th>Excluir</th>
+                                        <th>CPF</th>
+                                        <th>Telefone</th>
+                                        <th>Data Nasc</th>
+                                        <th>Imovel</th>
+                                        <th>Ações</th>
                                     </tr>
                                 </thead>
-                                <tbody id="tabela-assistidos-excluir">
+                                <tbody id="tabela-assistidos">
                                     <!-- Dados preenchidos dinamicamente -->
                                 </tbody>
                             </table>
@@ -657,21 +675,23 @@
                             <h1>Adicionar um Assistido</h1>
                         </div>
                         <div class="table-wrapper">
-                            <form>
+                            <form id="cadastrar-assistido">
                                 <label for="nome">Nome:</label>
-                                <input type="text" id="nomeassistido" name="nome">
+                                <input type="text" id="assistido-nome" name="nome">
 
                                 <label for="cpf">CPF:</label>
-                                <input type="text" id="cpfassistido" name="cpf" required>
-
-                                <label for="nascimento">Data de Nascimento:</label>
-                                <input type="date" id="nascimentoassistido" name="nascimento" required>
+                                <input type="text" id="assistido-cpf" name="cpf" required>
 
                                 <label for="telefone">Telefone:</label>
-                                <input type="text" id="telefoneassistido" name="telefone" required>
+                                <input type="text" id="assistido-telefone" name="telefone" required>
+                                
+                                <label for="nascimento">Data de Nascimento:</label>
+                                <input type="date" id="assistido-data-nasc" name="nascimento" required>
 
-                                <label for="historia">História ou Necessidades:</label>
-                                <textarea id="historia" name="historiaassistido"></textarea>
+                                <label for="imoveis">Residências:</label>
+                                <select id="escolherimovel" name="imoveis">
+                                    <option value="">Selecione um imóvel</option>
+                                </select>
 
                                 <label for="upload">Foto:</label>
                                 <div class="admin-upload">
@@ -683,25 +703,39 @@
                         </div>
                     </div>
                 </div>
-                <div id="atualizar-assistido">
+                <div id="editar-assistido">
                     <div class="table-container">
                         <div class="table-header">
-                            <h1>Atualizar Assistido</h1>
+                            <h1>Editar Assistido</h1>
                         </div>
                         <div class="table-wrapper">
-                            <table id="assistidotabela">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Nome</th>
-                                        <th>Endereço</th>
-                                        <th>Editar</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tabela-assistidos">
-                                    <!-- Dados preenchidos dinamicamente -->
-                                </tbody>
-                            </table>
+                            <form id="editar-assistido">
+                                <input type="hidden" id="idAssistido" />
+                                <label for="nome">Nome:</label>
+                                <input type="text" id="editar-assistido-nome" name="nome">
+
+                                <label for="cpf">CPF:</label>
+                                <input type="text" id="editar-assistido-cpf" name="cpf" required>
+
+                                <label for="telefone">Telefone:</label>
+                                <input type="text" id="editar-assistido-telefone" name="telefone" required>
+                                
+                                <label for="nascimento">Data de Nascimento:</label>
+                                <input type="date" id="editar-assistido-data-nasc" name="nascimento" required>
+
+                                <label for="imoveis">Imoveis:</label>
+                                <select id="editar-escolherimovel" name="imoveis">
+                                    <option value="4">4</option>
+                                    <option value="1">1</option>
+                                </select>
+
+                                <label for="upload">Foto:</label>
+                                <div class="admin-upload">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/54/54565.png" alt="Upload">
+                                </div>
+
+                                <button type="submit" class="admin-btn-publish">Salvar Alteração</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -853,6 +887,7 @@
     <script src="js/cadastroimovel.js"></script>
     <script src="js/parceiro.js"></script>
     <script src="js/user.js"></script>
+    <script src="js/assistido.js"></script>
     <script src="js/depoimento.js"></script>
     <script src="js/recebimento.js"></script>
     <script src="js/gasto.js"></script>

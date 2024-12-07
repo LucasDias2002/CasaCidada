@@ -4,7 +4,8 @@ const rotas = require("../routers/usuario");
 const rotaImovel = require("../routers/imovel");
 const rotaDepoimento = require("../routers/depoimento");
 const rotaParceiro = require("../routers/parceiro");
-const noticiaRouter = require("../routers/noticias");
+const rotaNoticia = require("../routers/noticias");
+const rotaAssistido = require('../routers/assistido')
 const rotaRecebimento = require("../routers/recebimento");
 const rotaGasto = require("../routers/gasto");
 const authRouter = require("../routers/auth");
@@ -63,7 +64,8 @@ app.use('/depoimento', rotaDepoimento);
 app.use('/recebimento', rotaRecebimento);
 app.use('/gasto', rotaGasto);
 app.use('/parceiro', rotaParceiro);
-app.use('/noticia', noticiaRouter)
+app.use('/noticia', rotaNoticia);
+app.use('/assistido',rotaAssistido );
 app.use('/auth', authRouter);
 app.use(protectedRouter);
 

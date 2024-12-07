@@ -15,6 +15,20 @@ const ImovelModel = {
             })
         })
     },
+    ListarDisponiveis: async () => {
+        const sql = "SELECT * FROM IMOVEL WHERE status='disponivel';";
+
+        return new Promise((resolve, reject) => {
+            conexao.query(sql, (erro, resposta) => {
+                if (erro) {
+                    console.log(`Erro ao listar imoveis Disponiveis Model: ${erro}`);
+                    return reject(erro);
+                }
+                resolve(resposta);
+                console.log('Listando imóveis Disponiveis Model!')
+            })
+        })
+    },
     ListarPorID: async (id) => {
         const sql = "SELECT * FROM IMOVEL WHERE id= ?";
 
@@ -48,6 +62,20 @@ const ImovelModel = {
 
         return new Promise((resolve, reject) => {
             conexao.query(sql, [imovel.cep, imovel.endereco, imovel.bairro, imovel.complemento, imovel.num_residencia, imovel.nome_proprietario, imovel.telefone, imovel.valor_aluguel, imovel.descricao, imovel.data_inicio_contrato, imovel.data_termino_contrato, imovel.status,  id], (erro, resposta) => {
+                if (erro) {
+                    console.log(`Erro ao Atualizar Imovel Model: ${erro}`);
+                    return reject(erro);
+                }
+                resolve(resposta);
+                console.log(`Atualizando ímovel Model: ${id}`);
+            })
+        })
+    },
+    UpdateDisponibilidade: async (id) => {
+        const sql = "UPDATE IMOVEL SET status='Indisponivel' WHERE id=?;";
+
+        return new Promise((resolve, reject) => {
+            conexao.query(sql, [id], (erro, resposta) => {
                 if (erro) {
                     console.log(`Erro ao Atualizar Imovel Model: ${erro}`);
                     return reject(erro);
