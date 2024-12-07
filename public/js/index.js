@@ -26,4 +26,35 @@ document.addEventListener("DOMContentLoaded", async () => {
     } catch (erro) {
         console.error("erro ao buscar noticias: " + erro.message);
     }
+    try {
+        const resposta = await fetch('/depoimento', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        if (resposta.ok) {
+            const dep = await resposta.json();
+            if (dep.length == 0)
+                document.getElementById("depo").innerHTML = "<-- NÃO HÁ DEPOIMENTOS! -->";
+            else {
+                let str = "";
+                dep.reverse();
+                for (let i = 0; i < dep.length; i++) {
+                    depoimento = dep[i];
+                    str += `<div class="depoimento">
+                <p>★★★★★</p>
+                <blockquote>“${depoimento.DEPOIMENTO}”</blockquote>
+                <h5><i>— ${depoimento.NOME}</i></h5>
+            </div> `;
+                }
+                document.getElementById("depo").innerHTML = str;
+            }
+
+        } else {
+            alert("Erro buscar notícias");
+        }
+    } catch (erro) {
+        console.error("erro ao buscar noticias: " + erro.message);
+    }
 })
