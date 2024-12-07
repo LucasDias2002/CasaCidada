@@ -5,6 +5,7 @@ const rotaImovel = require("../routers/imovel");
 const rotaDepoimento = require("../routers/depoimento");
 const rotaParceiro = require("../routers/parceiro");
 const noticiaRouter = require("../routers/noticias");
+const rotaRecebimento = require("../routers/recebimento");
 const authRouter = require("../routers/auth");
 const protectedRouter = require("../routers/protected");
 const path = require("path");
@@ -58,6 +59,7 @@ app.get('/contato', (req, res) => {
 app.use('/usuarios', rotas);
 app.use('/imovel', rotaImovel);
 app.use('/depoimento', rotaDepoimento);
+app.use('/recebimento', rotaRecebimento);
 app.use('/parceiro', rotaParceiro);
 app.use('/noticia', noticiaRouter)
 app.use('/auth', authRouter);

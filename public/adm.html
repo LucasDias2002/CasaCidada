@@ -33,6 +33,9 @@
                 if (id === "usuarios") {
                     showSubSection("usuarios", "ver-usuarios"); // Voltar para a sub-seção padrão
                 }
+                if (id === "doacoes") {
+                    showSubSection("doacoes", "ver-doacoes"); // Voltar para a sub-seção padrão
+                }
 
             }
 
@@ -271,7 +274,10 @@
                     <div class="table-container">
                         <div class="table-header">
                             <h1>Doações</h1>
-                            <button class="btn-add" onclick="abrirFormulario('adc-doacao')">+</button>
+                            <button class="btn-edit" onclick="trocarDiv('ver-doacoes', 'adc-doacao')"
+                                id="adicionarNoticia">
+                                <img src="./images/botao-adicionar.png" style="width: 30px">
+                            </button>
                         </div>
                         <div class="table-wrapper">
                             <table id="tabela-doacoes">
@@ -283,7 +289,7 @@
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="tabela-recebimentos">
                                     <!-- As doações serão listadas aqui -->
                                 </tbody>
                             </table>
@@ -842,6 +848,7 @@
     <script src="js/parceiro.js"></script>
     <script src="js/user.js"></script>
     <script src="js/depoimento.js"></script>
+    <script src="js/recebimento.js"></script>
 </body>
 
 

@@ -17,7 +17,7 @@ form_noticia.addEventListener("submit", async (event) => {
         if (response.ok) {
             alert('Notícia adicionado com sucesso!');
             form_parceiro.reset();
-            trocarDiv('cadastrar-noticia','ver-noticias');
+            trocarDiv('cadastrar-noticia', 'ver-noticias');
             CarregarNoticias();
         } else {
             alert('Erro ao cadastrar notícia. Tente novamente.');
@@ -30,7 +30,7 @@ form_noticia.addEventListener("submit", async (event) => {
 })
 
 //Puxar imoveis para tabela
-async function CarregarNoticias(){
+async function CarregarNoticias() {
     try {
 
         const resposta = await fetch('/noticia', {
@@ -65,7 +65,7 @@ async function CarregarNoticias(){
     }
 };
 
-if(window.getComputedStyle(document.getElementById('ver-noticias')).display === 'block'){
+if (window.getComputedStyle(document.getElementById('ver-noticias')).display === 'block') {
     CarregarNoticias();
 }
 
@@ -109,8 +109,8 @@ async function BuscarCookie(name) {
 
 async function EditarNoticia(idNoticia) {
     //funcão para alterar visibilidade passando duas divs, da 1° para a segunda 2°
-    document.getElementById('ver-noticias').style.display= "none";
-    document.getElementById('editar-noticia').style.display= "block";
+    document.getElementById('ver-noticias').style.display = "none";
+    document.getElementById('editar-noticia').style.display = "block";
 
     console.log(idNoticia)
     try {
@@ -124,7 +124,7 @@ async function EditarNoticia(idNoticia) {
 
         if (resposta.ok) {
             const noticia = await resposta.json();
-            
+
             document.getElementById("id-noticia").value = noticia.ID;
             document.getElementById('editar-titulo-noticia').value = noticia.TITULO;
             document.getElementById('editar-conteudo-noticia').value = noticia.DESCRICAO;
@@ -155,7 +155,7 @@ document.getElementById("editar-noticia-form").addEventListener("submit", async 
         })
         if (response.ok) {
             document.getElementById("editar-noticia-form").reset();
-            trocarDiv('editar-noticia','ver-noticias');
+            trocarDiv('editar-noticia', 'ver-noticias');
             CarregarNoticias();
         }
         else {
@@ -169,26 +169,29 @@ document.getElementById("editar-noticia-form").addEventListener("submit", async 
 });
 
 async function DeletarNoticia(idNoticia) {
-    try {
+    const conf = confirm("Deseja deletar essa notícia?");
+    if (conf) {
+        try {
 
-        const resposta = await fetch(`/noticia/${idNoticia}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
+            const resposta = await fetch(`/noticia/${idNoticia}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            if (resposta.ok) {
+                alert("Delete concluido");
+                CarregarNoticias();
+            } else {
+                alert("Erro ao deletar");
             }
-        })
-        if (resposta.ok) {
-            alert("Delete concluido");
-            CarregarNoticias();
-        } else {
-            alert("Erro ao deletar");
+        } catch (erro) {
+            console.error("erro ao deletar imovel arquivo 'cadatroimovel.js': " + erro);
         }
-    } catch (erro) {
-        console.error("erro ao deletar imovel arquivo 'cadatroimovel.js': " + erro);
     }
 };
 
 function trocarDiv(div1, div2) {
-    document.getElementById(div1).style.display= "none";
-    document.getElementById(div2).style.display= "block";
+    document.getElementById(div1).style.display = "none";
+    document.getElementById(div2).style.display = "block";
 }

@@ -169,7 +169,8 @@ html {
 #adc-assistido,
 #atualizar-assistido,
 #cadastrar-depoimento,
-#editar-depoimento{
+#editar-depoimento
+{
   color: #333;
   margin: 0 auto;
   background-color: #f5f5f5;

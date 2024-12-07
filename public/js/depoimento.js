@@ -123,22 +123,24 @@ document.getElementById("editar-depoimento-form").addEventListener("submit", asy
 });
 
 async function DeletarDepoimento(idDepoimento) {
-    try {
-
-        const resposta = await fetch(`/depoimento/${idDepoimento}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
+    const conf = confirm("Deseja deletar esse depoimento?");
+    if (conf) {
+        try {
+            const resposta = await fetch(`/depoimento/${idDepoimento}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            if (resposta.ok) {
+                alert("Delete concluido");
+                CarregarDepoimento();
+            } else {
+                alert("Erro ao deletar");
             }
-        })
-        if (resposta.ok) {
-            alert("Delete concluido");
-            CarregarDepoimento();
-        } else {
-            alert("Erro ao deletar");
+        } catch (erro) {
+            console.error("erro ao deletar imovel arquivo 'cadatroimovel.js': " + erro);
         }
-    } catch (erro) {
-        console.error("erro ao deletar imovel arquivo 'cadatroimovel.js': " + erro);
     }
 };
 
