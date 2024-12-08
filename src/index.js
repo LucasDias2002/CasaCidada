@@ -1,6 +1,7 @@
 const express = require("express");
 const cookieParser = require('cookie-parser');
 const fileupload = require('express-fileupload');
+const path = require("path");
 const rotas = require("../routers/usuario");
 const rotaImovel = require("../routers/imovel");
 const rotaDepoimento = require("../routers/depoimento");
@@ -11,7 +12,6 @@ const rotaRecebimento = require("../routers/recebimento");
 const rotaGasto = require("../routers/gasto");
 const authRouter = require("../routers/auth");
 const protectedRouter = require("../routers/protected");
-const path = require("path");
 const app =  express();
 app.use(fileupload());
 app.use(cookieParser());

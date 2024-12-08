@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             noticias.forEach(noticia => {
                 card.innerHTML += `<div class="noticia">
+                <td><img src="/images/noticias/${noticia.TITULO}.png" style="width: 100%; height: 35.25vw" alt=""></td>
                                     <h3>${noticia.TITULO}</h3>
                                     <p>${noticia.DESCRICAO}</p>
                                   </div>`;

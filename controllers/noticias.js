@@ -1,4 +1,5 @@
 const NoticiasModel = require('../models/noticias');
+const path = require('path');
 
 const ControlNoticias = {
     Listar: async (req, res) => {
@@ -11,6 +12,17 @@ const ControlNoticias = {
     },
     Inserir: async (req, res) => {
         try {
+            if (!req.files || !req.files.imagem) {
+                return res.status(400).json({ erro: "Imagem não enviada." });
+            }
+            const imagem = req.files.imagem;
+            imagem.name = `${req.body.titulo}.png`;
+
+            const diretorioImagens = path.resolve(__dirname, '../public/images/noticias');
+            const uploadImagem = path.join(diretorioImagens, imagem.name);
+            
+            await imagem.mv(uploadImagem);
+
             const noticia = await NoticiasModel.Inserir(req.body);
             console.log(req.body);
             res.json(noticia);

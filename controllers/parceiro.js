@@ -1,6 +1,5 @@
 const ParceiroModel = require("../models/parceiro");
 const path = require('path');
-const fs = require('fs');
 
 const ControlParceiro = {
     listar: async (req, res) => {
