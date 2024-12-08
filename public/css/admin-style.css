@@ -160,6 +160,10 @@ html {
   cursor: pointer;
 }
 
+input[type="file"]{
+  display: none;
+}
+
 .welcome-message,
 #adc-doacao,
 #ver-doacoes,

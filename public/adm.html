@@ -789,7 +789,7 @@
                             <h1>Adicionar um Parceiro</h1>
                         </div>
                         <div class="table-wrapper">
-                            <form id="form-parceiro">
+                            <form id="form-parceiro" method="post" enctype="multipart/form-data">
                                 <label for="parcnome">Nome do Parceiro:</label>
                                 <input type="text" id="parcnome" name="nome">
 
@@ -811,10 +811,14 @@
                                 <label for="contato">Contato:</label>
                                 <input type="text" id="contato" name="contato">
 
-                                <label for="upload">Logo ou Foto:</label>
-                                <div class="admin-upload">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/54/54565.png" alt="Upload">
-                                </div>
+                                <label for="upload">Logo ou Foto:
+                                    <br>
+                                    <div class="admin-upload">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/54/54565.png" alt="Upload">                                    
+                                    </div>
+                                </label>
+                                <input type="file" id="upload" name="imagem" accept=".png,.jpeg,.jpg,.gif,.bmp,.svg">
+                                
 
                                 <button type="submit" class="admin-btn-publish">Adicionar Parceiro</button>
                             </form>

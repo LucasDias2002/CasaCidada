@@ -1,5 +1,6 @@
 const express = require("express");
 const cookieParser = require('cookie-parser');
+const fileupload = require('express-fileupload');
 const rotas = require("../routers/usuario");
 const rotaImovel = require("../routers/imovel");
 const rotaDepoimento = require("../routers/depoimento");
@@ -10,7 +11,6 @@ const rotaRecebimento = require("../routers/recebimento");
 const rotaGasto = require("../routers/gasto");
 const authRouter = require("../routers/auth");
 const protectedRouter = require("../routers/protected");
-const fileupload = require('express-fileupload');
 const path = require("path");
 const app =  express();
 app.use(fileupload());
@@ -33,6 +33,9 @@ app.get('/cadastro', (req, res) => {
 });
 app.get('/adm', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'adm.html'));
+});
+app.post('/adm', (req, res) => {
+  req.files.imagem.mv(__dirname, '../public/imagens/uploads/parceiros/' + req.files.imagem.name);
 });
 app.get('/quemsomos', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'quemsomos.html'));
