@@ -1,5 +1,6 @@
 const ParceiroModel = require("../models/parceiro");
 const path = require('path');
+const fs = require('fs');
 
 const ControlParceiro = {
     listar: async (req, res) => {
@@ -51,13 +52,32 @@ const ControlParceiro = {
     Delete: async (req, res) => {
         const id = req.params.id;
         try {
+
+            const parceiro = await ParceiroModel.ListarPorID(id);
+
+    
+            if (!parceiro || !parceiro[0].NOME) {
+                return res.status(404).json({ erro: "parceiro não encontrado ou nome não disponível." });
+            }
+    
+            const diretorioImagens = path.resolve(__dirname, '../public/images/parceiros');
+    
+            const caminhoImagem = path.join(diretorioImagens, `${parceiro[0].NOME}.png`);
+    
+            if (fs.existsSync(caminhoImagem)) {
+                await fs.promises.unlink(caminhoImagem);
+                console.log(`Imagem ${parceiro[0].NOME}.png deletada com sucesso.`);
+            } else {
+                console.log("Imagem não encontrada, prosseguindo com a exclusão do registro.");
+            }
+
             const resultado = await ParceiroModel.Delete(id);
             if (resultado.affectedRows > 0) {
                 res.status(200).json({ message: `Parceiro com ID ${id} excluído com sucesso.` });
             } else {
                 res.status(404).json({ message: "Parceiro não encontrado." });
             }
-        } catch (erro) { res.status(400).json({ erro: "Erro ao inserir parceiro Controler" }) }
+        } catch (erro) { res.status(500).json({ erro: "Erro ao inserir parceiro Controler" }) }
     }
 }
 

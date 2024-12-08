@@ -1,5 +1,6 @@
 const NoticiasModel = require('../models/noticias');
 const path = require('path');
+const fs = require('fs');
 
 const ControlNoticias = {
     Listar: async (req, res) => {
@@ -59,6 +60,25 @@ const ControlNoticias = {
         const id = req.params.id;
 
         try {
+            const noticia = await NoticiasModel.ListarPorID(id);
+            console.log(noticia)
+
+            if (!noticia || !noticia.TITULO) {
+                return res.status(404).json({ erro: "noticia não encontrado ou nome não disponível." });
+            }
+    
+            const diretorioImagens = path.resolve(__dirname, '../public/images/noticias');
+    
+            const caminhoImagem = path.join(diretorioImagens, `${noticia.TITULO}.png`);
+    
+            if (fs.existsSync(caminhoImagem)) {
+                await fs.promises.unlink(caminhoImagem);
+                console.log(`Imagem ${noticia.TITULO}.png deletada com sucesso.`);
+            } else {
+                console.log("Imagem não encontrada, prosseguindo com a exclusão do registro.");
+            }
+
+
             const imovel = await NoticiasModel.Delete(id);
 
             if (imovel.affectedRows > 0) {
