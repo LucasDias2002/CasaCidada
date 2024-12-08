@@ -24,7 +24,7 @@ form_parceiro.addEventListener("submit", async (event) => {
     try {
         const response = await fetch("/parceiro", {
             method: "POST",
-            body: formData,  // Enviando o FormData, sem o cabeçalho 'Content-Type'
+            body: formData // Enviando o FormData, sem o cabeçalho 'Content-Type'
         });
 
         if (response.ok) {

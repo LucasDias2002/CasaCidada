@@ -5,14 +5,19 @@ form_noticia.addEventListener("submit", async (event) => {
 
     const titulo = document.getElementById("titulo-noticia").value;
     const descricao = document.getElementById("conteudo-noticia").value;
+    const imagem = document.getElementById("upload-noticia").files[0];
+    
     const id_usuario = await PuxarId();
+    const formData = new FormData();
+    formData.append("titulo", titulo);
+    formData.append("descricao", descricao);
+    formData.append("id_usuario", id_usuario);
+
+    formData.append("imagem", imagem);
     try {
         const response = await fetch("/noticia", {
             method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ id_usuario, titulo, descricao })
+            body: formData
         });
         if (response.ok) {
             alert('Notícia adicionado com sucesso!');
@@ -48,7 +53,8 @@ async function CarregarNoticias() {
                 let data = formatarData(noticia.DATA_PUBLICACAO)
                 const linha = document.createElement('tr');
 
-                linha.innerHTML = `<td>${noticia.TITULO}</td>
+                linha.innerHTML = `
+                <td><img src="/images/noticias/${noticia.TITULO}.png" style="width: 6.771vw; border-radius: 5.208vw; height: 6.771vw" alt=""></td><td>${noticia.TITULO}</td>
                                 <td>${noticia.DESCRICAO}</td>
                                 <td>${data}</td>
                                 <td>

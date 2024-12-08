@@ -107,12 +107,13 @@
                     <a href="#" id="btn-voluntarios">Voluntários</a>
                 </div>
                 <div>
-                    <a onclick="window.location.href='/'" style="color: white; border: none; border-radius: 5px; font-size: 1.563vw;">
+                    <a onclick="window.location.href='/'"
+                        style="color: white; border: none; border-radius: 5px; font-size: 1.563vw;">
                         <i class="bi bi-arrow-left"></i>
                     </a>
                 </div>
             </div>
-            
+
             <br><br>
         </aside>
 
@@ -228,6 +229,7 @@
                             <table id="noticiastabela">
                                 <thead>
                                     <tr>
+                                        <th>Banner</th>
                                         <th>Título</th>
                                         <th>Conteúdo</th>
                                         <th>Data</th>
@@ -247,15 +249,20 @@
                             <h1>Cadastrar Notícia</h1>
                         </div>
                         <div class="table-wrapper">
-                            <form id="noticiaform">
+                            <form id="noticiaform" method="post" enctype="multipart/form-data">
                                 <label for="titulo-noticia">Título:</label>
                                 <input type="text" id="titulo-noticia" name="titulo">
 
                                 <label for="conteudo-noticia">Conteúdo:</label>
                                 <textarea id="conteudo-noticia" name="conteudo"></textarea>
 
-                                <label for="imagem-noticia">Imagem:</label>
-                                <input type="file" id="imagem-noticia" name="imagem">
+                                <label for="upload-noticia">
+                                    <div class="admin-upload">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/54/54565.png" alt="Upload">
+                                    </div>
+                                </label>
+                                <input type="file" id="upload-noticia" name="imagem"
+                                    accept=".png,.jpeg,.jpg,.gif,.bmp,.svg" required>
 
                                 <button type="submit" class="admin-btn-publish">Cadastrar</button>
                             </form>
@@ -343,16 +350,16 @@
                         <div class="table-wrapper">
                             <form id="form-editar-doacao">
                                 <input type="hidden" id="idDoacao" />
-                
+
                                 <label for="editar-valor-doacao">Valor:</label>
                                 <input type="number" id="editar-valor-doacao" name="valor" required>
-                
+
                                 <label for="editar-data-doacao">Data:</label>
                                 <input type="date" id="editar-data-doacao" name="data" required>
-                
+
                                 <label for="editar-doador-doacao">Doador:</label>
                                 <input type="text" id="editar-doador-doacao" name="doador" required>
-                
+
                                 <button type="submit" class="admin-btn-publish">Salvar</button>
                             </form>
                         </div>
@@ -365,9 +372,9 @@
                         <div class="table-header">
                             <h1>Gastos</h1>
                             <button class="btn-edit" onclick="trocarDiv('ver-gastos', 'adc-gasto')"
-                            id="adicionarDepoimento">
-                            <img src="./images/botao-adicionar.png" style="width: 30px">
-                        </button>
+                                id="adicionarDepoimento">
+                                <img src="./images/botao-adicionar.png" style="width: 30px">
+                            </button>
                         </div>
                         <div class="table-wrapper">
                             <table>
@@ -415,16 +422,16 @@
                         <div class="table-wrapper">
                             <form id="form-editar-gasto">
                                 <input type="hidden" id="idGasto" />
-                
+
                                 <label for="editar-valor-gasto">Valor:</label>
                                 <input type="number" id="editar-valor-gasto" name="valor" required>
-                
+
                                 <label for="editar-data-gasto">Data:</label>
                                 <input type="date" id="editar-data-gasto" name="data" required>
-                
+
                                 <label for="editar-descricao-gasto">Descrição:</label>
                                 <textarea id="editar-descricao-gasto" name="descricao" required></textarea>
-                
+
                                 <button type="submit" class="admin-btn-publish">Salvar</button>
                             </form>
                         </div>
@@ -496,7 +503,7 @@
                                         <label for="complemento">Complemento:</label>
                                         <input type="text" id="imovelcomplemento" name="complemento">
                                     </div>
-                                    
+
                                     <div class="input-box">
                                         <label for="contato">Contato:</label>
                                         <input type="text" id="imovelcontato" name="contato">
@@ -638,16 +645,16 @@
                         <div class="table-wrapper">
                             <form id="form-editar-relatorio">
                                 <input type="hidden" id="idRelatorio" />
-                
+
                                 <label for="editar-data-inicio-relatorio">Data de Início:</label>
                                 <input type="date" id="editar-data-inicio-relatorio" name="inicio" required>
-                
+
                                 <label for="editar-data-fim-relatorio">Data de Fim:</label>
                                 <input type="date" id="editar-data-fim-relatorio" name="fim" required>
-                
+
                                 <label for="editar-observacoes-relatorio">Observações:</label>
                                 <textarea id="editar-observacoes-relatorio" name="observacoes"></textarea>
-                
+
                                 <button type="submit" class="admin-btn-publish">Salvar</button>
                             </form>
                         </div>
@@ -700,7 +707,7 @@
 
                                 <label for="telefone">Telefone:</label>
                                 <input type="text" id="assistido-telefone" name="telefone" required>
-                                
+
                                 <label for="nascimento">Data de Nascimento:</label>
                                 <input type="date" id="assistido-data-nasc" name="nascimento" required>
 
@@ -737,7 +744,7 @@
 
                                 <label for="telefone">Telefone:</label>
                                 <input type="text" id="editar-assistido-telefone" name="telefone" required>
-                                
+
                                 <label for="nascimento">Data de Nascimento:</label>
                                 <input type="date" id="editar-assistido-data-nasc" name="nascimento" required>
 
@@ -818,11 +825,11 @@
                                 <label for="upload">Logo ou Foto:
                                     <br>
                                     <div class="admin-upload">
-                                        <img src="https://cdn-icons-png.flaticon.com/512/54/54565.png" alt="Upload">                                    
+                                        <img src="https://cdn-icons-png.flaticon.com/512/54/54565.png" alt="Upload">
                                     </div>
                                 </label>
                                 <input type="file" id="upload" name="imagem" accept=".png,.jpeg,.jpg,.gif,.bmp,.svg">
-                                
+
 
                                 <button type="submit" class="admin-btn-publish">Adicionar Parceiro</button>
                             </form>
