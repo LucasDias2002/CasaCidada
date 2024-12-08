@@ -9,15 +9,24 @@ form_parceiro.addEventListener("submit", async (event) => {
     const cnpj = document.getElementById("cnpj").value;
     const area_atuacao = document.getElementById("atuacao").value;
     const telefone = document.getElementById("contato").value;
+    const imagem = document.getElementById("upload").files[0];  // Pegando o arquivo de imagem
+
+    // Criar um FormData para enviar dados do formulário e o arquivo
+    const formData = new FormData();
+    formData.append("nome", nome);
+    formData.append("email", email);
+    formData.append("tipo", tipo);
+    formData.append("cnpj", cnpj);
+    formData.append("area_atuacao", area_atuacao);
+    formData.append("telefone", telefone);
+    formData.append("imagem", imagem);  // Adicionando o arquivo de imagem
 
     try {
         const response = await fetch("/parceiro", {
             method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ nome, email, tipo, cnpj, area_atuacao, telefone })
+            body: formData,  // Enviando o FormData, sem o cabeçalho 'Content-Type'
         });
+
         if (response.ok) {
             form_parceiro.reset();
             trocarDiv("adc-parceiro", "ver-parceiro");
@@ -25,8 +34,7 @@ form_parceiro.addEventListener("submit", async (event) => {
         } else {
             alert('Erro ao cadastrar parceiro. Tente novamente.');
         }
-    }
-    catch (error) {
+    } catch (error) {
         console.error('Erro na requisição:', error);
     }
 });
@@ -48,16 +56,17 @@ async function CarregarParceiros() {
             parceiros.forEach(parceiro => {
                 const linha = document.createElement('tr');
 
-                linha.innerHTML = `<td>${parceiro.NOME}</td>
-                                <td>${parceiro.EMAIL}</td>
-                                <td>${parceiro.TELEFONE}</td>
-                                <td>${parceiro.TIPO}</td>
-                                <td>${parceiro.CNPJ}</td>
-                                <td>${parceiro.AREA_ATUACAO}</td>
-                                <td>
-                                    <button type="button" onclick="ApagarParceiro(${parceiro.ID})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"></button>
-                                    <button type="button" onclick="EditarParceiro(${parceiro.ID})" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
-                                </td>`;
+                linha.innerHTML = `<td><img src="/images/parceiros/${parceiro.NOME}.png" style="width: 6.771vw; border-radius: 5.208vw; height: 6.771vw" alt=""></td>
+                                    <td>${parceiro.NOME}</td>
+                                    <td>${parceiro.EMAIL}</td>
+                                    <td>${parceiro.TELEFONE}</td>
+                                    <td>${parceiro.TIPO}</td>
+                                    <td>${parceiro.CNPJ}</td>
+                                    <td>${parceiro.AREA_ATUACAO}</td>
+                                    <td>
+                                        <button type="button" onclick="ApagarParceiro(${parceiro.ID})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"></button>
+                                        <button type="button" onclick="EditarParceiro(${parceiro.ID})" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
+                                    </td>`;
                 tabela.appendChild(linha);
             });
         }

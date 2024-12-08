@@ -16,8 +16,6 @@ cadastrarAssistido.addEventListener('submit', async (event) => {
     let dia = String(dataAtual.getDate()).padStart(2, '0');
     const data_cadastro = `${ano}-${mes}-${dia}`;
 
-    console.log(id_imovel);
-
     let body = {};
     if (id_imovel == -1)
         body = { nome, cpf, telefone, data_nasc, data_cadastro }
@@ -85,7 +83,7 @@ async function CarregarAssistidos() {
             tabela.innerHTML = '';
             assistidos.forEach(assistido => {
                 const linha = document.createElement('tr');
-                console.log(assistido)
+            
                 //Formatar as datas
                 const data = new Date(assistido.DATA_NASC);
                 const dia = String(data.getDate()).padStart(2, '0');
@@ -206,7 +204,6 @@ async function EditarAssistido(id_assistido) {
     //funcão para alterar visibilidade passando duas divs, da 1° para a segunda 2°
     trocarDiv('ver-assistidos', 'editar-assistido');
 
-    console.log(id_assistido)
     try {
 
         const resposta = await fetch(`/assistido/${id_assistido}`, {
@@ -215,10 +212,9 @@ async function EditarAssistido(id_assistido) {
                 'Content-Type': 'application/json'
             }
         })
-        //console.log(resposta)
+
         if (resposta.ok) {
             const assistido = await resposta.json();
-            console.log(assistido.ID)
 
             //Formatar as datas
             const data_nasc = new Date(assistido.DATA_NASC);

@@ -34,9 +34,10 @@ app.get('/cadastro', (req, res) => {
 app.get('/adm', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'adm.html'));
 });
+/*
 app.post('/adm', (req, res) => {
   req.files.imagem.mv(__dirname, '../public/imagens/uploads/parceiros/' + req.files.imagem.name);
-});
+});*/
 app.get('/quemsomos', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'quemsomos.html'));
 });

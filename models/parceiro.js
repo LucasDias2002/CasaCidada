@@ -39,7 +39,6 @@ const ParceiroModel = {
                     return reject(erro);
                 }
                 resolve(resposta);
-                console.log("Inserindo parceiro Model " + resposta.InsertId);
             })
         })
     },
