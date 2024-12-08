@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 /* Estilos Gerais */
 html {
     width: 100%;
     height: 100%;
+    font-family: 'inter', 'sans-serif';
+    font-size: 22px;
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
     color: #333;
     background-color: #ffffff;
     display: flex;
@@ -30,7 +33,7 @@ section p, article p {
 }
 
 footer {
-    font-size: 10px;
+    font-size: 15px;
     margin-top: 10px;
     text-align: center;
 }
@@ -38,8 +41,8 @@ footer {
 /* Tipografia */
 h2 {
     color: #a30336; 
-    font-size: 20px;
-    border-bottom: 2px solid #a30336;
+    font-size: 45px;
+    border-bottom: 2px solid #e0e0e0;
     padding-bottom: 20px;
 }
 
@@ -98,6 +101,7 @@ main li {
     text-align: left;
     border-radius: 5px;
     transition: background-color 0.3s;
+    font-size: 18px;
 }
 
 #cabeçalho .menusuperior li a.branco {
@@ -121,7 +125,6 @@ main li {
 
 #cabeçalho .cadastrologin a {
     margin: 5px;
-    font-size: 11px;
     color: white;
     text-decoration: none;
     padding: 5px 10px;
@@ -142,7 +145,6 @@ main li {
     width: 250px;
     text-align: center;
     padding: 10px;
-    font-size: 16px;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.5s;
@@ -208,7 +210,6 @@ main li {
 
 .depoimento p {
     text-align: center;
-    font-size: 30px;
     color: #ffd700;
     margin: 5px;
 }
@@ -261,14 +262,12 @@ margin-right: 20px;
     background: rgba(0, 0, 0, 0.4);
     color: #fff;
     text-align: center;
-    font-size: 16px;
 }
 
 .caption h5 {
     margin: 0;
     padding: 10px;
     padding-right: 30px;
-    font-size: 14px;
     font-weight: bold;
 }
 
@@ -295,12 +294,11 @@ margin-right: 20px;
 
 .transferencia .label, .pix .label {
     color: #50368b;
-    font-size: 20px;
     font-weight: bold;
 }
 
 .transferencia .detalhes, .pix .detalhes {
-    font-size: 18px;
+
     color: #333;
 }
 
@@ -345,7 +343,6 @@ margin-right: 20px;
 
 .label {
     color: #a30336;
-    font-size: 22px;
     font-weight: bold;
 }
 
@@ -385,20 +382,17 @@ margin-right: 20px;
 
 /* Títulos das seções */
 .contato h2 {
-    font-size: 28px;
     color: #a30336; /* Cor do título */
     font-weight: bold;
     margin-bottom: 15px;
 }
 
 .contato p {
-    font-size: 18px;
     color: #333;
     margin-bottom: 10px;
 }
 
 .informacoes-contato p, .horario-atendimento p {
-    font-size: 18px;
     color: #333;
     margin-top: 10px;
 }
@@ -409,7 +403,6 @@ margin-right: 20px;
 }
 
 .redes-sociais h3 {
-    font-size: 22px;
     color: #50368b; /* Cor do título de redes sociais */
     font-weight: bold;
     margin-top: 20px;
@@ -426,7 +419,6 @@ margin-right: 20px;
 
 .social-link {
     text-decoration: none;
-    font-size: 18px;
     color: #50368b;
     transition: transform 0.3s ease, color 0.3s ease;
 }
