@@ -669,6 +669,7 @@
                             <table id="excluiassistidotabela">
                                 <thead>
                                     <tr>
+                                        <th>Perfil</th>
                                         <th>Nome</th>
                                         <th>CPF</th>
                                         <th>Telefone</th>
@@ -708,10 +709,12 @@
                                     <option value="">Selecione um imóvel</option>
                                 </select>
 
-                                <label for="upload">Foto:</label>
-                                <div class="admin-upload">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/54/54565.png" alt="Upload">
-                                </div>
+                                <label for="uploadAssistido">Logo ou Foto:
+                                    <div class="admin-upload">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/54/54565.png" alt="Upload">                                    
+                                    </div>
+                                </label>
+                                <input type="file" id="uploadAssistido" name="imagem" accept=".png,.jpeg,.jpg,.gif,.bmp,.svg">    
 
                                 <button type="submit" class="admin-btn-publish">Adicionar Assistido</button>
                             </form>

@@ -3,12 +3,12 @@ const cadastrarAssistido = document.getElementById('cadastrar-assistido');
 cadastrarAssistido.addEventListener('submit', async (event) => {
     event.preventDefault();//Parar e reiniciar um saco;
 
-    //Puxei de acordo com a ordem do banco de dados
     const nome = document.getElementById('assistido-nome').value;
     const cpf = document.getElementById('assistido-cpf').value;
     const data_nasc = document.getElementById('assistido-data-nasc').value;
     const telefone = document.getElementById('assistido-telefone').value;
     const id_imovel = document.getElementById('escolherimovel').value;
+    const imagemAssistido = document.getElementById("uploadAssistido").files[0]; //isso e pra pegar as image tlgd
     //Puxar a data de cadastro
     const dataAtual = new Date();
     let ano = dataAtual.getFullYear();
@@ -16,19 +16,23 @@ cadastrarAssistido.addEventListener('submit', async (event) => {
     let dia = String(dataAtual.getDate()).padStart(2, '0');
     const data_cadastro = `${ano}-${mes}-${dia}`;
 
-    let body = {};
-    if (id_imovel == -1)
-        body = { nome, cpf, telefone, data_nasc, data_cadastro }
-    else
-        body = { nome, cpf, telefone, data_nasc, data_cadastro, id_imovel }
 
+    //Isso é usado pra juntar os arquivos
+    const formData = new FormData();
+    const preencherFormData = () => {
+        formData.append("nome", nome);
+        formData.append("cpf", cpf);
+        formData.append("data_nasc", data_nasc);
+        formData.append("telefone", telefone);
+        formData.append("data_cadastro", data_cadastro);
+        if (id_imovel != -1) formData.append("id_imovel", id_imovel);//Caso o Carlos nao quiser colocar um imovel relacionado ao assistido
+        formData.append("imagem", imagemAssistido);
+    };
+    preencherFormData();
     try {
         const resposta = await fetch('/assistido', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(body)
+            body: formData
         })
 
         if (resposta.ok) {
@@ -83,7 +87,7 @@ async function CarregarAssistidos() {
             tabela.innerHTML = '';
             assistidos.forEach(assistido => {
                 const linha = document.createElement('tr');
-            
+
                 //Formatar as datas
                 const data = new Date(assistido.DATA_NASC);
                 const dia = String(data.getDate()).padStart(2, '0');
@@ -92,7 +96,8 @@ async function CarregarAssistidos() {
                 const DATA_NASC = `${dia}/${mes}/${ano}`;
 
                 linha.innerHTML = `
-                    <td>${assistido.NOME}</td>
+                        <td><img src="/images/fotosAssistidos/${assistido.NOME}.png" style="width: 6.771vw; border-radius: 5.208vw; height: 6.771vw" alt=""></td>
+                        <td>${assistido.NOME}</td>
                         <td>${assistido.CPF}</td>
                         <td>${assistido.TELEFONE}</td>
                         <td>${DATA_NASC}</td>
