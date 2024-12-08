@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrador - Casa Cidadã</title>
     <link rel="stylesheet" href="css/admin-style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const mainSections = document.querySelectorAll("main > div");
@@ -38,6 +39,9 @@
                 }
                 if (id === "gastos") {
                     showSubSection("gastos", "ver-gastos"); // Voltar para a sub-seção padrão
+                }
+                if (id === "relatorios") {
+                    showSubSection("relatorios", "ver-relatorios"); // Voltar para a sub-seção padrão
                 }
 
             }
@@ -76,35 +80,46 @@
         <!-- Barra Lateral -->
         <aside class="admin-sidebar">
             <div class="logo">
-                <img id="logo" src="images/logo1.png" alt="Casa Cidadã">
+                <img id="logo" src="images/logo2.png" alt="Casa Cidadã">
             </div>
 
-            <h2>Página Inicial</h2>
-            <a href="#" id="btn-depoimentos">Depoimentos</a>
-            <a href="#" id="btn-noticias">Notícias</a>
-
-            <h2>Gestão</h2>
-            <a href="#" id="btn-doacoes">Doações</a>
-            <a href="#" id="btn-gastos">Gastos</a>
-            <a href="#" id="btn-imoveis">Imóveis</a>
-            <a href="#" id="btn-relatorios">Relatórios</a>
-
-            <h2>Pessoas</h2>
-            <a href="#" id="btn-assistidos">Assistidos</a>
-            <a href="#" id="btn-parceiros">Parceiros</a>
-            <a href="#" id="btn-usuarios">Usuários</a>
-
-            <h2>Cadastrar</h2>
-            <a href="#" id="btn-parceirosadm">Parceiro Administrador</a>
-            <a href="#" id="btn-voluntarios">Voluntários</a>
-
+            <div class="btns">
+                <div>
+                    <h2>CONTEÚDO</h2>
+                    <a href="#" id="btn-depoimentos">Depoimentos</a>
+                    <a href="#" id="btn-noticias">Notícias</a>
+                </div>
+                <div>
+                    <h2>GESTÃO</h2>
+                    <a href="#" id="btn-doacoes">Doações</a>
+                    <a href="#" id="btn-gastos">Gastos</a>
+                    <a href="#" id="btn-imoveis">Imóveis</a>
+                    <a href="#" id="btn-relatorios">Relatórios</a>
+                </div>
+                <div>
+                    <h2>PESSOAS</h2>
+                    <a href="#" id="btn-assistidos">Assistidos</a>
+                    <a href="#" id="btn-parceiros">Parceiros</a>
+                    <a href="#" id="btn-usuarios">Usuários</a>
+                </div>
+                <div>
+                    <h2>CADASTRAR</h2>
+                    <a href="#" id="btn-voluntarios">Voluntários</a>
+                </div>
+                <div>
+                    <a onclick="window.location.href='/'" style="color: white; border: none; border-radius: 5px; font-size: 30px;">
+                        <i class="bi bi-arrow-left"></i>
+                    </a>
+                </div>
+            </div>
+            
             <br><br>
         </aside>
 
         <!-- Conteúdo Principal -->
         <main class="admin-content">
             <div id="welcome" class="welcome-message">
-                <h1>Bem-vindo ao Painel Administrativo da Casa Cidadã!</h1>
+                <h2>Bem-vindo ao Painel Administrativo da Casa Cidadã!</h2>
                 <p>Este é o seu espaço para gerenciar as atividades e os recursos da Casa Cidadã. Aqui, você pode
                     adicionar e organizar relatórios, gerenciar doações, atualizar informações dos assistidos, manter
                     contato com nossos parceiros e gerenciar imóveis. Nossa missão é construir um futuro mais digno para

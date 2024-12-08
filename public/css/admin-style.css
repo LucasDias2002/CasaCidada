@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 html {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'inter', sans-serif;
+  font-size: 22px;
 }
 
 .admin-page {
@@ -16,31 +19,45 @@ html {
 
 .admin-container {
   display: flex;
+  align-items: center;
 }
 
 .admin-sidebar {
-  width: 250px;
-  background-color: #d5b6f0;
-  padding-left: 20px;
+  box-shadow: 5px 5px 8px #a29ab3;
+  border-radius: 0px 80px 80px 0px;
+  width: 200px;
+  background-color: #50368b;
   color: #333;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  height: 100vh;
+
   position: fixed;
+}
+.btns {
+  margin-top: 20px;
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#icon{
+  color: white; /* Cor do ícone */
+    font-size: 30px;
 }
 
 .admin-sidebar h2 {
-  font-size: 18px;
+  font-size: 22px;
   margin-bottom: 10px;
-  color: #333;
+  color: #ffffff;
 }
 
 .admin-sidebar a {
+  width: 65%;
   text-decoration: none;
-  color: #333;
-  font-size: 14px;
-  padding: 8px 12px;
+  color: #ffffff;
+  font-size: 17px;
+  padding: 12px 0px;
   border-radius: 4px;
   display: block;
   transition: background 0.3s;
@@ -53,17 +70,16 @@ html {
 .admin-content {
   flex: 1;
   padding-left: 20px;
-  background-color: #f5f5f5;
-  margin-left: 250px;
+  margin-left: 200px;
   overflow-y: auto;
   height: 100vh;
   position: relative;
 }
 
 .admin-content h1 {
-  font-size: 24px;
+  font-size: 50px;
   margin-bottom: 20px;
-  color: #333;
+  color: #ffffff;
 }
 
 .admin-content label {
@@ -137,22 +153,20 @@ html {
 }
 
 #logo {
-  margin-top: 20px;
-  margin-bottom: 0;
-  margin-left: 50px;
+  margin: 30px 0px 10px 30px ;
   width: 100px;
   cursor: pointer;
 }
 
 .welcome-message,
 #adc-doacao,
-#ver-doacao,
+#ver-doacoes,
 #adc-parceiro,
 #editar-parceiro,
 #ver-parceiro,
 #adc-relatorio,
-#excluir-relatorio,
-#imprimir-relatorio,
+#editar-relatorio,
+#ver-relatorios,
 #ver-noticias,
 #editar-noticia,
 #cadastrar-noticia,
@@ -173,7 +187,7 @@ html {
 {
   color: #333;
   margin: 0 auto;
-  background-color: #f5f5f5;
+  background-color: #ffffff;
   padding: 40px;
   border-radius: 8px;
 }
@@ -217,7 +231,7 @@ html {
 
 /* Cabeçalho da tabela */
 .table-header {
-  background-color: rgba(213, 182, 240, 255);
+  background-color:  #50368b;
   color: white;
   text-align: center;
   padding: 15px;
@@ -282,7 +296,7 @@ button.btn-danger:hover {
 /* Estilo para o botão de edição */
 .btn-edit,
 .btn-delete {
-  background-color: white;
+  background-color: rgb(240, 240, 240);
   border: none;
   padding: 10px 20px;
   text-align: center;
