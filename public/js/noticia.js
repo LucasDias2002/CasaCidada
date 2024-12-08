@@ -45,11 +45,12 @@ async function CarregarNoticias() {
             tabela.innerHTML = '';
             //console.log(imoveis.STATUS);
             noticias.forEach(noticia => {
+                let data = formatarData(noticia.DATA_PUBLICACAO)
                 const linha = document.createElement('tr');
 
                 linha.innerHTML = `<td>${noticia.TITULO}</td>
                                 <td>${noticia.DESCRICAO}</td>
-                                <td>${noticia.DATA_PUBLICACAO}</td>
+                                <td>${data}</td>
                                 <td>
                                     <button type="button" onclick="DeletarNoticia(${noticia.ID})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"> </button>
                                     <button type="button" onclick="EditarNoticia(${noticia.ID})" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
@@ -64,6 +65,20 @@ async function CarregarNoticias() {
         console.error("erro ao buscar noticias: " + erro.message);
     }
 };
+
+function formatarData(date) {
+    const data = new Date(date);
+
+    // Ajustar para o fuso horário do Brasil
+    const opcoes = {
+        timeZone: "America/Sao_Paulo",
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+    };
+
+    return new Intl.DateTimeFormat("pt-BR", opcoes).format(data);
+}
 
 if (window.getComputedStyle(document.getElementById('ver-noticias')).display === 'block') {
     CarregarNoticias();

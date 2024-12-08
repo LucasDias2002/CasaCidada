@@ -42,7 +42,7 @@ async function CarregarDepoimento() {
             const depoimentos = await resposta.json();
             let str = "";
             for (let i = 0; i < depoimentos.length; i++) {
-                depoimento = depoimentos[i];
+                let depoimento = depoimentos[i];
                 str += `<tr>
                             <td>${depoimento.NOME}</td>
                             <td>${depoimento.DEPOIMENTO}</td>
