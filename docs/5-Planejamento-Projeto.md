@@ -76,7 +76,7 @@ Atualizado em: 27/10/2024
 
 ## Sprint 4
 
-Atualizado em: 27/10/2024
+Atualizado em: 24/11/2024
 
 | Responsável   | Tarefa/Requisito | Iniciado em    | Prazo      | Status | Terminado em    |
 | :----         |    :----         |      :----:    | :----:     | :----: | :----:          |
@@ -84,6 +84,22 @@ Atualizado em: 27/10/2024
 | Pedro        | Desenvolvimento Back-end | 28/10/2024 | 17/11/2024 | ✔️    | 17/11/2024 |
 | Lucas        | Desenvolvimento Back-end | 28/10/2024 | 17/11/2024 | ✔️     | 17/11/2024 |
 | Melissa     | Desenvolvimento Front-end | 28/10/2024 | 17/11/2024 | ✔️    | 17/11/2024 |
+
+## Sprint 5
+
+Atualizado em: 09/12/2024
+
+| Responsável   | Tarefa/Requisito | Iniciado em    | Prazo      | Status | Terminado em    |
+| :----         |    :----         |      :----:    | :----:     | :----: | :----:          |
+| Arthur        | Desenvolvimento Front-end | 24/11/2024 | 09/12/2024 | ✔️    | 09/12/2024 |
+| Pedro        | Desenvolvimento Front-end | 24/11/2024 | 09/12/2024 | ✔️    | 09/12/2024 |
+| Lucas        | Desenvolvimento Front-end | 24/11/2024 | 09/12/2024 | ✔️     | 09/12/2024 |
+| Melissa     | Desenvolvimento Front-end | 24/11/2024 | 09/12/2024 | ✔️    | 09/12/2024 |
+| Arthur        | Atualização e Manutenção do Banco de Dados | 28/10/2024 | 17/11/2024 | ✔️    | 17/11/2024 |
+| Pedro        | Desenvolvimento Back-end | 24/11/2024 | 09/12/2024 | ✔️    | 09/12/2024 |
+| Lucas        | Desenvolvimento Back-end | 24/11/2024 | 09/12/2024 | ✔️     | 09/12/2024 |
+| Melissa     | Atualização da documentação | 24/11/2024 | 09/12/2024 | ✔️    | 09/12/2024 |
+| Arthur     | Atualização da documentação | 24/11/2024 | 09/12/2024 | ✔️    | 09/12/2024 |
 
 Legenda:
 - ✔️: terminado
