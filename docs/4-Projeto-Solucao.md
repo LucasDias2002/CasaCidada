@@ -89,16 +89,9 @@ Com base nas atividades de usuário identificadas anteriormente, foi elaborado u
 
 #### 4.3.2 Esquema Relacional
 
-<p><img src="\images\tabela1.jpg" width="800px"></img></p>
-<p><img src="\images\tabela2.jpg" width="800px"></img></p>
-<p><img src="\images\tabela3.jpg" width="800px"></img></p>
-<p><img src="\images\tabela4.jpg" width="800px"></img></p>
-<p><img src="\images\tabela5.jpg" width="800px"></img></p>
-<p><img src="\images\tabela6.jpg" width="800px"></img></p>
-<p><img src="\images\tabela7.jpg" width="800px"></img></p>
-<p><img src="\images\tabela8.jpg" width="800px"></img></p>
-<p><img src="\images\tabela9.jpg" width="800px"></img></p>
-<p><img src="\images\tabela10.jpg" width="800px"></img></p>
+<p><img src="\images\table1.jpg" width="800px"></img></p>
+<p><img src="\images\table2.jpg" width="800px"></img></p>
+<p><img src="\images\table3.jpg" width="800px"></img></p>
 
 
 #### 4.3.3 Modelo Físico
