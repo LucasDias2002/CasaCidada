@@ -1,10 +1,5 @@
 ## 3. Modelagem dos Processos de Negócio
 
-
-> **Links Úteis**:
-> - [Modelagem de Processos AS-IS x TO-BE](https://dheka.com.br/modelagem-as-is-to-be/)
-> - [20 Dicas Práticas de Modelagem de Processos](https://dheka.com.br/20-dicas-praticas-de-modelagem-de-processos/)
-
 ### 3.1. Modelagem da situação atual (Modelagem AS IS)
 
 _O processo AS IS representa o fluxo atual de atividades para alocar moradores de rua em moradias dentro de um projeto social. Ele é composto por duas raias principais:_
@@ -43,10 +38,3 @@ o	Identificar Morador de Rua, Cadastrar Dados, Verificar Aptidão, Continuar Alo
 •	A inclusão de novas piscinas torna o processo mais modular e escalável:
 o	A piscina Aluguel de Residência foca no gerenciamento das casas disponíveis e no controle de ocupação.
 o	A piscina Contabilidade agora é um ponto central de controle financeiro, facilitando o monitoramento de entradas e saídas de recursos.
-
-
-### 3.4. Modelagem dos processos
-
-[PROCESSO 1 - Nome do Processo](./processos/processo-1-nome-do-processo.md "Detalhamento do Processo 1.")
-
-[PROCESSO 2 - Nome do Processo](./processos/processo-2-nome-do-processo.md "Detalhamento do Processo 2.")

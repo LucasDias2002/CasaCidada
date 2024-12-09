@@ -1,29 +1,27 @@
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title: 
+title: Sistema de Gestão para a ONG Casa Cidadã
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
+  - family-names: Coelho de Souza
+    given-names: Arthur
+  - family-names: Duque Baía
+    given-names: Melissa
+  - family-names: Freitas Dias
+    given-names: Pedro Henrique
+  - family-names: Freitas Dias
+    given-names: Lucas Phillipe
 
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
-  - name-suffix: Professor
-    affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Vilela Cardoso
+    given-names: Leonardo
     keywords:
-    - 
-repository-code: 
+    - Gestão de ONGs
+  - Banco de Dados
+  - Automação de Processos
+  - Doações
+  - Beneficiários
+repository-code: https://github.com/PSG-TIAPN-2022-1/psg-si-tiapn-2024-2-casacidada
 license: CC-BY-4.0
 version: 1.0.0
-date-released:
+date-released: 02/09/2024 
