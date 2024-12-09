@@ -1,7 +1,5 @@
 ## 7. Conclusão
 
-# Conclusão
-
 O projeto desenvolvido em parceria com a ONG Casa Cidadã permite uma análise detalhada dos processos internos relacionados à gestão de voluntários, doações e beneficiários. A solução proposta possibilita melhorias significativas nos fluxos de trabalho da instituição, promovendo maior organização e eficiência nas atividades diárias.
 
 ## Principais Resultados Obtidos
