@@ -22,7 +22,7 @@ Estamos desenvolvendo um sistema de gerenciamento personalizado para a Casa Cida
 
 # Apresentação
 
-<li><a href="presentation/README.md"> Apresentação da solução</a></li>
+<li><a href="docs/apresentacao/README.md"> Apresentação da solução</a></li>
 
 
 # Documentação
