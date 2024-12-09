@@ -12,7 +12,6 @@ Estamos desenvolvendo um sistema de gerenciamento personalizado para a Casa Cida
 
 * Melissa Duque Baía
 * Arthur Coelho de Souza
-* Davi de Miranda Costa
 * Pedro Henrique Freitas Dias
 * Lucas Phillipe Freitas Dias
 
@@ -20,9 +19,11 @@ Estamos desenvolvendo um sistema de gerenciamento personalizado para a Casa Cida
 
 * Leonardo Vilela Cardoso
 
-## Instruções de utilização
 
-[Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.]
+# Apresentação
+
+<li><a href="presentation/README.md"> Apresentação da solução</a></li>
+
 
 # Documentação
 
@@ -40,10 +41,6 @@ Estamos desenvolvendo um sistema de gerenciamento personalizado para a Casa Cida
 # Código
 
 <li><a href="src/README.md"> Código Fonte</a></li>
-
-# Apresentação
-
-<li><a href="presentation/README.md"> Apresentação da solução</a></li>
 
 
 ## Histórico de versões
