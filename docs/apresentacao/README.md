@@ -1,33 +1,67 @@
 
 # Apresentação
 
-<span style="color:red">Pré-requisitos: Todos os demais artefatos</span>
+# Sistema Casa Cidadã
 
+Este projeto foi desenvolvido para a ONG Casa Cidadã, com o objetivo de melhorar a gestão de seus processos internos e facilitar a interação com doadores, beneficiários, parceiros, voluntários e colaboradores. A solução integra ferramentas para centralizar informações e automatizar tarefas administrativas, promovendo eficiência e transparência.
 
-> Conjunto de slides em um arquivo PowerPoint ou PDF
-> com a apresentação do projeto contemplando todos os
-> itens trabalhados nos demais artefatos. 
-> **Links Úteis**:
-> - [10 dicas de design para slides](https://rockcontent.com/blog/design-para-slides/)
-> - [7 dicas de design para criar apresentações de PowerPoint incríveis e eficientes](https://www.shutterstock.com/pt/blog/7-dicas-de-design-para-criar-apresentacoes-de-powerpoint-incriveis-e-eficientes)
-> - [Especialista do TED dá 10 dicas para criar slides eficazes e bonitos](https://soap.com.br/blog/especialista-do-ted-da-10-dicas-para-criar-slides-eficazes-e-bonitos)
-> - [A regra 10-20-30 para apresentações de sucesso](https://revistapegn.globo.com/Noticias/noticia/2014/07/regra-10-20-30-para-apresentacoes-de-sucesso.html)
-> - [Top Tips for Effective Presentations](https://www.skillsyouneed.com/present/presentation-tips.html)
-> - [How to make a great presentation](https://www.ted.com/playlists/574/how_to_make_a_great_presentation)
+## Funcionalidades Principais
 
-## Slides
+- **Cadastro e Consulta**: Permite o registro e a consulta de dados de doadores, beneficiários, parceiros, imóveis, doações e gastos.
+- **Gerenciamento de Doações**: Registro e acompanhamento das doações realizadas e recebidas.
+- **Relatórios Automatizados**: Geração de relatórios para análise de dados e prestação de contas.
+- **Comunicação Facilitada**: Interface amigável para interação com doadores, voluntários e parceiros.
 
-![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide1.png)
-![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide2.png)
-![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide3.png)
-![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide4.png)
-![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide5.png)
-![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide6.png)
-![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide7.png)
-![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide8.png)
-![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide9.png)
-![Preview do Slide](https://github.com/ICEI-PUC-Minas-PCO-SI/psg-si-tiapn-2024-2-manha-projeto-casa-cidada/blob/main/docs/images/slide10.png)
+---
 
-## Vídeo
+## Instruções de Utilização
 
-No caso de apresentação gravada, insira aqui o link do vídeo de apresentação.
+### Acesso ao Sistema
+
+1. **Cadastro de Usuário**
+   - Caso seja um novo usuário, clique no botão "Cadastrar" na tela inicial do sistema.
+   - Insira seus dados básicos, como nome, e-mail e senha.
+   - Escolha o tipo de usuário: **Doador**, **Beneficiário**, **Parceiro** ou **Administrador**.
+
+2. **Login**
+   - Insira seu e-mail e senha cadastrados.
+   - Clique em "Entrar" para acessar o sistema.
+
+---
+
+### Navegação no Sistema
+
+1. **Painel Principal**
+   - Após o login, você será direcionado ao **Painel Principal**, onde poderá acessar as funcionalidades de acordo com seu perfil.
+
+2. **Funcionalidades Disponíveis**
+   - **Doadores**:
+     - Visualizar impacto das doações realizadas.
+     - Atualizar informações pessoais.
+   - **Beneficiários**:
+     - Consultar status de apoio ou benefícios recebidos.
+     - Solicitar ajuda adicional, se necessário.
+   - **Parceiros**:
+     - Acompanhar colaborações e projetos ativos.
+     - Enviar feedbacks ou relatórios de parceria.
+   - **Administradores**:
+     - Gerenciar cadastros de usuários, imóveis e doações.
+     - Visualizar relatórios completos das operações.
+
+---
+
+### Dicas de Uso
+
+- **Acesso Rápido**: Utilize a barra de navegação no topo para acessar rapidamente as seções do sistema.
+- **Ajuda e Suporte**: Caso encontre dificuldades, acesse a seção de **Ajuda** no menu principal ou entre em contato com o suporte técnico.
+- **Segurança**: Não compartilhe suas credenciais de acesso. O sistema utiliza criptografia para proteger seus dados.
+
+---
+
+## Observações
+
+O sistema foi projetado para atender às demandas específicas da ONG Casa Cidadã, mas pode ser adaptado para outras organizações com necessidades semelhantes. Feedbacks e sugestões de melhorias são bem-vindos!
+
+---
+
+Se precisar de mais detalhes ou ajustes no texto, é só avisar! 😊
