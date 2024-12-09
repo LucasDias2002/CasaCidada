@@ -1,4 +1,5 @@
 const conexao = require("../database/conexao");
+const { ListarUltimo2anos } = require("./gasto");
 
 const RecebimentoModel = {
     Listar: async () => {
@@ -26,6 +27,20 @@ const RecebimentoModel = {
                 }
                 resolve(resposta[0]);
                 console.log("Listando RECEBIMENTOS por id!");
+            })
+        })
+    },
+    ListarUltimo2anos: async () => {
+        const sql = `SELECT DATE_FORMAT(r.data_recebimento, '%m-%Y') AS mes, SUM(r.valor) AS total_recebimentos FROM recebimentos r WHERE YEAR(r.data_recebimento) >= YEAR(NOW()) - 2 GROUP BY DATE_FORMAT(r.data_recebimento, '%m-%Y');`;
+
+        return new Promise((resolve, reject) => {
+            conexao.query(sql, (erro, resposta) => {
+                if (erro) {
+                    console.log(`Erro ao listar RECEBIMENTOS dos ultimos 2 anos - Model: ${erro}`);
+                    return reject(erro);
+                }
+                resolve(resposta);
+                console.log('Listando RECEBIMENTOS recebimento dos ultimos 2 anos - Model!')
             })
         })
     },

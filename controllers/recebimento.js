@@ -1,4 +1,5 @@
 const RecebimentoModel = require('../models/recebimento');
+const { ListarUltimo2anos } = require('./gasto');
 
 const ControlRecebimento = {
     Listar: async (req, res) => {
@@ -25,6 +26,14 @@ const ControlRecebimento = {
             res.json(recebimento);
         } catch (erro) {
             res.status(400).json({ erro: "Erro ao Inserir recebimento Control" });
+        }
+    },
+    ListarUltimo2anos: async (req, res) => {
+        try {
+            const rebecimentos = await RecebimentoModel.ListarUltimo2anos();
+            res.send(rebecimentos);
+        } catch (erro) {
+            res.status(500).json({ erro: "Erro ao listar rebecimentos dos ultimos 2 anos - Control" });
         }
     },
     Delete: async (req, res) => {

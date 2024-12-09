@@ -19,6 +19,14 @@ const ControlGastos = {
             res.status(400).json({ erro: "Erro ao Listar o gastos por Id Control" });
         }
     },
+    ListarUltimo2anos: async (req, res) => {
+        try {
+            const gastos = await GastosModel.ListarUltimo2anos();
+            res.send(gastos);
+        } catch (erro) {
+            res.status(500).json({ erro: "Erro ao listar gastos dos ultimos 2 anos - Control" });
+        }
+    },
     Inserir: async (req, res) => {
         try {
             const gastos = await GastosModel.Inserir(req.body);

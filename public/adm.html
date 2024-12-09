@@ -7,6 +7,8 @@
     <title>Administrador - Casa Cidadã</title>
     <link rel="stylesheet" href="css/admin-style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const mainSections = document.querySelectorAll("main > div");
@@ -595,22 +597,12 @@
                 <div id="ver-relatorios">
                     <div class="table-container">
                         <div class="table-header">
-                            <h1>Relatórios</h1>
-                            <button class="btn-add" onclick="abrirFormulario('adc-relatorio')">+</button>
+                            <h1>Relatório</h1>
                         </div>
                         <div class="table-wrapper">
                             <table id="tabela-relatorios">
-                                <thead>
-                                    <tr>
-                                        <th>Mês</th>
-                                        <th>Total Doações</th>
-                                        <th>Total Gastos</th>
-                                        <th>Saldo</th>
-                                        <th>Ações</th>
-                                    </tr>
-                                </thead>
                                 <tbody>
-                                    <!-- Os relatórios serão listados aqui -->
+                                    <canvas id="myBarChart" width="550" height="250"></canvas>
                                 </tbody>
                             </table>
                         </div>
@@ -922,6 +914,7 @@
     <script src="js/depoimento.js"></script>
     <script src="js/recebimento.js"></script>
     <script src="js/gasto.js"></script>
+    <script src="js/relatorio.js"></script>
 </body>
 
 

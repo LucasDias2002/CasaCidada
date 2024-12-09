@@ -1,91 +1,121 @@
-const form_parceiro = document.getElementById("form-relatorio");
-
-form_parceiro.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    const mes = document.getElementById("mes").value;
-    const despesas = document.getElementById("despesas").value;
-    const saldo = document.getElementById("saldo").value;
-    const descricao = document.getElementById("descricao").value;
-
-    console.log(mes, despesas, saldo, descricao);
-
+let myChart = null;
+document.getElementById("btn-relatorios").addEventListener("click", async () => {
+    let gastos;
+    let doacoes;
+    
     try {
-        const response = await fetch("/relatorio", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ mes, despesas, saldo, descricao })
+        const response = await fetch("/gasto/relatorio", {
+            method: "GET"
         });
         if (response.ok) {
-            alert('Relatório adicionado com sucesso!');
-            form_parceiro.reset();
+            gastos = await response.json();
         } else {
-            alert('Erro ao cadastrar relatório. Tente novamente.');
+            alert('Erro ao buscar gastos dos últimos 2 anos. Tente novamente.');
         }
+    } catch (erro) {
+        console.error('Erro na requisição de gastos:', erro);
     }
-    catch (error) {
-        console.error('Erro na requisição:', error);
-        //alert('Erro ao conectar ao servidor.');
-    }
-})
-
-const excluirParceiros = document.getElementById("btn-excluir-parceiro");
-excluirParceiros.addEventListener("click", async () => {
+    
     try {
-        const response = await fetch("/parceiro", {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
+        const response = await fetch("/recebimento/relatorio", {
+            method: "GET"
+        });
         if (response.ok) {
-            const parceiros = await response.json();
-            console.log(parceiros.length);
-            let parceiroCard = "";
-            for (let i = 0; i < parceiros.length; i++) {
-                parc = parceiros[i];
-                parceiroCard += `<tr>
-                            <td>${parc.NOME}</td>
-                            <td>${parc.EMAIL}</td>
-                            <td>${parc.TELEFONE}</td>
-                            <td>${parc.AREA_ATUACAO}</td>
-                            <td><button type="button" onclick="ApagarParceiro(${parc.ID})" class="btn btn-danger">Apagar</button></td>
-                </tr>`;
-            }
-            document.getElementById("parceiros").innerHTML = parceiroCard;
+            doacoes = await response.json();
+        } else {
+            alert('Erro ao buscar doações dos últimos 2 anos. Tente novamente.');
         }
-        else {
-            console.log('Erro ao carregar usuários. Tente novamente.');
-        }
+    } catch (erro) {
+        console.error('Erro na requisição de doações:', erro);
     }
-    catch (erro) {
-        console.error('Erro na requisição:', erro);
-        //alert('Erro ao conectar ao servidor.');
-    }
-}
-);
 
-async function ApagarParceiro(id){
-    try {
-        const response = await fetch(`/parceiro/${id}`, {
-            method: "DELETE",
-            headers: {
-                'Content-Type': 'application/json'
+    if (gastos && doacoes) {
+        // Antes de criar o gráfico, destruir o gráfico existente, se houver
+        if (myChart) {
+            myChart.destroy();
+        }
+
+        // Criar o gráfico com os dados novos
+        criarGrafico(gastos, doacoes);
+    }
+});
+
+function criarGrafico(gastosData, doacoesData) {
+    const meses = [];
+    const gastosValues = [];
+    const doacoesValues = [];
+
+    const dados = {};
+
+    gastosData.forEach(item => {
+        if (!dados[item.mes]) {
+            dados[item.mes] = { gastos: 0, doacoes: 0 }; 
+        }
+        dados[item.mes].gastos = item.total_gastos;
+    });
+
+    doacoesData.forEach(item => {
+        if (!dados[item.mes]) {
+            dados[item.mes] = { gastos: 0, doacoes: 0 };
+        }
+        dados[item.mes].doacoes = item.total_recebimentos;
+    });
+
+    const mesesOrdenados = Object.keys(dados).sort();  
+
+    mesesOrdenados.forEach(mes => {
+        meses.push(mes);
+        gastosValues.push(dados[mes].gastos); 
+        doacoesValues.push(dados[mes].doacoes);
+    });
+
+    const ctx = document.getElementById('myBarChart').getContext('2d');
+
+    const config = {
+        type: 'bar',
+        data: {
+            labels: meses, 
+            datasets: [
+                {
+                    label: 'Gastos',
+                    data: gastosValues, 
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)', 
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                    barThickness: 30,  
+                    categoryPercentage: 0.4, 
+                    labelAlign: 'start'
+                },
+                {
+                    label: 'Doações',
+                    data: doacoesValues,
+                    backgroundColor: 'rgba(75, 192, 192, 0.5)', 
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    barThickness: 30, 
+                    categoryPercentage: 0.4,
+                    labelAlign: 'start'
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    
+                    barPercentage: 0.5,
+                },
+                y: {
+                    beginAtZero: true 
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'top'
+                },
             }
-        })
-        if (response.ok) {
-            alert(`PARCEIRO ${id} foi apagado!`)
-            location.href = "adm.html";
         }
-        else {
-            console.log('Erro ao apagar parceiro. Tente novamente.');
-        }
-    }
-    catch (erro) {
-        console.error('Erro na requisição:', erro);
-        //alert('Erro ao conectar ao servidor.');
-    }
+    };
+
+    myChart = new Chart(ctx, config);
 }
-;

@@ -29,6 +29,20 @@ const GastosModel = {
             })
         })
     },
+    ListarUltimo2anos: async () => {
+        const sql = `SELECT DATE_FORMAT(g.data_gasto, '%m-%Y') AS mes, SUM(g.valor) AS total_gastos FROM gastos g WHERE YEAR(g.data_gasto) >= YEAR(NOW()) - 2 GROUP BY DATE_FORMAT(g.data_gasto, '%m-%Y') ORDER BY mes;`;
+
+        return new Promise((resolve, reject) => {
+            conexao.query(sql, (erro, resposta) => {
+                if (erro) {
+                    console.log(`Erro ao listar gastos dos ultimos 2 anos - Model: ${erro}`);
+                    return reject(erro);
+                }
+                resolve(resposta);
+                console.log('Listando gastos Model!')
+            })
+        })
+    },
     Inserir: async (gasto) => {
         const sql = "INSERT INTO GASTOS (valor, data_gasto, descricao) VALUES (?,?,?)";
 
