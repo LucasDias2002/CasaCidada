@@ -39,6 +39,46 @@ document.getElementById("btn-relatorios").addEventListener("click", async () => 
         criarGrafico(gastos, doacoes);
     }
 });
+document.getElementById("nav-btn-relatorios").addEventListener("click", async () => {
+    let gastos;
+    let doacoes;
+    
+    try {
+        const response = await fetch("/gasto/relatorio", {
+            method: "GET"
+        });
+        if (response.ok) {
+            gastos = await response.json();
+        } else {
+            alert('Erro ao buscar gastos dos últimos 2 anos. Tente novamente.');
+        }
+    } catch (erro) {
+        console.error('Erro na requisição de gastos:', erro);
+    }
+    
+    try {
+        const response = await fetch("/recebimento/relatorio", {
+            method: "GET"
+        });
+        if (response.ok) {
+            doacoes = await response.json();
+        } else {
+            alert('Erro ao buscar doações dos últimos 2 anos. Tente novamente.');
+        }
+    } catch (erro) {
+        console.error('Erro na requisição de doações:', erro);
+    }
+
+    if (gastos && doacoes) {
+        // Antes de criar o gráfico, destruir o gráfico existente, se houver
+        if (myChart) {
+            myChart.destroy();
+        }
+
+        // Criar o gráfico com os dados novos
+        criarGrafico(gastos, doacoes);
+    }
+});
 
 function criarGrafico(gastosData, doacoesData) {
     const meses = [];

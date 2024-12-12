@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-html {
-  font-family: 'inter', sans-serif;
+body {
+  font-family: 'inter', sans-serif !important;
   font-size: 1.146vw;
 }
 
@@ -31,7 +31,6 @@ html {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-
   position: fixed;
 }
 
@@ -41,6 +40,9 @@ html {
   display: flex;
   flex-direction: column;
   gap: 1.042vw;
+}
+.btns div h2 {
+  font-weight: 600;
 }
 
 #icon {
@@ -160,7 +162,7 @@ html {
   cursor: pointer;
 }
 
-input[type="file"]{
+input[type="file"] {
   display: none;
 }
 
@@ -202,6 +204,9 @@ input[type="file"]{
   font-size: 1.25vw;
   margin-bottom: 10px;
 }
+.welcome-message h2{
+  font-weight: 600;
+}
 
 .welcome-message p {
   font-size: 0.833vw;
@@ -228,7 +233,6 @@ input[type="file"]{
 .table-container {
   margin: 5px auto;
   width: 100%;
-  font-family: 'Arial', sans-serif;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -236,6 +240,9 @@ input[type="file"]{
 
 /* Cabeçalho da tabela */
 .table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #50368b;
   color: white;
   text-align: center;
@@ -243,7 +250,13 @@ input[type="file"]{
   margin-bottom: 10px;
   font-size: 1.5em;
   border-radius: 8px 8px 0 0;
+  min-height: 6vw;
 }
+.table-header h1{
+  margin:0;
+  font-weight: 600;
+}
+
 
 /* Estilo geral da tabela */
 table {
@@ -293,10 +306,6 @@ button.btn-danger:hover {
     font-size: 14px;
   }
 
-  th,
-  td {
-    padding: 8px 10px;
-  }
 }
 
 /* Estilo para o botão de edição */
@@ -323,11 +332,6 @@ button.btn-danger:hover {
   transform: scale(0.98);
 }
 
-.table-header {
-  display: flex;
-  justify-content: space-between;
-}
-
 .input-group {
   display: flex;
   flex-wrap: wrap;
@@ -342,4 +346,100 @@ button.btn-danger:hover {
 
 .input-textarea {
   width: 100%;
+}
+
+/*tirando a side bar apos alcançar valores < que 990px*/
+@media (max-width:990px) {
+
+  /*Tirei a side bar*/
+  .admin-sidebar {
+    display: none;
+  }
+  #navbarTelaPequena{
+    display: block !important;
+  }
+
+  /*Colocando outra no lugar*/
+
+  body {
+    font-family: 'inter', sans-serif !important;
+    font-size: 6vw;
+  }
+
+  .admin-content {
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbarTelaPequena {
+    display: block;
+  }
+
+  .welcome-message p {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+  }
+
+  .welcome-message ul {
+    margin-left: 1.042vw;
+    list-style-type: disc;
+  }
+
+  .welcome-message ul li {
+    line-height: 1.4;
+  }
+}
+
+/*Colocando a nova side bar e alguns ajustes para a exibição das tabelas*/
+@media (max-width:500px) {
+
+  #navbarTelaPequena{
+    display: block !important;
+  }
+
+  #adc-doacao,
+  #ver-doacoes,
+  #adc-parceiro,
+  #editar-parceiro,
+  #ver-parceiro,
+  #adc-relatorio,
+  #editar-relatorio,
+  #ver-relatorios,
+  #ver-noticias,
+  #editar-noticia,
+  #cadastrar-noticia,
+  #cadastrar-imovel,
+  #editar-imovel,
+  #ver-imoveis,
+  #adc-assistido,
+  #ver-assistidos,
+  #editar-assistido,
+  #adc-foto,
+  #excluir-foto,
+  #ver-usuarios,
+  #ver-depoimentos,
+  #cadastrar-depoimento,
+  #editar-depoimento,
+  #ver-gastos,
+  #adc-gasto {
+    padding: 0;
+    background-color: #ffffff;
+    margin:0;
+  }
+  .table-header{
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+
+  }
+  .table-header h1{
+    font-size: 5vw;
+    margin:0;
+    font-weight: 600;
+  }
+  .table-container{
+    margin: 0;
+    border-radius: 0;
+  }
 }
