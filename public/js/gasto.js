@@ -30,7 +30,6 @@ form_gasto.addEventListener("submit", async (event) => {
 
 async function CarregarGastos() {
     try {
-
         const resposta = await fetch('/gasto', {
             method: 'GET',
             headers: {
@@ -43,12 +42,12 @@ async function CarregarGastos() {
 
             for (let i = 0; i < gastos.length; i++) {
                 let gasto = gastos[i];
-                let data = formatarData(gasto.DATA_GASTO)
-                str += `<tr><td>R$ ${gasto.VALOR}</td>
+                let data = formatarData(gasto.data_gasto)
+                str += `<tr><td>R$ ${gasto.valor}</td>
                                 <td>${data}</td>
-                                <td>${gasto.DESCRICAO}</td>
+                                <td>${gasto.descricao}</td>
                                 <td>
-                                    <button type="button" onclick="DeletarGasto(${gasto.ID})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"></button>
+                                    <button type="button" onclick="DeletarGasto(${gasto.id})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"></button>
                                 </td></tr>`;
             }
             document.getElementById("tabela-gastos").innerHTML = str;
@@ -82,16 +81,17 @@ if (window.getComputedStyle(document.getElementById('ver-gastos')).display === '
 
 async function DeletarGasto(idGasto) {
     const conf = confirm("Deseja deletar esse gasto?");
+    
     if (conf) {
         try {
-
             const resposta = await fetch(`/gasto/${idGasto}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            })
-            if (resposta.ok) {
+            });
+            console.log(resposta)
+            if(resposta.ok) {
                 CarregarGastos();
             } else {
                 console.log("Erro ao deletar gasto");

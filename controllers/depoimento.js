@@ -35,10 +35,10 @@ async function Update(req, res) {
     try {
         const depoimento = await DepoimentoModel.Update(id, req.body);
 
-        if(depoimento.affectedRows > 0) {
-            res.json({ message: "depoimento atualizado com sucesso Control" });
-        } else {
+        if(depoimento.rowCount === 0) {
             res.status(404).json({ message: `depoimento ${id} não encontrado Control` });
+        } else {
+            res.json({ message: "depoimento atualizado com sucesso Control" });
         }
     } catch (erro) {
         res.status(500).json({ erro: "Erro ao atualizar depoimento Control" })
@@ -51,10 +51,10 @@ async function Delete(req, res) {
     try {
         const depoimento = await DepoimentoModel.Delete(id);
 
-        if (depoimento.affectedRows > 0) {
-            res.status(200).json({ message: "depoimento deletado com sucesso Control" });
-        } else {
+        if (depoimento.rowCount === 0) {
             res.status(404).json({ message: `depoimento ${id} não encontrado` });
+        } else {
+            res.status(200).json({ message: "depoimento deletado com sucesso Control" })
         }
     } catch (erro) {
         res.status(400).json({ erro: "Erro ao deletar usuário" });

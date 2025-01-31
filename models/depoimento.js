@@ -32,7 +32,7 @@ async function Inserir(dep) {
 
 async function Update(id, dep) {
     try {
-        const result = await conexao.query("UPDATE DEPOIMENTOS SET nome=$1, depoimento=$2 WHERE id=$3", [dep.nome, dep.depoimento,  id]);
+        const result = await conexao.query("UPDATE DEPOIMENTOS SET nome=$1, depoimento=$2 WHERE id=$3 RETURNING *", [dep.nome, dep.depoimento,  id]);
         return result.rows[0];
     } catch (error) {
         console.error('Erro ao Update usuário Model:', error);
@@ -42,7 +42,7 @@ async function Update(id, dep) {
 
 async function Delete(id) {
     try {
-        const result = await conexao.query('DELETE FROM DEPOIMENTOS WHERE id = $1' [id]);
+        const result = await conexao.query('DELETE FROM DEPOIMENTOS WHERE id = $1 RETURNING *', [id]);
         return result.rows[0];
     } catch (error) {
         console.error('Erro ao Deletar usuário Model:', error);
