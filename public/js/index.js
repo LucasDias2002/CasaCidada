@@ -15,9 +15,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             noticias.forEach(noticia => {
                 card.innerHTML += `<div class="noticia">
-                <td><img src="/images/noticias/${noticia.TITULO}.png" style="width: 100%; height: 35.25vw" alt=""></td>
-                                    <h3>${noticia.TITULO}</h3>
-                                    <p>${noticia.DESCRICAO}</p>
+                <td><img src="/images/noticias/${noticia.titulo}.png" style="width: 100%; height: 35.25vw" alt=""></td>
+                                    <h3>${noticia.titulo}</h3>
+                                    <p>${noticia.descricao}</p>
                                   </div>`;
             });
 
@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                     depoimento = dep[i];
                     str += `<div class="depoimento">
                 <p>★★★★★</p>
-                <blockquote>“${depoimento.DEPOIMENTO}”</blockquote>
-                <h5><i>— ${depoimento.NOME}</i></h5>
+                <blockquote>“${depoimento.depoimento}”</blockquote>
+                <h5><i>— ${depoimento.nome}</i></h5>
             </div> `;
                 }
                 document.getElementById("depo").innerHTML = str;
