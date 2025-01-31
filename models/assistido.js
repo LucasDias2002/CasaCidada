@@ -1,4 +1,4 @@
-const conexao = require("../database/conexao");
+const conexao = require("../database/conexaoPostgre");
 
 const AssistidoModel = {
     Listar: async () => {

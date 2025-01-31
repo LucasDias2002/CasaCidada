@@ -72,6 +72,20 @@ async function CarregarImoveis() {
                 const mes2 = String(datafimcontrato.getMonth() + 1).padStart(2, '0');
                 const ano2 = String(datafimcontrato.getFullYear());
                 const DATA_TERMINO_FORMATADA = `${dia2}/${mes2}/${ano2}`;
+                // const objeto= {
+                //     proprietario:imovel.NOME_PROPRIETARIO,
+                //     endereco: imovel.ENDERECO,
+                //     num_residencia:imovel.NUM_RESIDENCIA,
+                //     bairro:imovel.BAIRRO,
+                //     cep:imovel.CEP,
+                //     data_inicio:DATA_INICIO_FORMATADA,
+                //     data_termino:DATA_TERMINO_FORMATADA,
+                //     valor_aluguel:imovel.VALOR_ALUGUEL,
+                //     telefone:imovel.TELEFONE,
+                //     descricao:imovel.DESCRICAO,
+                //     status:imovel.STATUS,
+                //     id:imovel.ID,
+                // }
 
                 linha.innerHTML = `
                     <td>${imovel.NOME_PROPRIETARIO}</td>
@@ -87,9 +101,21 @@ async function CarregarImoveis() {
                         <td>
                             <button type="button" onclick="DeletarImovel(${imovel.ID})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"> </button>
                             <button type="button" onclick="EditarImovel(${imovel.ID})" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
+                            <button id="open-modal" type="button" data-modal="modal-1" class="btn-edit"><i class="bi bi-eye-fill"></i></button>
                         </td>`;
                 tabela.appendChild(linha);
             });
+
+            const openButtons = document.querySelectorAll('#open-modal')
+            openButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const idModal = "open-modal";
+                    console.log(idModal);
+                    const modal = document.getElementById(idModal);
+
+                    modal.showModal();
+                })
+            })
 
         } else {
             alert("Erro buscar imovel");

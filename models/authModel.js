@@ -1,7 +1,7 @@
-const conexao = require("../database/conexao");
+const conexao = require("../database/conexaoPostgre");
 
 const findUser =  async (email)=> {
-    const sql = `SELECT * FROM USUARIO WHERE email = ?;`
+    const sql = `SELECT * FROM USUARIO WHERE email = $1;`
 
     return new Promise((resolve, reject) => {
         conexao.query(sql, [email], (erro, resposta) => {
@@ -10,7 +10,8 @@ const findUser =  async (email)=> {
                 return reject(erro);
             }
             console.log(`Usuário encontrado com sucesso!`);
-            resolve(resposta);
+            console.log("Essa é respota das ROWSSSSSS: " + resposta.rows[0])
+            resolve(resposta.rows[0]);
         })
     })
 }
