@@ -1,5 +1,64 @@
 const conexao = require("../database/conexaoPostgre");
 
+async function Listar() {
+    try {
+        const result = await conexao.query('SELECT A.NOME,A.ID, A.CPF, A.TELEFONE, A.DATA_NASC, A.ID_IMOVEL, I.ENDERECO, I.NUM_RESIDENCIA, I.BAIRRO, I.COMPLEMENTO  FROM imovel I RIGHT JOIN assistido A ON A.id_imovel = I.id;');
+        return result.rows;
+    } catch (error) {
+        console.error('Erro ao Listar assistido Model:', error);
+        throw error;
+    }
+}
+
+async function ListarPorID(id) {
+    try {
+        const result = await conexao.query('SELECT * FROM ASSISTIDO WHERE id = $1', [id]);
+        return result.rows[1];
+    } catch (error) {
+        console.error('Erro ao ListarPorId assistido Model:', error);
+        throw error;
+    }
+}
+
+async function Inserir(assistido) {
+    try {
+        const result = await conexao.query('INSERT INTO ASSISTIDO (nome, cpf, telefone, data_nasc, data_cadastro, id_imovel) VALUES ($1,$2,$3,$4,$5,$6)', [assistido.nome, assistido.cpf, assistido.telefone, assistido.data_nasc, assistido.data_cadastro, assistido.id_imovel]);
+        return result.rows[1];
+    } catch (error) {
+        console.error('Erro ao Inserir assistido Model:', error);
+        throw error;
+    }
+}
+
+async function Update(id, assistido) {
+    try {
+        const result = await conexao.query('UPDATE ASSISTIDO SET nome = $1, cpf = $2, telefone = $3, data_nasc = $4, id_imovel = $5 WHERE id = $6', [assistido.nome, assistido.cpf, assistido.telefone, assistido.data_nasc, assistido.id_imovel, id]);
+        return result.rows[0];
+    } catch (error) {
+        console.error('Erro ao Update assistido Model:', error);
+        throw error;
+    }
+}
+
+async function Delete(id) {
+    try {
+        const result = await conexao.query('DELETE FROM ASSISTIDO WHERE id = $1', [id]);
+        return result.rows[0];
+    } catch (error) {
+        console.error('Erro ao Delete assistido Model:', error);
+        throw error;
+    }
+}
+
+module.exports = {
+    Listar,
+    ListarPorID,
+    Inserir,
+    Update,
+    Delete
+}
+
+/*
 const AssistidoModel = {
     Listar: async () => {
         const sql = 'SELECT A.NOME,A.ID, A.CPF, A.TELEFONE, A.DATA_NASC, A.ID_IMOVEL, I.ENDERECO, I.NUM_RESIDENCIA, I.BAIRRO, I.COMPLEMENTO  FROM imovel I RIGHT JOIN assistido A ON A.id_imovel = I.id;';
@@ -72,4 +131,4 @@ const AssistidoModel = {
         })
     }
 }
-module.exports = AssistidoModel;
+module.exports = AssistidoModel;*/
