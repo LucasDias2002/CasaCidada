@@ -50,16 +50,16 @@ async function CarregarNoticias() {
             tabela.innerHTML = '';
             //console.log(imoveis.STATUS);
             noticias.forEach(noticia => {
-                let data = formatarData(noticia.DATA_PUBLICACAO)
+                let data = formatarData(noticia.data_publicacao)
                 const linha = document.createElement('tr');
 
                 linha.innerHTML = `
-                <td><img src="/images/noticias/${noticia.TITULO}.png" style="width: 6.771vw; border-radius: 5.208vw; height: 6.771vw" alt=""></td><td>${noticia.TITULO}</td>
-                                <td>${noticia.DESCRICAO}</td>
+                <td><img src="/images/noticias/${noticia.titulo}.png" style="width: 6.771vw; border-radius: 5.208vw; height: 6.771vw" alt=""></td><td>${noticia.titulo}</td>
+                                <td>${noticia.descricao}</td>
                                 <td>${data}</td>
                                 <td>
-                                    <button type="button" onclick="DeletarNoticia(${noticia.ID})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"> </button>
-                                    <button type="button" onclick="EditarNoticia(${noticia.ID})" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
+                                    <button type="button" onclick="DeletarNoticia(${noticia.id})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"> </button>
+                                    <button type="button" onclick="EditarNoticia(${noticia.id})" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
                                 </td>`;
                 tabela.appendChild(linha);
             });
@@ -146,9 +146,9 @@ async function EditarNoticia(idNoticia) {
         if (resposta.ok) {
             const noticia = await resposta.json();
 
-            document.getElementById("id-noticia").value = noticia.ID;
-            document.getElementById('editar-titulo-noticia').value = noticia.TITULO;
-            document.getElementById('editar-conteudo-noticia').value = noticia.DESCRICAO;
+            document.getElementById("id-noticia").value = noticia.id;
+            document.getElementById('editar-titulo-noticia').value = noticia.titulo;
+            document.getElementById('editar-conteudo-noticia').value = noticia.descricao;
 
         } else {
             alert("Erro ao editar notícia!");
