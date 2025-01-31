@@ -44,11 +44,11 @@ async function CarregarDepoimento() {
             for (let i = 0; i < depoimentos.length; i++) {
                 let depoimento = depoimentos[i];
                 str += `<tr>
-                            <td>${depoimento.NOME}</td>
-                            <td>${depoimento.DEPOIMENTO}</td>
+                            <td>${depoimento.nome}</td>
+                            <td>${depoimento.depoimento}</td>
                             <td>
-                                <button type="button" onclick="DeletarDepoimento(${depoimento.ID})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"> </button>
-                                <button type="button" onclick="EditarDepoimento(${depoimento.ID})" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
+                                <button type="button" onclick="DeletarDepoimento(${depoimento.id})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"> </button>
+                                <button type="button" onclick="EditarDepoimento(${depoimento.id})" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
                             </td>
                 </tr>`;
             }
@@ -83,9 +83,9 @@ async function EditarDepoimento(idDepoimento) {
         if (resposta.ok) {
             const dep = await resposta.json();
 
-            document.getElementById('id-depoimento').value = dep.ID;
-            document.getElementById("editar-titulo-depoimento").value = dep.NOME;
-            document.getElementById("editar-conteudo-depoimento").value = dep.DEPOIMENTO;
+            document.getElementById('id-depoimento').value = dep.id;
+            document.getElementById("editar-titulo-depoimento").value = dep.nome;
+            document.getElementById("editar-conteudo-depoimento").value = dep.depoimento;
 
         }
     } catch (erro) {
