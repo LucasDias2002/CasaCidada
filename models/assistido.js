@@ -13,7 +13,7 @@ async function Listar() {
 async function ListarPorID(id) {
     try {
         const result = await conexao.query('SELECT * FROM ASSISTIDO WHERE id = $1', [id]);
-        return result.rows[1];
+        return result.rows[0];
     } catch (error) {
         console.error('Erro ao ListarPorId assistido Model:', error);
         throw error;
@@ -23,7 +23,7 @@ async function ListarPorID(id) {
 async function Inserir(assistido) {
     try {
         const result = await conexao.query('INSERT INTO ASSISTIDO (nome, cpf, telefone, data_nasc, data_cadastro, id_imovel) VALUES ($1,$2,$3,$4,$5,$6)', [assistido.nome, assistido.cpf, assistido.telefone, assistido.data_nasc, assistido.data_cadastro, assistido.id_imovel]);
-        return result.rows[1];
+        return result.rows[0];
     } catch (error) {
         console.error('Erro ao Inserir assistido Model:', error);
         throw error;
@@ -32,7 +32,7 @@ async function Inserir(assistido) {
 
 async function Update(id, assistido) {
     try {
-        const result = await conexao.query('UPDATE ASSISTIDO SET nome = $1, cpf = $2, telefone = $3, data_nasc = $4, id_imovel = $5 WHERE id = $6', [assistido.nome, assistido.cpf, assistido.telefone, assistido.data_nasc, assistido.id_imovel, id]);
+        const result = await conexao.query('UPDATE ASSISTIDO SET nome = $1, cpf = $2, telefone = $3, data_nasc = $4, id_imovel = $5 WHERE id = $6 RETURNING *', [assistido.nome, assistido.cpf, assistido.telefone, assistido.data_nasc, assistido.id_imovel, id]);
         return result.rows[0];
     } catch (error) {
         console.error('Erro ao Update assistido Model:', error);
@@ -42,7 +42,7 @@ async function Update(id, assistido) {
 
 async function Delete(id) {
     try {
-        const result = await conexao.query('DELETE FROM ASSISTIDO WHERE id = $1', [id]);
+        const result = await conexao.query('DELETE FROM ASSISTIDO WHERE id = $1 RETURNING *', [id]);
         return result.rows[0];
     } catch (error) {
         console.error('Erro ao Delete assistido Model:', error);

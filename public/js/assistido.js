@@ -89,22 +89,22 @@ async function CarregarAssistidos() {
                 const linha = document.createElement('tr');
 
                 //Formatar as datas
-                const data = new Date(assistido.DATA_NASC);
+                const data = new Date(assistido.data_nasc);
                 const dia = String(data.getDate()).padStart(2, '0');
                 const mes = String(data.getMonth() + 1).padStart(2, '0');
                 const ano = String(data.getFullYear());
                 const DATA_NASC = `${dia}/${mes}/${ano}`;
 
                 linha.innerHTML = `
-                        <td><img src="/images/fotosAssistidos/${assistido.NOME}.png" style="width: 6.771vw; border-radius: 5.208vw; height: 6.771vw" alt=""></td>
-                        <td>${assistido.NOME}</td>
-                        <td>${assistido.CPF}</td>
-                        <td>${assistido.TELEFONE}</td>
+                        <td><img src="/images/fotosAssistidos/${assistido.nome}.png" style="width: 6.771vw; border-radius: 5.208vw; height: 6.771vw" alt=""></td>
+                        <td>${assistido.nome}</td>
+                        <td>${assistido.cpf}</td>
+                        <td>${assistido.telefone}</td>
                         <td>${DATA_NASC}</td>
-                        <td>${assistido.ID_IMOVEL == null ? "Sem imovel" : `${assistido.ENDERECO} ${assistido.NUM_RESIDENCIA}, ${assistido.BAIRRO}, ${assistido.COMPLEMENTO}`}</td>
+                        <td>${assistido.id_imovel == null ? "Sem imovel" : `${assistido.endereco} ${assistido.num_residencia}, ${assistido.bairro}, ${assistido.complemento}`}</td>
                         <td>
-                            <button type="button" onclick="DeletarAssistido(${assistido.ID})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"> </button>
-                            <button type="button" id="btn-editar-assistido" onclick="EditarAssistido(${assistido.ID})" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
+                            <button type="button" onclick="DeletarAssistido(${assistido.id})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"> </button>
+                            <button type="button" id="btn-editar-assistido" onclick="EditarAssistido(${assistido.id})" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
                         </td>`;
                 tabela.appendChild(linha);
             });
@@ -157,7 +157,7 @@ async function PuxarImoveisDisponiveis(select_id, imovel_id) {
                 // Adiciona o imóvel em uso como opção
                 const option = document.createElement('option');
                 option.value = imovel_id;
-                option.textContent = `${imovelEmUso.ENDERECO} ${imovelEmUso.NUM_RESIDENCIA}, ${imovelEmUso.BAIRRO}, ${imovelEmUso.COMPLEMENTO}`;
+                option.textContent = `${imovelEmUso.endereco} ${imovelEmUso.num_residencia}, ${imovelEmUso.bairro}, ${imovelEmUso.complemento}`;
                 select.appendChild(option);
             } catch (erro) {
                 console.error("Erro ao buscar imóvel por ID:", erro.message);
@@ -172,10 +172,10 @@ async function PuxarImoveisDisponiveis(select_id, imovel_id) {
 
         // Adiciona imóveis disponíveis
         imoveisDisponiveis.forEach(imovel => {
-            if (imovel.ID != imovel_id) {
+            if (imovel.id != imovel_id) {
                 const option = document.createElement('option');
-                option.value = imovel.ID;
-                option.textContent = `${imovel.ENDERECO} ${imovel.NUM_RESIDENCIA}, ${imovel.BAIRRO}, ${imovel.COMPLEMENTO}`;
+                option.value = imovel.id;
+                option.textContent = `${imovel.endereco} ${imovel.num_residencia}, ${imovel.bairro}, ${imovel.complemento}`;
                 select.appendChild(option);
             }
         });
@@ -222,17 +222,17 @@ async function EditarAssistido(id_assistido) {
             const assistido = await resposta.json();
 
             //Formatar as datas
-            const data_nasc = new Date(assistido.DATA_NASC);
+            const data_nasc = new Date(assistido.data_nasc);
             const dia = String(data_nasc.getDate()).padStart(2, '0');
             const mes = String(data_nasc.getMonth() + 1).padStart(2, '0');
             const ano = String(data_nasc.getFullYear());
             const DATA_NASC = `${ano}-${mes}-${dia}`;
 
-            document.getElementById('editar-assistido-nome').value = assistido.NOME;
-            document.getElementById('editar-assistido-cpf').value = assistido.CPF;
-            document.getElementById('editar-assistido-telefone').value = assistido.TELEFONE;
+            document.getElementById('editar-assistido-nome').value = assistido.nome;
+            document.getElementById('editar-assistido-cpf').value = assistido.cpf;
+            document.getElementById('editar-assistido-telefone').value = assistido.telefone;
             document.getElementById('editar-assistido-data-nasc').value = DATA_NASC;
-            await PuxarImoveisDisponiveis('editar-escolherimovel', assistido.ID_IMOVEL);
+            await PuxarImoveisDisponiveis('editar-escolherimovel', assistido.id_imovel);
 
         } else {
             alert("Erro ao deletar");

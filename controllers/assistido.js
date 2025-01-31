@@ -22,6 +22,7 @@ async function ListarPorID(req, res) {
 }
 
 async function Inserir(req, res) {
+    console.log(req.body)
     try {
         if (!req.files || !req.files.imagem) {
             return res.status(400).json({ erro: "Imagem não enviada." });
@@ -36,6 +37,7 @@ async function Inserir(req, res) {
         await imagem.mv(uploadImagem);
 
         const assistido = await AssistidoModel.Inserir(req.body);
+        console.log(assistido);
         res.json(assistido);
     } catch (erro) {
         res.status(400).json({ erro: "Erro ao Inserir assistido Control" });
@@ -48,10 +50,10 @@ async function Update(req, res) {
     try {
         const assistido = await AssistidoModel.Update(id, req.body);
 
-        if (assistido.affectedRows > 0) {
-            res.json({ message: "Assistido atualizado com sucesso Control" });
-        } else {
+        if (assistido.rowCount === 0) {
             res.status(404).json({ message: `Assistido ${id} não encontrado Control` });
+        } else {
+            res.json({ message: "Assistido atualizado com sucesso Control" });
         }
     } catch (erro) {
         res.status(500).json({ erro: "Erro ao atualizar assistido Control" })
@@ -65,7 +67,7 @@ async function Delete(req, res) {
         // Obtém os dados do assistido, incluindo o nome da imagem
         const assistido = await AssistidoModel.ListarPorID(id);
 
-        if (!assistido || !assistido.NOME) {
+        if (!assistido || !assistido.nome) {
             return res.status(404).json({ erro: "Assistido não encontrado ou nome não disponível." });
         }
 
@@ -73,12 +75,12 @@ async function Delete(req, res) {
         const diretorioImagens = path.resolve(__dirname, '../public/images/fotosAssistidos');
 
         // Caminho completo da imagem
-        const caminhoImagem = path.join(diretorioImagens, `${assistido.NOME}.png`);
+        const caminhoImagem = path.join(diretorioImagens, `${assistido.nome}.png`);
 
         // Excluir a imagem, se existir
         if (fs.existsSync(caminhoImagem)) {
             await fs.promises.unlink(caminhoImagem); // Usa versão baseada em promises
-            console.log(`Imagem ${assistido.NOME}.png deletada com sucesso.`);
+            console.log(`Imagem ${assistido.nome}.png deletada com sucesso.`);
         } else {
             console.log("Imagem não encontrada, prosseguindo com a exclusão do registro.");
         }
@@ -86,10 +88,10 @@ async function Delete(req, res) {
         // Excluir o registro do assistido no banco de dados
         const resultado = await AssistidoModel.Delete(id);
 
-        if (resultado.affectedRows > 0) {
-            res.status(200).json({ message: "Assistido deletado com sucesso Control" });
-        } else {
+        if (resultado.rowCount === 0) {
             res.status(404).json({ message: `Assistido ${id} não encontrado` });
+        } else {
+            res.status(200).json({ message: "Assistido deletado com sucesso Control" });
         }
     } catch (erro) {
         console.error("Erro ao deletar assistido: ", erro);

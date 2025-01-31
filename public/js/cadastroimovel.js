@@ -61,13 +61,13 @@ async function CarregarImoveis() {
                 const linha = document.createElement('tr');
 
                 //Formatar as datas
-                const datainicio = new Date(imovel.DATA_INICIO_CONTRATO);
+                const datainicio = new Date(imovel.data_inicio_contrato);
                 const dia = String(datainicio.getDate()).padStart(2, '0');
                 const mes = String(datainicio.getMonth() + 1).padStart(2, '0');
                 const ano = String(datainicio.getFullYear());
                 const DATA_INICIO_FORMATADA = `${dia}/${mes}/${ano}`;
 
-                const datafimcontrato = new Date(imovel.DATA_TERMINO_CONTRATO);
+                const datafimcontrato = new Date(imovel.data_termino_contrato);
                 const dia2 = String(datafimcontrato.getDate()).padStart(2, '0');
                 const mes2 = String(datafimcontrato.getMonth() + 1).padStart(2, '0');
                 const ano2 = String(datafimcontrato.getFullYear());
@@ -88,19 +88,19 @@ async function CarregarImoveis() {
                 // }
 
                 linha.innerHTML = `
-                    <td>${imovel.NOME_PROPRIETARIO}</td>
-                        <td>${imovel.ENDERECO}, ${imovel.NUM_RESIDENCIA}, ${imovel.BAIRRO}</td>
-                        <td>${imovel.COMPLEMENTO}</td>
-                        <td>${imovel.CEP}</td>
+                    <td>${imovel.nome_proprietario}</td>
+                        <td>${imovel.endereco}, ${imovel.num_residencia}, ${imovel.bairro}</td>
+                        <td>${imovel.complemento}</td>
+                        <td>${imovel.cep}</td>
                         <td>${DATA_INICIO_FORMATADA}</td>
                         <td>${DATA_TERMINO_FORMATADA}</td>
-                        <td>R$${imovel.VALOR_ALUGUEL}</td>
-                        <td>${imovel.TELEFONE}</td>
-                        <td>${imovel.DESCRICAO}</td>
-                        <td>${imovel.STATUS}</td>
+                        <td>R$${imovel.valor_aluguel}</td>
+                        <td>${imovel.telefone}</td>
+                        <td>${imovel.descricao}</td>
+                        <td>${imovel.status}</td>
                         <td>
-                            <button type="button" onclick="DeletarImovel(${imovel.ID})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"> </button>
-                            <button type="button" onclick="EditarImovel(${imovel.ID})" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
+                            <button type="button" onclick="DeletarImovel(${imovel.id})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"> </button>
+                            <button type="button" onclick="EditarImovel(${imovel.id})" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
                             <button id="open-modal" type="button" data-modal="modal-1" class="btn-edit"><i class="bi bi-eye-fill"></i></button>
                         </td>`;
                 tabela.appendChild(linha);
@@ -148,31 +148,31 @@ async function EditarImovel(idImovel) {
             console.log(imovel.ID)
 
             //Formatar as datas
-            const datainicio = new Date(imovel.DATA_INICIO_CONTRATO);
+            const datainicio = new Date(imovel.data_inicio_contrato);
             const dia = String(datainicio.getDate()).padStart(2, '0');
             const mes = String(datainicio.getMonth() + 1).padStart(2, '0');
             const ano = String(datainicio.getFullYear());
             const DATA_INICIO_FORMATADA = `${ano}-${mes}-${dia}`;
 
-            const datafimcontrato = new Date(imovel.DATA_TERMINO_CONTRATO);
+            const datafimcontrato = new Date(imovel.data_termino_contrato);
             const dia2 = String(datafimcontrato.getDate()).padStart(2, '0');
             const mes2 = String(datafimcontrato.getMonth() + 1).padStart(2, '0');
             const ano2 = String(datafimcontrato.getFullYear());
             const DATA_TERMINO_FORMATADA = `${ano2}-${mes2}-${dia2}`;
 
-            document.getElementById('editarimovelcep').value = imovel.CEP;
-            document.getElementById('editarimovelendereco').value = imovel.ENDERECO;
-            document.getElementById('editarimovelbairro').value = imovel.BAIRRO;
-            document.getElementById('editarimovelcomplemento').value = imovel.COMPLEMENTO;
-            document.getElementById('editarimovelnumero').value = imovel.NUM_RESIDENCIA;
-            document.getElementById('editarimovelproprietario').value = imovel.NOME_PROPRIETARIO;
-            document.getElementById('editarimovelcontato').value = imovel.TELEFONE;
-            document.getElementById('editarvaloraluguel').value = imovel.VALOR_ALUGUEL;
-            document.getElementById('editarimoveldescricao').value = imovel.DESCRICAO;
+            document.getElementById('editarimovelcep').value = imovel.cep;
+            document.getElementById('editarimovelendereco').value = imovel.endereco;
+            document.getElementById('editarimovelbairro').value = imovel.bairro;
+            document.getElementById('editarimovelcomplemento').value = imovel.complemento;
+            document.getElementById('editarimovelnumero').value = imovel.num_residencia;
+            document.getElementById('editarimovelproprietario').value = imovel.nome_proprietario;
+            document.getElementById('editarimovelcontato').value = imovel.telefone;
+            document.getElementById('editarvaloraluguel').value = imovel.valor_aluguel;
+            document.getElementById('editarimoveldescricao').value = imovel.descricao;
             document.getElementById('editarcontratoinicio').value = DATA_INICIO_FORMATADA;
             document.getElementById('editarcontratofim').value = DATA_TERMINO_FORMATADA;
-            document.getElementById('editarstatus').value = imovel.STATUS;
-            document.getElementById('idImovel').value = imovel.ID;
+            document.getElementById('editarstatus').value = imovel.status;
+            document.getElementById('idImovel').value = imovel.id;
 
         } else {
             alert("Erro ao buscar Imovel");
