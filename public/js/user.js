@@ -17,9 +17,9 @@ async function CarregarUsuarios() {
             for (let i = 0; i < usuarios.length; i++) {
                 user = usuarios[i];
                 str += `<tr>
-                            <td>${user.NOME}</td>
-                            <td>${user.EMAIL}</td>
-                            <td>${user.TELEFONE}</td>
+                            <td>${user.nome}</td>
+                            <td>${user.email}</td>
+                            <td>${user.telefone}</td>
                 </tr>`;
             }
             document.getElementById("tabela-usuarios").innerHTML = str;

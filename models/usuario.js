@@ -35,7 +35,7 @@ async function ListarPorEmail(email) {
 async function Inserir(usuario) {
     try {
         const passwordHash = await bcrypt.hash(usuario.senha, 8); //para criptografar
-        const result = await conexao.query('INSERT INTO usuario (nome, email, senha, telefone, permissao, data_nasc, data_criacao) VALUES ($1, $2, $3 , $4, $5, $6, NOW())', [usuario.nome, usuario.email, passwordHash, usuario.telefone, 3, usuario.data_nasc]);
+        const result = await conexao.query('INSERT INTO usuario (nome, email, senha, telefone, permissao, data_nasc, data_criacao) VALUES ($1, $2, $3 , $4, $5, $6, CURRENT_TIMESTAMP)', [usuario.nome, usuario.email, passwordHash, usuario.telefone, 3, usuario.data_nasc]);
         return result.rows[0];
     } catch (error) {
         console.error('Erro ao Inserir usuário Model:', error);
