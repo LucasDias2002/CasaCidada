@@ -22,7 +22,7 @@ async function ListarPorId(id) {
 
 async function ListarUltimo2anos() {
     try {
-        const result = await conexao.query(`SELECT DATE_FORMAT(g.data_gasto, '%m-%Y') AS mes, SUM(g.valor) AS total_gastos FROM gastos g WHERE YEAR(g.data_gasto) >= YEAR(NOW()) - 2 GROUP BY DATE_FORMAT(g.data_gasto, '%m-%Y') ORDER BY mes;`);
+        const result = await conexao.query(`SELECT TO_CHAR(g.data_gasto, 'MM-YYYY') AS mes, SUM(g.valor) AS total_gastos FROM gastos g WHERE EXTRACT(YEAR FROM g.data_gasto) >= EXTRACT(YEAR FROM CURRENT_DATE) - 2 GROUP BY TO_CHAR(g.data_gasto, 'MM-YYYY') ORDER BY mes;`);
         return result.rows;
     } catch (error) {
         console.error('Erro ao listar gasto por id - Model:', error);
@@ -32,7 +32,7 @@ async function ListarUltimo2anos() {
 
 async function Inserir(gasto) {
     try {
-        const result = await conexao.query("INSERT INTO GASTOS (valor, data_gasto, descricao) VALUES ($1,$2,$3)",  [gasto.valor, gasto.data_gasto, gasto.descricao]);
+        const result = await conexao.query("INSERT INTO GASTOS (valor, data_gasto, descricao) VALUES ($1,$2,$3)", [gasto.valor, gasto.data_gasto, gasto.descricao]);
         return result.rows[0];
     } catch (error) {
         console.error('Erro ao inserir gastos - Model:', error);

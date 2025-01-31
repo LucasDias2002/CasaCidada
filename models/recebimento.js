@@ -1,6 +1,72 @@
 const conexao = require("../database/conexaoPostgre");
-const { ListarUltimo2anos } = require("./gasto");
+//const { ListarUltimo2anos } = require("./gasto");
 
+async function Listar() {
+    try {
+        const result = await conexao.query("SELECT * FROM RECEBIMENTOS;")
+        return result.rows;
+    } catch (error) {
+        console.error('Erro ao recebimentos - Model:', error);
+        throw error;
+    }
+}
+
+async function ListarPorId(id) {
+    try {
+        const result = await conexao.query("SELECT * FROM RECEBIMENTOS WHERE id= ?", [id]);
+        return result.rows[0];
+    } catch (error) {
+        console.error('Erro ao listar recebimento por id - Model:', error);
+        throw error;
+    }
+}
+
+async function ListarUltimo2anos() {
+    try {
+        const result = await conexao.query(`SELECT 
+    TO_CHAR(r.data_recebimento, 'MM-YYYY') AS mes,
+    SUM(r.valor) AS total_recebimentos
+    FROM recebimentos r
+    WHERE EXTRACT(YEAR FROM r.data_recebimento) >= EXTRACT(YEAR FROM CURRENT_DATE) - 2
+    GROUP BY TO_CHAR(r.data_recebimento, 'MM-YYYY')
+    ORDER BY mes;
+`);
+        return result.rows;
+    } catch (error) {
+        console.error('Erro ao listar recebimento por id - Model:', error);
+        throw error;
+    }
+}
+
+async function Inserir(doacao) {
+    try {
+        const result = await conexao.query("INSERT INTO RECEBIMENTOS (valor, data_recebimento, sigla_doador) VALUES ($1,$2,$3) RETURNING *",[doacao.valor, doacao.data_recebimento, doacao.sigla]);
+        return result.rows[0];
+    } catch (error) {
+        console.error('Erro ao inserir recebimento - Model:', error);
+        throw error;
+    }
+}
+
+async function Delete(id) {
+    try {
+        const result = await conexao.query("DELETE FROM RECEBIMENTOS WHERE id = $1 RETURNING *", [id]);
+        return result.rows[0];
+    } catch (error) {
+        console.error('Erro ao Deletar gasto Model:', error);
+        throw error;
+    }
+}
+
+module.exports = {
+    Listar,
+    ListarPorId,
+    ListarUltimo2anos,
+    Inserir,
+    Delete
+}
+
+/*
 const RecebimentoModel = {
     Listar: async () => {
         const sql = "SELECT * FROM RECEBIMENTOS;";
@@ -74,4 +140,4 @@ const RecebimentoModel = {
     }
 }
 
-module.exports = RecebimentoModel;
+module.exports = RecebimentoModel;*/
