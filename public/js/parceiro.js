@@ -56,16 +56,16 @@ async function CarregarParceiros() {
             parceiros.forEach(parceiro => {
                 const linha = document.createElement('tr');
 
-                linha.innerHTML = `<td><img src="/images/parceiros/${parceiro.NOME}.png" style="width: 6.771vw; border-radius: 5.208vw; height: 6.771vw" alt=""></td>
-                                    <td>${parceiro.NOME}</td>
-                                    <td>${parceiro.EMAIL}</td>
-                                    <td>${parceiro.TELEFONE}</td>
-                                    <td>${parceiro.TIPO}</td>
-                                    <td>${parceiro.CNPJ}</td>
-                                    <td>${parceiro.AREA_ATUACAO}</td>
+                linha.innerHTML = `<td><img src="/images/parceiros/${parceiro.nome}.png" style="width: 6.771vw; border-radius: 5.208vw; height: 6.771vw" alt=""></td>
+                                    <td>${parceiro.nome}</td>
+                                    <td>${parceiro.email}</td>
+                                    <td>${parceiro.telefone}</td>
+                                    <td>${parceiro.tipo}</td>
+                                    <td>${parceiro.cnpj}</td>
+                                    <td>${parceiro.area_atuacao}</td>
                                     <td>
-                                        <button type="button" onclick="ApagarParceiro(${parceiro.ID})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"></button>
-                                        <button type="button" onclick="EditarParceiro(${parceiro.ID})" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
+                                        <button type="button" onclick="ApagarParceiro(${parceiro.id})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"></button>
+                                        <button type="button" onclick="EditarParceiro(${parceiro.id})" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
                                     </td>`;
                 tabela.appendChild(linha);
             });
@@ -80,34 +80,37 @@ async function CarregarParceiros() {
     }
 };
 
-if(window.getComputedStyle(document.getElementById('ver-parceiro')).display === 'block'){
+if (window.getComputedStyle(document.getElementById('ver-parceiro')).display === 'block') {
     CarregarParceiros();
 }
 
 async function ApagarParceiro(id) {
-    try {
-        const response = await fetch(`/parceiro/${id}`, {
-            method: "DELETE",
-            headers: {
-                'Content-Type': 'application/json'
+    const conf = confirm("Deseja deletar esse parceiro?");
+    if (conf) {
+        try {
+            const response = await fetch(`/parceiro/${id}`, {
+                method: "DELETE",
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            if (response.ok) {
+                console.log(`PARCEIRO ${id} foi apagado!`)
+                CarregarParceiros();
             }
-        })
-        if (response.ok) {
-            console.log(`PARCEIRO ${id} foi apagado!`)
-            CarregarParceiros();
+            else {
+                console.log('Erro ao apagar parceiro. Tente novamente.');
+            }
         }
-        else {
-            console.log('Erro ao apagar parceiro. Tente novamente.');
+        catch (erro) {
+            console.error('Erro na requisição:', erro);
+            //alert('Erro ao conectar ao servidor.');
         }
-    }
-    catch (erro) {
-        console.error('Erro na requisição:', erro);
-        //alert('Erro ao conectar ao servidor.');
     }
 }
 
 async function EditarParceiro(id) {
-    trocarDiv('ver-parceiro','editar-parceiro')
+    trocarDiv('ver-parceiro', 'editar-parceiro')
     try {
         const response = await fetch(`/parceiro/${id}`, {
             method: "GET",
@@ -117,13 +120,13 @@ async function EditarParceiro(id) {
         })
         if (response.ok) {
             const parceiro = await response.json();
-            document.getElementById("editnome").value = parceiro[0].NOME;
-            document.getElementById("editemail").value = parceiro[0].EMAIL;
-            document.getElementById("edittipo").value = parceiro[0].TIPO;
-            document.getElementById("editatuacao").value = parceiro[0].AREA_ATUACAO;
-            document.getElementById("editcnpj").value = parceiro[0].CNPJ;
-            document.getElementById("editcontato").value = parceiro[0].TELEFONE;
-            document.getElementById("idParc").value = parceiro[0].ID;
+            document.getElementById("editnome").value = parceiro.nome;
+            document.getElementById("editemail").value = parceiro.email;
+            document.getElementById("edittipo").value = parceiro.tipo;
+            document.getElementById("editatuacao").value = parceiro.area_atuacao;
+            document.getElementById("editcnpj").value = parceiro.cnpj;
+            document.getElementById("editcontato").value = parceiro.telefone;
+            document.getElementById("idParc").value = parceiro.id;
         }
         else {
             console.log('Erro ao carregar usuário. Tente novamente.');
@@ -150,7 +153,7 @@ document.getElementById("form-editparceiro").addEventListener("submit", async (e
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ nome, email, tipo, cnpj, area_atuacao, telefone})
+            body: JSON.stringify({ nome, email, tipo, cnpj, area_atuacao, telefone })
         })
         if (response.ok) {
             document.getElementById("form-editparceiro").reset();
@@ -166,6 +169,6 @@ document.getElementById("form-editparceiro").addEventListener("submit", async (e
     }
 });
 function trocarDiv(div1, div2) {
-    document.getElementById(div1).style.display= "none";
-    document.getElementById(div2).style.display= "block";
+    document.getElementById(div1).style.display = "none";
+    document.getElementById(div2).style.display = "block";
 }

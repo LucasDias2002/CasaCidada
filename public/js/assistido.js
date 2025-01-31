@@ -186,22 +186,25 @@ async function PuxarImoveisDisponiveis(select_id, imovel_id) {
 
 
 async function DeletarAssistido(id_assistido) {
-    try {
+    const conf = confirm("Deseja deletar esse assistido?");
+    if (conf) {
+        try {
 
-        const resposta = await fetch(`/assistido/${id_assistido}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
+            const resposta = await fetch(`/assistido/${id_assistido}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            if (resposta.ok) {
+                alert("Delete concluido");
+                CarregarAssistidos();
+            } else {
+                alert("Erro ao deletar");
             }
-        })
-        if (resposta.ok) {
-            alert("Delete concluido");
-            CarregarAssistidos();
-        } else {
-            alert("Erro ao deletar");
+        } catch (erro) {
+            console.error("erro ao deletar Assistido arquivo: " + erro);
         }
-    } catch (erro) {
-        console.error("erro ao deletar Assistido arquivo: " + erro);
     }
 };
 

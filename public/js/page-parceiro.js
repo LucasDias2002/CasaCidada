@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             for (let i = 0; i < parceiros.length; i++) {
                 let parc = parceiros[i];
                 str += `<div class="card-parceiro">
-                    <h4>${parc.NOME}</h4>
-                    <p><strong>Área de Atuação:</strong>${parc.AREA_ATUACAO}</p>
-                    <img src="/images/parceiros/${parc.NOME}.png" alt="Logo">
-                    <p><strong>Contato:</strong>${parc.EMAIL}</p>
+                    <h4>${parc.nome}</h4>
+                    <p><strong>Área de Atuação:</strong>${parc.area_atuacao}</p>
+                    <img src="/images/parceiros/${parc.nome}.png" alt="Logo">
+                    <p><strong>Contato:</strong>${parc.email}</p>
                 </div>`;
             }
             console.log(str)

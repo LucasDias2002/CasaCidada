@@ -223,22 +223,25 @@ async function EditarImovel(idImovel) {
 };
 
 async function DeletarImovel(idImovel) {
-    try {
+    const conf = confirm("Deseja deletar esse imóvel?");
+    if (conf) {
+        try {
 
-        const resposta = await fetch(`/imovel/${idImovel}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
+            const resposta = await fetch(`/imovel/${idImovel}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            if (resposta.ok) {
+                alert("Delete concluido");
+                CarregarImoveis();
+            } else {
+                alert("Erro ao deletar");
             }
-        })
-        if (resposta.ok) {
-            alert("Delete concluido");
-            CarregarImoveis();
-        } else {
-            alert("Erro ao deletar");
+        } catch (erro) {
+            console.error("erro ao deletar imovel arquivo 'cadatroimovel.js': " + erro);
         }
-    } catch (erro) {
-        console.error("erro ao deletar imovel arquivo 'cadatroimovel.js': " + erro);
     }
 };
 
