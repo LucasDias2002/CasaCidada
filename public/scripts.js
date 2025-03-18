@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="logo">
             <a href="/"><img id="logo" src="images/logo2.png" alt="Casa Cidadã"></a>
         </div>
+        
         <nav class="menusuperior">
             <ul>
                 <li><a href="/">Página Inicial</a></li>

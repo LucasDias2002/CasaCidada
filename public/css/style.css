@@ -15,7 +15,6 @@ body {
     background-color: #ffffff;
     display: flex;
 }
-
 /* Estrutura Principal */
 main {
     width: 100%;
@@ -74,6 +73,14 @@ main li {
     align-items: center;
     padding-top: 20px;
     box-shadow:  #333;
+}
+
+#menu-mobile{
+    display: none;
+}
+
+.menu-toggle {
+    display: none;
 }
 
 #cabeçalho .logo {
@@ -444,4 +451,101 @@ margin-right: 20px;
 /* Ajustes de margem nas divs */
 .contato > div {
     margin-bottom: 20px;
+}
+
+/* Para telas menores que 669px (exibe o botão de menu e oculta o menu) */
+@media (max-width: 669px) {
+    #cabeçalho{
+        display: none;
+    }
+
+    #menu-mobile{
+        display: block;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background: #50368b;
+        height: 50px;
+    }
+
+    html, body {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    main {
+        width: 100%; /* Ocupa toda a largura */
+        margin-left: 0; /* Remove a margem esquerda */
+        padding: 0; /* Adiciona um pouco de padding se necessário */
+    }
+
+    section, article {
+        width: 90%; /* Faz com que os elementos ocupem toda a largura */
+        margin: 0 auto; /* Centraliza o conteúdo */
+        padding: 0;
+    }
+
+    /* Ajustes nos tamanhos de fonte */
+    h2 {
+        font-size: 5vw; /* Ajuste de tamanho do título */
+    }
+
+    h3 {
+        font-size: 4vw; /* Ajuste para títulos menores */
+    }
+    
+    h4{
+        font-size: 3.5vw;
+    }
+
+    h5{
+        font-size: 3vw;
+    }
+
+    p, li {
+        font-size: 3rem; /* Tamanho de texto mais legível */
+    }
+
+    footer {
+        font-size: 2rem; /* Ajusta o tamanho da fonte do rodapé */
+    }
+
+    .cta, .btn-perfil {
+        font-size: 3rem; /* Ajuste nos tamanhos dos botões */
+        display: block; /* Faz o botão ocupar toda a largura disponível */
+        width: 80%; /* Faz com que os botões ocupem 80% da largura da tela */
+        max-width: 400px; /* Define um limite para não ficarem muito grandes em telas maiores */
+        margin: 10px auto; /* Centraliza horizontalmente */
+        text-align: center; /* Garante que o texto dentro do botão fique centralizado */
+        padding: 15px 0; /* Ajusta o espaçamento interno */
+    }
+
+    .card-parceiro h4 {
+        font-size: 3rem; /* Ajuste nos tamanhos dos títulos dos cartões */
+    }
+
+    .depoimento p, .noticia p {
+        font-size: 3rem; /* Ajusta o texto dentro de depoimentos e notícias */
+    }
+
+    .label {
+        font-size: 3rem; /* Ajusta o tamanho das labels */
+    }
+
+    /* Ajusta a tipografia da seção de redes sociais */
+    .redes-sociais h3 {
+        font-size: 2.5rem;
+    }
+
+    .social-link {
+        font-size: 3rem;
+    }
+
+    /* Ajustes de padding e margin para melhorar o layout */
+    .doacao > div {
+        padding: 0;
+    }
+
 }
