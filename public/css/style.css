@@ -5,200 +5,126 @@ html {
     width: 100%;
     height: 100%;
     font-family: 'inter', 'sans-serif';
-    font-size: 1.146vw;
+    body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        background-color: #ffffff;
+        display: block;
+    }
+    main{
+        width: 100%;
+    }
+    /* Títulos */
+    h1, h2, h3, h4, h5, h6 {
+        color: #50368b;
+        margin-bottom: 10px;
+        line-height: 1.3;
+    }
+    h1 {
+        text-align: center;
+        font-size: 2.2rem;
+    }
+    h2 {
+        text-align: center;
+        font-size: 1.8rem;
+    }
+    h3 {
+        text-align: center;
+        font-size: 1.5rem;
+        color: #a30336 !important;
+    }
+    h4 {
+        font-size: 1.3rem;
+        color: #a30336 !important;
+    }
+    p {
+        font-weight: 400;
+        font-size: 1rem;
+        text-align: justify;
+        color: #444;
+    }
+
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    color: #333;
-    background-color: #ffffff;
-    display: flex;
+/* Menu superior responsivo */
+.navbar {
+    background-color: #50368b;
+    a{
+        color:white;
+        &:hover{
+            font-weight: bold;
+            color:white;
+        }
+    }
+    #logo{
+        margin: 7px;
+    }
+    .navbar-toggler {
+        border-color: white;
+    }
+    .dropdown-item{
+        color:#a30336;
+        &:hover{
+            background-color: white;
+        }
+    }
+    li {
+        list-style: none;
+    }
+    .login-btn {
+        font-weight: bold;     
+        color: white;               
+        border: 1px solid white;   
+        padding: 8px 20px;     
+        border-radius: 5px;     
+        text-decoration: none;    
+        transition: background-color 0.3s, color 0.3s; 
+        &:hover {
+            background-color: #a30336;
+            color: white;  
+        }
+    }
 }
-/* Estrutura Principal */
-main {
+
+/* Conteúdo geral */
+#banner1{
     width: 100%;
-    margin-left: 11.458vw; /* Espaço para o menu lateral */
+    margin-bottom: 30px;
 }
-
 section, article {
     width: 90%;
-    margin: 0 auto 20px;
+    margin: 0 auto;
     padding: 0;
-}
-
-section p, article p {
-    text-align: justify;
-}
-
-footer {
-    font-size: 0.781vw;
-    margin-top: 10px;
-    text-align: center;
-}
-
-/* Tipografia */
-h2 {
-    color: #a30336; 
-    font-size: 2.344vw;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 20px;
-}
-
-h3:hover {
-    color: #50368b;
-}
-
-p, li {
-    line-height: 1.6;
-}
-
-ul, ol {
-    margin: 0 0 20px;
-}
-
-main li {
-    list-style-type:circle;
-}
-/* Menu Lateral */
-#cabeçalho {
-    width: 11.458vw;
-    height: 100vh;
-    position: fixed;
-    background-color: #50368b;
-    color: white;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    box-shadow:  #333;
-}
-
-#menu-mobile{
-    display: none;
-}
-
-.menu-toggle {
-    display: none;
-}
-
-#cabeçalho .logo {
-    margin: 0px auto 10px;
-}
-
-#cabeçalho .logo img {
-    max-width: 7.813vw;
-}
-
-#cabeçalho .menusuperior ul {
-    list-style: none;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-}
-
-#cabeçalho .menusuperior li a {
-    margin-bottom: 3px;
-    display: block;
-    list-style: none;
-    padding: 3px 15px 3px 10px;
-    text-decoration: none;
-    color: white;
-    text-align: left;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    font-size: 0.938vw;
-}
-
-#cabeçalho .menusuperior li a.branco {
-    margin-bottom: 3px;
-    display: block;
-    list-style: none;
-    padding: 3px 15px 3px 10px;
-    text-decoration: none;
-    color: white;
-    background-color: 50368b;
-    text-align: left;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    border: 1px solid #ddd;
-}
-
-#cabeçalho .menusuperior li a:hover {
-    background-color: white;
-    color: #a30336;
-}
-
-#cabeçalho .cadastrologin a {
-    margin: 5px;
-    color: white;
-    text-decoration: none;
-    padding: 5px 10px;
-    border: 1px solid white;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-#cabeçalho .cadastrologin a:hover {
-    background-color: white;
-    color: #a30336;
+    p{
+        text-align: justify;
+    }
+    /* Botões de Ação */
+    .cta, .btn-perfil {
+        display: inline-block;
+        width: 250px;
+        text-align: center;
+        padding: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.5s;
+        background-color: #a30336;
+        color: #ffffff;
+        margin: 0 10px 10px 0;
+        &:hover{
+            background-color: #50368b;
+        }
+    }
 }
 
 
-/* Botões de Ação */
-.cta, .btn-perfil {
-    display: inline-block;
-    width: 250px;
-    text-align: center;
-    padding: 10px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.5s;
-    background-color: #a30336;
-    color: #ffffff;
-    margin: 0 10px 10px 0;
-}
-
-.cta:hover, .btn-perfil:hover {
-    background-color: #50368b;
-}
-
-/* Cartões */
-.parceiros-container {
-    display: flex;
-    gap: 25px;
-    flex-wrap: wrap;
-    margin: 0px;
-    margin-bottom: 50px;
-}
-
-.card-parceiro {
-    background-color: #f7f7f7;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    width: 100%;
-    max-width: 900px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-.card-parceiro:hover {
-    transform: translateY(-5px);
-}
-
-.card-parceiro h4 {
-    margin-bottom: 10px;
-    color: #50368b;
-}
-
-/* Depoimentos e Notícias*/
+/* PÁGINA PRINCIPAL */
+/* Depoimentos e Notícias */
 #depoimentos, #noticias {
     padding: 10px;
     margin-bottom: 20px;
 }
-
 .depoimento, .noticia {
     width: 90%;
     margin: 0 auto;
@@ -209,57 +135,37 @@ main li {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     margin-bottom: 15px;
+    &:hover{
+        transform: translateY(-5px);
+    }
 }
-
-.depoimento:hover, .noticia:hover {
-    transform: translateY(-5px);
-}
-
 .depoimento p {
     text-align: center;
     color: #ffd700;
     margin: 5px;
 }
-
-h5{
-text-align: right;
-margin-right: 20px;
-}
-
-#banner1{
-    width: 100%;
-    margin-bottom: 30px;
-}
-
-/* FOTOS NA PÁGINA INICIAL */
-
 #memorias {
     padding: 20px;
 }
-
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 15px;
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        &:hover img {
+            transform: scale(1.05);
+        }
+    }
+    img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+    }
 }
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.05);
-}
-
 .caption {
     position: absolute;
     bottom: 0;
@@ -270,64 +176,50 @@ margin-right: 20px;
     color: #fff;
     text-align: center;
 }
-
 .caption h5 {
     margin: 0;
     padding: 10px;
     padding-right: 30px;
     font-weight: bold;
+    color: white !important;
+    font-size: 0.85rem;
 }
 
-/* PÁGINA DOE AGORA */
-.doacao {
-    padding: 20px;
-    margin-bottom: 30px;
-}
 
+/* PÁGINA DE DOAÇÕES */
 .transferencia, .pix {
-    background-color: #ece4ff;
+    background: linear-gradient(to right, #ece4ff 40%, #9371e4);
     border: 2px solid #ddd;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    &:hover{
+        transform: translateY(-5px); 
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    .label{
+        color: #50368b;
+        font-weight: bold;
+    }
 }
-
-.transferencia:hover, .pix:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.transferencia .label, .pix .label {
-    color: #50368b;
-    font-weight: bold;
-}
-
-.transferencia .detalhes, .pix .detalhes {
-
-    color: #333;
-}
-
-.transferencia .detalhes {
-    margin-top: 10px;
-}
-
-.pix .detalhes {
-    margin-top: 10px;
-}
-
 .pix {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px; 
+    .detalhes {
+        margin-top: 10px;
+        &:strong {
+            color: #50368b;
+            font-weight: bold;
+        }
+    }
 }
-
 .qr-code {
     margin-top: 10px;
 }
-
 .qr-image {
     max-width: 150px;
     height: auto;
@@ -336,216 +228,88 @@ margin-right: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-.pix .detalhes strong {
-    color: #50368b;
-    font-weight: bold;
-}
-
 .doacao > div {
     display: flex;
     gap: 30px;
     justify-content: space-between;
 }
-
 .label {
     color: #a30336;
     font-weight: bold;
 }
 
-/* Ajustes no layout */
-@media screen and (max-width: 768px) {
-    .doacao > div {
-        flex-direction: column;
-    }
-    .pix .qr-code {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-}
-
 /* PÁGINA DE CONTATO */
-.contato {
-    padding: 20px;
-    margin-bottom: 30px;
-}
-
-/* Seção geral de contato */
 .informacoes-contato, .redes-sociais, .horario-atendimento {
-    background-color: #ece4ff; /* Cor de fundo roxo claro */
-    border: 2px solid #ddd; /* Borda suave */
-    border-radius: 10px; /* Bordas arredondadas */
+    background: linear-gradient(to right, #ece4ff 40%, #9371e4);
+    border: 2px solid #ddd;
+    border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito de hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    &:hover{
+        transform: translateY(-5px); 
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    strong{
+        font-weight: bold;
+        color: #50368b;
+    }
+    h3{
+        color: #50368b; 
+        font-weight: bold;
+        margin-top: 20px;
+    }
 }
-
-/* Efeito de hover para destacar quando o mouse passa */
-.informacoes-contato:hover, .redes-sociais:hover, .horario-atendimento:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra mais intensa */
+.redes-sociais {
+    ul{
+        list-style-type: none;
+        padding-left: 0;
+    }
+    li{
+        margin-bottom: 10px;
+    }
 }
-
-/* Títulos das seções */
-.contato h2 {
-    color: #a30336; /* Cor do título */
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.contato p {
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.informacoes-contato p, .horario-atendimento p {
-    color: #333;
-    margin-top: 10px;
-}
-
-.informacoes-contato strong, .horario-atendimento strong {
-    font-weight: bold;
-    color: #50368b; /* Cor das informações em destaque */
-}
-
-.redes-sociais h3 {
-    color: #50368b; /* Cor do título de redes sociais */
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-.redes-sociais ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.redes-sociais li {
-    margin-bottom: 10px;
-}
-
 .social-link {
     text-decoration: none;
     color: #50368b;
     transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.social-link:hover {
-    transform: translateY(-5px);
-    color: #a30336; /* Cor ao passar o mouse */
-}
-
-.social-link i {
-    margin-right: 8px;
-}
-
-/* Outros ajustes para links */
-.contato a {
-    color: #50368b;
-}
-
-.contato a:hover {
-    text-decoration: underline;
-}
-
-/* Ajustes de margem nas divs */
-.contato > div {
-    margin-bottom: 20px;
-}
-
-/* Para telas menores que 669px (exibe o botão de menu e oculta o menu) */
-@media (max-width: 669px) {
-    #cabeçalho{
-        display: none;
+    &:hover {
+        transform: translateY(-5px);
+        text-decoration: none;
+        font-weight: bold;
+        color: #a30336; /* Cor ao passar o mouse */
     }
+    i {
+        margin-right: 8px;
+    }
+    .contato a {
+        color: #50368b;
+    }
+}
 
-    #menu-mobile{
-        display: block;
-        justify-content: space-between;
-        align-items: center;
+/* PÁGINA DE PARCEIROS */
+.parceiros-container {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin: 0px;
+    margin-bottom: 50px;
+    .card-parceiro {
+        background-color: #f7f7f7;
+        border: 1px solid #ddd;
+        border-radius: 5px;
         padding: 10px;
-        background: #50368b;
-        height: 50px;
-    }
-
-    html, body {
-        display: block;
         width: 100%;
-        margin: 0;
-        padding: 0;
+        max-width: 900px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        &:hover {
+            transform: translateY(-5px);
+        }
+        h4{
+            margin-bottom: 10px;
+            color: #50368b;
+        }
     }
-
-    main {
-        width: 100%; /* Ocupa toda a largura */
-        margin-left: 0; /* Remove a margem esquerda */
-        padding: 0; /* Adiciona um pouco de padding se necessário */
-    }
-
-    section, article {
-        width: 90%; /* Faz com que os elementos ocupem toda a largura */
-        margin: 0 auto; /* Centraliza o conteúdo */
-        padding: 0;
-    }
-
-    /* Ajustes nos tamanhos de fonte */
-    h2 {
-        font-size: 5vw; /* Ajuste de tamanho do título */
-    }
-
-    h3 {
-        font-size: 4vw; /* Ajuste para títulos menores */
-    }
-    
-    h4{
-        font-size: 3.5vw;
-    }
-
-    h5{
-        font-size: 3vw;
-    }
-
-    p, li {
-        font-size: 3rem; /* Tamanho de texto mais legível */
-    }
-
-    footer {
-        font-size: 2rem; /* Ajusta o tamanho da fonte do rodapé */
-    }
-
-    .cta, .btn-perfil {
-        font-size: 3rem; /* Ajuste nos tamanhos dos botões */
-        display: block; /* Faz o botão ocupar toda a largura disponível */
-        width: 80%; /* Faz com que os botões ocupem 80% da largura da tela */
-        max-width: 400px; /* Define um limite para não ficarem muito grandes em telas maiores */
-        margin: 10px auto; /* Centraliza horizontalmente */
-        text-align: center; /* Garante que o texto dentro do botão fique centralizado */
-        padding: 15px 0; /* Ajusta o espaçamento interno */
-    }
-
-    .card-parceiro h4 {
-        font-size: 3rem; /* Ajuste nos tamanhos dos títulos dos cartões */
-    }
-
-    .depoimento p, .noticia p {
-        font-size: 3rem; /* Ajusta o texto dentro de depoimentos e notícias */
-    }
-
-    .label {
-        font-size: 3rem; /* Ajusta o tamanho das labels */
-    }
-
-    /* Ajusta a tipografia da seção de redes sociais */
-    .redes-sociais h3 {
-        font-size: 2.5rem;
-    }
-
-    .social-link {
-        font-size: 3rem;
-    }
-
-    /* Ajustes de padding e margin para melhorar o layout */
-    .doacao > div {
-        padding: 0;
-    }
-
 }

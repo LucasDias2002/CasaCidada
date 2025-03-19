@@ -1,69 +1,79 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let headerHTML = ``;
+    let navbar = ``;
+    navbar += `
+        <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+            <img id="logo" src="images/logo2.png" alt="Casa Cidadã" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="bi bi-list"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item mx-3"><a class="nav-link" href="/">Página Inicial</a></li>
+                <li class="nav-item mx-3"><a class="nav-link" href="/quemsomos">Quem Somos</a></li>
+                
+                <!-- Dropdown Saiba Mais -->
+                <li class="nav-item dropdown mx-3">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Saiba Mais
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: white;">
+                        <li><a class="dropdown-item" href="/aluguelsolidario" style="color: #a30336;">Aluguel Solidário</a></li>
+                        <li><a class="dropdown-item" href="/parceiros" style="color: #a30336;">Parceiros</a></li>
+                        <li><a class="dropdown-item" href="/poprua" style="color: #a30336;">PopRua em BH</a></li>
+                        <li><a class="dropdown-item" href="/housingfirst" style="color: #a30336;">Housing First</a></li>
+                        <li><a class="dropdown-item" href="/transparencia" style="color: #a30336;">Transparência</a></li>
+                        <li><a class="dropdown-item" href="/assistidos" style="color: #a30336;">Assistidos</a></li>
+                        <li><a class="dropdown-item" href="/fotos" style="color: #a30336;">Fotos</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item mx-3"><a class="nav-link" href="/doeagora">Doe Agora</a></li>
+                <li class="nav-item mx-3"><a class="nav-link" href="/contato">Contato</a></li>
+            </ul>`;
 
-    headerHTML += `
-        <div class="logo">
-            <a href="/"><img id="logo" src="images/logo2.png" alt="Casa Cidadã"></a>
-        </div>
-        
-        <nav class="menusuperior">
-            <ul>
-                <li><a href="/">Página Inicial</a></li>
-                <li><a href="/quemsomos">Quem Somos</a></li>
-                <li><a href="/aluguelsolidario">Aluguel Solidário</a></li>
-                <li><a href="/parceiros">Parceiros</a></li>
-                <li><a href="/transparencia">Transparência</a></li>
-                <li><a href="/assistidos">Assistidos</a></li>
-                <li><a href="/fotos">Fotos</a></li>
-                <li><a href="/poprua">PopRua em BH</a></li>
-                <li><a href="/housingfirst">Housing First</a></li>
-                <li><a href="/doeagora">Doe Agora</a></li>
-                <li><a href="/contato">Contato</a></li>
-    `;
-
-    // Verifica se o usuário está logado e possui permissão
-    const token = BuscarCookie("userToken");
-    if (token && VerificarPermissao(token) === 1) {
-        headerHTML += `<li><a href="/adm" class="branco">Área de Gestão</a></li>`;
-    }
-    if (token){
-        headerHTML += `
-    <li><a href="/" class="branco">Meu Perfil</a></li>
-    <li><a href="#" class="branco" id="logout">Sair</a></li>`;
-    }
-    else{
-        headerHTML += `
-    <li><a href="/login" class="branco">Login</a></li>`;
-    }
-
-    headerHTML += `
-        </ul>
-        </nav>
-        <footer>
-            <p>&copy; 2024 Casa Cidadã.<br>Todos os direitos reservados.</p>
-        </footer>
-    `;
-
-    document.getElementById("cabeçalho").innerHTML = headerHTML;
+        // Verifica se o usuário está logado e possui permissão
+        const token = BuscarCookie("userToken");
+        if (token && VerificarPermissao(token) === 1) {
+            navbar += `<li><a href="/adm" class="branco">Área de Gestão</a></li>`;
+        }
+        if (token){
+            navbar += `
+            <li><a href="/" class="branco">Meu Perfil</a></li>
+            <li><a href="#" class="branco" id="logout">Sair</a></li>`;
+        }
+        else{
+            navbar += `
+            <li><a href="/login" class="login-btn ms-auto">Login</a></li>`;
+        }
+    
+        navbar += `
+            </ul> </div> </div>
+            </nav>
+        `;
+    
+        document.getElementById("navbar").innerHTML = navbar;
 
     document.getElementById('logout').addEventListener('click', function(event) {
         event.preventDefault();
-    
+        
         fetch('/logout', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
-        .then(response => response.json())
-        .then(data => {
-          console.log(data.message);
-          window.location.href = '/login';
-        })
-        .catch(error => {
-          console.error('Erro ao fazer logout:', error);
-        });
-      });
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+              },
+            })
+            .then(response => response.json())
+            .then(data => {
+              console.log(data.message);
+              window.location.href = '/login';
+            })
+            .catch(error => {
+              console.error('Erro ao fazer logout:', error);
+            });
+    });
 });
 
 function BuscarCookie(name) {
