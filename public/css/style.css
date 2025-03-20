@@ -298,6 +298,11 @@ section, article {
 }
 
 /* PÁGINA DE PARCEIROS */
+.botao-contato{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .parceiros-container {
     display: flex;
     gap: 25px;
@@ -321,6 +326,21 @@ section, article {
             color: #50368b;
         }
     }
+}
+.btn-contato{
+    display: inline-block;
+        width: 300px;
+        text-align: center;
+        padding: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.5s;
+        background-color: #50368b;
+        color: #ffffff;
+        margin: 0 10px 10px 0;
+        &:hover{
+            background-color: #3b256d;
+        }
 }
 
 
