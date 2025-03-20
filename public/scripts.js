@@ -108,3 +108,16 @@ function VerificarPermissao(token) {
 
     return null;
 }
+
+// BOTÕES CALL TO ACTION
+document.addEventListener("DOMContentLoaded", function () {
+    const botoesCtaDiv = document.getElementById("botoes-cta");
+
+    // PENSANDO EM COLOCAR O LINK DO WHATSAPP NO BOTÃO "SEJA VOLUNTÁRIO" ~~Melissa
+    if (botoesCtaDiv) {
+        botoesCtaDiv.innerHTML = `
+            <a href="doacao.html" class="cta">Doe Agora</a>
+            <a href="voluntario.html" class="cta">Seja Voluntário</a>
+        `;
+    }
+});

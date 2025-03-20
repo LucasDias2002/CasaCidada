@@ -16,6 +16,15 @@ html {
     main{
         width: 100%;
     }
+    .botoes-cta {
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        gap: 5px;
+        margin: 20px auto; 
+        width: fit-content; 
+    }
+    
     /* Títulos */
     h1, h2, h3, h4, h5, h6 {
         color: #50368b;
@@ -103,7 +112,7 @@ section, article {
     /* Botões de Ação */
     .cta, .btn-perfil {
         display: inline-block;
-        width: 250px;
+        width: 300px;
         text-align: center;
         padding: 10px;
         text-decoration: none;
@@ -311,5 +320,17 @@ section, article {
             margin-bottom: 10px;
             color: #50368b;
         }
+    }
+}
+
+
+
+/* NOSSO BREAKPOINT DO MENU RESPONSIVO BOOTSTRAP APARENTEMENTE FOI DE 991px, ENTÃO A PARTIR DAQUI AS CONFIGURAÇÕES PRA TELAS <991px */
+@media (max-width: 991px) {
+    .botoes-cta {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
