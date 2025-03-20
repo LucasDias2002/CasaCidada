@@ -44,12 +44,12 @@ async function CarregarRecebimentos() {
        
             for (let i = 0; i < recebimentos.length; i++) {
                 let recebimento = recebimentos[i];
-                let data = formatarData(recebimento.DATA_RECEBIMENTO);
-                str += `<tr><td>R$ ${recebimento.VALOR}</td>
+                let data = formatarData(recebimento.data_recebimento);
+                str += `<tr><td>R$ ${recebimento.valor}</td>
                                 <td>${data}</td>
-                                <td>${recebimento.SIGLA_DOADOR}</td>
+                                <td>${recebimento.sigla_doador}</td>
                                 <td>
-                                    <button type="button" onclick="DeletarRecebimento(${recebimento.ID})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"></button>
+                                    <button type="button" onclick="DeletarRecebimento(${recebimento.id})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"></button>
                                 </td></tr>`;
             }
             document.getElementById("tabela-recebimentos").innerHTML = str;

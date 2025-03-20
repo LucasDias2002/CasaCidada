@@ -3,7 +3,7 @@ const conexao = require("../database/conexaoPostgre");
 
 async function Listar() {
     try {
-        const result = await conexao.query("SELECT * FROM RECEBIMENTOS;")
+        const result = await conexao.query("SELECT * FROM RECEBIMENTOS ORDER BY data_recebimento DESC;")
         return result.rows;
     } catch (error) {
         console.error('Erro ao recebimentos - Model:', error);
