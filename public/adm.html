@@ -943,11 +943,35 @@
             </div>
 
             <!-- Cadastrar -->
-            <div id="parceirosadm">
-
-            </div>
             <div id="voluntarios">
+                <div id="cadastrar-voluntario">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h1>Cadastrar Voluntário</h1>
+                        </div>
+                        <div class="table-wrapper">
+                            <form id="voluntarioform">
+                                <label for="nome">Nome:</label>
+                                <input type="name" id="nome" name="nome" placeholder="Ex: Carlos" required>
 
+                                <label for="email">E-mail:</label>
+                                <input type="email" id="email" name="email" placeholder="exemplo@gmail.com" required>
+
+                                <label for="telefone">Telefone:</label>
+                                <input type="number" id="telefone" name="telefone" placeholder="Ex: 3190909090" required>
+
+                                <label for="senha">Senha:</label>
+                                <input type="password" id="senha" name="senha" placeholder="Ex: 987654321" required>
+                                        
+                                <label for="senha">Confirmar Senha:</label>
+                                <input type="password" id="confirmarsenha" name="confirmarsenha" placeholder="Ex: 987654321" required>
+                
+                                <p>Ao cadastrar um voluntário, é permitido que ele faça alterações e publicações nas notícias e depoimentos do site, inclusive cadastrar, editar e excluir assistidos, parceiros e moradias.</p>
+                                <button type="submit" class="admin-btn-publish">Cadastrar voluntário</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
