@@ -123,20 +123,63 @@ html {
 
 footer {
     display: flex;
-    background-color: #3b256d;
-    section div{
-        gap: 10px;
+    background-color: #50368b;
+    display: flex;
+
+    section {
+        gap: 25px;
+        div{
+            gap: 25px;
+        }
+        ul{
+            list-style-type: none;
+            padding: 0;
+            h3, p{
+                color: white !important;
+            }
+            h3{
+                font-weight: 600;
+                font-size: 24px;
+            }
+            p{
+                font-size: 15px;
+                font-weight: 500;
+            }
+            li, a{
+                padding: 0;
+                margin: 0;
+                text-decoration: none;
+            }
+            li{
+                display: flex;
+
+            }
+        }
     }
-    button {
-        background: none;
-        border: none;
-        outline: none;
-        box-shadow: none;
+
+    .btnI {
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 0;
-        margin: 0;
-        font: inherit;
-        cursor: pointer;
     }
+
+    a i {
+        color: #50368b;
+        transition: color 0.3s ease;
+        font-size: 25px;
+        background-color: white;
+        border-radius: 50%;
+        border: 3px solid white;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
 
 }
 

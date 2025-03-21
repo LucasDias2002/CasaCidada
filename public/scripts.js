@@ -53,8 +53,41 @@ document.addEventListener("DOMContentLoaded", function () {
             </ul> </div> </div>
             </nav>
         `;
-    
+
+        // FOOTER 
+        let footer = `<div class="container d-xl-flex justify-content-center">
+            <section class="d-flex flex-column py-5 ">
+                <div class="d-flex">
+                    <img src="./images/logoBranca.png" alt="logo" width="300px">
+                </div>
+                <div class="d-flex justify-content-start btns">
+                    <a href="https://www.instagram.com/casacidada/" class="btnI"><i class="bi bi-instagram"></i></a>
+                    <a href="mailto:casacidadabh@gmail.com" class="btnI"><i class="bi bi-envelope"></i></a>
+                </div>
+            </section>
+            <section class="d-flex flex-wrap justify-content-start py-5">
+                <ul>
+                    <li><h3>Sobre Nós</h3></li>
+                    <li><a href="/quemsomos"><p>Quem somos</p></a></li>
+                    <li><a href="/transparencia"><p>Transparência</p></a></li>
+                    <li><a href="/parceiros"><p>Parceiros</p></a></li>
+                    <li><a href="/assistidos"><p>Assistidos</p></a></li>
+                    <li><a href="/contato"><p>Contato</p></a></li>
+                </ul>
+                <ul>
+                    <li><h3>Conteúdos</h3></li>
+                    <li><a href="#"><p>Notícias</p></a></li>
+                    <li><a href="/fotos"><p>Fotos</p></a></li>
+                </ul>
+                <ul>
+                    <li><h3>Unidade</h3></li>
+                    <li><a href="https://www.google.com/maps/place/R.+Manhumirim,+813+-+Padre+Eust%C3%A1quio,+Belo+Horizonte+-+MG,+30770-190/data=!4m2!3m1!1s0xa6973a8dd8369b:0x645074e446139d79?sa=X&ved=1t:242&ictx=111"><p>Casa Cidadã - Padre Eustáquio</p></a></li>
+                </ul>
+               
+            </section>
+        </div>`;
         document.getElementById("navbar").innerHTML = navbar;
+        document.getElementById("footer").innerHTML = footer;
 
     document.getElementById('logout').addEventListener('click', function(event) {
         event.preventDefault();
