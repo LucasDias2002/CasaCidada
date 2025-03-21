@@ -2,6 +2,12 @@ const NoticiasModel = require('../models/noticias');
 const path = require('path');
 const fs = require('fs');
 
+//Verifica se há a pasta de imagens para noticias, se não cria uma automaticamente
+const diretorioImagens = path.resolve(__dirname, '../public/images/noticias');
+if (!fs.existsSync(diretorioImagens)) {
+    fs.mkdirSync(diretorioImagens, { recursive: true });
+}
+
 async function Listar(req, res) {
     try {
         const noticias = await NoticiasModel.Listar();
