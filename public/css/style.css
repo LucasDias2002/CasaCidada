@@ -15,6 +15,7 @@ html {
     }
     main{
         width: 100%;
+        gap: 100px;
     }
     .botoes-cta {
         display: flex;
@@ -36,8 +37,8 @@ html {
         font-size: 2.2rem;
     }
     h2 {
-        text-align: center;
-        font-size: 1.8rem;
+        font-size: 3rem;
+        font-weight: 700;
     }
     h3 {
         text-align: center;
@@ -50,7 +51,7 @@ html {
     }
     p {
         font-weight: 400;
-        font-size: 1rem;
+        font-size: 1.29rem;
         text-align: justify;
         color: #444;
     }
@@ -103,9 +104,11 @@ html {
     margin-bottom: 30px;
 }
 section, article {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     padding: 0;
+    padding-top: 75px;
+    padding-bottom: 65px;
     p{
         text-align: justify;
     }
@@ -129,12 +132,12 @@ section, article {
 
 
 /* PÁGINA PRINCIPAL */
-/* Depoimentos e Notícias */
-#depoimentos, #noticias {
+/* Depoimentos */
+#depoimentos {
     padding: 10px;
     margin-bottom: 20px;
 }
-.depoimento, .noticia {
+.depoimento {
     width: 90%;
     margin: 0 auto;
     background-color: #f7f7f7;
@@ -152,10 +155,7 @@ section, article {
     text-align: center;
     color: #ffd700;
     margin: 5px;
-}
-#memorias {
-    padding: 20px;
-}
+}   
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -193,7 +193,77 @@ section, article {
     color: white !important;
     font-size: 0.85rem;
 }
-
+#noticiascadastradas{
+    background-color: #edeef0;
+}
+#noti{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+.card-list{
+    padding: 0;
+}
+.card-list .card-item{
+    list-style: none;
+}
+.card-list .card-item .card-link{
+    user-select: none;
+    min-height: 450px;
+    display: block;
+    background-color: #fff;
+    padding: 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+    transition: 0.2s ease;
+}
+.card-list .card-item .card-link:hover{
+    border-color: #5372F0;
+}
+.card-list .card-link .card-image{
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.card-list .card-link .badge{
+    color: #50368b;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 16px 0 18px;
+    background: #DDE4FF;
+    width: fit-content;
+    border-radius: 50px;
+}
+.card-list .card-link .card-titulo{
+    font-size: 1.19rem;
+    color: #000;
+    font-weight: 600;
+    text-align: left;
+    padding-top: 25px;
+}
+.card-list .card-link .card-button {
+    position: fixed;
+    bottom: 15px;
+    height: 35px;
+    width: 35px;
+    color:#5372F0;
+    border-radius: 50px;
+    margin: 30px 0 5px;
+    background: none;
+    cursor: pointer;
+    border: 2px solid #5372F0;
+    transform: rotate(-45deg);
+    transition: 0.4s ease;
+}
+.card-list .card-link:hover .card-button{
+    color:#fff;
+    background:#5372F0;
+}
 
 /* PÁGINA DE DOAÇÕES */
 .transferencia, .pix {

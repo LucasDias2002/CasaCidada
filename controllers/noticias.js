@@ -17,8 +17,17 @@ async function Inserir(req, res) {
             return res.status(400).json({ erro: "Imagem não enviada." });
         }
         const imagem = req.files.imagem;
-        imagem.name = `${req.body.titulo}.png`;
+        imagem.name = `${req.body.titulo}`;
 
+        let nomeImg = "";
+        if (imagem) {
+            const tipoImagem = imagem.type;
+            if (tipoImagem === 'image/png') {
+                imagem.name += ".png";
+            } else if (tipoImagem === 'image/jpeg') {
+                imagem.name += ".jpg";
+            }
+        }
         const diretorioImagens = path.resolve(__dirname, '../public/images/noticias');
         const uploadImagem = path.join(diretorioImagens, imagem.name);
 
@@ -72,11 +81,11 @@ async function Delete(req, res) {
 
         const diretorioImagens = path.resolve(__dirname, '../public/images/noticias');
 
-        const caminhoImagem = path.join(diretorioImagens, `${noticia.titulo}.png`);
+        const caminhoImagem = path.join(diretorioImagens, `${noticia.titulo}`);
 
         if (fs.existsSync(caminhoImagem)) {
             await fs.promises.unlink(caminhoImagem);
-            console.log(`Imagem ${noticia.titulo}.png deletada com sucesso.`);
+            console.log(`Imagem ${noticia.titulo} deletada com sucesso.`);
         } else {
             console.log("Imagem não encontrada, prosseguindo com a exclusão do registro.");
         }
