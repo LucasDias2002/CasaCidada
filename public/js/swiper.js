@@ -1,8 +1,10 @@
 new Swiper('.card-wrapper', {
     loop: true,
-    
+
     pagination: {
       el: '.swiper-pagination',
+      clickable: true,
+      dynamicBullets: true
     },
   
 
