@@ -127,29 +127,38 @@ footer {
 
     section {
         gap: 25px;
-        div{
+
+        div {
             gap: 25px;
         }
-        ul{
+
+        ul {
             list-style-type: none;
             padding: 0;
-            h3, p{
+
+            h3,
+            p {
                 color: white !important;
             }
-            h3{
+
+            h3 {
                 font-weight: 600;
                 font-size: 24px;
             }
-            p{
+
+            p {
                 font-size: 15px;
                 font-weight: 500;
             }
-            li, a{
+
+            li,
+            a {
                 padding: 0;
                 margin: 0;
                 text-decoration: none;
             }
-            li{
+
+            li {
                 display: flex;
 
             }
@@ -564,9 +573,133 @@ article {
     }
 }
 
-#newsletter{
-    height: 55vh;
-    background-color:#333;
+#fundoCinza {
+    height: 42vh;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    .newsletter {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 20px;
+
+        .assine {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+
+            input[type="text"] {
+                height: 45px;
+                width: 100%;
+                border-radius: 3px;
+                border: none;
+            }
+
+            .check {
+                font-size: 13px;
+                width: 100%;
+                text-align: justify;
+            }
+
+            .check span {
+                font-size: 13px;
+                color: white;
+                font-weight: 400;
+            }
+
+            h2 {
+                font-size: 17px;
+                color: white;
+                padding: 0;
+            }
+
+            p {
+                color: #a30336;
+                font-size: 13px;
+                font-weight: 700;
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                input[type="button"] {
+                    width: 5rem;
+                }
+            }
+
+            .buttonNewsLetters {
+                display: flex;
+                align-items: end;
+                color: #a30336;
+
+                input {
+                    background-color: #a30336;
+                    /* Cor de fundo verde */
+                    color: white;
+                    /* Cor do texto */
+                    border: none;
+                    /* Remover a borda padrão */
+                    padding: 3px 20px;
+                    /* Espaçamento interno (padding) */
+                    text-align: center;
+                    /* Centralizar o texto */
+                    text-decoration: none;
+                    /* Remover sublinhado, se houver */
+                    display: inline-block;
+                    /* Torna o botão um bloco inline */
+                    font-size: 16px;
+                    /* Tamanho da fonte */
+                    cursor: pointer;
+                    /* Cursor tipo mãozinha ao passar sobre o botão */
+                    border-radius: 3px;
+
+                }
+            }
+
+        }
+
+        img {
+            width: 41.992vh;
+            position: relative;
+            top: -4.05vh;
+
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        .newsletter {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+
+            img {
+                display: none;
+            }
+            .assine{
+                display: flex;
+                .buttonNewsLetters{
+
+                    align-items: end;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:800px) {
+    #fundoCinza {
+        height: 50vh;
+        display: flex;
+        .newsletter{
+            gap: 0px;
+        }
+    }
 }
 
 
