@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </ul>
                 <ul>
                     <li><h3>Conteúdos</h3></li>
-                    <li><a href="#"><p>Notícias</p></a></li>
+                    <li><a href="noticias.html"><p>Notícias</p></a></li>
                     <li><a href="/fotos"><p>Fotos</p></a></li>
                 </ul>
                 <ul>

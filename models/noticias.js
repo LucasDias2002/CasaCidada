@@ -2,7 +2,7 @@ const conexao = require("../database/conexaoPostgre");
 
 async function Listar() {
     try {
-        const result = await conexao.query('SELECT * FROM NOTICIAS;');
+        const result = await conexao.query('SELECT * FROM NOTICIAS ORDER BY data_publicacao DESC;');
         return result.rows;
     } catch (error) {
         console.error('Erro ao Listar Noticias Model:', error);
