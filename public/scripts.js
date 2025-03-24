@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         else{
             navbar += `
-            <li><a href="/login" class="login-btn ms-auto">Login</a></li>`;
+            <li><a href="/login" class="login-btn ms-auto">Área do Gestor</a></li>`;
         }
     
         navbar += `
