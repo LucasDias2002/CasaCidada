@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: white;">
                         <li><a class="dropdown-item" href="/aluguelsolidario" style="color: #a30336;">Aluguel Solidário</a></li>
                         <li><a class="dropdown-item" href="/parceiros" style="color: #a30336;">Parceiros</a></li>
+                        <li><a class="dropdown-item" href="/noticias" style="color: #a30336;">Noticias</a></li>
                         <li><a class="dropdown-item" href="/poprua" style="color: #a30336;">PopRua em BH</a></li>
                         <li><a class="dropdown-item" href="/housingfirst" style="color: #a30336;">Housing First</a></li>
                         <li><a class="dropdown-item" href="/transparencia" style="color: #a30336;">Transparência</a></li>
