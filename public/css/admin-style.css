@@ -1,25 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-body {
-  font-family: 'inter', sans-serif !important;
-  font-size: 1.146vw;
-}
-
-.admin-page {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.admin-page body {
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
   color: #333;
   display: flex;
   flex-direction: column;
 }
 
+a.nav-link:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
 .admin-container {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .admin-sidebar {
@@ -35,14 +38,10 @@ body {
 }
 
 .btns {
-  margin-top: 1.042vw;
-  padding-left: 1.563vw;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1.042vw;
-}
-.btns div h2 {
-  font-weight: 600;
+  gap: 1rem;
 }
 
 #icon {
@@ -51,7 +50,7 @@ body {
 }
 
 .admin-sidebar h2 {
-  font-size: 1.146vw;
+  font-size: 1rem;
   margin-bottom: 0.521vw;
   color: #ffffff;
 }
@@ -81,14 +80,14 @@ body {
 }
 
 .admin-content h1 {
-  font-size: 2.3vw;
+  font-size: 1.3rem;
   margin-bottom: 1.042vw;
   color: #ffffff;
 }
 
 .admin-content label {
   display: block;
-  font-size: 0.729vw;
+  font-size: 1rem;
   margin-top: 10px;
   color: #333;
 }
@@ -103,19 +102,16 @@ body {
   width: 85%;
 }
 
-.admin-content input[type="text"],
-.admin-content input[type="email"],
-.admin-content textarea,
+.admin-content input,
 .admin-content select,
-.admin-content input[type="date"],
-.admin-content input[type="number"] {
+.admin-content textarea {
   width: 100%;
-  padding: 8px 0;
-  margin-top: 5px;
-  margin-bottom: 15px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 0.729vw;
+  font-size: 1rem;
 }
 
 .admin-upload {
@@ -169,6 +165,7 @@ input[type="file"] {
 .welcome-message,
 #adc-doacao,
 #ver-doacoes,
+#editar-doacao,
 #adc-parceiro,
 #editar-parceiro,
 #ver-parceiro,
@@ -191,7 +188,9 @@ input[type="file"] {
 #cadastrar-depoimento,
 #editar-depoimento,
 #ver-gastos,
-#adc-gasto {
+#adc-gasto,
+#editar-gasto,
+#cadastrar-voluntario {
   color: #333;
   margin: 0 auto;
   background-color: #ffffff;
