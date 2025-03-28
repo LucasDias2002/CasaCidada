@@ -9,8 +9,6 @@ const findUser =  async (email)=> {
                 console.log("Erro ao achar usuarios por email");
                 return reject(erro);
             }
-            console.log(`Usuário encontrado com sucesso!`);
-            console.log("Essa é respota das ROWSSSSSS: " + resposta.rows[0])
             resolve(resposta.rows[0]);
         })
     })

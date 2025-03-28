@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let navbar = ``;
     navbar += `
         <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
-        <div class="container-fluid">
+        <div class="container-fluid container-md">
             <a class="navbar-brand" href="/">
             <img id="logo" src="images/logo2.png" alt="Casa Cidadã" height="50">
             </a>
@@ -38,12 +38,13 @@ document.addEventListener("DOMContentLoaded", function () {
         // Verifica se o usuário está logado e possui permissão
         const token = BuscarCookie("userToken");
         if (token && VerificarPermissao(token) === 1) {
-            navbar += `<li><a href="/adm" class="branco">Área de Gestão</a></li>`;
-        }
-        if (token){
-            navbar += `
-            <li><a href="/" class="branco">Meu Perfil</a></li>
-            <li><a href="#" class="branco" id="logout">Sair</a></li>`;
+            navbar +=  `<li class="nav-item dropdown mx-3">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: white; min-width:5rem">
+                        <li><a class="dropdown-item" href="/adm" style="color: #a30336;">Gestor</a></li>
+                        <li><a class="dropdown-item" id="logout" style="color: #a30336;">Sair</a></li>
+                    </ul>
+                </li>`;
         }
         else{
             navbar += `
@@ -89,26 +90,26 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>`;
         document.getElementById("navbar").innerHTML = navbar;
         document.getElementById("footer").innerHTML = footer;
-
-    document.getElementById('logout').addEventListener('click', function(event) {
-        event.preventDefault();
         
-        fetch('/logout', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-              },
+        document.getElementById('logout').addEventListener('click', function(event) {
+            event.preventDefault();
+            
+            fetch('/logout', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
             })
             .then(response => response.json())
             .then(data => {
-              console.log(data.message);
-              window.location.href = '/login';
+                console.log(data.message);
+                window.location.href = "/";
             })
             .catch(error => {
-              console.error('Erro ao fazer logout:', error);
+                console.error('Erro ao fazer logout:', error);
             });
-    });
+        });
 });
+
+
 
 function BuscarCookie(name) {
     let cookies = document.cookie.split(';');

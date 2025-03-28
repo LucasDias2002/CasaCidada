@@ -25,9 +25,9 @@ app.get('/login', (req, res) => {
 });
 app.post('/logout', (req, res) => {
   res.clearCookie('userToken', { path: '/' });
-  res.status(200).json({ message: 'Logout efetuado com sucesso!' });
-  res.redirect('/login');
+  res.status(200).json({ message: 'Logout efetuado com sucesso!', redirect: '/' });
 });
+
 app.get('/cadastro', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'cadastro.html'));
 });

@@ -21,7 +21,7 @@ document.getElementById("login").addEventListener("submit", async (e)=>{
         if (data.data.token) {
 
             document.cookie = `userToken=${data.data.token}; path=/; max-age=3600`
-            window.location.href = "/";
+            window.location.href = "/adm";
             
         } else {
             alert("Token não retornado!");
