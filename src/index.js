@@ -12,10 +12,14 @@ const rotaRecebimento = require("../routers/recebimento");
 const rotaGasto = require("../routers/gasto");
 const authRouter = require("../routers/auth");
 const protectedRouter = require("../routers/protected");
+const { VerifyToken } = require('../middlewares/middlewares');
+
 const app =  express();
-app.use(fileupload());
+
+//app.use(fileupload());
 app.use(cookieParser());
 app.use(express.json());
+app.use('/uploads', express.static('uploads'));
 app.use(express.static(path.join(__dirname, '../public')));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'index.html'));

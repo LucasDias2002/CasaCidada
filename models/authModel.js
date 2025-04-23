@@ -1,17 +1,20 @@
-const conexao = require("../database/conexaoPostgre");
+const { sequelize } = require("../database/conexaoPostgre");
 
-const findUser =  async (email)=> {
-    const sql = `SELECT * FROM USUARIO WHERE email = $1;`
-
-    return new Promise((resolve, reject) => {
-        conexao.query(sql, [email], (erro, resposta) => {
-            if (erro) {
-                console.log("Erro ao achar usuarios por email");
-                return reject(erro);
+const findUser = async (email) => {
+    try {
+        const [results] = await sequelize.query(
+            `SELECT * FROM USUARIO WHERE email = $1;`,
+            {
+                bind: [email],
+                type: sequelize.QueryTypes.SELECT
             }
-            resolve(resposta.rows[0]);
-        })
-    })
+        );
+
+        return results; // já é um objeto com os campos do usuário
+    } catch (error) {
+        console.log("Erro ao achar usuários por email", error);
+        throw error;
+    }
 }
 
-module.exports = {findUser};
+module.exports = { findUser };
