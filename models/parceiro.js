@@ -1,8 +1,9 @@
-const conexao = require("../database/conexaoPostgre");
+const { sequelize } = require("../database/conexaoPostgre");
+
 
 async function Listar() {
     try {
-        const result = await conexao.query('SELECT * FROM PARCEIRO;');
+        const result = await sequelize.query('SELECT * FROM PARCEIRO;');
         return result.rows;
     } catch (error) {
         console.error('Erro ao listar parceiros - Model:', error);
@@ -12,7 +13,7 @@ async function Listar() {
 
 async function ListarPorID(id) {
     try {
-        const result = await conexao.query('SELECT * FROM PARCEIRO WHERE id= $1', [id]);
+        const result = await sequelize.query('SELECT * FROM PARCEIRO WHERE id= $1', [id]);
         return result.rows[0];
     } catch (error) {
         console.error('Erro ao listar por id parceiro Model:', error);
@@ -22,7 +23,7 @@ async function ListarPorID(id) {
 
 async function Inserir(parceiro) {
     try {
-        const result = await conexao.query('INSERT INTO PARCEIRO (nome, email, tipo, cnpj, area_atuacao, telefone) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *', [parceiro.nome, parceiro.email, parceiro.tipo, parceiro.cnpj, parceiro.area_atuacao, parceiro.telefone]);
+        const result = await sequelize.query('INSERT INTO PARCEIRO (nome, email, tipo, cnpj, area_atuacao, telefone) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *', [parceiro.nome, parceiro.email, parceiro.tipo, parceiro.cnpj, parceiro.area_atuacao, parceiro.telefone]);
         return result.rows[0];
     } catch (error) {
         console.error('Erro ao Inserir parceiro Model:', error);
@@ -32,7 +33,7 @@ async function Inserir(parceiro) {
 
 async function Update(id, parceiro) {
     try {
-        const result = await conexao.query('UPDATE PARCEIRO SET nome=$1, email=$2,tipo=$3,cnpj=$4,area_atuacao=$5,telefone=$6 WHERE id=$7 RETURNING *',  [parceiro.nome, parceiro.email, parceiro.tipo, parceiro.cnpj, parceiro.area_atuacao, parceiro.telefone, id]);
+        const result = await sequelize.query('UPDATE PARCEIRO SET nome=$1, email=$2,tipo=$3,cnpj=$4,area_atuacao=$5,telefone=$6 WHERE id=$7 RETURNING *',  [parceiro.nome, parceiro.email, parceiro.tipo, parceiro.cnpj, parceiro.area_atuacao, parceiro.telefone, id]);
         return result.rows[0];
     } catch (error) {
         console.error('Erro ao Update parceiro Model:', error);
@@ -43,7 +44,7 @@ async function Update(id, parceiro) {
 async function Delete(id) {
     console.log(id)
     try {
-        const result = await conexao.query('DELETE FROM PARCEIRO WHERE id = $1 RETURNING *;', [id]);
+        const result = await sequelize.query('DELETE FROM PARCEIRO WHERE id = $1 RETURNING *;', [id]);
         return result.rows[0];
     } catch (error) {
         console.error('Erro ao Delete parceiro Model:', error);
@@ -65,7 +66,7 @@ const ParceiroModel = {
         const sql = "SELECT * FROM PARCEIRO;";
 
         return new Promise((resolve, reject) => {
-            conexao.query(sql, (erro, resposta) => {
+            sequelize.query(sql, (erro, resposta) => {
                 if (erro) {
                     console.log(`Erro ao listar parceiros Model: ${erro}`);
                     return reject(erro);
@@ -79,7 +80,7 @@ const ParceiroModel = {
         const sql = "SELECT * FROM PARCEIRO WHERE id= ?";
 
         return new Promise((resolve, reject) => {
-            conexao.query(sql, [id], (erro, resposta) => {
+            sequelize.query(sql, [id], (erro, resposta) => {
                 if (erro) {
                     console.log(`Erro ao listar por ID: ${erro}`);
                     return reject(erro);
@@ -93,7 +94,7 @@ const ParceiroModel = {
         const sql = "INSERT INTO PARCEIRO (nome, email, tipo, cnpj, area_atuacao, telefone) VALUES (?,?,?,?,?,?)";
 
         return new Promise((resolve, reject) => {
-            conexao.query(sql, [parceiro.nome, parceiro.email, parceiro.tipo, parceiro.cnpj, parceiro.area_atuacao, parceiro.telefone], (erro, resposta) => {
+            sequelize.query(sql, [parceiro.nome, parceiro.email, parceiro.tipo, parceiro.cnpj, parceiro.area_atuacao, parceiro.telefone], (erro, resposta) => {
                 if (erro) {
                     console.log(`Erro ao Inserir parceiro Model: ${erro}`);
                     return reject(erro);
@@ -106,7 +107,7 @@ const ParceiroModel = {
         const sql = "UPDATE PARCEIRO SET nome=?, email=?,tipo=?,cnpj=?,area_atuacao=?,telefone=? WHERE id=?";
 
         return new Promise((resolve, reject) => {
-            conexao.query(sql, [parceiro.nome, parceiro.email, parceiro.tipo, parceiro.cnpj, parceiro.area_atuacao, parceiro.telefone, id], (erro, resposta) => {
+            sequelize.query(sql, [parceiro.nome, parceiro.email, parceiro.tipo, parceiro.cnpj, parceiro.area_atuacao, parceiro.telefone, id], (erro, resposta) => {
                 if (erro) {
                     console.log(`Erro ao Atualizar Imovel Model: ${erro}`);
                     return reject(erro);
@@ -120,7 +121,7 @@ const ParceiroModel = {
         const sql = "DELETE FROM PARCEIRO WHERE id = ?";
 
         return new Promise((resolve, reject) => {
-            conexao.query(sql, [id], (erro, resposta) => {
+            sequelize.query(sql, [id], (erro, resposta) => {
                 if (erro) {
                     console.log(`Erro ao deletar Parceiro Model: ${id}`);
                     return reject(erro);

@@ -1,10 +1,11 @@
-const conexao = require("../database/conexaoPostgre");
+const { sequelize } = require("../database/conexaoPostgre");
+
 const bcrypt = require('bcrypt'); // Para criptografar senhas
 
 
 async function listar() {
     try {
-        const result = await conexao.query('SELECT * FROM USUARIO;')
+        const result = await sequelize.query('SELECT * FROM USUARIO;')
         return result.rows;
     } catch (error) {
         console.error('Erro ao Listar usuário Model:', error);
@@ -14,7 +15,7 @@ async function listar() {
 
 async function ListarPorId(id) {
     try {
-        const result = await conexao.query('SELECT * FROM USUARIO WHERE id = $1;', [id]);
+        const result = await sequelize.query('SELECT * FROM USUARIO WHERE id = $1;', [id]);
         return result.rows[0];
     } catch (error) {
         console.error('Erro ao ListarPorId usuário Model:', error);
@@ -24,7 +25,7 @@ async function ListarPorId(id) {
 
 async function ListarPorEmail(email) {
     try {
-        const result = await conexao.query('SELECT * FROM USUARIO WHERE EMAIL = $1;', [email]);
+        const result = await sequelize.query('SELECT * FROM USUARIO WHERE EMAIL = $1;', [email]);
         return result.rows[0];
     } catch (error) {
         console.error('Erro ao ListarPorEmail usuário Model:', error);
@@ -35,7 +36,7 @@ async function ListarPorEmail(email) {
 async function Inserir(usuario) {
     try {
         const passwordHash = await bcrypt.hash(usuario.senha, 8); //para criptografar
-        const result = await conexao.query('INSERT INTO usuario (nome, email, senha, telefone, permissao, data_nasc, data_criacao) VALUES ($1, $2, $3 , $4, $5, $6, CURRENT_TIMESTAMP)', [usuario.nome, usuario.email, passwordHash, usuario.telefone, 3, usuario.data_nasc]);
+        const result = await sequelize.query('INSERT INTO usuario (nome, email, senha, telefone, permissao, data_nasc, data_criacao) VALUES ($1, $2, $3 , $4, $5, $6, CURRENT_TIMESTAMP)', [usuario.nome, usuario.email, passwordHash, usuario.telefone, 3, usuario.data_nasc]);
         return result.rows[0];
     } catch (error) {
         console.error('Erro ao Inserir usuário Model:', error);
@@ -45,7 +46,7 @@ async function Inserir(usuario) {
 
 async function Update(id, usuario) {
     try {
-        const result = await conexao.query('UPDATE usuario SET cpf = $1, nome= $2, email =$3 , telefone = $4, data_nasc = $5, data_criacao = $6 , cep = $7 , num_residencia = $8 WHERE id = $9;', [usuario.cpf, usuario.nome, usuario.email, usuario.telefone, usuario.data_nasc, usuario.data_criacao, usuario.cep, usuario.num_residencia, id]);
+        const result = await sequelize.query('UPDATE usuario SET cpf = $1, nome= $2, email =$3 , telefone = $4, data_nasc = $5, data_criacao = $6 , cep = $7 , num_residencia = $8 WHERE id = $9;', [usuario.cpf, usuario.nome, usuario.email, usuario.telefone, usuario.data_nasc, usuario.data_criacao, usuario.cep, usuario.num_residencia, id]);
         return result.rows[0];
     } catch (error) {
         console.error('Erro ao Update usuário Model:', error);
@@ -55,7 +56,7 @@ async function Update(id, usuario) {
 
 async function Delete(id) {
     try {
-        const result = await conexao.query('DELETE from usuario where id = $1;' [id]);
+        const result = await sequelize.query('DELETE from usuario where id = $1;' [id]);
         return result.rows[0];
     } catch (error) {
         console.error('Erro ao Deletar usuário Model:', error);
@@ -78,7 +79,7 @@ const UsuarioModel = {
     listar: () => {
         const sql = "SELECT * FROM USUARIO";
         return new Promise((resolve, reject) => {
-            conexao.query(sql, (erro, resposta) => {
+            sequelize.query(sql, (erro, resposta) => {
                 if (erro) {
                     console.log("Erro ao listar usuarios: Model");
                     return reject(erro);
@@ -91,7 +92,7 @@ const UsuarioModel = {
     listarPorId: (id) => {
         const sql = `SELECT * FROM USUARIO WHERE id = ?;`
         return new Promise((resolve, reject) => {
-            conexao.query(sql, [id], (erro, resposta) => {
+            sequelize.query(sql, [id], (erro, resposta) => {
                 if (erro) {
                     console.log("Erro ao listar usuarios");
                     return reject(erro);
@@ -104,7 +105,7 @@ const UsuarioModel = {
     listarPorEmail: (email) => {
         const sql = `SELECT * FROM USUARIO WHERE EMAIL = ?`;
         return new Promise((resolve, reject) => {
-            conexao.query(sql, [email], (erro, resposta) => {
+            sequelize.query(sql, [email], (erro, resposta) => {
                 if (erro) {
                     console.log("Erro ao listar usuario por email", erro);
                     return reject(erro);
@@ -120,7 +121,7 @@ const UsuarioModel = {
         const passwordHash = await bcrypt.hash(usuario.senha, 8);
         return new Promise((resolve, reject) => {
             // Passando os valores do objeto usuario para a consulta SQL
-            conexao.query(sql, [usuario.nome, usuario.email, passwordHash, usuario.telefone, 3, usuario.data_nasc], (erro, resposta) => {
+            sequelize.query(sql, [usuario.nome, usuario.email, passwordHash, usuario.telefone, 3, usuario.data_nasc], (erro, resposta) => {
                 if (erro) {
                     console.log("Erro ao inserir usuário:", erro);
                     return reject(erro);
@@ -135,7 +136,7 @@ const UsuarioModel = {
 
         return new Promise((resolve, reject) => {
             // Passando os valores do objeto usuario para a consulta SQL
-            conexao.query(sql, [usuario.cpf, usuario.nome, usuario.email, usuario.telefone, usuario.data_nasc, usuario.data_criacao, usuario.cep, usuario.num_residencia, id], (erro, resposta) => {
+            sequelize.query(sql, [usuario.cpf, usuario.nome, usuario.email, usuario.telefone, usuario.data_nasc, usuario.data_criacao, usuario.cep, usuario.num_residencia, id], (erro, resposta) => {
                 if (erro) {
                     console.log("Erro ao atualizar usuário Model:", erro);
                     return reject(erro);
@@ -149,7 +150,7 @@ const UsuarioModel = {
         const sql = "DELETE from usuario where id = ?";
         return new Promise((resolve, reject) => {
             // Passando os valores do objeto usuario para a consulta SQL
-            conexao.query(sql, [id], (erro, resposta) => {
+            sequelize.query(sql, [id], (erro, resposta) => {
                 if (erro) {
                     console.log("Erro ao deletar usuário Model:", erro);
                     return reject(erro);

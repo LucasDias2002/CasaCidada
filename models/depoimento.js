@@ -1,8 +1,8 @@
-const conexao = require("../database/conexaoPostgre");
+const { sequelize } = require("../database/conexaoPostgre");
 
 async function listar() {
     try {
-        const result = await conexao.query('SELECT * FROM DEPOIMENTOS;')
+        const result = await sequelize.query('SELECT * FROM DEPOIMENTOS;')
         return result.rows;
     } catch (error) {
         console.error('Erro ao depoimentos - Model:', error);
@@ -12,7 +12,7 @@ async function listar() {
 
 async function ListarPorId(id) {
     try {
-        const result = await conexao.query('SELECT * FROM DEPOIMENTOS WHERE id= $1;', [id]);
+        const result = await sequelize.query('SELECT * FROM DEPOIMENTOS WHERE id= $1;', [id]);
         return result.rows[0];
     } catch (error) {
         console.error('Erro ao listar depoimento por id - Model:', error);
@@ -22,7 +22,7 @@ async function ListarPorId(id) {
 
 async function Inserir(dep) {
     try {
-        const result = await conexao.query('INSERT INTO DEPOIMENTOS (nome, depoimento) VALUES ($1,$2)',[dep.nome, dep.depoimento]);
+        const result = await sequelize.query('INSERT INTO DEPOIMENTOS (nome, depoimento) VALUES ($1,$2)',[dep.nome, dep.depoimento]);
         return result.rows[0];
     } catch (error) {
         console.error('Erro ao inserir depoimento - Model:', error);
@@ -32,7 +32,7 @@ async function Inserir(dep) {
 
 async function Update(id, dep) {
     try {
-        const result = await conexao.query("UPDATE DEPOIMENTOS SET nome=$1, depoimento=$2 WHERE id=$3 RETURNING *", [dep.nome, dep.depoimento,  id]);
+        const result = await sequelize.query("UPDATE DEPOIMENTOS SET nome=$1, depoimento=$2 WHERE id=$3 RETURNING *", [dep.nome, dep.depoimento,  id]);
         return result.rows[0];
     } catch (error) {
         console.error('Erro ao Update usuário Model:', error);
@@ -42,7 +42,7 @@ async function Update(id, dep) {
 
 async function Delete(id) {
     try {
-        const result = await conexao.query('DELETE FROM DEPOIMENTOS WHERE id = $1 RETURNING *', [id]);
+        const result = await sequelize.query('DELETE FROM DEPOIMENTOS WHERE id = $1 RETURNING *', [id]);
         return result.rows[0];
     } catch (error) {
         console.error('Erro ao Deletar usuário Model:', error);
