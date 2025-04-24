@@ -56,7 +56,7 @@ async function CarregarParceiros() {
             parceiros.forEach(parceiro => {
                 const linha = document.createElement('tr');
 
-                linha.innerHTML = `<td><img src="/images/parceiros/${parceiro.nome}.png" style="width: 6.771vw; border-radius: 5.208vw; height: 6.771vw" alt=""></td>
+                linha.innerHTML = `<td><img src="${parceiro.imagem}" style="width: 6.771vw; border-radius: 5.208vw; height: 6.771vw" alt=""></td>
                                     <td>${parceiro.nome}</td>
                                     <td>${parceiro.email}</td>
                                     <td>${parceiro.telefone}</td>

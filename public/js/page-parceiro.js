@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 str += `<div class="card-parceiro">
                     <h4>${parc.nome}</h4>
                     <p><strong>Área de Atuação:</strong>${parc.area_atuacao}</p>
-                    <img src="/images/parceiros/${parc.nome}.png" alt="Logo">
+                    <img style="width: 150px" src="${parc.imagem}" alt="Logo">
                     <p><strong>Contato:</strong>${parc.email}</p>
                 </div>`;
             }

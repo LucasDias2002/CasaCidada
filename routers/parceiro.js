@@ -1,10 +1,16 @@
 const router = require("express").Router();
-const parceiro = require("../controllers/parceiro");
+const parceiroController = require("../controllers/parceiro");
+const multer = require('multer');
+const { storage } = require('../service/cloudinary');
+const upload = multer({storage})
 
-router.get('/',parceiro.Listar);
-router.get("/:id", parceiro.ListarPorId);
-router.post('/', parceiro.Inserir);
-router.put('/:id', parceiro.Update);
-router.delete('/:id', parceiro.Delete);
+router.get("/",parceiroController.listarParceiros);
+//router.get("/:id", parceiroController.ListarPorId);
+router.post(
+    "/",
+    upload.single("imagem"),
+    parceiroController.criarParceiro);
+//router.put("/:id", parceiroController.Update);
+//router.delete("/:id", parceiroController.Delete);
 
 module.exports = router;

@@ -1,6 +1,5 @@
 const express = require("express");
 const cookieParser = require('cookie-parser');
-const fileupload = require('express-fileupload');
 const path = require("path");
 const rotas = require("../routers/usuario");
 const rotaImovel = require("../routers/imovel");
@@ -19,7 +18,7 @@ const app =  express();
 //app.use(fileupload());
 app.use(cookieParser());
 app.use(express.json());
-app.use('/uploads', express.static('uploads'));
+//app.use('/uploads', express.static('uploads'));
 app.use(express.static(path.join(__dirname, '../public')));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'index.html'));
