@@ -54,7 +54,7 @@ async function CarregarNoticias() {
                 const linha = document.createElement('tr');
 
                 linha.innerHTML = `
-                <td><img src="/images/noticias/${noticia.titulo}" style="width: 6.771vw; border-radius: 5.208vw; height: 6.771vw" alt=""></td><td>${noticia.titulo}</td>
+                <td><img src="${noticia.imagem}" style="width: 6.771vw; border-radius: 5.208vw; height: 6.771vw" alt=""></td><td>${noticia.titulo}</td>
                                 <td>${noticia.descricao}</td>
                                 <td>${data}</td>
                                 <td>

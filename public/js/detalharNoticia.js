@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async (event) => {
             <h1 id="titulo-noticia">${noticia.titulo}</h1>
             <p id="data">${formataData(noticia.data_publicacao)} - Casa Cidadã</p>
             <div class="img">
-                <img id="banner" src="../images/noticias/${noticia.titulo}" alt="">
+                <img id="banner" src="${noticia.imagem}" alt="">
             </div>
             <div id="conteudo">
                 <p id="conteudo">${noticia.descricao}</p>

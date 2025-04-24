@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 let data = formataData(noticia.data_publicacao)
                 card.innerHTML += 
                 `<li class="card-item card-menor"><a class="card-link card-link-menor" href="noticia.html?noticia=${noticia.id}">
-                                    <img src="/images/noticias/${noticia.titulo}" class="card-image">
+                                    <img src="${noticia.imagem}" class="card-image">
                                     <p class="badge">${data}</p>
                                     <h2 class="card-titulo">${noticia.titulo}</h2>
                                     <button class="card-button material-symbols-rounded">arrow_forward</button>
