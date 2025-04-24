@@ -175,7 +175,7 @@ const Noticia = sequelize.define('Noticia', {
     }
   }, {
     tableName: 'noticias',
-    timestamps: false   // se preferir createdAt/updatedAt automáticos, deixe true
+    timestamps: false
   });
 
   module.exports = Noticia;

@@ -240,6 +240,19 @@ const listarNoticias = async (req, res) => {
         res.status(500).json({ erro: 'Erro ao listar notícia' });
     }
 }
+const listarNoticiasPorId = async (req, res) => {
+    try {
+        const noticias = await Noticia.findOne({
+            where: {
+                id: req.params.id
+            },
+        });
+        res.status(200).json(noticias);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ erro: 'Erro ao listar notícia por id' });
+    }
+}
 
 const deletar = async (req, res) => {
     try {
@@ -257,5 +270,6 @@ const deletar = async (req, res) => {
 module.exports = {
     criarNoticia,
     listarNoticias,
+    listarNoticiasPorId,
     deletar
 };
