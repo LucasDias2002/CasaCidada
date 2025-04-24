@@ -212,7 +212,6 @@
 
 const Noticia = require('../models/noticias');
 
-// Exemplo de uso no controller
 const criarNoticia = async (req, res) => {
     try {
         const nova = await Noticia.create({
