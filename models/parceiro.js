@@ -1,64 +1,125 @@
+const { DataTypes } = require('sequelize');
 const { sequelize } = require("../database/conexaoPostgre");
 
+const Parceiro = sequelize.define('Parceiro', {
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    nome: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
+    },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        validate: {
+            notEmpty: true
+        }
+    },
+    tipo: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        validate: {
+            notEmpty: true
+        },
 
-async function Listar() {
-    try {
-        const result = await sequelize.query('SELECT * FROM PARCEIRO;');
-        return result.rows;
-    } catch (error) {
-        console.error('Erro ao listar parceiros - Model:', error);
-        throw error;
+    },
+    cnpj: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        validate: {
+            notEmpty: true
+        }
+    },
+    area_atuacao: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        validate: {
+            notEmpty: true
+        }
+    },
+    telefone: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        validate: {
+            notEmpty: true
+        }
+    },
+    imagem: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: ''
     }
-}
+}, {
+    tableName: 'parceiro',
+    timestamps: false
+});
 
-async function ListarPorID(id) {
-    try {
-        const result = await sequelize.query('SELECT * FROM PARCEIRO WHERE id= $1', [id]);
-        return result.rows[0];
-    } catch (error) {
-        console.error('Erro ao listar por id parceiro Model:', error);
-        throw error;
-    }
-}
+module.exports = Parceiro;
 
-async function Inserir(parceiro) {
-    try {
-        const result = await sequelize.query('INSERT INTO PARCEIRO (nome, email, tipo, cnpj, area_atuacao, telefone) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *', [parceiro.nome, parceiro.email, parceiro.tipo, parceiro.cnpj, parceiro.area_atuacao, parceiro.telefone]);
-        return result.rows[0];
-    } catch (error) {
-        console.error('Erro ao Inserir parceiro Model:', error);
-        throw error;
-    }
-}
+// async function Listar() {
+//     try {
+//         const result = await sequelize.query('SELECT * FROM PARCEIRO;');
+//         return result.rows;
+//     } catch (error) {
+//         console.error('Erro ao listar parceiros - Model:', error);
+//         throw error;
+//     }
+// }
 
-async function Update(id, parceiro) {
-    try {
-        const result = await sequelize.query('UPDATE PARCEIRO SET nome=$1, email=$2,tipo=$3,cnpj=$4,area_atuacao=$5,telefone=$6 WHERE id=$7 RETURNING *',  [parceiro.nome, parceiro.email, parceiro.tipo, parceiro.cnpj, parceiro.area_atuacao, parceiro.telefone, id]);
-        return result.rows[0];
-    } catch (error) {
-        console.error('Erro ao Update parceiro Model:', error);
-        throw error;
-    }
-}
+// async function ListarPorID(id) {
+//     try {
+//         const result = await sequelize.query('SELECT * FROM PARCEIRO WHERE id= $1', [id]);
+//         return result.rows[0];
+//     } catch (error) {
+//         console.error('Erro ao listar por id parceiro Model:', error);
+//         throw error;
+//     }
+// }
 
-async function Delete(id) {
-    console.log(id)
-    try {
-        const result = await sequelize.query('DELETE FROM PARCEIRO WHERE id = $1 RETURNING *;', [id]);
-        return result.rows[0];
-    } catch (error) {
-        console.error('Erro ao Delete parceiro Model:', error);
-        throw error;
-    }
-}
+// async function Inserir(parceiro) {
+//     try {
+//         const result = await sequelize.query('INSERT INTO PARCEIRO (nome, email, tipo, cnpj, area_atuacao, telefone) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *', [parceiro.nome, parceiro.email, parceiro.tipo, parceiro.cnpj, parceiro.area_atuacao, parceiro.telefone]);
+//         return result.rows[0];
+//     } catch (error) {
+//         console.error('Erro ao Inserir parceiro Model:', error);
+//         throw error;
+//     }
+// }
 
-module.exports = {
-    Listar,
-    ListarPorID,
-    Inserir,
-    Update,
-    Delete
-}
+// async function Update(id, parceiro) {
+//     try {
+//         const result = await sequelize.query('UPDATE PARCEIRO SET nome=$1, email=$2,tipo=$3,cnpj=$4,area_atuacao=$5,telefone=$6 WHERE id=$7 RETURNING *',  [parceiro.nome, parceiro.email, parceiro.tipo, parceiro.cnpj, parceiro.area_atuacao, parceiro.telefone, id]);
+//         return result.rows[0];
+//     } catch (error) {
+//         console.error('Erro ao Update parceiro Model:', error);
+//         throw error;
+//     }
+// }
+
+// async function Delete(id) {
+//     console.log(id)
+//     try {
+//         const result = await sequelize.query('DELETE FROM PARCEIRO WHERE id = $1 RETURNING *;', [id]);
+//         return result.rows[0];
+//     } catch (error) {
+//         console.error('Erro ao Delete parceiro Model:', error);
+//         throw error;
+//     }
+// }
+
+// module.exports = {
+//     Listar,
+//     ListarPorID,
+//     Inserir,
+//     Update,
+//     Delete
+// }
 
 /*
 const ParceiroModel = {
