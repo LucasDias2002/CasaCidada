@@ -48,7 +48,6 @@ async function CarregarDepoimento() {
                             <td>${depoimento.depoimento}</td>
                             <td>
                                 <button type="button" onclick="DeletarDepoimento(${depoimento.id})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"> </button>
-                                <button type="button" onclick="EditarDepoimento(${depoimento.id})" class="btn-edit"><img src="./images/editar.png" style="width: 20px"></button>
                             </td>
                 </tr>`;
             }

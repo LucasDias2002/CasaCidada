@@ -1,65 +1,53 @@
-const DepoimentoModel = require('../models/depoimento');
+const Depoimento = require('../models/depoimento');
 
-async function Listar(req, res) {
+const Listar = async (req, res) => {
     try {
-        const depoimentos = await DepoimentoModel.listar();
-        res.send(depoimentos);
+        const noticias = await Depoimento.findAll();
+        res.status(200).json(noticias);
     } catch (erro) {
         res.status(500).json({ erro: "Erro ao listar depoimentos Control" });
     }
 }
 
-async function ListarPorId(req, res) {
+const ListarPorId = async (req, res) =>  {
     const id = req.params.id;
 
     try {
-        const depoimento = await DepoimentoModel.ListarPorId(id);
-        res.send(depoimento);
+        const depoimento = await Depoimento.findByPk(id);
+        res.status(200).json(depoimento);
     } catch (erro) {
         res.status(400).json({ erro: "Erro ao Listar o depoimento por Id Control" });
     }
 }
 
-async function Inserir (req, res) {
+const Inserir = async (req, res) => {
     try {
-        const depoimento = await DepoimentoModel.Inserir(req.body);
-        res.json(depoimento);
+        const novo = await Depoimento.create({
+            nome: req.body.nome,
+            descricao: req.body.depoimento,
+        }); 
+
+        res.status(201).json(novo);
     } catch (erro) {
         res.status(400).json({ erro: "Erro ao Inserir depoimento Control" });
     }
 }
 
-async function Update(req, res) {
+const Delete = async (req, res) =>  {
     const id = req.params.id;
 
     try {
-        const depoimento = await DepoimentoModel.Update(id, req.body);
+        const depoimento = await Depoimento.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
 
-        if(depoimento.rowCount === 0) {
-            res.status(404).json({ message: `depoimento ${id} não encontrado Control` });
-        } else {
-            res.json({ message: "depoimento atualizado com sucesso Control" });
-        }
+        res.status(200);
     } catch (erro) {
-        res.status(500).json({ erro: "Erro ao atualizar depoimento Control" })
-    }
-}
-
-async function Delete(req, res) {
-    const id = req.params.id;
-
-    try {
-        const depoimento = await DepoimentoModel.Delete(id);
-
-        if (depoimento.rowCount === 0) {
-            res.status(404).json({ message: `depoimento ${id} não encontrado` });
-        } else {
-            res.status(200).json({ message: "depoimento deletado com sucesso Control" })
-        }
-    } catch (erro) {
-        res.status(400).json({ erro: "Erro ao deletar usuário" });
+        res.status(400).json({ erro: "Erro ao deletar depoimento" });
     }
 }
 
 
-module.exports = {Listar, ListarPorId, Inserir, Update, Delete};
+module.exports = {Listar, ListarPorId, Inserir, Delete};
