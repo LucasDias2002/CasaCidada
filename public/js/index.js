@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     } catch (erro) {
         console.error("erro ao buscar noticias: " + erro.message);
     }
+
     try {
         const resposta = await fetch('/depoimento', {
             method: 'GET',
@@ -46,11 +47,11 @@ document.addEventListener("DOMContentLoaded", async () => {
                 dep.reverse();
                 for (let i = 0; i < dep.length; i++) {
                     depoimento = dep[i];
-                    str += `<div class="depoimento">
-                <p>★★★★★</p>
-                <blockquote>“${depoimento.depoimento}”</blockquote>
-                <h5><i>— ${depoimento.nome}</i></h5>
-            </div> `;
+                    str += `<div class="cardDep">
+                        <div><img src="/images/aspas.png" alt="aspas">
+                        <p>${depoimento.depoimento}</p></div>
+                        <span>${depoimento.nome}</span>
+                    </div>`;
                 }
                 document.getElementById("depo").innerHTML = str;
             }
