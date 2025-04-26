@@ -17,10 +17,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                 let data = formataData(noticia.data_publicacao)
                 card.innerHTML += 
                 `<li class="card-item swiper-slide"><a class="card-link" href="noticia.html?noticia=${noticia.id}">
-                                    <img src="${noticia.imagem}" class="card-image">
+                                    <div><img src="${noticia.imagem}" class="card-image">
                                     <p class="badge">${data}</p>
-                                    <h2 class="card-titulo">${noticia.titulo}</h2>
-                                    <button class="card-button material-symbols-rounded">arrow_forward</button>
+                                    <h2 class="card-titulo">${noticia.titulo}</h2></div>
+                                    <div><button class="card-button material-symbols-rounded">arrow_forward</button></div>
                                 </a></li>`;
                                 console.log(data)
             });

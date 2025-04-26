@@ -202,7 +202,7 @@ article {
     margin: 0 auto;
     padding: 0;
     padding-bottom: 65px;
-
+    
     p {
         text-align: justify;
     }
@@ -320,6 +320,13 @@ article {
     }
 }
 
+.swiper-button-next, .swiper-button-prev {
+    color: #50368b !important;
+    }
+.swiper-pagination-bullet-active{
+    background-color: #50368b !important;
+}
+
 .card-list {
     padding: 0;
 }
@@ -358,8 +365,9 @@ article {
 
 .card-list .card-item .card-link {
     user-select: none;
-    min-height: 450px;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: #fff;
     padding: 18px;
     border-radius: 12px;
@@ -367,13 +375,14 @@ article {
     border: 2px solid transparent;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
     transition: 0.2s ease;
+    min-height: 550px;
 }
 .card-list .card-item .card-link-menor{
     border: 1px solid #e9e9e9;
 }
 
 .card-list .card-item .card-link:hover {
-    border-color: #5372F0;
+    border-color: #50368b;
 }
 
 .card-list .card-link .card-image {
@@ -389,7 +398,7 @@ article {
     font-size: 0.95rem;
     font-weight: 500;
     margin: 16px 0 18px;
-    background: #DDE4FF;
+    background: #ede6fc;
     width: fit-content;
     border-radius: 50px;
 }
@@ -406,19 +415,19 @@ article {
     bottom: 15px;
     height: 35px;
     width: 35px;
-    color: #5372F0;
+    color: #50368b;
     border-radius: 50px;
     margin: 30px 0 5px;
     background: none;
     cursor: pointer;
-    border: 2px solid #5372F0;
+    border: 2px solid #50368b;
     transform: rotate(-45deg);
     transition: 0.4s ease;
 }
 
 .card-list .card-link:hover .card-button {
     color: #fff;
-    background: #5372F0;
+    background: #50368b;
 }
 
 /* PÁGINA DE DOAÇÕES */
