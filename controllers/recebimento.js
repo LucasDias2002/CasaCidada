@@ -1,52 +1,63 @@
-const RecebimentoModel = require('../models/recebimento');
+const Recebimento = require('../models/recebimento');
+const { sequelize } = require('../database/conexaoPostgre');
 
-async function Listar(req, res){
+const Listar = async (req, res) => {
     try {
-        const rebecimentos = await RecebimentoModel.Listar();
-        res.send(rebecimentos);
+        const rebecimentos = await Recebimento.findAll();
+        res.status(200).json(rebecimentos);
     } catch (erro) {
-        res.status(500).json({ erro: "Erro ao listar rebecimentos Control" });
+        res.status(500).json({ erro: "Erro ao listar rebecimentos - Controler" });
     }
 }
-async function ListarPorId(req, res){
+const ListarPorId = async (req, res) =>{
     const id = req.params.id;
 
     try {
-        const recebimento = await RecebimentoModel.ListarPorId(id);
-        res.send(recebimento);
+        const recebimento = await Recebimento.findByPk(id);
+        res.status(200).json(recebimento);
     } catch (erro) {
-        res.status(400).json({ erro: "Erro ao Listar o recebimento por Id Control" });
+        res.status(400).json({ erro: "Erro ao Listar o recebimento por Id - Controler" });
     }
 }
-async function Inserir(req, res) {
+const Inserir = async (req, res) =>{
     try {
-        const recebimento = await RecebimentoModel.Inserir(req.body);
-        res.json(recebimento);
+        const recebimento = await Recebimento.create({
+            valor: req.body.valor,
+            data_recebimento: req.body.data_recebimento,
+            sigla_doador: req.body.sigla_doador,
+        });
+        res.status(201).json(recebimento);
     } catch (erro) {
-        res.status(400).json({ erro: "Erro ao Inserir recebimento Control" });
+        res.status(400).json({ erro: "Erro ao Inserir recebimento - Controler" });
     }
 }
-async function ListarUltimo2anos(req, res) {
+const ListarUltimo2anos = async (req, res) =>{
     try {
-        const rebecimentos = await RecebimentoModel.ListarUltimo2anos();
-        res.send(rebecimentos);
+        const [rebecimentos] = await sequelize.query(`SELECT 
+            TO_CHAR(r.data_recebimento, 'MM-YYYY') AS mes,
+            SUM(r.valor) AS total_recebimentos
+            FROM recebimentos r
+            WHERE EXTRACT(YEAR FROM r.data_recebimento) >= EXTRACT(YEAR FROM CURRENT_DATE) - 2
+            GROUP BY TO_CHAR(r.data_recebimento, 'MM-YYYY')
+            ORDER BY mes;
+        `);
+        res.status(200).json(rebecimentos);
     } catch (erro) {
-        res.status(500).json({ erro: "Erro ao listar rebecimentos dos ultimos 2 anos - Control" });
+        res.status(500).json({ erro: "Erro ao listar rebecimentos dos ultimos 2 anos - Controler" });
     }
 }
-async function Delete(req, res) {
+const Delete = async (req, res) =>{
     const id = req.params.id;
 
     try {
-        const recebimento = await RecebimentoModel.Delete(id);
-
-        if (recebimento.rowCount === 0) {
-            res.status(404).json({ message: `recebimento ${id} não encontrado` });
-        } else {
-            res.status(200).json({ message: "recebimento deletado com sucesso Control" });
-        }
+        const recebimento = await Recebimento.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        res.status(200).json(recebimento);
     } catch (erro) {
-        res.status(400).json({ erro: "Erro ao deletar usuário" });
+        res.status(400).json({ erro: "Erro ao deletar recebimento" });
     }
 }
 
