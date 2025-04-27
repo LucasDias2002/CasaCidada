@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif !important; 
   font-size: 1rem;
   color: #333;
   display: flex;
@@ -391,7 +391,6 @@ Modal*/
   /*Colocando outra no lugar*/
 
   body {
-    font-family: 'inter', sans-serif !important;
     font-size: 6vw;
   }
 

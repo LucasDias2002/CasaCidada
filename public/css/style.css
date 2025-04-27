@@ -12,6 +12,7 @@ html {
         width: 100%;
         margin: 0;
         padding: 0;
+        padding-top: 75px;
         color: #333;
         background-color: #ffffff;
         display: block;
@@ -74,6 +75,13 @@ html {
 }
 
 /* Menu superior responsivo */
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
 .navbar {
     background-color: #50368b;
 
@@ -465,7 +473,7 @@ article {
         padding: 25px;
         min-height: 250px;
         border-radius: 5px;
-        background: linear-gradient(to bottom, #50368b, #763e9b);
+        background: linear-gradient(to bottom,  #7743a8, #50368b);
         span, p{
             color: white;
             text-align: start;

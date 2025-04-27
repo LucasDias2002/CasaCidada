@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     let navbar = ``;
     navbar += `
-        <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg shadow" data-bs-theme="dark">
         <div class="container-fluid container-md">
             <a class="navbar-brand" href="/">
-            <img id="logo" src="images/logo2.png" alt="Casa Cidadã" height="50">
+            <img id="logo" src="images/logo2.png" alt="Casa Cidadã" height="35">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"><i class="bi bi-list"></i></span>
+            <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Saiba Mais
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: white;">
+                    <ul class="dropdown-menu shadow" aria-labelledby="navbarDropdown" style="background-color: white;">
                         <li><a class="dropdown-item" href="/aluguelsolidario" style="color: #a30336;">Aluguel Solidário</a></li>
                         <li><a class="dropdown-item" href="/parceiros" style="color: #a30336;">Parceiros</a></li>
                         <li><a class="dropdown-item" href="/noticias" style="color: #a30336;">Noticias</a></li>
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (token && VerificarPermissao(token) === 1) {
             navbar +=  `<li class="nav-item dropdown mx-3">
                     <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: white; min-width:5rem">
+                    <ul class="dropdown-menu shadow" aria-labelledby="navbarDropdown" style="background-color: white; min-width:5rem">
                         <li><a class="dropdown-item" href="/adm" style="color: #a30336;">Gestor</a></li>
                         <li><a class="dropdown-item" id="logout" style="color: #a30336;">Sair</a></li>
                     </ul>

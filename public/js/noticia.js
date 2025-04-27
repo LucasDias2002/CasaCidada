@@ -54,8 +54,8 @@ async function CarregarNoticias() {
                 const linha = document.createElement('tr');
 
                 linha.innerHTML = `
-                <td><img src="${noticia.imagem}" style="width: 6.771vw; border-radius: 5.208vw; height: 6.771vw" alt=""></td><td>${noticia.titulo}</td>
-                                <td>${noticia.descricao}</td>
+                <td><img src="${noticia.imagem}" style="width: 6.771vw; border-radius: 0.7vw; height: 6.771vw" alt=""></td>
+                                <td>${noticia.titulo}</td>
                                 <td>${data}</td>
                                 <td>
                                     <button type="button" onclick="DeletarNoticia(${noticia.id})" class="btn-delete"><img src="./images/excluir.png" style="width: 20px"> </button>
