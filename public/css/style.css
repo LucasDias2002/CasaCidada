@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-*{
+* {
     font-family: 'inter', 'sans-serif';
 }
+
 /* Estilos Gerais */
 html {
     width: 100%;
@@ -75,13 +76,14 @@ html {
 }
 
 /* Menu superior responsivo */
-header{
+header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 100;
 }
+
 .navbar {
     background-color: #50368b;
 
@@ -203,7 +205,6 @@ footer {
 /* Conteúdo geral */
 #banner1 {
     width: 100%;
-    margin-bottom: 30px;
 }
 
 section,
@@ -212,7 +213,7 @@ article {
     margin: 0 auto;
     padding: 0;
     padding-bottom: 65px;
-    
+
     p {
         text-align: justify;
     }
@@ -330,10 +331,12 @@ article {
     }
 }
 
-.swiper-button-next, .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
     color: #50368b !important;
-    }
-.swiper-pagination-bullet-active{
+}
+
+.swiper-pagination-bullet-active {
     background-color: #50368b !important;
 }
 
@@ -357,10 +360,11 @@ article {
 }
 
 @media (min-width: 1024px) {
-.card-list .card-menor {
-    width: calc(33.333% - 10px);
+    .card-list .card-menor {
+        width: calc(33.333% - 10px);
+    }
 }
-}
+
 @media (max-width: 1023px) {
     .card-menor {
         width: calc(50% - 10px);
@@ -387,7 +391,8 @@ article {
     transition: 0.2s ease;
     min-height: 555px;
 }
-.card-list .card-item .card-link-menor{
+
+.card-list .card-item .card-link-menor {
     border: 1px solid #e9e9e9;
 }
 
@@ -441,51 +446,59 @@ article {
 }
 
 /* SEÇÂO DE DEPOIMENTOS */
-#depoimentoscadastrados{
+#depoimentoscadastrados {
     min-height: 60vh;
     margin-bottom: 3%;
-    #depo{
+
+    #depo {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 25px;
     }
 
     @media screen and (max-width:1200px) {
-        #depo{
+        #depo {
             grid-template-columns: repeat(3, 1fr);
         }
     }
 
     @media screen and (max-width:900px) {
-        #depo{
+        #depo {
             grid-template-columns: repeat(2, 1fr);
         }
     }
+
     @media screen and (max-width: 500px) {
-        #depo{
+        #depo {
             grid-template-columns: repeat(1, 1fr);
         }
     }
-    div .cardDep{
+
+    div .cardDep {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         padding: 25px;
         min-height: 250px;
         border-radius: 5px;
-        background: linear-gradient(to bottom,  #7743a8, #50368b);
-        span, p{
+        background: linear-gradient(to bottom, #7743a8, #50368b);
+
+        span,
+        p {
             color: white;
             text-align: start;
         }
-        img{
+
+        img {
             width: 5vh;
             margin-bottom: 15px;
         }
-        p{
+
+        p {
             font-weight: 350;
         }
-        span{
+
+        span {
             font-weight: 700;
             font-size: 22px;
         }
@@ -809,5 +822,57 @@ article {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+}
+#quemsomos{
+    .img{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        img{
+            width: 40vw;
+        }
+    }
+}
+
+.mvv {
+    display: flex;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    align-items: center;
+    .mvv-card {
+        background: linear-gradient(to bottom, #7743a8, #50368b);
+        border-radius: 10px;
+        min-height: 220.31px;
+
+        h4, img, i {
+            color: white !important;
+            font-size: 40px;
+        }
+    }
+
+    div {
+        align-content: center;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        min-width: 238px;
+        max-height: 350px;
+        text-align: center;
+        p{
+            font-size: 14px;
+        }
+    }
+    @media (max-width: 900px){
+        flex-direction: column;
+        .mvv-card{
+            min-height: 50px;
+            h4, i{
+                font-size: 22px;
+            }
+        }
+        div{
+            width: 100%;
+            padding: 10px;
+        }
     }
 }
