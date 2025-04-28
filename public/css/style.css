@@ -319,7 +319,7 @@ article {
     min-height: 60vh;
 }
 
-@media (max-width: 639px) {
+@media (max-width: 767px) {
 
     .swiper-button-next,
     .swiper-button-prev {

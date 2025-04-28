@@ -14,6 +14,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       new Swiper('.card-wrapper', {
         loop: noticias.length > 1, 
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false 
+        },
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
