@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const token = BuscarCookie("userToken");
         if (token && VerificarPermissao(token) === 1) {
             navbar +=  `<li class="nav-item dropdown mx-3">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</a>
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções </a>
                     <ul class="dropdown-menu shadow" aria-labelledby="navbarDropdown" style="background-color: white; min-width:5rem">
                         <li><a class="dropdown-item" href="/adm" style="color: #a30336;">Gestor</a></li>
                         <li><a class="dropdown-item" id="logout" style="color: #a30336;">Sair</a></li>
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </ul>
                 <ul>
                     <li><h3>Conteúdos</h3></li>
-                    <li><a href="noticias.html"><p>Notícias</p></a></li>
+                    <li><a href="/noticias"><p>Notícias</p></a></li>
                     <li><a href="/fotos"><p>Fotos</p></a></li>
                 </ul>
                 <ul>

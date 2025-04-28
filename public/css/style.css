@@ -72,8 +72,20 @@ html {
         text-align: justify;
         color: #444;
     }
-
+    /*
+    section > h2:after {
+        content: '';
+        display: block;
+        width: 5rem;
+        height: 0.3rem;
+        background-color: #a30336d8;
+        margin: 0 auto;
+        position: absolute;
+        border-radius: 10px;
+    }*/
 }
+
+
 
 /* Menu superior responsivo */
 header {
@@ -637,19 +649,16 @@ article {
 }
 
 .parceiros-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 25px;
-    flex-wrap: wrap;
     margin: 0px;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 
     .card-parceiro {
         background-color: #f7f7f7;
         border: 1px solid #ddd;
         border-radius: 5px;
-        padding: 10px;
-        width: 100%;
-        max-width: 900px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s;
 
@@ -661,6 +670,12 @@ article {
             margin-bottom: 10px;
             color: #50368b;
         }
+
+        img {
+            min-width: 100%;
+            min-height: 100%;
+        }
+
     }
 }
 
@@ -824,12 +839,14 @@ article {
         align-items: center;
     }
 }
-#quemsomos{
-    .img{
+
+#quemsomos {
+    .img {
         width: 100%;
         display: flex;
         justify-content: center;
-        img{
+
+        img {
             width: 40vw;
         }
     }
@@ -840,12 +857,15 @@ article {
     margin-bottom: 15px;
     margin-top: 15px;
     align-items: center;
+
     .mvv-card {
         background: linear-gradient(to bottom, #7743a8, #50368b);
         border-radius: 10px;
         min-height: 220.31px;
 
-        h4, img, i {
+        h4,
+        img,
+        i {
             color: white !important;
             font-size: 40px;
         }
@@ -858,19 +878,25 @@ article {
         min-width: 238px;
         max-height: 350px;
         text-align: center;
-        p{
+
+        p {
             font-size: 14px;
         }
     }
-    @media (max-width: 900px){
+
+    @media (max-width: 900px) {
         flex-direction: column;
-        .mvv-card{
+
+        .mvv-card {
             min-height: 50px;
-            h4, i{
+
+            h4,
+            i {
                 font-size: 22px;
             }
         }
-        div{
+
+        div {
             width: 100%;
             padding: 10px;
         }

@@ -44,6 +44,9 @@ app.post('/adm', (req, res) => {
 app.get('/quemsomos', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'quemsomos.html'));
 });
+app.get('/noticias', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public', 'noticias.html'));
+});
 app.get('/aluguelsolidario', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'aluguelsolidario.html'));
 });
