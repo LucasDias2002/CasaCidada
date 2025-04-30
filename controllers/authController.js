@@ -1,4 +1,4 @@
-const { findUser } = require("../models/authModel");
+const { sequelize } = require("../database/conexaoPostgre");
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
@@ -14,7 +14,12 @@ async function login(req, res) {
             return res.status(400).json({ message: 'Email e senha são obrigatórios.' });
         }
 
-        const user = await findUser(email);
+        const [user] = await sequelize.query(`SELECT * FROM USUARIO WHERE email = :email`,
+            {
+                replacements: {email},
+                type: sequelize.QueryTypes.SELECT
+            }
+        );
 
         if (!user) {
             return res.status(404).json({ message: "Usuário não encontrado" });
