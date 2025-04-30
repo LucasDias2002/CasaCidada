@@ -29,7 +29,7 @@ const Assistido = sequelize.define('Assistido', {
     }
   },
   data_nasc: {
-    type: DataTypes.STRING,
+    type: DataTypes.DATE,
     allowNull: true,
     defaultValue: ''
   },
