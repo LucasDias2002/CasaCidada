@@ -251,15 +251,7 @@ async function EditarAssistido(id_assistido) {
         const data_nasc = document.getElementById('editar-assistido-data-nasc').value;
         const id_imovel = document.getElementById('editar-escolherimovel').value;
 
-        //Puxando id do imovel
-
-
-
-        let body = {};
-        if (id_imovel == -1)
-            body = { nome, cpf, telefone, data_nasc }
-        else
-            body = { nome, cpf, telefone, data_nasc, id_imovel }
+        const body = { nome, cpf, telefone, data_nasc, id_imovel }
 
         try {
             const response = await fetch(`/assistido/${id_assistido}`, { // Usando o idAssistido aqui
@@ -271,6 +263,7 @@ async function EditarAssistido(id_assistido) {
             });
 
             if (response.ok) {
+                AlterarDisponibilizacaoDeImovel(id_imovel)
                 CarregarAssistidos();
                 trocarDiv('editar-assistido', 'ver-assistidos');//funcão para alterar visibilidade passando duas divs, da 1° para a segunda 2°
             } else {

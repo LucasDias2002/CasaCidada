@@ -41,13 +41,13 @@ const Update = async (req, res) => {
     try {
         const id = req.params.id;
         const [assistido] = await AssistidoModel.update(req.body, {
-            where: { id }
+            where: { id:id }
         });
 
         if (assistido.rowCount === 0) {
             res.status(404).json({ message: `Assistido ${id} não encontrado Control` });
         } else {
-            res.json({ message: "Assistido atualizado com sucesso Control" });
+            res.status(200).json({ message: "Assistido atualizado com sucesso Control" });
         }
     } catch (erro) {
         res.status(500).json({ erro: "Erro ao atualizar assistido Control" })

@@ -1,80 +1,98 @@
 const ImovelModel = require('../models/imovel');
+const { sequelize } = require("../database/conexaoPostgre");
 
-async function Listar(req, res) {
+const Listar = async (req, res) => {
     try {
-        const imovel = await ImovelModel.Listar();
-        res.send(imovel);
+        const imoveis = await ImovelModel.findAll();
+        res.status(200).json(imoveis);
     } catch (erro) {
-        res.status(500).json({ erro: "Erro ao listar Imovel Control" });
+        res.status(400).json({ erro: "Erro ao listar Imoveis Controler" });
     }
 }
 
-async function ListarDisponiveis(req, res) {
+const ListarDisponiveis = async (req, res) => {
     try {
-        const imovel = await ImovelModel.ListarDisponiveis();
-        res.send(imovel);
+        const [imovel] = await sequelize.query(`SELECT * FROM IMOVEL WHERE status = 'Disponivel'`);
+        res.status(200).json(imovel);
     } catch (erro) {
-        res.status(500).json({ erro: "Erro ao listar Imovel disponivel Control" });
+        res.status(400).json({ erro: "Erro ao listar Imovel disponivel Controler" });
     }
 }
 
-async function ListarPorId(req, res) {
+const ListarPorId = async (req, res) => {
     const id = req.params.id;
 
     try {
-        const imovel = await ImovelModel.ListarPorID(id);
-        res.send(imovel);
+        const imovel = await ImovelModel.findByPk(id);
+        res.status(200).json(imovel);
     } catch (erro) {
-        res.status(400).json({ erro: "Erro ao Listar o imovel por Id Control" });
+        res.status(400).json({ erro: "Erro ao Listar o imovel por id Controler" });
     }
 }
 
-async function Inserir(req, res) {
+const Inserir = async (req, res) => {
     try {
-        const imovel = await ImovelModel.Inserir(req.body);
-        res.json(imovel);
+        const novoImovel = await ImovelModel.create({
+            cep: req.body.cep,
+            endereco: req.body.endereco,
+            bairro: req.body.bairro,
+            complemento: req.body.complemento || '',
+            num_residencia: req.body.num_residencia,
+            nome_proprietario: req.body.nome_proprietario,
+            telefone: req.body.telefone,
+            valor_aluguel: req.body.valor_aluguel,
+            descricao: req.body.descricao,
+            data_inicio_contrato: req.body.data_inicio_contrato,
+            data_termino_contrato: req.body.data_termino_contrato,
+            status: req.body.status
+        });
+        res.status(201).json(novoImovel);
     } catch (erro) {
-        res.status(400).json({ erro: "Erro ao Inserir imovel Control" });
+        res.status(400).json({ erro: "Erro ao Inserir imovel Controler" });
     }
 }
 
-async function Update(req, res) {
-    const id = req.params.id;
-
+const Update = async (req, res) => {
     try {
-        const imovel = await ImovelModel.Update(id, req.body);
+        const [atualizados] = await ImovelModel.update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        });
 
-        if (imovel.rowCount === 0) {
-            res.status(404).json({ message: `Imovel ${id} não encontrado Control` });
-        } else {
-            res.json({ message: "imovel atualizado com sucesso Control" });
+        if (atualizados === 0) {
+            return res.status(404).json({ mensagem: 'Imóvel não encontrado para atualização.' });
         }
+
+        const imovelAtualizado = await ImovelModel.findByPk(req.params.id);
+        res.status(200).json(imovelAtualizado);
     } catch (erro) {
-        res.status(500).json({ erro: "Erro ao atualizar imovel Control" })
+        res.status(400).json({ erro: 'Erro ao atualizar imóvel Controller', detalhes: erro.message });
+    }
+};
+
+const UpdateDisponibilidade = async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        const atualizados = await ImovelModel.update(
+            { status: 'Indisponivel' },
+            { where: { id: id } }
+        )
+        res.status(200).json(atualizados);
+    } catch (erro) {
+        res.status(400).json({ erro: "Erro ao atualizar disponibilidade de imovel  Controler" })
     }
 }
 
-async function UpdateDisponibilidade(req, res) {
-    const id = req.params.id;
-    console.log(id + "Esta certo?")
-
-    try {
-        const imovel = await ImovelModel.UpdateDisponibilidade(id);
-
-        if (imovel.rowCount === 0) {
-            res.status(404).json({ message: `Imovel ${id} não encontrado Control` });
-        } else {
-            res.json({ message: "Disponibilidade de imovel atualizado com sucesso Control" });
-        }
-    } catch (erro) {
-        res.status(500).json({ erro: "Erro ao atualizar disponibilidade de imovel  Control" })
-    }
-}
-
-async function Delete(req, res) {
+const Delete = async (req, res) => {
     const id = req.params.id;
     try {
-        const imovel = await ImovelModel.Delete(id);
+        const imovel = await ImovelModel.destroy({
+            where: {
+                id: id
+            }
+        });
 
         if (imovel.rowCount === 0) {
             res.status(404).json({ message: `Imovel ${id} não encontrado` });
@@ -95,89 +113,3 @@ module.exports = {
     UpdateDisponibilidade,
     Delete
 }
-
-/*
-const ControlImovel = {
-    Listar: async (req, res) => {
-        try {
-            const imovel = await ImovelModel.Listar();
-            res.send(imovel);
-        } catch (erro) {
-            res.status(500).json({ erro: "Erro ao listar Imovel Control" });
-        }
-    },
-    ListarDisponiveis: async (req, res) => {
-        try {
-            const imovel = await ImovelModel.ListarDisponiveis();
-            res.send(imovel);
-        } catch (erro) {
-            res.status(500).json({ erro: "Erro ao listar Imovel disponivel Control" });
-        }
-    },
-    ListarPorId: async (req, res) => {
-        const id = req.params.id;
-
-        try {
-            const imovel = await ImovelModel.ListarPorID(id);
-            res.send(imovel);
-        } catch (erro) {
-            res.status(400).json({ erro: "Erro ao Listar o imovel por Id Control" });
-        }
-    },
-    Inserir: async (req, res) => {
-        try {
-            const imovel = await ImovelModel.Inserir(req.body);
-            res.json(imovel);
-        } catch (erro) {
-            res.status(400).json({ erro: "Erro ao Inserir imovel Control" });
-        }
-    },
-    Update: async (req, res) => {
-        const id = req.params.id;
-
-        try {
-            const imovel = await ImovelModel.Update(id, req.body);
-
-            if(imovel.affectedRows > 0) {
-                res.json({ message: "imovel atualizado com sucesso Control" });
-            } else {
-                res.status(404).json({ message: `Imovel ${id} não encontrado Control` });
-            }
-        } catch (erro) {
-            res.status(500).json({ erro: "Erro ao atualizar imovel Control" })
-        }
-    },
-    UpdateDisponibilidade: async (req, res) => {
-        const id = req.params.id;
-        console.log(id + "Esta certo?")
-
-        try {
-            const imovel = await ImovelModel.UpdateDisponibilidade(id);
-
-            if(imovel.affectedRows > 0) {
-                res.json({ message: "Disponibilidade de imovel atualizado com sucesso Control" });
-            } else {
-                res.status(404).json({ message: `Imovel ${id} não encontrado Control` });
-            }
-        } catch (erro) {
-            res.status(500).json({ erro: "Erro ao atualizar disponibilidade de imovel  Control" })
-        }
-    },
-    Delete: async (req, res) => {
-        const id = req.params.id;
-
-        try {
-            const imovel = await ImovelModel.Delete(id);
-
-            if (imovel.affectedRows > 0) {
-                res.status(200).json({ message: "Imovel deletado com sucesso Control" });
-            } else {
-                res.status(404).json({ message: `Imovel ${id} não encontrado` });
-            }
-        } catch (erro) {
-            res.status(400).json({ erro: "Erro ao deletar imovel Control" });
-        }
-    }
-}
-
-module.exports = ControlImovel;*/

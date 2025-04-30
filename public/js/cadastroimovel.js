@@ -130,11 +130,11 @@ if (window.getComputedStyle(document.getElementById('ver-imoveis')).display === 
 };
 
 async function EditarImovel(idImovel) {
+
     //funcão para alterar visibilidade passando duas divs, da 1° para a segunda 2°
     document.getElementById('ver-imoveis').style.display = "none";
     document.getElementById('editar-imovel').style.display = "block";
 
-    console.log(idImovel)
     try {
 
         const resposta = await fetch(`/imovel/${idImovel}`, {
@@ -145,7 +145,6 @@ async function EditarImovel(idImovel) {
         })
         if (resposta.ok) {
             const imovel = await resposta.json();
-            console.log(imovel.ID)
 
             //Formatar as datas
             const datainicio = new Date(imovel.data_inicio_contrato);
@@ -160,6 +159,7 @@ async function EditarImovel(idImovel) {
             const ano2 = String(datafimcontrato.getFullYear());
             const DATA_TERMINO_FORMATADA = `${ano2}-${mes2}-${dia2}`;
 
+            document.getElementById('idImovel').value = idImovel;
             document.getElementById('editarimovelcep').value = imovel.cep;
             document.getElementById('editarimovelendereco').value = imovel.endereco;
             document.getElementById('editarimovelbairro').value = imovel.bairro;
@@ -181,46 +181,49 @@ async function EditarImovel(idImovel) {
         console.error("erro ao buscar imovel arquivo 'cadatroimovel.js': " + erro);
     };
 
-    if (document.getElementById("editarimovelform").addEventListener("submit", async (evt) => {
-        evt.preventDefault();
-        const cep = document.getElementById('editarimovelcep').value;
-        const endereco = document.getElementById('editarimovelendereco').value;
-        const bairro = document.getElementById('editarimovelbairro').value;
-        const complemento = document.getElementById('editarimovelcomplemento').value;
-        const num_residencia = document.getElementById('editarimovelnumero').value;
-        const nome_proprietario = document.getElementById('editarimovelproprietario').value;
-        const telefone = document.getElementById('editarimovelcontato').value;
-        const valor_aluguel = parseFloat(document.getElementById('editarvaloraluguel').value);
-        const descricao = document.getElementById('editarimoveldescricao').value;
-        const data_inicio_contrato = document.getElementById('editarcontratoinicio').value;
-        const data_termino_contrato = document.getElementById('editarcontratofim').value;
-        const status = document.getElementById('editarstatus').value;
-        console.log(`Cep:${cep}, Endereco:${endereco}, Bairro:${bairro}, Compl:${complemento}, Num_resi:${num_residencia}, Nome:${nome_proprietario}, Tel:${telefone}, Valor:${valor_aluguel}, Descricao:${descricao}, Contrato-Inicio:${contratoinicio}, Contrato-fim:${contratofim}, status:${status}`);
+}
 
-        try {
-            const response = await fetch(`/imovel/${idImovel}`, { // Usando o idImovel aqui
-                method: "PUT",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ cep, endereco, bairro, complemento, num_residencia, nome_proprietario, telefone, valor_aluguel, descricao, data_inicio_contrato, data_termino_contrato, status })
-                //imovel.cep,imovel.complemento,imovel.endereco,imovel.num_residencia,imovel.nome_proprietario,imovel.telefone,imovel.status,imovel.descricao,id
-            });
+document.getElementById("editarimovelform").addEventListener("submit", async (evt) => {
+    evt.preventDefault();
+    const idImovel = document.getElementById("idImovel").value;
+    const cep = document.getElementById('editarimovelcep').value;
+    const endereco = document.getElementById('editarimovelendereco').value;
+    const bairro = document.getElementById('editarimovelbairro').value;
+    const complemento = document.getElementById('editarimovelcomplemento').value;
+    const num_residencia = document.getElementById('editarimovelnumero').value;
+    const nome_proprietario = document.getElementById('editarimovelproprietario').value;
+    const telefone = document.getElementById('editarimovelcontato').value;
+    const valor_aluguel = parseFloat(document.getElementById('editarvaloraluguel').value);
+    const descricao = document.getElementById('editarimoveldescricao').value;
+    const data_inicio_contrato = document.getElementById('editarcontratoinicio').value;
+    const data_termino_contrato = document.getElementById('editarcontratofim').value;
+    const status = document.getElementById('editarstatus').value;
 
-            if (response.ok) {
-                //alert(`Imóvel de ${nome_proprietario} atualizado com sucesso!`);
-                document.getElementById("editarimovelform").reset();
-                CarregarImoveis();
-                trocarDiv('editar-imovel', 'ver-imoveis');//funcão para alterar visibilidade passando duas divs, da 1° para a segunda 2°
-            } else {
-                alert('Erro ao atualizar o imóvel.');
-            }
-        } catch (erro) {
-            console.error('Erro na requisição:', erro);
-            alert('Erro ao conectar ao servidor.');
+    console.log(`ID: ${idImovel}, Cep:${cep}, Endereco:${endereco}, Bairro:${bairro}, Compl:${complemento}, Num_resi:${num_residencia}, Nome:${nome_proprietario}, Tel:${telefone}, Valor:${valor_aluguel}, Descricao:${descricao}, Contrato-Inicio:${contratoinicio}, Contrato-fim:${contratofim}, status:${status}`);
+
+    try {
+        const response = await fetch(`/imovel/${idImovel}`, { // Usando o idImovel aqui
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ cep, endereco, bairro, complemento, num_residencia, nome_proprietario, telefone, valor_aluguel, descricao, data_inicio_contrato, data_termino_contrato, status })
+        });
+
+        if (response.ok) {
+
+            document.getElementById("editarimovelform").reset();
+            CarregarImoveis();
+            trocarDiv('editar-imovel', 'ver-imoveis');//funcão para alterar visibilidade passando duas divs, da 1° para a segunda 2°
+        } else {
+            alert('Erro ao atualizar o imóvel.');
         }
-    }));
-};
+    } catch (erro) {
+        console.error('Erro na requisição:', erro);
+        alert('Erro ao conectar ao servidor.');
+    }
+});
+;
 
 async function DeletarImovel(idImovel) {
     const conf = confirm("Deseja deletar esse imóvel?");
