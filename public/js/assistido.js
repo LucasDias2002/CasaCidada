@@ -8,7 +8,7 @@ cadastrarAssistido.addEventListener('submit', async (event) => {
     const data_nasc = document.getElementById('assistido-data-nasc').value;
     const telefone = document.getElementById('assistido-telefone').value;
     const id_imovel = document.getElementById('escolherimovel').value;
-    const imagemAssistido = document.getElementById("uploadAssistido").files[0]; //isso e pra pegar as image tlgd
+
     //Puxar a data de cadastro
     const dataAtual = new Date();
     let ano = dataAtual.getFullYear();
@@ -96,7 +96,6 @@ async function CarregarAssistidos() {
                 const DATA_NASC = `${dia}/${mes}/${ano}`;
 
                 linha.innerHTML = `
-                        <td><img src="/images/fotosAssistidos/${assistido.nome}.png" style="width: 6.771vw; border-radius: 5.208vw; height: 6.771vw" alt=""></td>
                         <td>${assistido.nome}</td>
                         <td>${assistido.cpf}</td>
                         <td>${assistido.telefone}</td>
