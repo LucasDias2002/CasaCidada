@@ -1,35 +1,38 @@
-const form = document.getElementById("formulario");
+const form = document.getElementById("voluntarioform");
 
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const nome = document.getElementById("nome").value;
-    const data_nasc = document.getElementById("nascimento").value;
     const telefone = document.getElementById("telefone").value;
-    const email = document.getElementById("email").value;
+    const email = document.getElementById("emailV").value;
     const senha = document.getElementById("senha").value;
     const confirmarsenha = document.getElementById("confirmarsenha").value;
 
-    if (senha == confirmarsenha) {
-        try {
-            const response = await fetch("/usuarios", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ nome, email, senha, telefone, data_nasc })
-            });
-            // Trata a resposta
-            if (response.ok) {
-                alert('Usuário cadastrado com sucesso!');
-                // Opcional: Limpar os campos do formulário
-                form.reset();
-                location.href = "/login";
-            } else {
-                alert('Erro ao cadastrar usuário. Tente novamente.');
-            }
-        } catch (error) {
-            console.error('Erro na requisição:', error);
-            //alert('Erro ao conectar ao servidor.');
-        }
+    console.log(`${email}`)
+
+    if (senha !== confirmarsenha) {
+        return alert("As senhas não coincidem.");
     }
-})
+
+    try {
+        const response = await fetch("/usuarios", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ nome, email, senha, telefone })
+        });
+
+        if (response.ok) {
+            alert('Usuário cadastrado com sucesso!');
+            form.reset();
+        } else {
+            const erro = await response.json();
+            alert(`Erro ao cadastrar: ${erro.erro || 'Erro desconhecido'}`);
+        }
+
+    } catch (error) {
+        console.error('Erro na requisição:', error);
+        alert('Erro ao conectar ao servidor.');
+    }
+});

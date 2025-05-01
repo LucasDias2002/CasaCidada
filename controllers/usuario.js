@@ -21,19 +21,32 @@ const ListarPorId = async (req, res) => {
 }
 
 const Inserir = async (req, res) => {
-    const senhaHash = await bcrypt.hash(req.body.senha, 8);
     try {
-        const novoUsuario = await Usuario.create({
+        const senhaHash = await bcrypt.hash(req.body.senha, 8);
+
+        console.log(`${req.body.nome}, ${req.body.telefone}, ${req.body.email}, ${req.body.senha}, ${req.body.confirmarsenha}`)
+
+        const novoUsuario = await UsuarioModel.create({
             nome: req.body.nome,
             email: req.body.email,
             senha: senhaHash,
             telefone: req.body.telefone || '',
-            data_nasc: req.body.data_nasc,
-            permissao: 3,
+            permissao: 2,
         });
+
         res.status(201).json(novoUsuario);
-    } catch (erro) { res.status(400).json({ erro: "Erro ao inserir usuário Controler" }) }
-}
+
+    } catch (erro) {
+        console.error("Erro ao inserir usuário:", erro);
+        
+        if (erro.name === 'SequelizeUniqueConstraintError') {
+            return res.status(400).json({ erro: "E-mail já cadastrado." });
+        }
+
+        res.status(500).json({ erro: "Erro interno ao inserir usuário." });
+    }
+};
+
 
 const Update = async (req, res) => {
     try {

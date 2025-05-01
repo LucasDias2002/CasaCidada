@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Verifica se o usuário está logado e possui permissão
         const token = BuscarCookie("userToken");
-        if (token && VerificarPermissao(token) === 1) {
+        if (token && VerificarPermissao(token) === 1 || (token && VerificarPermissao(token) === 2)) {
             navbar +=  `<li class="nav-item dropdown mx-3">
                     <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções </a>
                     <ul class="dropdown-menu shadow" aria-labelledby="navbarDropdown" style="background-color: white; min-width:5rem">

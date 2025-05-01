@@ -1,28 +1,27 @@
-if(window.getComputedStyle(document.getElementById('ver-usuarios')).display === 'block'){
-    CarregarUsuarios();
+if(window.getComputedStyle(document.getElementById('ver-interessados')).display === 'block'){
+    CarregarInteressados();
 }
 
-async function CarregarUsuarios() {
+async function CarregarInteressados() {
     try {
-        const response = await fetch("/usuarios", {
+        const response = await fetch("/interessado", {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
             }
         })
         if (response.ok) {
-            const usuarios = await response.json();
+            const interessados = await response.json();
 
             let str = "";
-            for (let i = 0; i < usuarios.length; i++) {
-                user = usuarios[i];
+            for (let i = 0; i < interessados.length; i++) {
+                user = interessados[i];
                 str += `<tr>
                             <td>${user.nome}</td>
                             <td>${user.email}</td>
-                            <td>${user.telefone}</td>
                 </tr>`;
             }
-            document.getElementById("tabela-usuarios").innerHTML = str;
+            document.getElementById("tabela-interessados").innerHTML = str;
         }
         else {
             console.log('Erro ao carregar usuários. Tente novamente.');

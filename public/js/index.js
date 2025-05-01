@@ -64,6 +64,29 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 })
 
+document.getElementById("assine").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+
+    try{
+        const resposta = await fetch('/interessado', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ nome, email })
+        })
+        if(resposta.ok){
+            e.target.reset();
+        }
+    }
+    catch(erro){
+        console.error("erro ao cadastrar interessado: " + erro.message);
+    }
+})
+
 function formataData(data) {
     const dataObj = new Date(data); // Renomeando a variável para evitar conflito
     const dia = String(dataObj.getDate()).padStart(2, '0');

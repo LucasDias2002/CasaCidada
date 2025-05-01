@@ -15,7 +15,7 @@ const VerifyToken = (req, res, next) => {
             return res.status(401).json({ message: 'Token inválido ou expirado' });
         }
 
-        if(decoded.permissao != 1){
+        if(decoded.permissao != 1 && decoded.permissao != 2){
             return res.status(403).json({message: "Acesso negado. Permissão insuficiente!"})
         }
 

@@ -40,7 +40,6 @@ const Usuario = sequelize.define('Usuario', {
   },
   data_nasc: {
     type: DataTypes.DATE,
-    allowNull: false,
   },
   permissao: {
     type: DataTypes.INTEGER,
